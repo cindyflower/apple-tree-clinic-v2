@@ -6,12 +6,16 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, MessageCircle } from "lucide-react";
+import { useLocation } from "wouter";
 import { BRAND, NAV_ITEMS } from "@/lib/constants";
 import { withBase } from "@/lib/basePath";
 
 export default function Navbar() {
+  const [location] = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const isHome = location === "/" || location === "";
+  const onHero = !scrolled && isHome;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
@@ -42,8 +46,8 @@ export default function Navbar() {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "py-2 bg-cream/80 backdrop-blur-xl border-b border-botanical/8 shadow-sm shadow-botanical/3"
-            : "py-3 lg:py-4 bg-transparent"
+            ? "py-2 bg-cream/95 backdrop-blur-xl border-b border-botanical/10 shadow-md shadow-botanical/5"
+            : "py-3 lg:py-4 bg-gradient-to-b from-forest-deep/85 via-forest-deep/50 to-transparent"
         }`}
       >
         <div className="container flex items-center justify-between">
@@ -53,14 +57,28 @@ export default function Navbar() {
             onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
             className="flex items-center gap-2.5 group"
           >
-            <div className="w-8 h-8 rounded-lg bg-botanical/10 flex items-center justify-center group-hover:bg-botanical/15 transition-colors">
+            <div
+              className={`w-8 h-8 rounded-lg flex items-center justify-center transition-colors ${
+                onHero
+                  ? "bg-white/15 group-hover:bg-white/25"
+                  : "bg-botanical/10 group-hover:bg-botanical/15"
+              }`}
+            >
               <span className="text-sm">🍏</span>
             </div>
             <div className="flex flex-col">
-              <span className="text-[0.85rem] font-heading font-semibold text-ink leading-none">
+              <span
+                className={`text-[0.85rem] font-heading font-semibold leading-none transition-colors ${
+                  onHero ? "text-white drop-shadow-sm" : "text-ink"
+                }`}
+              >
                 {BRAND.name}
               </span>
-              <span className="text-[0.5rem] font-body text-ink/30 tracking-[0.15em] uppercase leading-none mt-0.5">
+              <span
+                className={`text-[0.5rem] font-body tracking-[0.15em] uppercase leading-none mt-0.5 transition-colors ${
+                  onHero ? "text-white/75" : "text-ink/45"
+                }`}
+              >
                 {BRAND.nameEn}
               </span>
             </div>
@@ -72,10 +90,18 @@ export default function Navbar() {
               <button
                 key={item.href}
                 onClick={() => handleNavClick(item.href)}
-                className="relative px-3 py-1.5 text-[0.85rem] font-body font-medium text-ink/50 hover:text-ink rounded-full hover:bg-botanical/5 transition-all duration-300 group"
+                className={`relative px-3 py-1.5 text-[0.85rem] font-body font-medium rounded-full transition-all duration-300 group ${
+                  onHero
+                    ? "text-white/90 hover:text-white hover:bg-white/10"
+                    : "text-ink/70 hover:text-ink hover:bg-botanical/5"
+                }`}
               >
                 {item.label}
-                <span className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-0 h-[1px] bg-botanical group-hover:w-5 transition-all duration-300" />
+                <span
+                  className={`absolute bottom-0.5 left-1/2 -translate-x-1/2 w-0 h-[1px] group-hover:w-5 transition-all duration-300 ${
+                    onHero ? "bg-white/90" : "bg-botanical"
+                  }`}
+                />
               </button>
             ))}
           </div>
@@ -84,7 +110,9 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-2">
             <a
               href={BRAND.phoneLink}
-              className="flex items-center gap-1.5 px-3 py-1.5 text-[0.9rem] font-body text-ink/50 hover:text-ink transition-colors"
+              className={`flex items-center gap-1.5 px-3 py-1.5 text-[0.9rem] font-body transition-colors ${
+                onHero ? "text-white/90 hover:text-white" : "text-ink/70 hover:text-ink"
+              }`}
             >
               <Phone size={13} />
               <span className="hidden xl:inline">{BRAND.phone}</span>
@@ -103,7 +131,11 @@ export default function Navbar() {
           {/* Mobile menu button */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden w-10 h-10 flex items-center justify-center rounded-full bg-botanical/5 text-ink/60 hover:text-ink transition-colors"
+            className={`lg:hidden w-10 h-10 flex items-center justify-center rounded-full transition-colors ${
+              onHero
+                ? "bg-white/15 text-white hover:bg-white/25"
+                : "bg-botanical/5 text-ink/70 hover:text-ink"
+            }`}
             aria-label="開啟選單"
           >
             {mobileOpen ? <X size={20} /> : <Menu size={20} />}
