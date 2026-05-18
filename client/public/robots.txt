@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /404
+Disallow: /face-result
+
+Sitemap: https://www.drappletree.com.tw/sitemap.xml
+
+# Host: https://www.drappletree.com.tw

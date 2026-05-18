@@ -1,0 +1,464 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design System: Liquid Luxe — 流動奢華美學
+ * Brand: 蘋果樹醫學總院 — 內在健康、外在美麗
+ * 
+ * Color Philosophy: Deep, muted, sophisticated — NOT fluorescent
+ * Primary: Deep Forest (#2D4A3E) — 深邃墨綠，沉穩專業
+ * Accent: Champagne Gold (#C5A572) — 香檳金，奢華點綴
+ * Sage: Muted Sage (#8A9E8F) — 低飽和鼠尾草，柔和過渡
+ * Surface: Warm Ivory (#FAF8F5) — 暖象牙白，溫潤基底
+ * Text: Charcoal (#2A2A2A) — 深炭色，高可讀性
+ * 
+ * Typography: Cormorant Garamond (headings) + DM Sans (body)
+ *           + Noto Serif TC / Noto Sans TC (中文)
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Brand — Liquid Luxe palette (deep, muted, sophisticated) */
+  --color-forest: oklch(0.35 0.04 165);
+  --color-forest-light: oklch(0.42 0.04 165);
+  --color-forest-deep: oklch(0.25 0.04 165);
+  --color-sage: oklch(0.65 0.025 160);
+  --color-sage-light: oklch(0.78 0.015 160);
+  --color-sage-pale: oklch(0.92 0.008 160);
+  --color-gold: oklch(0.74 0.07 75);
+  --color-gold-light: oklch(0.84 0.05 75);
+  --color-gold-pale: oklch(0.93 0.02 75);
+  --color-ivory: oklch(0.98 0.005 85);
+  --color-ivory-warm: oklch(0.96 0.008 80);
+  --color-charcoal: oklch(0.25 0.005 0);
+  --color-charcoal-light: oklch(0.45 0.005 0);
+
+  /* Aliases used across components */
+  --color-cream: oklch(0.98 0.005 85);
+  --color-ink: oklch(0.25 0.005 0);
+  --color-botanical: oklch(0.35 0.04 165);
+  --color-botanical-light: oklch(0.42 0.04 165);
+  --color-leaf-pale: oklch(0.94 0.01 160);
+  --color-sage-mist: oklch(0.90 0.012 160);
+  --color-champagne: oklch(0.74 0.07 75);
+
+  --font-heading: 'Cormorant Garamond', 'Noto Serif TC', serif;
+  --font-body: 'DM Sans', 'Noto Sans TC', sans-serif;
+}
+
+:root {
+  --primary: oklch(0.35 0.04 165);
+  --primary-foreground: oklch(0.98 0.005 85);
+  --sidebar-primary: oklch(0.35 0.04 165);
+  --sidebar-primary-foreground: oklch(0.98 0.005 85);
+  --chart-1: oklch(0.65 0.025 160);
+  --chart-2: oklch(0.42 0.04 165);
+  --chart-3: oklch(0.35 0.04 165);
+  --chart-4: oklch(0.74 0.07 75);
+  --chart-5: oklch(0.25 0.04 165);
+  --radius: 0.75rem;
+  --background: oklch(0.98 0.005 85);
+  --foreground: oklch(0.25 0.005 0);
+  --card: oklch(1 0 0 / 72%);
+  --card-foreground: oklch(0.25 0.005 0);
+  --popover: oklch(1 0 0 / 88%);
+  --popover-foreground: oklch(0.25 0.005 0);
+  --secondary: oklch(0.96 0.008 80);
+  --secondary-foreground: oklch(0.35 0.04 165);
+  --muted: oklch(0.96 0.008 80);
+  --muted-foreground: oklch(0.45 0.005 0);
+  --accent: oklch(0.93 0.02 75);
+  --accent-foreground: oklch(0.25 0.005 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.88 0.008 80 / 60%);
+  --input: oklch(0.88 0.008 80 / 60%);
+  --ring: oklch(0.35 0.04 165);
+  --sidebar: oklch(0.98 0.005 85);
+  --sidebar-foreground: oklch(0.25 0.005 0);
+  --sidebar-accent: oklch(0.96 0.008 80);
+  --sidebar-accent-foreground: oklch(0.25 0.005 0);
+  --sidebar-border: oklch(0.88 0.008 80 / 60%);
+  --sidebar-ring: oklch(0.35 0.04 165);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Noto Sans TC', var(--font-body);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+  h1 {
+    font-family: 'Noto Sans TC', var(--font-heading);
+    font-weight: 800;
+    font-size: 54px;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+  h2 {
+    font-family: 'Noto Sans TC', var(--font-heading);
+    font-weight: 500;
+    font-size: 34px;
+    line-height: 1.3;
+  }
+  h3 {
+    font-family: 'Noto Sans TC', var(--font-heading);
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1.4;
+  }
+  h4, h5, h6 {
+    font-family: 'Noto Sans TC', var(--font-heading);
+    font-weight: 500;
+  }
+  p, li, dd, dt, td, th, label, span, div {
+    line-height: 1.9;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+
+  /* === MOBILE TYPOGRAPHY (max-width: 768px) === */
+  @media (max-width: 768px) {
+    body {
+      font-size: 16px;
+      line-height: 1.95;
+    }
+    h1 {
+      font-size: 44px;
+      line-height: 1.15;
+    }
+    h2 {
+      font-size: 27px;
+      line-height: 1.35;
+    }
+    h3 {
+      font-size: 21px;
+      line-height: 1.4;
+    }
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  /* Avoid redefining Tailwind's .flex utility (breaks display:flex in some builds) */
+  :where(.flex, .inline-flex) > * {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 3rem;
+      padding-right: 3rem;
+      max-width: 1360px;
+    }
+  }
+
+  /* === LIQUID LUXE GLASS SYSTEM === */
+
+  .glass {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(20px) saturate(1.3);
+    -webkit-backdrop-filter: blur(20px) saturate(1.3);
+    border: 1px solid rgba(197, 165, 114, 0.12);
+    box-shadow:
+      0 4px 24px rgba(45, 74, 62, 0.04),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  }
+
+  .glass-strong {
+    background: rgba(255, 255, 255, 0.78);
+    backdrop-filter: blur(28px) saturate(1.5);
+    -webkit-backdrop-filter: blur(28px) saturate(1.5);
+    border: 1px solid rgba(197, 165, 114, 0.15);
+    box-shadow:
+      0 8px 32px rgba(45, 74, 62, 0.06),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  }
+
+  .glass-dark {
+    background: rgba(45, 74, 62, 0.88);
+    backdrop-filter: blur(20px) saturate(1.3);
+    -webkit-backdrop-filter: blur(20px) saturate(1.3);
+    border: 1px solid rgba(197, 165, 114, 0.1);
+    box-shadow:
+      0 4px 24px rgba(0, 0, 0, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  }
+
+  /* Glow effects — warm, not neon */
+  .glow-gold {
+    box-shadow: 0 0 30px oklch(0.74 0.07 75 / 0.15), 0 0 60px oklch(0.74 0.07 75 / 0.06);
+  }
+
+  .glow-sage {
+    box-shadow: 0 0 30px oklch(0.65 0.025 160 / 0.12), 0 0 60px oklch(0.65 0.025 160 / 0.05);
+  }
+
+  /* Section heading — editorial */
+  .heading-editorial {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    line-height: 1.15;
+  }
+
+  .heading-display {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+  }
+
+  .label-refined {
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+  }
+
+  /* Organic blob animation */
+  @keyframes blob-morph {
+    0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+    25% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+    50% { border-radius: 50% 60% 30% 60% / 30% 50% 70% 60%; }
+    75% { border-radius: 60% 40% 60% 30% / 70% 30% 50% 60%; }
+  }
+
+  .blob-shape {
+    animation: blob-morph 25s ease-in-out infinite;
+  }
+
+  /* Floating animations */
+  @keyframes float-slow {
+    0%, 100% { transform: translateY(0) translateX(0); }
+    33% { transform: translateY(-15px) translateX(8px); }
+    66% { transform: translateY(8px) translateX(-10px); }
+  }
+
+  .float-slow {
+    animation: float-slow 14s ease-in-out infinite;
+  }
+
+  @keyframes float-slower {
+    0%, 100% { transform: translateY(0) translateX(0); }
+    50% { transform: translateY(-20px) translateX(12px); }
+  }
+
+  .float-slower {
+    animation: float-slower 20s ease-in-out infinite;
+  }
+
+  /* Pulse CTA — warm gold */
+  @keyframes gentle-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 oklch(0.74 0.07 75 / 0.2); }
+    50% { box-shadow: 0 0 0 12px oklch(0.74 0.07 75 / 0); }
+  }
+
+  .pulse-cta {
+    animation: gentle-pulse 3.5s ease-in-out infinite;
+  }
+
+  /* Shimmer effect */
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(197, 165, 114, 0.15) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 4s ease-in-out infinite;
+  }
+
+  /* Gradient text */
+  .text-gradient-forest {
+    background: linear-gradient(135deg, oklch(0.35 0.04 165), oklch(0.50 0.04 160));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(135deg, oklch(0.68 0.07 75), oklch(0.78 0.06 80));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Divider line — warm gold */
+  .divider-glow {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, oklch(0.74 0.07 75 / 0.25), oklch(0.65 0.025 160 / 0.2), transparent);
+  }
+
+  /* === TYPOGRAPHY UTILITIES === */
+
+  /* Hero subtitle/description */
+  .hero-subtitle {
+    font-size: 21px;
+    font-weight: 400;
+    line-height: 1.9;
+  }
+
+  /* Trust indicator numbers */
+  .trust-number {
+    font-size: 27px;
+    font-weight: 800;
+    line-height: 1.2;
+  }
+  .trust-label {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  /* Video section */
+  .video-card-title {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  /* Card hover effect — all clickable cards */
+  .card-hover {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(45, 74, 62, 0.08), 0 4px 12px rgba(197, 165, 114, 0.06);
+  }
+
+  /* Section breathing room */
+  .section-padding {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  /* Hero text overlay for readability */
+  .hero-text-overlay {
+    background: linear-gradient(135deg, rgba(250, 248, 245, 0.12) 0%, rgba(45, 74, 62, 0.08) 100%);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    border-radius: 1rem;
+    padding: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .hero-subtitle {
+      font-size: 18px;
+      line-height: 2.0;
+    }
+    .trust-number {
+      font-size: 23px;
+    }
+    .video-card-title {
+      font-size: 20px;
+    }
+    .section-padding {
+      padding-top: 3.5rem;
+      padding-bottom: 3.5rem;
+    }
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar — refined */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: oklch(0.65 0.025 160 / 0.3);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.35 0.04 165 / 0.4);
+}
+
+/* Selection color */
+::selection {
+  background: oklch(0.74 0.07 75 / 0.2);
+  color: oklch(0.25 0.005 0);
+}
