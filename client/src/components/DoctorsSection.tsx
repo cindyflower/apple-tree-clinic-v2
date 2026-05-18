@@ -53,7 +53,7 @@ export default function DoctorsSection() {
           transition={{ duration: 0.7, delay: 0.1 }}
           className="mb-10 lg:mb-14 rounded-[1.2rem] overflow-hidden"
         >
-          <div className="relative h-48 sm:h-56 lg:h-[27rem]">
+          <div className="relative h-48 sm:h-56 lg:h-[40.5rem]">
             <img
               src={IMAGES.teamBanner}
               alt="蘋果樹 Dr. Appletree 醫療團隊合照"
