@@ -29,6 +29,19 @@ pnpm build
 pnpm preview      # → http://localhost:4173
 ```
 
+## GitHub Pages 線上預覽
+
+網址：**https://cindyflower.github.io/apple-tree-clinic-v2/**
+
+1. 推送 `main` 分支後，GitHub Actions 會自動建置並部署
+2. 首次請到 repo **Settings → Pages → Build and deployment → Source** 選 **GitHub Actions**
+3. 本地模擬 GitHub Pages 建置：
+
+```bash
+GITHUB_PAGES=true pnpm run build:pages
+pnpm preview
+```
+
 ## 版本管理建議
 
 | 用途 | 做法 |

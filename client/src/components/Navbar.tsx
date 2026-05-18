@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, MessageCircle } from "lucide-react";
 import { BRAND, NAV_ITEMS } from "@/lib/constants";
+import { withBase } from "@/lib/basePath";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -32,7 +33,7 @@ export default function Navbar() {
       window.scrollTo({ top: y, behavior: "smooth" });
     } else {
       // If element not found (user is on another page), navigate to homepage with hash
-      window.location.href = "/" + href;
+      window.location.href = withBase(`/${href}`);
     }
   };
 

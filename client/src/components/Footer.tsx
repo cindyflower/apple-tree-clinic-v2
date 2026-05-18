@@ -3,6 +3,7 @@
  * Full-width brand summary, navigation, popular treatments, clinic locations
  */
 import { BRAND } from "@/lib/constants";
+import { isHomePath, withBase } from "@/lib/basePath";
 import { Phone, MapPin, MessageCircle } from "lucide-react";
 
 /* ── Footer navigation items with correct anchors ── */
@@ -55,7 +56,7 @@ export default function Footer() {
     /* If we're already on the homepage, smooth-scroll to anchor */
     if (href.startsWith("/#")) {
       const anchor = href.slice(1); // e.g. "#about"
-      if (window.location.pathname === "/") {
+      if (isHomePath()) {
         const el = document.querySelector(anchor);
         if (el) {
           const y = el.getBoundingClientRect().top + window.scrollY - 80;
@@ -64,9 +65,9 @@ export default function Footer() {
         }
       }
       /* If on another page, navigate to homepage + anchor */
-      window.location.href = href;
+      window.location.href = withBase(href);
     } else {
-      window.location.href = href;
+      window.location.href = withBase(href);
     }
   };
 
