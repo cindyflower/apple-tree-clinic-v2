@@ -9,6 +9,7 @@ import { useGlobalTracking } from "./hooks/useGlobalTracking";
 import Home from "./pages/Home";
 import TreatmentDetail from "./pages/TreatmentDetail";
 import CaseDetail from "./pages/CaseDetail";
+import DoctorDetail from "./pages/DoctorDetail";
 import FaceTest from "./pages/FaceTest";
 import FaceResult from "./pages/FaceResult";
 import XuyanAI from "./pages/XuyanAI";
@@ -22,6 +23,7 @@ function AppRoutes() {
       <Route path={"/xuyan-ai"} component={XuyanAI} />
       <Route path={"/treatment/:slug"} component={TreatmentDetail} />
       <Route path={"/case/:slug"} component={CaseDetail} />
+      <Route path={"/doctor/:slug"} component={DoctorDetail} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>

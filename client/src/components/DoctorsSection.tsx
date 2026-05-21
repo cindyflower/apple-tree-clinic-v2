@@ -4,8 +4,9 @@
  */
 import { useRef } from "react";
 import { motion } from "framer-motion";
+import { Link } from "wouter";
 import { useInView } from "@/hooks/useInView";
-import { ChevronLeft, ChevronRight, Award } from "lucide-react";
+import { ChevronLeft, ChevronRight, Award, ArrowRight } from "lucide-react";
 import { DOCTORS, IMAGES } from "@/lib/constants";
 
 export default function DoctorsSection() {
@@ -92,16 +93,9 @@ export default function DoctorsSection() {
             className="flex flex-nowrap gap-4 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-none -mx-4 px-4 lg:mx-0 lg:px-0"
             style={{ display: "flex", flexWrap: "nowrap" }}
           >
-            {DOCTORS.map((doc, i) => (
-              <motion.div
-                key={doc.name}
-                initial={{ opacity: 0, y: 16 }}
-                animate={inView ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.15 + i * 0.06 }}
-                className="shrink-0 w-[170px] sm:w-[200px] lg:w-[220px] snap-start"
-              >
-                <div className="glass rounded-[1.2rem] overflow-hidden group hover:glow-sage transition-all duration-500">
-                  {/* Doctor photo */}
+            {DOCTORS.map((doc, i) => {
+              const card = (
+                <div className="glass rounded-[1.2rem] overflow-hidden group hover:glow-sage transition-all duration-500 h-full">
                   <div className="relative h-52 sm:h-60 lg:h-64 overflow-hidden bg-leaf-pale/20">
                     <img
                       src={doc.image}
@@ -119,9 +113,15 @@ export default function DoctorsSection() {
                         </span>
                       </div>
                     )}
+                    {doc.slug && (
+                      <div className="absolute inset-0 flex items-center justify-center bg-botanical/0 group-hover:bg-botanical/10 transition-colors duration-300">
+                        <span className="opacity-0 group-hover:opacity-100 transition-opacity px-3 py-1.5 text-[0.75rem] font-body font-medium text-white bg-black/40 backdrop-blur-sm rounded-full flex items-center gap-1">
+                          查看簡歷
+                          <ArrowRight size={12} />
+                        </span>
+                      </div>
+                    )}
                   </div>
-
-                  {/* Doctor info */}
                   <div className="p-3.5">
                     <h3 className="text-[1rem] font-heading font-medium text-ink mb-0.5">
                       {doc.name}
@@ -137,8 +137,26 @@ export default function DoctorsSection() {
                     </div>
                   </div>
                 </div>
-              </motion.div>
-            ))}
+              );
+
+              return (
+                <motion.div
+                  key={doc.name}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={inView ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.15 + i * 0.06 }}
+                  className="shrink-0 w-[170px] sm:w-[200px] lg:w-[220px] snap-start"
+                >
+                  {doc.slug ? (
+                    <Link href={`/doctor/${doc.slug}`} className="block h-full">
+                      {card}
+                    </Link>
+                  ) : (
+                    card
+                  )}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
 
@@ -158,7 +176,7 @@ export default function DoctorsSection() {
         >
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 text-center">
             {[
-              { num: "8+", label: "專科醫師" },
+              { num: "9", label: "專科醫師" },
               { num: "15+", label: "年平均經驗" },
               { num: "50,000+", label: "服務案例" },
               { num: "3", label: "服務據點" },

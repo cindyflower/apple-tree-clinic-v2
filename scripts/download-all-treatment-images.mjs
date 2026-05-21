@@ -26,6 +26,7 @@ const F = {
   functional: "12_功能醫學檢測",
   happy: "13_快樂門診",
   vaccine: "14_預防保健",
+  doctors: "15_醫師照片",
 };
 
 /** @type {{ key: string; folder: string; file: string; url: string }[]} */

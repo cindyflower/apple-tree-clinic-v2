@@ -144,62 +144,79 @@ export const CASE_STUDIES: CaseStudy[] = [
   },
 ];
 
-export const DOCTORS = [
+export interface DoctorProfile {
+  name: string;
+  alias?: string;
+  title: string;
+  credentials: string[];
+  image: string;
+  /** 有內頁時提供 slug，對應 /doctor/:slug */
+  slug?: string;
+}
+
+/** 順序對應 images/15_醫師照片/ 1～9 */
+export const DOCTORS: DoctorProfile[] = [
+  {
+    name: "孟祥越 院長",
+    title: "蘋果樹醫學總院總院長",
+    credentials: [
+      "國防醫學院醫學系畢業",
+      "美國杜蘭大學醫管碩士",
+      "前國軍805總醫院院長",
+      "前國防部軍醫局副局長",
+    ],
+    image: doctorImg("孟祥越 院長", ""),
+    slug: "meng-xiangyue",
+  },
+  {
+    name: "江得信 醫師",
+    title: "北大分院主治醫師",
+    credentials: ["台大醫學系", "長庚醫院", "耳鼻喉科專科"],
+    image: doctorImg("江得信 醫師", ""),
+  },
+  {
+    name: "林錦生 醫師",
+    title: "主治醫師",
+    credentials: ["金線獎百大線雕名醫", "海芙音波原廠認證", "鳳凰電波原廠認證"],
+    image: doctorImg("林錦生 醫師", ""),
+  },
   {
     name: "李俊豪 醫師",
     alias: "馬克醫師",
     title: "南京旗艦主治醫師",
-    credentials: ["台大醫學系", "Picosure 755 蜂巢皮秒認證"],
+    credentials: ["台大醫學系", "Picosure 755 蜂巢皮秒認證", "玻尿酸・肉毒原廠認證"],
     image: doctorImg("李俊豪 醫師", ""),
-  },
-  {
-    name: "林漢文 醫師",
-    alias: "",
-    title: "南京旗艦主治醫師",
-    credentials: ["婦產科專科", "微整型美容專長"],
-    image: doctorImg("林漢文 醫師", ""),
-  },
-  {
-    name: "陳君琳 醫師",
-    alias: "",
-    title: "南京旗艦主治醫師",
-    credentials: ["馬偕醫院", "女性私密治療專長"],
-    image: doctorImg("陳君琳 醫師", ""),
-  },
-  {
-    name: "林錦生 醫師",
-    alias: "",
-    title: "主治醫師",
-    credentials: ["金線獎百大線雕名醫", "海芙音波原廠認證"],
-    image: doctorImg("林錦生 醫師", ""),
-  },
-  {
-    name: "劉佳政 醫師",
-    alias: "",
-    title: "南京旗艦主治醫師",
-    credentials: ["台北榮總外科", "整外手術專長"],
-    image: doctorImg("劉佳政 醫師", ""),
-  },
-  {
-    name: "陳韜名 醫師",
-    alias: "",
-    title: "南京旗艦主治醫師",
-    credentials: ["中西醫雙執照", "快樂門診"],
-    image: doctorImg("陳韜名 醫師", ""),
   },
   {
     name: "吳其穎 醫師",
     alias: "蒼藍鴿",
     title: "北大分院主治醫師",
-    credentials: ["台大醫學系", "醫療暢銷書作家"],
+    credentials: ["台大醫學系", "醫療暢銷書作家", "美國醫師認證 ECFMG"],
     image: doctorImg("吳其穎 醫師", ""),
   },
   {
-    name: "江得信 醫師",
-    alias: "",
-    title: "北大分院主治醫師",
-    credentials: ["長庚醫院", "耳鼻喉科專科"],
-    image: doctorImg("江得信 醫師", ""),
+    name: "劉佳政 醫師",
+    title: "南京旗艦主治醫師",
+    credentials: ["陽明大學醫學系", "台北榮總外科", "整外手術專長"],
+    image: doctorImg("劉佳政 醫師", ""),
+  },
+  {
+    name: "陳韜名 醫師",
+    title: "南京旗艦主治醫師",
+    credentials: ["中西醫雙執照", "快樂門診", "情緒切片分析"],
+    image: doctorImg("陳韜名 醫師", ""),
+  },
+  {
+    name: "林漢文 醫師",
+    title: "南京旗艦主治醫師",
+    credentials: ["婦產科專科", "微整型美容專長", "雷射醫學會會員"],
+    image: doctorImg("林漢文 醫師", ""),
+  },
+  {
+    name: "陳君琳 醫師",
+    title: "南京旗艦主治醫師",
+    credentials: ["馬偕醫院", "薇薇電波認證醫師", "女性私密治療專長"],
+    image: doctorImg("陳君琳 醫師", ""),
   },
 ];
 

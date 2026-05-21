@@ -1,5 +1,5 @@
 /**
- * Local images: /images/{00_…14_…}/ + /images/_root/ (loose files).
+ * Local images: /images/{00_…15_…}/ + /images/_root/ (loose files).
  * Synced to client/public/images on dev/build (vitePluginSyncTreatmentImages).
  */
 import { withBase } from "./basePath";
@@ -20,6 +20,7 @@ export const F = {
   functional: "12_功能醫學檢測",
   happy: "13_快樂門診",
   vaccine: "14_預防保健",
+  doctors: "15_醫師照片",
 } as const;
 
 export function img(folder: string, filename: string): string {
@@ -73,16 +74,22 @@ export const IMAGES = {
   videoFaceFatigue: imgRoot("OVERALLFATIGUETYPE_8a51858b.mp4"),
 };
 
-export const DOCTOR_IMG: Record<string, string> = {
-  "李俊豪 醫師": imgRoot("李俊豪_c48f722f.jpg"),
-  "林漢文 醫師": imgRoot("林漢文_d963255c.jpg"),
-  "陳君琳 醫師": imgRoot("陳君琳_a4edef2c.jpg"),
-  "林錦生 醫師": imgRoot("林錦生_00de2f65.jpg"),
-  "劉佳政 醫師": imgRoot("劉佳政1_c380b2d8.jpg"),
-  "陳韜名 醫師": imgRoot("陳韜名_60fb3dae.jpg"),
-  "吳其穎 醫師": imgRoot("吳其穎_e22432a2.jpg"),
-  "江得信 醫師": imgRoot("江得信_c81dd3b5.jpg"),
-};
+/** 醫師照片檔名（images/15_醫師照片/，順序 1～9） */
+export const DOCTOR_FILES = {
+  "孟祥越 院長": "1.醫師_孟祥越.jpg",
+  "江得信 醫師": "2.醫師_江得信.jpg",
+  "林錦生 醫師": "3.醫師_林錦生.jpg",
+  "李俊豪 醫師": "4.醫師_李俊豪.jpg",
+  "吳其穎 醫師": "5.醫師_吳其穎.jpg",
+  "劉佳政 醫師": "6.醫師_劉佳政.jpg",
+  "陳韜名 醫師": "7.醫師_陳韜名.jpg",
+  "林漢文 醫師": "8.醫師_林漢文.jpg",
+  "陳君琳 醫師": "9.醫師_陳君琳.jpg",
+} as const satisfies Record<string, string>;
+
+export const DOCTOR_IMG: Record<string, string> = Object.fromEntries(
+  Object.entries(DOCTOR_FILES).map(([name, file]) => [name, img(F.doctors, file)])
+);
 
 export function doctorImg(name: string, fallback: string): string {
   return DOCTOR_IMG[name] ?? fallback;
