@@ -10,9 +10,7 @@
  * Hotspots use rgba(255,0,0,0.3) for QA verification.
  */
 import { useInView } from "@/hooks/useInView";
-
-const MEET_XUYAN_IMG =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663343349747/NiMiPR2Gq7yAMFRDKJg9Wa/認識序顏_7d037d9e.png";
+import { IMAGES } from "@/lib/imageAssets";
 
 export default function MeetXuyanSection() {
   const { ref, inView } = useInView({ threshold: 0.1 });
@@ -52,7 +50,7 @@ export default function MeetXuyanSection() {
         }}
       >
         {/* High-res static image */}
-        <img src={MEET_XUYAN_IMG}
+        <img src={IMAGES.meetXuyan}
           alt="認識序顏｜你的專屬 AI 美學顧問 — 三種互動型態介紹"
           style={{
             width: "100%",

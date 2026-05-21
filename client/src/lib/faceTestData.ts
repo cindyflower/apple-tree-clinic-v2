@@ -4,12 +4,14 @@
  * + 混合型(mixed) when top scores tie
  */
 
-// ─── 影片 CDN URLs ───
+import { IMAGES } from "./imageAssets";
+
+// ─── 臉型測驗結果影片（本地 _root）───
 const VIDEO_URLS = {
-  sagging: "https://d2xsxph8kpxj0f.cloudfront.net/310519663343349747/NiMiPR2Gq7yAMFRDKJg9Wa/CHRONICSAGGINGTYPE_df4163a2.mp4",
-  collagen: "https://d2xsxph8kpxj0f.cloudfront.net/310519663343349747/NiMiPR2Gq7yAMFRDKJg9Wa/COLLAGENLOSSTYPE_2dc5a8bd.mp4",
-  skin: "https://d2xsxph8kpxj0f.cloudfront.net/310519663343349747/NiMiPR2Gq7yAMFRDKJg9Wa/SKINCONDITIONDRAGGINGTYPE_06486c7d.mp4",
-  fatigue: "https://d2xsxph8kpxj0f.cloudfront.net/310519663343349747/NiMiPR2Gq7yAMFRDKJg9Wa/OVERALLFATIGUETYPE_8a51858b.mp4",
+  sagging: IMAGES.videoFaceSagging,
+  collagen: IMAGES.videoFaceCollagen,
+  skin: IMAGES.videoFaceSkin,
+  fatigue: IMAGES.videoFaceFatigue,
 } as const;
 
 // ─── Types ───

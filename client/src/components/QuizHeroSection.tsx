@@ -7,15 +7,14 @@ import { motion } from "framer-motion";
 import { Sparkles, MessageCircle } from "lucide-react";
 import { Link } from "wouter";
 import { BRAND } from "@/lib/constants";
-
-const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663343349747/NiMiPR2Gq7yAMFRDKJg9Wa/hero-visual_0e1c21df.jpg";
+import { IMAGES } from "@/lib/imageAssets";
 
 export default function QuizHeroSection() {
   return (
     <section className="relative h-screen min-h-[600px] max-h-[1000px] overflow-hidden">
       {/* Background image — full bleed, object-fit: cover */}
       <img
-        src={HERO_IMG}
+        src={IMAGES.heroVisual}
         alt="蘋果樹 Dr. Appletree"
         className="absolute inset-0 w-full h-full object-cover"
         loading="eager"

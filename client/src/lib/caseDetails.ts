@@ -1,5 +1,6 @@
 // ─── 蘋果樹醫學總院 ─── 真實案例詳細資料
 // 所有內容均來自舊官網 drappletree.com.tw 真實案例
+import { caseMainImage, caseGallery } from "./caseImageAssets";
 
 export interface CaseDetail {
   id: string;
@@ -18,7 +19,7 @@ export interface CaseDetail {
   sourceUrl: string;
 }
 
-export const CASE_DETAILS: CaseDetail[] = [
+const CASE_DETAILS_RAW: Omit<CaseDetail, "mainImage" | "images">[] = [
   // ─── 1. 男生水飛梭＋水光 ───
   {
     id: "hydrafacial-male",
@@ -28,10 +29,6 @@ export const CASE_DETAILS: CaseDetail[] = [
     category: "肌膚管理",
     treatment: "水飛梭＋水光療程",
     date: "2025/11/19",
-    mainImage: "https://www.drappletree.com.tw/wp-content/uploads/2025/11/%E7%B8%AE%E5%9C%96-%E6%8B%B7%E8%B2%9D.jpg",
-    images: [
-      "https://www.drappletree.com.tw/wp-content/uploads/2025/11/%E7%B8%AE%E5%9C%96-%E6%8B%B7%E8%B2%9D.jpg",
-    ],
     articleText: `改善暗沉的關鍵流程，讓肌膚更乾淨、更有亮度。以清潔搭配保濕導入，從底層開始調整膚況。
 
 專為男性打造的簡單有效保養體驗，不需要繁複步驟，就能感受肌膚質感的提升。
@@ -60,10 +57,6 @@ export const CASE_DETAILS: CaseDetail[] = [
     category: "整型外科",
     treatment: "眼袋外開手術",
     date: "2025/07/24",
-    mainImage: "https://www.drappletree.com.tw/wp-content/uploads/2025/07/%E7%B8%AE%E5%9C%96-%E6%8B%B7%E8%B2%9D-10.jpg",
-    images: [
-      "https://www.drappletree.com.tw/wp-content/uploads/2025/07/%E7%B8%AE%E5%9C%96-%E6%8B%B7%E8%B2%9D-10.jpg",
-    ],
     articleText: `1年後的他，回診再見，眼神裡多了篤定與自在。
 男人也有選擇：不被疲憊眼袋綁住，看見更好的自己。
 
@@ -93,10 +86,6 @@ export const CASE_DETAILS: CaseDetail[] = [
     category: "整型外科",
     treatment: "雙眼皮手術",
     date: "2025/07/14",
-    mainImage: "https://www.drappletree.com.tw/wp-content/uploads/2025/07/%E7%B8%AE%E5%9C%96-%E6%8B%B7%E8%B2%9D-4.jpg",
-    images: [
-      "https://www.drappletree.com.tw/wp-content/uploads/2025/07/%E7%B8%AE%E5%9C%96-%E6%8B%B7%E8%B2%9D-4.jpg",
-    ],
     articleText: `從單眼皮到自然電眼，這不只是外表的改變，更是母女間的一次陪伴與成長。
 
 當初為什麼決定動手術？最擔心的地方，術後感受如何？她們為什麼選擇蘋果樹？
@@ -129,19 +118,6 @@ export const CASE_DETAILS: CaseDetail[] = [
     category: "微整注射",
     treatment: "聚雙旋乳酸注射",
     date: "2022/06/17",
-    mainImage: "https://www.drappletree.com.tw/wp-content/uploads/2025/08/%E7%B8%AE%E5%9C%96.jpg",
-    images: [
-      "https://www.drappletree.com.tw/wp-content/uploads/2022/06/0-0.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2022/06/2-2.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2022/06/1-1-1.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2022/06/3-3.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2022/06/6-6.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2022/06/8-8.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2022/06/8-9.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2022/06/9-1.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2022/06/10-10.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2022/06/14-14-1.jpg",
-    ],
     articleText: `知名網紅/歌手 王雅婷 聚雙旋乳酸施打後3日分享，近乎無修復期美美上鏡🥰
 
 經常需要直播外拍，經營粉絲團擁有好形象，而追求完美的雅婷，也在臉書分享，偶爾會擔心自己哪裡多了紋路，甚至臉頰凹陷導致無神不上鏡。像是隨著年紀膠原蛋白的流失，讓蘋果肌看起來比以往下垂滄桑，比起擔心老化，更應該做的是預防老化！因此決定到蘋果樹，找回原本澎潤Q彈的蘋果肌！
@@ -173,16 +149,6 @@ export const CASE_DETAILS: CaseDetail[] = [
     category: "形體雕塑",
     treatment: "Talent-A 動磁波",
     date: "2022/06/02",
-    mainImage: "https://www.drappletree.com.tw/wp-content/uploads/2022/06/%E7%BF%81%E5%85%88%E7%94%9F-1.jpg",
-    images: [
-      "https://www.drappletree.com.tw/wp-content/uploads/2022/05/%E7%BF%81%E5%85%88%E7%94%9F3.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2022/05/%E7%BF%81%E5%85%88%E7%94%9F4.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2022/05/%E7%BF%81%E5%85%88%E7%94%9F7.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2022/05/%E7%BF%81%E5%85%88%E7%94%9F5.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2022/05/%E7%BF%81%E5%85%88%E7%94%9F6.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2022/05/%E7%BF%81%E5%85%88%E7%94%9F8.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2022/06/%E7%BF%81%E5%85%88%E7%94%9F-1.jpg",
-    ],
     articleText: `年過三十，熬夜久坐讓我身體每況愈下之外，肚子也越來越大，有找過健身教練一起訓練，但工程師都要加班到很晚，實在沒時間固定去訓練，後來就放棄改吃減肥藥，但減肥藥會有副作用，也很難持續。之後才聽教練跟我分享，他最近有在蘋果樹做Talent-A動磁波，可以大幅縮短腹肌鍛練時間，幫助以往難練的核心肌群加強訓練，肌肉線條很快就長出來了，所以我就決定也來試試看！
 
 這次還特別做了HRV檢測身心健康指數，可以了解目前壓力指數、情緒、睡眠等健康心理狀況。檢測過程只需要放鬆心情坐著，護理師會在手指處放上檢測儀，靜待5分鐘報告就出來了！護理師說我的壓力指數偏高、自律神經失調，這些內在健康問題，也是肚子瘦不了的原因之一。
@@ -207,16 +173,6 @@ export const CASE_DETAILS: CaseDetail[] = [
     category: "形體雕塑",
     treatment: "Talent-A 動磁波",
     date: "2022/05/27",
-    mainImage: "https://www.drappletree.com.tw/wp-content/uploads/2022/05/%E5%B0%81%E9%9D%A2_%E5%BC%B5%E5%B0%8F%E5%A7%90.jpg",
-    images: [
-      "https://www.drappletree.com.tw/wp-content/uploads/2022/05/%E6%9C%AA%E5%91%BD%E5%90%8D-1.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2022/05/%E5%BC%B5%E5%B0%8F%E5%A7%903.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2022/05/%E5%BC%B5%E5%B0%8F%E5%A7%904.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2022/05/%E5%BC%B5%E5%B0%8F%E5%A7%905.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2022/05/%E5%BC%B5%E5%B0%8F%E5%A7%906.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2022/05/%E5%BC%B5%E5%B0%8F%E5%A7%907.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2022/05/%E5%BC%B5%E5%B0%8F%E5%A7%90_%E8%87%80%E9%83%A8.jpg",
-    ],
     articleText: `終於到蘋果樹診所做Talent-A動磁波，一直想鍛鍊臀部很久了，但常常健身做幾下翹臀就腰酸背痛，還會流汗黏黏的不舒服，所以非常期待Talent-A的感受及效果。診所內環境明亮舒適，擺設很多漂亮的藝術品和花藝布置，非常有品味，走進來就感覺好療癒！
 
 診所特別準備的是可以養顏美容的氫水，聽服務人員說喝了可以代謝自由基，不知不覺喝了好幾杯，做完Talent-A動磁波後飲用，也能讓身體更加輕盈無負擔！
@@ -239,12 +195,6 @@ export const CASE_DETAILS: CaseDetail[] = [
     category: "形體雕塑",
     treatment: "Talent-A 動磁波",
     date: "2022/05/25",
-    mainImage: "https://www.drappletree.com.tw/wp-content/uploads/2022/05/%E7%B6%B2%E7%B4%85_%E5%AE%98%E7%B6%B2%E6%96%87%E7%AB%A0%E5%85%AC%E7%89%88_%E5%B7%A5%E4%BD%9C%E5%8D%80%E5%9F%9F-1-%E8%A4%87%E6%9C%AC-3-scaled.jpg",
-    images: [
-      "https://www.drappletree.com.tw/wp-content/uploads/2022/05/Talent-A%E5%8B%95%E7%A3%81%E6%B3%A2-1.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2022/05/Talent-A%E5%8B%95%E7%A3%81%E6%B3%A2-2.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2022/05/Talent-A%E5%8B%95%E7%A3%81%E6%B3%A2-3.jpg",
-    ],
     articleText: `Talent-A動磁波，練出「纖」女級手臂！蘋果樹醫美「Talent-A動磁波」是透過高強度渦電流，對手臂做深淺層強力肌肉收縮，相當於「懶人健身法」，以非侵入式隔空訓練核心肌群，達到手臂雕塑、緊實線條的效果！
 
 今年夏天穿搭流行趨勢中，最能清涼迎夏，又能使時髦度上升的單品，莫過於短背心、無袖洋裝，掌握穿衣重點及有效鍛鍊手臂線條，就能時尚又亮眼，成功吸引他人目光！
@@ -273,18 +223,6 @@ Talent-A動磁波，針對運動瘦不了的手臂內側、蝴蝶袖、掰掰袖
     category: "形體雕塑",
     treatment: "Talent-A 動磁波",
     date: "2022/03/22",
-    mainImage: "https://www.drappletree.com.tw/wp-content/uploads/2022/03/%E7%B6%B2%E7%B4%85_%E5%AE%98%E7%B6%B2%E6%96%87%E7%AB%A0%E5%85%AC%E7%89%88_%E5%B7%A5%E4%BD%9C%E5%8D%80%E5%9F%9F-1-scaled.jpg",
-    images: [
-      "https://www.drappletree.com.tw/wp-content/uploads/2022/03/%E6%9C%AA%E5%91%BD%E5%90%8D-3.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2022/03/KOL_7_1.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2022/03/KOL_5_5.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2022/03/KOL_1_1.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2022/03/LINE_ALBUM_2022317_220317_2_1_1.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2022/03/KOL_11.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2022/03/KOL_10_1.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2022/03/KOL_3_1.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2022/03/KOL_8_1.jpg",
-    ],
     articleText: `人氣美妝保養部落客Regina' 薛蓓蓓，時常要接精品、名牌等拍攝，但因為疫情關係生活模式改變，變的比較少外出運動，導致小腹凸出，拍照還要好辛苦縮肚子。為了讓體態隨時ready，維持在能上鏡的狀態，Regina' 薛蓓蓓決定來做Talent-A動磁波加強腹部鍛鍊！
 
 進診所後，櫃台人員引導至沙發區填寫精準健康問卷。接著到諮詢室~獨立空間隱密諮詢身材上的問題，諮詢前諮詢師詳細詢問我平日運動、飲食等生活習慣，並針對我的健康狀況以及習慣，給予不同的改善建議，非常專業又了解我的需求，過程也很像在聊天一樣，很放鬆自在！
@@ -315,16 +253,6 @@ Talent-A動磁波，針對運動瘦不了的手臂內側、蝴蝶袖、掰掰袖
     category: "形體雕塑",
     treatment: "Talent-A 動磁波",
     date: "2022/03/22",
-    mainImage: "https://www.drappletree.com.tw/wp-content/uploads/2022/03/%E7%B6%B2%E7%B4%85_%E5%AE%98%E7%B6%B2%E6%96%87%E7%AB%A0%E5%85%AC%E7%89%88_1_%E5%B7%A5%E4%BD%9C%E5%8D%80%E5%9F%9F-1-%E8%A4%87%E6%9C%AC-scaled.jpg",
-    images: [
-      "https://www.drappletree.com.tw/wp-content/uploads/2022/03/S__13460903.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2022/03/S__13460904.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2022/03/S__13460905.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2022/03/S__13460906.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2022/03/S__13460907.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2022/03/S__13460908.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2022/03/S__13460909.jpg",
-    ],
     articleText: `知名JKF女郎毛毛，最多的工作就是平面攝影，而且服裝都是露肚子的居多。除了平常運動以外，她還會搭配蘋果樹Talent-A動磁波來強化腹肌線條。
 
 Talent-A動磁波是懶人運動，30分鐘能達到約3萬次運動訓練，治療前醫美師會幫我精準測量腰圍、InBody體脂率等數據，再進行客製化的治療！
@@ -351,10 +279,6 @@ Talent-A動磁波治療結束就像做完極限鍛鍊一樣，痠痠脹脹的感
     category: "微整注射",
     treatment: "肉毒桿菌＋電波",
     date: "2016/11/10",
-    mainImage: "https://www.drappletree.com.tw/wp-content/uploads/upload/images/7bc89c4ffc06f6506dd582e052a635b4ce3bbed7.jpg",
-    images: [
-      "https://www.drappletree.com.tw/wp-content/uploads/upload/images/7bc89c4ffc06f6506dd582e052a635b4ce3bbed7.jpg",
-    ],
     articleText: `立體的五官、深邃的輪廓、陽光勻稱的膚色，加上完美的身材比例，Tina在外拍界有著小安室的稱號。無時無刻都能吸引了所有人的目光！儘管在旁人眼中，Tina的臉蛋與身材已經是標準的「美女」了，但是自我要求嚴苛的她，卻不甚滿意自己的現狀。
 
 除了本業，身兼外拍Model的她，因為工作需求，經常面對鏡頭。活潑爽朗的個性，加上青春無敵的她，可塑性高，一直以來備受廠商喜愛。她困擾著額頭上那幾道表情紋，以及要維持永遠的安室女神小臉，讓她害怕拍出來的作品不再完美！
@@ -383,17 +307,6 @@ Talent-A動磁波治療結束就像做完極限鍛鍊一樣，痠痠脹脹的感
     category: "光電雷射",
     treatment: "PicoSure 755 皮秒蜂巢雷射",
     date: "2021/06/06",
-    mainImage: "https://www.drappletree.com.tw/wp-content/uploads/2021/06/batch_DSC01472-e1622543029948.jpg",
-    images: [
-      "https://www.drappletree.com.tw/wp-content/uploads/2021/06/batch_DSC01472-e1622543029948.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2021/06/01-e1622617389343.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2021/06/02-e1622617413572.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2021/06/03-e1622617435922.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2021/06/04-e1622617456393.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2021/06/S__10333316-e1622617507917.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2021/06/S__10333317-e1622617531952.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2021/06/S__10333318-e1622617552523.jpg",
-    ],
     articleText: `皮秒雷射效果怎麼樣？為什麼大家都要打皮秒雷射？俗話說「一白遮三醜」，除了追求白，我們更應該要追求膚色均勻！因為臉上一旦有了斑點、痘疤，即使五官再美再立體，難免給人白玉微疵的感覺。
 
 「皮秒」（picosecond）是一種時間單位，皮秒雷射是「10⁻¹²秒」脈衝時間的雷射，也就是脈衝作用時間極短，能在不到一秒的時間就擊碎色斑、疤痕，相較於淨膚雷射，不僅治療速度更快、更能降低熱傷害和修復期！
@@ -424,20 +337,6 @@ PicoSure755蜂巢皮秒雷射被稱為皮秒雷射界的「藍寶堅尼」：台
     category: "微整注射",
     treatment: "玻尿酸注射",
     date: "2021/06/01",
-    mainImage: "https://www.drappletree.com.tw/wp-content/uploads/2021/01/bnV2.jpg",
-    images: [
-      "https://www.drappletree.com.tw/wp-content/uploads/2021/01/bnV2.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2021/01/%E5%8D%9A%E6%B6%B5B1-1.png",
-      "https://www.drappletree.com.tw/wp-content/uploads/2021/01/%E5%8D%9A%E6%B6%B5B2-1.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2021/01/%E5%8D%9A%E6%B6%B5B2-2.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2021/01/%E6%9D%8E%E9%86%AB%E5%B8%AB.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2021/01/%E8%A8%BA%E6%89%80%E7%85%A7.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2021/01/%E8%A8%BA%E6%89%80%E7%85%A72.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2021/01/%E5%8D%9A%E6%B6%B5I1.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2021/01/%E5%8D%9A%E6%B6%B5I2.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2021/01/2B2.jpg",
-      "https://www.drappletree.com.tw/wp-content/uploads/2021/01/2A2.jpg",
-    ],
     articleText: `淚溝遮瑕越蓋越厚，眼下細紋越來越多！
 
 現在的人重度使用3C產品、用眼過度，導致眼睛以及眼周老化速度加快，不到25歲就擁有淚溝的人比比皆是。淚溝除了讓人看起來沒有精神之外，更嚴重的是會增加視覺年齡！明明才25歲，看起來卻像35歲……拼命的遮瑕想蓋住，卻好像越遮越明顯，甚至眼下細紋也更加猖狂！
@@ -472,10 +371,6 @@ PicoSure755蜂巢皮秒雷射被稱為皮秒雷射界的「藍寶堅尼」：台
     category: "功能醫學",
     treatment: "功能醫學 + 輕雷射維持",
     date: "2025/12/10",
-    mainImage: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&auto=format&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&auto=format&fit=crop",
-    ],
     articleText: `42歲女性長期臉頰紅腫、丘疹、血管明顯，像永久曬傷。做了多次雷射/皮秒，短期退紅但1–2個月就復發，皮膚越做越敏感。
 
 在蘋果樹醫美診所接受功能醫學檢測後，發現腸道菌相嚴重失衡與腸漏問題。原來她的玫瑰痘不只是皮膚表面的問題，而是腸道健康失衡引發的慢性發炎反應。
@@ -499,10 +394,6 @@ PicoSure755蜂巢皮秒雷射被稱為皮秒雷射界的「藍寶堅尼」：台
     category: "功能醫學",
     treatment: "功能醫學 + 輕電波維持",
     date: "2025/11/20",
-    mainImage: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&auto=format&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&auto=format&fit=crop",
-    ],
     articleText: `48歲職場女性，臉黃暗、無光澤、眼周臉頰鬆弛。電波拉提+填充兩次，短期緊綻但半年後又鬆，還伴隨疲累、月經亂。
 
 在蘋果樹醫美診所接受功能醫學檢測後，發現荷爾蒙低下與氧化壓力高。原來她的肌膚鬆弛和暗沈不只是老化的問題，更是身體內在失衡的外在表現。
@@ -526,10 +417,6 @@ PicoSure755蜂巢皮秒雷射被稱為皮秒雷射界的「藍寶堅尼」：台
     category: "功能醫學",
     treatment: "功能醫學 + 醫美導入維持",
     date: "2025/10/15",
-    mainImage: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=800&auto=format&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=800&auto=format&fit=crop",
-    ],
     articleText: `39歲媽媽臉部易紅癢刺痛，擦保養過敏，腸胃脹氣。舒敏雷射只能短期緩解，一換季或壓力大就爆發。
 
 在蘋果樹醫美診所接受功能醫學檢測後，發現慢性發炎指數偏高與食物不耐受問題。原來她的敏感肌不只是皮膚屏障功能下降，更是身體內在的慢性發炎在皮膚上的表現。
@@ -553,10 +440,6 @@ PicoSure755蜂巢皮秒雷射被稱為皮秒雷射界的「藍寶堅尼」：台
     category: "功能醫學",
     treatment: "功能醫學 + 醫美電波維持",
     date: "2025/09/08",
-    mainImage: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=800&auto=format&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=800&auto=format&fit=crop",
-    ],
     articleText: `52歲主管臉看起來好累、眼袋重、輪廓下垂、細紋多。眼周電波+肉毒暫時撐住，但總覺得沒精神。
 
 在蘋果樹醫美診所接受功能醫學檢測後，發現皮質醇長期偏高與睡眠品質差。原來他的「疲勞臉」不只是外表老化，更是長期壓力導致身體內分泌失衡的外在表現。
@@ -571,6 +454,12 @@ PicoSure755蜂巢皮秒雷射被稱為皮秒雷射界的「藍寶堅尼」：台
     sourceUrl: "",
   },
 ];
+
+export const CASE_DETAILS: CaseDetail[] = CASE_DETAILS_RAW.map((c) => ({
+  ...c,
+  mainImage: caseMainImage(c.slug),
+  images: caseGallery(c.slug),
+}));
 
 // Helper: get case by slug
 export function getCaseBySlug(slug: string): CaseDetail | undefined {

@@ -44,39 +44,18 @@ export const LOCATIONS = [
   },
 ];
 
-// ─── 照片資源（精準對應，不重複使用） ───
-export const IMAGES = {
-  // Hero & Brand — 符合「內在健康、外在美麗」品牌理念
-  hero: "https://d2xsxph8kpxj0f.cloudfront.net/310519663343349747/NiMiPR2Gq7yAMFRDKJg9Wa/hero-wellness-beauty-1_421d00ba.jpg",
-  heroBeauty: "https://d2xsxph8kpxj0f.cloudfront.net/310519663343349747/NiMiPR2Gq7yAMFRDKJg9Wa/hero-wellness-beauty-2_c3b28121.jpg",
-  heroApple: "https://d2xsxph8kpxj0f.cloudfront.net/310519663343349747/NiMiPR2Gq7yAMFRDKJg9Wa/hero-wellness-beauty-3_99f78acd.jpg",
-  abstract: "https://d2xsxph8kpxj0f.cloudfront.net/310519663343349747/NiMiPR2Gq7yAMFRDKJg9Wa/luxury-abstract-G9QHfHWAhu6PnYZv9RFAYc.webp",
-  // Clinic Interior — AI generated luxury (for Healing Space section)
-  clinicReception: "https://d2xsxph8kpxj0f.cloudfront.net/310519663343349747/NiMiPR2Gq7yAMFRDKJg9Wa/clinic-reception-luxury_faeab8ad.jpg",
-  clinicTreatmentRoom: "https://d2xsxph8kpxj0f.cloudfront.net/310519663343349747/NiMiPR2Gq7yAMFRDKJg9Wa/clinic-treatment-room_2ad79ad5.jpg",
-  clinicConsultation: "https://d2xsxph8kpxj0f.cloudfront.net/310519663343349747/NiMiPR2Gq7yAMFRDKJg9Wa/clinic-consultation_5446f5f0.jpg",
-  // Real photos — Team
-  teamBanner: "https://d2xsxph8kpxj0f.cloudfront.net/310519663343349747/NiMiPR2Gq7yAMFRDKJg9Wa/ChatGPTImage2026%E5%B9%B45%E6%9C%8817%E6%97%A5%E4%B8%8A%E5%8D%8801_39_03_ab80da13.png",
-  // Real photos — Banners (used ONLY for their specific promotions)
-  bannerCollagen: "https://d2xsxph8kpxj0f.cloudfront.net/310519663343349747/NiMiPR2Gq7yAMFRDKJg9Wa/banner-collagen_88bc5db9.jpeg",
-  bannerMounjaro: "https://d2xsxph8kpxj0f.cloudfront.net/310519663343349747/NiMiPR2Gq7yAMFRDKJg9Wa/banner-mounjaro_f6827d52.jpeg",
-  // Real photos — Treatments (each used ONLY for its matching treatment)
-  treatmentAmpule: "https://d2xsxph8kpxj0f.cloudfront.net/310519663343349747/NiMiPR2Gq7yAMFRDKJg9Wa/treatment-ampule_85f5327d.jpeg",
-  treatmentLed: "https://d2xsxph8kpxj0f.cloudfront.net/310519663343349747/NiMiPR2Gq7yAMFRDKJg9Wa/treatment-led_c4fc1411.jpeg",
-  treatmentZwave: "https://d2xsxph8kpxj0f.cloudfront.net/310519663343349747/NiMiPR2Gq7yAMFRDKJg9Wa/treatment-zwave-new_9112cd9b.jpeg",
-  treatmentPicosure: "https://d2xsxph8kpxj0f.cloudfront.net/310519663343349747/NiMiPR2Gq7yAMFRDKJg9Wa/treatment-picosure-new_5b56a1d9.png",
-  treatmentHaifu: "https://d2xsxph8kpxj0f.cloudfront.net/310519663343349747/NiMiPR2Gq7yAMFRDKJg9Wa/treatment-haifu-new_f1187c18.png",
-  // Real photos — Cases (each used ONLY for its matching case)
-  caseEyebag: "https://d2xsxph8kpxj0f.cloudfront.net/310519663343349747/NiMiPR2Gq7yAMFRDKJg9Wa/case-eyebag-male-ba_16e7e032.jpeg",
-  caseDoubleEyelid: "https://d2xsxph8kpxj0f.cloudfront.net/310519663343349747/NiMiPR2Gq7yAMFRDKJg9Wa/case-double-eyelid-ba_fa8c6713.jpeg",
-  caseHydrafacialWaterlight: "https://d2xsxph8kpxj0f.cloudfront.net/310519663343349747/NiMiPR2Gq7yAMFRDKJg9Wa/case-hydrafacial-waterlight_d433ff80.jpeg",
-  caseHydrafacialMale: "https://d2xsxph8kpxj0f.cloudfront.net/310519663343349747/NiMiPR2Gq7yAMFRDKJg9Wa/case-hydrafacial-male_8de0e0cc.jpeg",
-  caseHydrafacialMaleBA: "https://d2xsxph8kpxj0f.cloudfront.net/310519663343349747/NiMiPR2Gq7yAMFRDKJg9Wa/case-hydrafacial-male-ba_e1e7f3e3.jpeg",
-  caseAesthefill: "https://d2xsxph8kpxj0f.cloudfront.net/310519663343349747/NiMiPR2Gq7yAMFRDKJg9Wa/case-aesthefill_1e9848c9.jpeg",
-  caseTalentAbs: "https://d2xsxph8kpxj0f.cloudfront.net/310519663343349747/NiMiPR2Gq7yAMFRDKJg9Wa/case-talent-a-abs_5e2173c6.jpeg",
-  caseTalentHip: "https://d2xsxph8kpxj0f.cloudfront.net/310519663343349747/NiMiPR2Gq7yAMFRDKJg9Wa/case-talent-a-hip_0b871bb8.jpeg",
-  caseBannerBeauty: "https://d2xsxph8kpxj0f.cloudfront.net/310519663343349747/NiMiPR2Gq7yAMFRDKJg9Wa/case-banner-beauty_b74d381b.jpeg",
-};
+// ─── 照片資源（本地 images/ 分類資料夾，見 imageAssets.ts） ───
+export {
+  IMAGES,
+  img,
+  F,
+  treatmentImg,
+  TREATMENT_IMG,
+  doctorImg,
+  NANJING_CLINIC_PHOTOS,
+  BEIDA_CLINIC_PHOTOS,
+} from "./imageAssets";
+import { IMAGES, treatmentImg, doctorImg } from "./imageAssets";
 
 // ─── 真實案例數據 ───
 export interface CaseStudy {
@@ -171,56 +150,56 @@ export const DOCTORS = [
     alias: "馬克醫師",
     title: "南京旗艦主治醫師",
     credentials: ["台大醫學系", "Picosure 755 蜂巢皮秒認證"],
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663343349747/NiMiPR2Gq7yAMFRDKJg9Wa/李俊豪_c48f722f.jpg",
+    image: doctorImg("李俊豪 醫師", ""),
   },
   {
     name: "林漢文 醫師",
     alias: "",
     title: "南京旗艦主治醫師",
     credentials: ["婦產科專科", "微整型美容專長"],
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663343349747/NiMiPR2Gq7yAMFRDKJg9Wa/林漢文_d963255c.jpg",
+    image: doctorImg("林漢文 醫師", ""),
   },
   {
     name: "陳君琳 醫師",
     alias: "",
     title: "南京旗艦主治醫師",
     credentials: ["馬偕醫院", "女性私密治療專長"],
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663343349747/NiMiPR2Gq7yAMFRDKJg9Wa/陳君琳_a4edef2c.jpg",
+    image: doctorImg("陳君琳 醫師", ""),
   },
   {
     name: "林錦生 醫師",
     alias: "",
     title: "主治醫師",
     credentials: ["金線獎百大線雕名醫", "海芙音波原廠認證"],
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663343349747/NiMiPR2Gq7yAMFRDKJg9Wa/林錦生_00de2f65.jpg",
+    image: doctorImg("林錦生 醫師", ""),
   },
   {
     name: "劉佳政 醫師",
     alias: "",
     title: "南京旗艦主治醫師",
     credentials: ["台北榮總外科", "整外手術專長"],
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663343349747/NiMiPR2Gq7yAMFRDKJg9Wa/劉佳政1_c380b2d8.jpg",
+    image: doctorImg("劉佳政 醫師", ""),
   },
   {
     name: "陳韜名 醫師",
     alias: "",
     title: "南京旗艦主治醫師",
     credentials: ["中西醫雙執照", "快樂門診"],
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663343349747/NiMiPR2Gq7yAMFRDKJg9Wa/陳韜名_60fb3dae.jpg",
+    image: doctorImg("陳韜名 醫師", ""),
   },
   {
     name: "吳其穎 醫師",
     alias: "蒼藍鴿",
     title: "北大分院主治醫師",
     credentials: ["台大醫學系", "醫療暢銷書作家"],
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663343349747/NiMiPR2Gq7yAMFRDKJg9Wa/吳其穎_e22432a2.jpg",
+    image: doctorImg("吳其穎 醫師", ""),
   },
   {
     name: "江得信 醫師",
     alias: "",
     title: "北大分院主治醫師",
     credentials: ["長庚醫院", "耳鼻喉科專科"],
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663343349747/NiMiPR2Gq7yAMFRDKJg9Wa/江得信_c81dd3b5.jpg",
+    image: doctorImg("江得信 醫師", ""),
   },
 ];
 
@@ -296,7 +275,7 @@ export const FEATURED_SERVICES = [
     description: "精準注射放鬆過度收縮的肌肉，改善抬頭紋、魚尾紋、皺眉紋。同時可瘦臉、瘦小腿。5 分鐘完成，自然不僵硬，96% 客戶滿意。",
     features: ["5分鐘完成", "自然不僵硬", "除皺瘦臉", "效果可逆"],
     icon: "Droplets",
-    image: IMAGES.treatmentAmpule,
+    image: treatmentImg("肉毒桿菌", IMAGES.treatmentAmpule),
     hotLabel: "🔥 2026 熱搜 #5",
   },
   {
@@ -355,7 +334,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       { name: "PicoSure 755 皮秒蜂巢雷射", subtitle: "24h亮白・膠原新生", description: "755nm 蜂巢透鏡技術，比傳統雷射快 1000 倍，精準擊碎色素顆粒，有效改善斑點、痘疤與毛孔粗大。恢復期僅 1-3 天。", features: ["24h亮白有感", "改善痘疤凹洞", "縮小毛孔", "膠原蛋白新生"], image: IMAGES.treatmentPicosure },
       { name: "海芙電波", subtitle: "深層緊緻・膠原重組", description: "革命性單極電波技術，深層加熱刺激膠原蛋白增生重組，達到緊緻拉提效果。", features: ["深層緊緻拉提", "膠原增生重組", "改善法令紋", "V臉塑形"], image: IMAGES.treatmentHaifu },
       { name: "Z音波拉提", subtitle: "SMAS筋膜層拉提", description: "新一代聚焦式超音波技術，精準作用於 SMAS 筋膜層。", features: ["SMAS筋膜層作用", "非侵入式拉提", "維持度佳", "舒適度提升"], image: IMAGES.treatmentZwave },
-      { name: "索夫波", description: "新一代柱狀聚焦超音波，3D 立體加熱技術，舒適度更高。", features: ["3D立體加熱", "舒適度高", "緊緻拉提", "無恢復期"] },
+      { name: "索夫波", description: "新一代柱狀聚焦超音波，3D 立體加熱技術，舒適度更高。", features: ["3D立體加熱", "舒適度高", "緊緻拉提", "無恢復期"], image: treatmentImg("索夫波", "https://www.drappletree.com.tw/wp-content/uploads/2025/07/縮圖-2-768x508.jpg") },
     ],
   },
   {
@@ -368,17 +347,17 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     focusArea: "填充塑形、除皺撫紋、輪廓調整、保濕注射",
     highlight: "涵蓋玻尿酸、肉毒、膠原增生劑、溶脂針等多種注射選擇",
     items: [
-      { name: "Sunmax 膠原蛋白（熊貓針）", description: "以膠原蛋白直接注入眼周，改善黑眼圈與淚溝問題。", features: ["改善黑眼圈", "淚溝填補", "膠原蛋白", "眼周回春"], image: "https://www.drappletree.com.tw/wp-content/uploads/2025/07/縮圖-拷貝-8-768x508.jpg" },
-      { name: "VivaBella 薇貝拉", subtitle: "新一代膠原增生劑", description: "新一代膠原蛋白增生劑，聚雙旋乳酸與玻尿酸複合配方，兼具即時填充與長效膠原增生。", features: ["膠原蛋白增生", "自然填充", "持久效果", "漸進式改善"], image: "https://www.drappletree.com.tw/wp-content/uploads/2025/07/縮圖-拷貝-6-768x508.jpg" },
-      { name: "肉毒桿菌", description: "精準注射放鬆過度收縮的肌肉，改善動態紋路，同時可瘦臉、瘦小腿。", features: ["改善動態紋", "瘦臉塑形", "瘦小腿", "除皺撫紋"], image: "https://www.drappletree.com.tw/wp-content/uploads/2021/04/肉毒桿菌BOTOX.jpg" },
-      { name: "玻尿酸填充", description: "以不同分子量的玻尿酸針對淚溝、法令紋、蘋果肌等部位進行精準填充。", features: ["精準填充", "即時效果", "自然柔軟", "安全可逆"], image: "https://www.drappletree.com.tw/wp-content/uploads/2021/04/玻尿酸填充喬亞登.jpg" },
-      { name: "Volite 長效保濕針", description: "以微量玻尿酸均勻注入真皮層，從內而外提升肌膚保水度與彈性。", features: ["深層保濕", "提升彈性", "改善膚質", "持久效果"], image: "https://www.drappletree.com.tw/wp-content/uploads/2021/04/volite長效保濕針.jpg" },
-      { name: "Sculptra 舒顏萃", subtitle: "聚左旋乳酸", description: "刺激自體膠原蛋白增生，漸進式改善臉部凹陷與鬆弛。", features: ["膠原增生", "漸進改善", "自然持久", "全臉回春"], image: "https://www.drappletree.com.tw/wp-content/uploads/2021/04/舒顏翠.jpg" },
-      { name: "Ellanse 洢蓮絲", description: "兼具即時填充與長效膠原蛋白增生效果。", features: ["即時填充", "膠原增生", "維持度佳", "自然立體"], image: "https://www.drappletree.com.tw/wp-content/uploads/2021/04/依蓮絲.jpg" },
-      { name: "AestheFill 艾麗斯", subtitle: "聚雙旋乳酸", description: "刺激自體膠原蛋白增生，自然填充流失的蘋果肌與法令紋。", features: ["蘋果肌回春", "膠原增生", "自然持久", "漸進改善"], image: "https://www.drappletree.com.tw/wp-content/uploads/2021/04/AestheFill-艾麗斯-new-768x509.jpg" },
-      { name: "塑立愛 少女立提線", subtitle: "埋線拉提", description: "以可吸收線材埋入皮下，提供即時拉提與長效膠原增生效果。", features: ["即時拉提", "膠原增生", "可吸收線材", "輪廓提升"], image: "https://www.drappletree.com.tw/wp-content/uploads/2021/04/埋線拉提塑立愛-少女立提線.jpg" },
-      { name: "BELKYRA 倍克脂", subtitle: "消脂注射", description: "針對雙下巴等局部脂肪堆積問題，以注射方式溶解脂肪細胞。", features: ["消除雙下巴", "溶脂注射", "非手術", "輪廓改善"], image: "https://www.drappletree.com.tw/wp-content/uploads/2021/04/BELKYRA倍克脂-1.jpg" },
-      { name: "腋下止汗", description: "以注射方式減少腋下汗腺分泌，改善多汗與異味問題。", features: ["減少出汗", "改善異味", "注射治療", "維持度佳"], image: "https://www.drappletree.com.tw/wp-content/uploads/2021/04/腋下止汗MIRADRY.jpg" },
+      { name: "Sunmax 膠原蛋白（熊貓針）", description: "以膠原蛋白直接注入眼周，改善黑眼圈與淚溝問題。", features: ["改善黑眼圈", "淚溝填補", "膠原蛋白", "眼周回春"], image: treatmentImg("Sunmax 膠原蛋白（熊貓針）", "https://www.drappletree.com.tw/wp-content/uploads/2025/07/縮圖-拷貝-8-768x508.jpg") },
+      { name: "VivaBella 薇貝拉", subtitle: "新一代膠原增生劑", description: "新一代膠原蛋白增生劑，聚雙旋乳酸與玻尿酸複合配方，兼具即時填充與長效膠原增生。", features: ["膠原蛋白增生", "自然填充", "持久效果", "漸進式改善"], image: treatmentImg("VivaBella 薇貝拉", "https://www.drappletree.com.tw/wp-content/uploads/2025/07/縮圖-拷貝-6-768x508.jpg") },
+      { name: "肉毒桿菌", description: "精準注射放鬆過度收縮的肌肉，改善動態紋路，同時可瘦臉、瘦小腿。", features: ["改善動態紋", "瘦臉塑形", "瘦小腿", "除皺撫紋"], image: treatmentImg("肉毒桿菌", "https://www.drappletree.com.tw/wp-content/uploads/2021/04/肉毒桿菌BOTOX.jpg") },
+      { name: "玻尿酸填充", description: "以不同分子量的玻尿酸針對淚溝、法令紋、蘋果肌等部位進行精準填充。", features: ["精準填充", "即時效果", "自然柔軟", "安全可逆"], image: treatmentImg("玻尿酸填充", "https://www.drappletree.com.tw/wp-content/uploads/2021/04/玻尿酸填充喬亞登.jpg") },
+      { name: "Volite 長效保濕針", description: "以微量玻尿酸均勻注入真皮層，從內而外提升肌膚保水度與彈性。", features: ["深層保濕", "提升彈性", "改善膚質", "持久效果"], image: treatmentImg("Volite 長效保濕針", "https://www.drappletree.com.tw/wp-content/uploads/2021/04/volite長效保濕針.jpg") },
+      { name: "Sculptra 舒顏萃", subtitle: "聚左旋乳酸", description: "刺激自體膠原蛋白增生，漸進式改善臉部凹陷與鬆弛。", features: ["膠原增生", "漸進改善", "自然持久", "全臉回春"], image: treatmentImg("Sculptra 舒顏萃", "https://www.drappletree.com.tw/wp-content/uploads/2021/04/舒顏翠.jpg") },
+      { name: "Ellanse 洢蓮絲", description: "兼具即時填充與長效膠原蛋白增生效果。", features: ["即時填充", "膠原增生", "維持度佳", "自然立體"], image: treatmentImg("Ellanse 洢蓮絲", "https://www.drappletree.com.tw/wp-content/uploads/2021/04/依蓮絲.jpg") },
+      { name: "AestheFill 艾麗斯", subtitle: "聚雙旋乳酸", description: "刺激自體膠原蛋白增生，自然填充流失的蘋果肌與法令紋。", features: ["蘋果肌回春", "膠原增生", "自然持久", "漸進改善"], image: treatmentImg("AestheFill 艾麗斯", "https://www.drappletree.com.tw/wp-content/uploads/2021/04/AestheFill-艾麗斯-new-768x509.jpg") },
+      { name: "塑立愛 少女立提線", subtitle: "埋線拉提", description: "以可吸收線材埋入皮下，提供即時拉提與長效膠原增生效果。", features: ["即時拉提", "膠原增生", "可吸收線材", "輪廓提升"], image: treatmentImg("塑立愛 少女立提線", "https://www.drappletree.com.tw/wp-content/uploads/2021/04/埋線拉提塑立愛-少女立提線.jpg") },
+      { name: "BELKYRA 倍克脂", subtitle: "消脂注射", description: "針對雙下巴等局部脂肪堆積問題，以注射方式溶解脂肪細胞。", features: ["消除雙下巴", "溶脂注射", "非手術", "輪廓改善"], image: treatmentImg("BELKYRA 倍克脂", "https://www.drappletree.com.tw/wp-content/uploads/2021/04/BELKYRA倍克脂-1.jpg") },
+      { name: "腋下止汗", description: "以注射方式減少腋下汗腺分泌，改善多汗與異味問題。", features: ["減少出汗", "改善異味", "注射治療", "維持度佳"], image: treatmentImg("腋下止汗", "https://www.drappletree.com.tw/wp-content/uploads/2021/04/腋下止汗MIRADRY.jpg") },
     ],
   },
   // ── 整型外科：4 大子分類 ──
@@ -393,9 +372,9 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     focusArea: "雙眼皮、開眼頭/尾、眼袋移除",
     highlight: "整外專科醫師執刀，術前眼神定位模擬",
     items: [
-      { name: "雙眼皮手術", description: "依個人眼型與需求，打造自然有神的雙眼皮。提供縫合式與切開式兩種方案。", features: ["自然眼型", "個人化設計", "縫合/切開式", "恢復期短"], image: "https://www.drappletree.com.tw/wp-content/uploads/2020/07/42f92e1c615755c73386aafe7958e54fd7fc049a-768x560.jpg" },
-      { name: "開眼頭/開眼尾", description: "調整眼睛開口大小與形狀，讓眼型更加明亮開闊。", features: ["眼型放大", "改善比例", "自然開闊", "精準設計"], image: "https://www.drappletree.com.tw/wp-content/uploads/2020/07/50cbc5094931dd777718a40b885c5036f15ec925-768x494.jpg" },
-      { name: "眼袋手術", description: "精準移除眼袋脂肪，同時改善淚溝凹陷，讓雙眼更有神采。", features: ["眼袋移除", "淚溝改善", "精神提升", "年輕化"], image: "https://www.drappletree.com.tw/wp-content/uploads/2020/07/17d20252eea117c843f18b0534b2b27d0e893bbf-768x479.jpg" },
+      { name: "雙眼皮手術", description: "依個人眼型與需求，打造自然有神的雙眼皮。提供縫合式與切開式兩種方案。", features: ["自然眼型", "個人化設計", "縫合/切開式", "恢復期短"], image: treatmentImg("雙眼皮手術", "https://www.drappletree.com.tw/wp-content/uploads/2020/07/42f92e1c615755c73386aafe7958e54fd7fc049a-768x560.jpg") },
+      { name: "開眼頭/開眼尾", description: "調整眼睛開口大小與形狀，讓眼型更加明亮開闊。", features: ["眼型放大", "改善比例", "自然開闊", "精準設計"], image: treatmentImg("開眼頭/開眼尾", "https://www.drappletree.com.tw/wp-content/uploads/2020/07/50cbc5094931dd777718a40b885c5036f15ec925-768x494.jpg") },
+      { name: "眼袋手術", description: "精準移除眼袋脂肪，同時改善淚溝凹陷，讓雙眼更有神采。", features: ["眼袋移除", "淚溝改善", "精神提升", "年輕化"], image: treatmentImg("眼袋手術", "https://www.drappletree.com.tw/wp-content/uploads/2020/07/17d20252eea117c843f18b0534b2b27d0e893bbf-768x479.jpg") },
     ],
   },
   {
@@ -408,10 +387,10 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     focusArea: "隆鼻、縮鼻翼、縮鼻頭、鼻型雕塑",
     highlight: "韓式鼻整形技術，兼顧正面與側面比例",
     items: [
-      { name: "韓式隆鼻手術", description: "以韓式鼻整形技術，打造自然立體的鼻型，兼顧正面與側面比例。", features: ["韓式技術", "自然立體", "正側面兼顧", "個人化設計"], image: "https://www.drappletree.com.tw/wp-content/uploads/2020/07/1b29fa9496181057b3482cb48b3597d9f312e814-768x570.jpg" },
-      { name: "卡麥拉隆鼻手術", description: "使用卡麥拉材質進行隆鼻，材質穩定不易位移，觸感自然。", features: ["材質穩定", "不易位移", "自然觸感", "長效維持"], image: "https://www.drappletree.com.tw/wp-content/uploads/upload/images/c36fd352049f7d79acc9c6c2f610fa9dcb00d1d3-768x562.jpg" },
-      { name: "縮鼻翼手術", description: "縮小過寬的鼻翼，讓鼻型更加精緻和諧。", features: ["鼻翼縮小", "精緻鼻型", "和諧比例", "微創手術"], image: "https://www.drappletree.com.tw/wp-content/uploads/2020/07/11287bbed3ca9af00488bc3e87cb9b4c03afc124.jpg" },
-      { name: "縮鼻頭手術", description: "針對鼻頭過大或圓鈍問題，精準雕塑鼻頭形狀，讓鼻型更加精緻。", features: ["鼻頭精緻化", "改善圓鈍", "精準雕塑", "和諧比例"], image: "https://www.drappletree.com.tw/wp-content/uploads/upload/images/49818cce29f3c45ecbad57ef138f88806041b6f1.jpg" },
+      { name: "韓式隆鼻手術", description: "以韓式鼻整形技術，打造自然立體的鼻型，兼顧正面與側面比例。", features: ["韓式技術", "自然立體", "正側面兼顧", "個人化設計"], image: treatmentImg("韓式隆鼻手術", "https://www.drappletree.com.tw/wp-content/uploads/2020/07/1b29fa9496181057b3482cb48b3597d9f312e814-768x570.jpg") },
+      { name: "卡麥拉隆鼻手術", description: "使用卡麥拉材質進行隆鼻，材質穩定不易位移，觸感自然。", features: ["材質穩定", "不易位移", "自然觸感", "長效維持"], image: treatmentImg("卡麥拉隆鼻手術", "https://www.drappletree.com.tw/wp-content/uploads/upload/images/c36fd352049f7d79acc9c6c2f610fa9dcb00d1d3-768x562.jpg") },
+      { name: "縮鼻翼手術", description: "縮小過寬的鼻翼，讓鼻型更加精緻和諧。", features: ["鼻翼縮小", "精緻鼻型", "和諧比例", "微創手術"], image: treatmentImg("縮鼻翼手術", "https://www.drappletree.com.tw/wp-content/uploads/2020/07/11287bbed3ca9af00488bc3e87cb9b4c03afc124.jpg") },
+      { name: "縮鼻頭手術", description: "針對鼻頭過大或圓鈍問題，精準雕塑鼻頭形狀，讓鼻型更加精緻。", features: ["鼻頭精緻化", "改善圓鈍", "精準雕塑", "和諧比例"], image: treatmentImg("縮鼻頭手術", "https://www.drappletree.com.tw/wp-content/uploads/upload/images/49818cce29f3c45ecbad57ef138f88806041b6f1.jpg") },
     ],
   },
   {
@@ -424,11 +403,11 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     focusArea: "隆乳、提胸、乳暈、平胸手術",
     highlight: "多種隆乳方式可選，術前詳細評估",
     items: [
-      { name: "果凍矽膠隆乳", description: "使用新一代果凍矽膠義乳，觸感柔軟自然，安全性高。", features: ["觸感自然", "安全性高", "形狀穩定", "多種尺寸"], image: "https://www.drappletree.com.tw/wp-content/uploads/upload/images/195317a0c9f01a6424029a89b608055f84118953.jpg" },
-      { name: "自體脂肪隆乳手術", description: "抽取自身多餘脂肪移植至胸部，一舉兩得，觸感真實。", features: ["自體脂肪", "觸感真實", "同時雕塑", "自然外觀"], image: "https://www.drappletree.com.tw/wp-content/uploads/2021/01/隆乳-1.jpg" },
-      { name: "提胸手術", description: "改善胸部下垂問題，重新塑造堅挺飽滿的胸型。", features: ["改善下垂", "重塑胸型", "堅挺飽滿", "自然曲線"], image: "https://www.drappletree.com.tw/wp-content/uploads/2021/01/提胸-1.jpg" },
-      { name: "乳暈手術", description: "調整乳暈大小與顏色，讓胸部外觀更加美觀和諧。", features: ["調整大小", "改善顏色", "美觀和諧", "微創手術"] },
-      { name: "平胸手術", description: "針對男性女乳症或跨性別需求，提供安全的平胸手術方案。", features: ["改善女乳症", "安全手術", "自然胸型", "恢復自信"] },
+      { name: "果凍矽膠隆乳", description: "使用新一代果凍矽膠義乳，觸感柔軟自然，安全性高。", features: ["觸感自然", "安全性高", "形狀穩定", "多種尺寸"], image: treatmentImg("果凍矽膠隆乳", "https://www.drappletree.com.tw/wp-content/uploads/upload/images/195317a0c9f01a6424029a89b608055f84118953.jpg") },
+      { name: "自體脂肪隆乳手術", description: "抽取自身多餘脂肪移植至胸部，一舉兩得，觸感真實。", features: ["自體脂肪", "觸感真實", "同時雕塑", "自然外觀"], image: treatmentImg("自體脂肪隆乳手術", "https://www.drappletree.com.tw/wp-content/uploads/2021/01/隆乳-1.jpg") },
+      { name: "提胸手術", description: "改善胸部下垂問題，重新塑造堅挺飽滿的胸型。", features: ["改善下垂", "重塑胸型", "堅挺飽滿", "自然曲線"], image: treatmentImg("提胸手術", "https://www.drappletree.com.tw/wp-content/uploads/2021/01/提胸-1.jpg") },
+      { name: "乳暈手術", description: "調整乳暈大小與顏色，讓胸部外觀更加美觀和諧。", features: ["調整大小", "改善顏色", "美觀和諧", "微創手術"], image: treatmentImg("乳暈手術", "https://www.drappletree.com.tw/wp-content/uploads/2021/01/乳暈-1.jpg") },
+      { name: "平胸手術", description: "針對男性女乳症或跨性別需求，提供安全的平胸手術方案。", features: ["改善女乳症", "安全手術", "自然胸型", "恢復自信"], image: treatmentImg("平胸手術", "https://www.drappletree.com.tw/wp-content/uploads/2021/01/提胸-1.jpg") },
     ],
   },
   {
@@ -441,9 +420,9 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     focusArea: "抽脂雕塑、脂肪移植、無痕拉皮",
     highlight: "超音波抽脂技術，脂肪存活率高",
     items: [
-      { name: "抽脂手術", description: "針對腰腹、大腿、手臂等局部脂肪堆積，以抽脂技術精準雕塑身體曲線。", features: ["局部雕塑", "精準抽脂", "曲線塑形", "恢復期短"] },
-      { name: "自體脂肪移植手術", description: "將抽出的自體脂肪經純化後移植至臉部凹陷處，自然填補豐潤。", features: ["自體脂肪", "自然豐潤", "一舉兩得", "持久效果"], image: "https://www.drappletree.com.tw/wp-content/uploads/2021/01/補臉-1.jpg" },
-      { name: "無痕拉皮手術", description: "針對臉部鬆弛與下垂問題，以微創技術進行拉皮，恢復緊緻輪廓。", features: ["微創技術", "恢復緊緻", "改善鬆弛", "自然年輕"], image: "https://www.drappletree.com.tw/wp-content/uploads/2021/01/無痕拉皮-1.jpg" },
+      { name: "抽脂手術", description: "針對腰腹、大腿、手臂等局部脂肪堆積，以抽脂技術精準雕塑身體曲線。", features: ["局部雕塑", "精準抽脂", "曲線塑形", "恢復期短"], image: treatmentImg("抽脂手術", "https://www.drappletree.com.tw/wp-content/uploads/2021/01/抽脂手術.jpg") },
+      { name: "自體脂肪移植手術", description: "將抽出的自體脂肪經純化後移植至臉部凹陷處，自然填補豐潤。", features: ["自體脂肪", "自然豐潤", "一舉兩得", "持久效果"], image: treatmentImg("自體脂肪移植手術", "https://www.drappletree.com.tw/wp-content/uploads/2021/01/補臉-1.jpg") },
+      { name: "無痕拉皮手術", description: "針對臉部鬆弛與下垂問題，以微創技術進行拉皮，恢復緊緻輪廓。", features: ["微創技術", "恢復緊緻", "改善鬆弛", "自然年輕"], image: treatmentImg("無痕拉皮手術", "https://www.drappletree.com.tw/wp-content/uploads/2021/01/無痕拉皮-1.jpg") },
     ],
   },
   {
@@ -457,12 +436,12 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     focusArea: "體重管理、局部雕塑、肌肉鍛鍊、代謝調節",
     highlight: "涵蓋 GLP-1 藥物、動磁波、消脂針等多元體態管理方案",
     items: [
-      { name: "Wegovy 週纖達", subtitle: "GLP-1 受體促效劑", description: "經臨床實證可有效降低體重，上市時間較長，臨床數據豐富。", features: ["臨床實證", "體重管理", "代謝改善", "長效作用"], image: "https://www.drappletree.com.tw/wp-content/uploads/2025/10/縮圖-拷貝-768x508.jpg" },
-      { name: "Mounjaro 猛健樂", subtitle: "GIP/GLP-1 雙重受體促效劑", description: "新一代雙重受體促效劑，透過調節食慾與代謝，幫助有效管理體重。", features: ["雙重受體", "食慾調節", "代謝提升", "科學減重"], image: "https://www.drappletree.com.tw/wp-content/uploads/2025/07/縮圖-拷貝-1-768x508.jpg" },
-      { name: "Talent-A 動磁波", subtitle: "30分鐘高效鍛鍊", description: "高強度聚焦電磁波刺激肌肉收縮，30分鐘等於數萬次肌肉鍛鍊，輕鬆打造馬甲線、翹臀。", features: ["腹肌鍛鍊", "翹臀塑形", "非侵入式", "30分鐘見效"], image: "https://www.drappletree.com.tw/wp-content/uploads/2021/12/1-1-768x509.jpg" },
-      { name: "減肥筆", description: "以注射方式調節食慾與代謝，協助體重管理。需由醫師評估後處方使用。", features: ["食慾調節", "醫師處方", "便利使用", "體重管理"], image: "https://www.drappletree.com.tw/wp-content/uploads/2021/06/減肥筆.jpg" },
-      { name: "ICOONE", description: "結合微振動與負壓技術的體雕儀器，改善橘皮組織與局部曲線。", features: ["改善橘皮", "曲線雕塑", "非侵入式", "舒適體驗"], image: "https://www.drappletree.com.tw/wp-content/uploads/2021/06/ICOONE.jpg" },
-      { name: "消脂針/消脂點滴", description: "以注射方式針對局部脂肪堆積進行溶解，適合小範圍局部雕塑。", features: ["局部溶脂", "非手術", "小範圍雕塑", "改善曲線"], image: "https://www.drappletree.com.tw/wp-content/uploads/2021/06/消脂針消脂點滴.jpg" },
+      { name: "Wegovy 週纖達", subtitle: "GLP-1 受體促效劑", description: "經臨床實證可有效降低體重，上市時間較長，臨床數據豐富。", features: ["臨床實證", "體重管理", "代謝改善", "長效作用"], image: treatmentImg("Wegovy 週纖達", "https://www.drappletree.com.tw/wp-content/uploads/2025/10/縮圖-拷貝-768x508.jpg") },
+      { name: "Mounjaro 猛健樂", subtitle: "GIP/GLP-1 雙重受體促效劑", description: "新一代雙重受體促效劑，透過調節食慾與代謝，幫助有效管理體重。", features: ["雙重受體", "食慾調節", "代謝提升", "科學減重"], image: treatmentImg("Mounjaro 猛健樂", "https://www.drappletree.com.tw/wp-content/uploads/2025/07/縮圖-拷貝-1-768x508.jpg") },
+      { name: "Talent-A 動磁波", subtitle: "30分鐘高效鍛鍊", description: "高強度聚焦電磁波刺激肌肉收縮，30分鐘等於數萬次肌肉鍛鍊，輕鬆打造馬甲線、翹臀。", features: ["腹肌鍛鍊", "翹臀塑形", "非侵入式", "30分鐘見效"], image: treatmentImg("Talent-A 動磁波", "https://www.drappletree.com.tw/wp-content/uploads/2021/12/1-1-768x509.jpg") },
+      { name: "減肥筆", description: "以注射方式調節食慾與代謝，協助體重管理。需由醫師評估後處方使用。", features: ["食慾調節", "醫師處方", "便利使用", "體重管理"], image: treatmentImg("減肥筆", "https://www.drappletree.com.tw/wp-content/uploads/2021/06/減肥筆.jpg") },
+      { name: "ICOONE", description: "結合微振動與負壓技術的體雕儀器，改善橘皮組織與局部曲線。", features: ["改善橘皮", "曲線雕塑", "非侵入式", "舒適體驗"], image: treatmentImg("ICOONE", "https://www.drappletree.com.tw/wp-content/uploads/2021/06/ICOONE.jpg") },
+      { name: "消脂針/消脂點滴", description: "以注射方式針對局部脂肪堆積進行溶解，適合小範圍局部雕塑。", features: ["局部溶脂", "非手術", "小範圍雕塑", "改善曲線"], image: treatmentImg("消脂針/消脂點滴", "https://www.drappletree.com.tw/wp-content/uploads/2021/06/消脂針消脂點滴.jpg") },
     ],
   },
   {
@@ -475,7 +454,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     focusArea: "私密處美學、緊緻回春、色素改善",
     highlight: "女醫師主導，完全隱私環境",
     items: [
-      { name: "私密處雷射", description: "採用專業雷射技術改善私密處色素沉澱、鬆弛等問題，提升自信與生活品質。", features: ["改善色素", "緊緻回春", "安全溫和", "隱私保護"] },
+      { name: "私密處雷射", description: "採用專業雷射技術改善私密處色素沉澱、鬆弛等問題，提升自信與生活品質。", features: ["改善色素", "緊緻回春", "安全溫和", "隱私保護"], image: treatmentImg("私密處雷射", "https://www.drappletree.com.tw/wp-content/uploads/2021/01/診所照.jpg") },
     ],
   },
   {
@@ -489,11 +468,11 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     focusArea: "男性膚質管理、除毛、痘疤改善、生髮、體雕",
     highlight: "專為男性設計的療程流程，注重效率與自然感",
     items: [
-      { name: "男性除毛", description: "針對男性常見的鬍鬚、胸毛、腿毛等部位，以雷射技術進行永久性除毛。", features: ["雷射除毛", "多部位適用", "維持度佳", "舒適度高"], image: "https://www.drappletree.com.tw/wp-content/uploads/2021/06/男性除毛.jpeg" },
-      { name: "男性微整", description: "針對男性臉部輪廓進行微整注射，改善紋路、調整比例，維持自然俐落感。", features: ["自然俐落", "改善紋路", "輪廓調整", "快速恢復"], image: "https://www.drappletree.com.tw/wp-content/uploads/2021/06/男-微整-2-768x439.jpg" },
-      { name: "男性痘疤", description: "以雷射與複合療程改善男性常見的痘疤、凹洞問題，提升膚質平滑度。", features: ["痘疤改善", "凹洞修復", "膚質提升", "複合療程"], image: "https://www.drappletree.com.tw/wp-content/uploads/2021/06/男痘疤-3-768x439.jpg" },
-      { name: "男性生髮", description: "針對男性雄性禿等落髮問題，提供口服藥物、外用藥物與雷射生髮等多元方案。", features: ["雄性禿治療", "多元方案", "生髮促進", "頭皮管理"], image: "https://www.drappletree.com.tw/wp-content/uploads/2021/06/生髮-3-768x439.jpg" },
-      { name: "男性體雕", description: "以動磁波等儀器協助男性鍛鍊腹肌、改善體態，打造精實身形。", features: ["腹肌鍛鍊", "體態改善", "非侵入式", "精實身形"], image: "https://www.drappletree.com.tw/wp-content/uploads/2021/06/體雕-5-768x439.jpg" },
+      { name: "男性除毛", description: "針對男性常見的鬍鬚、胸毛、腿毛等部位，以雷射技術進行永久性除毛。", features: ["雷射除毛", "多部位適用", "維持度佳", "舒適度高"], image: treatmentImg("男性除毛", "https://www.drappletree.com.tw/wp-content/uploads/2021/06/男性除毛.jpeg") },
+      { name: "男性微整", description: "針對男性臉部輪廓進行微整注射，改善紋路、調整比例，維持自然俐落感。", features: ["自然俐落", "改善紋路", "輪廓調整", "快速恢復"], image: treatmentImg("男性微整", "https://www.drappletree.com.tw/wp-content/uploads/2021/06/男-微整-2-768x439.jpg") },
+      { name: "男性痘疤", description: "以雷射與複合療程改善男性常見的痘疤、凹洞問題，提升膚質平滑度。", features: ["痘疤改善", "凹洞修復", "膚質提升", "複合療程"], image: treatmentImg("男性痘疤", "https://www.drappletree.com.tw/wp-content/uploads/2021/06/男痘疤-3-768x439.jpg") },
+      { name: "男性生髮", description: "針對男性雄性禿等落髮問題，提供口服藥物、外用藥物與雷射生髮等多元方案。", features: ["雄性禿治療", "多元方案", "生髮促進", "頭皮管理"], image: treatmentImg("男性生髮", "https://www.drappletree.com.tw/wp-content/uploads/2021/06/生髮-3-768x439.jpg") },
+      { name: "男性體雕", description: "以動磁波等儀器協助男性鍛鍊腹肌、改善體態，打造精實身形。", features: ["腹肌鍛鍊", "體態改善", "非侵入式", "精實身形"], image: treatmentImg("男性體雕", "https://www.drappletree.com.tw/wp-content/uploads/2021/06/體雕-5-768x439.jpg") },
     ],
   },
   {
@@ -507,8 +486,8 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     focusArea: "組織修復、膠原再生、自癒能力啟動",
     highlight: "運用自體血液萃取技術，安全天然",
     items: [
-      { name: "增生療法", description: "以注射方式刺激身體自然修復機制，促進受損組織再生與修復。", features: ["促進修復", "自然再生", "改善疼痛", "組織重建"], image: "https://www.drappletree.com.tw/wp-content/uploads/2021/06/增生1-768x512.png" },
-      { name: "IHT（PRP）注射療法", subtitle: "自體血小板血漿", description: "萃取自體血液中的高濃度血小板生長因子，注入目標部位促進組織修復與膠原蛋白再生。", features: ["自體萃取", "促進修復", "膠原再生", "安全天然"], image: "https://www.drappletree.com.tw/wp-content/uploads/2021/06/PRP-1.jpg" },
+      { name: "增生療法", description: "以注射方式刺激身體自然修復機制，促進受損組織再生與修復。", features: ["促進修復", "自然再生", "改善疼痛", "組織重建"], image: treatmentImg("增生療法", "https://www.drappletree.com.tw/wp-content/uploads/2021/06/增生1-768x512.png") },
+      { name: "IHT（PRP）注射療法", subtitle: "自體血小板血漿", description: "萃取自體血液中的高濃度血小板生長因子，注入目標部位促進組織修復與膠原蛋白再生。", features: ["自體萃取", "促進修復", "膠原再生", "安全天然"], image: treatmentImg("IHT（PRP）注射療法", "https://www.drappletree.com.tw/wp-content/uploads/2021/06/PRP-1.jpg") },
     ],
   },
   {
@@ -521,9 +500,9 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     focusArea: "落髮治療、頭皮健康、毛髮養護、生髮促進",
     highlight: "從頭皮檢測開始，制定個人化生髮方案",
     items: [
-      { name: "不動刀育髮", description: "結合口服藥物、外用藥物與雷射生髮帽等多元治療方案，不需手術即可改善落髮。", features: ["非手術", "多元方案", "改善落髮", "促進生長"], image: "https://www.drappletree.com.tw/wp-content/uploads/2021/06/不動刀育髮.jpg" },
-      { name: "毛髮護理", description: "以專業頭皮護理療程，改善頭皮環境，為毛髮生長創造良好條件。", features: ["頭皮護理", "改善環境", "促進生長", "專業療程"], image: "https://www.drappletree.com.tw/wp-content/uploads/2021/06/毛髮護理.jpg" },
-      { name: "頭皮檢測", description: "以專業儀器進行頭皮與毛囊健康檢測，作為生髮治療的評估基礎。", features: ["精密檢測", "毛囊評估", "治療依據", "個人化分析"], image: "https://www.drappletree.com.tw/wp-content/uploads/2021/06/頭皮檢測.jpg" },
+      { name: "不動刀育髮", description: "結合口服藥物、外用藥物與雷射生髮帽等多元治療方案，不需手術即可改善落髮。", features: ["非手術", "多元方案", "改善落髮", "促進生長"], image: treatmentImg("不動刀育髮", "https://www.drappletree.com.tw/wp-content/uploads/2021/06/不動刀育髮.jpg") },
+      { name: "毛髮護理", description: "以專業頭皮護理療程，改善頭皮環境，為毛髮生長創造良好條件。", features: ["頭皮護理", "改善環境", "促進生長", "專業療程"], image: treatmentImg("毛髮護理", "https://www.drappletree.com.tw/wp-content/uploads/2021/06/毛髮護理.jpg") },
+      { name: "頭皮檢測", description: "以專業儀器進行頭皮與毛囊健康檢測，作為生髮治療的評估基礎。", features: ["精密檢測", "毛囊評估", "治療依據", "個人化分析"], image: treatmentImg("頭皮檢測", "https://www.drappletree.com.tw/wp-content/uploads/2021/06/頭皮檢測.jpg") },
     ],
   },
   {
@@ -536,9 +515,9 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     focusArea: "營養補充、代謝提升、免疫強化、由內而外調理",
     highlight: "依個人檢測結果客製化營養補充方案",
     items: [
-      { name: "氦氖雷射 ILIB", subtitle: "靜脈雷射", description: "以低能量雷射照射血液，促進血液循環與細胞代謝，改善疲勞與免疫力。", features: ["促進循環", "改善疲勞", "提升免疫", "細胞活化"], image: "https://www.drappletree.com.tw/wp-content/uploads/2021/06/縮圖-拷貝-1-768x508.jpg" },
-      { name: "點滴針劑", description: "依個人需求調配高濃度維生素、礦物質與胺基酸點滴，快速補充身體所需營養。", features: ["客製化配方", "快速補充", "提升代謝", "增強免疫"], image: "https://www.drappletree.com.tw/wp-content/uploads/2021/06/點滴注射-768x549.jpg" },
-      { name: "營養配方", description: "由醫師依個人檢測結果，規劃專屬的營養補充配方。", features: ["個人化配方", "醫師規劃", "精準補充", "長期調理"], image: "https://www.drappletree.com.tw/wp-content/uploads/2016/11/營養配方-768x549.jpeg" },
+      { name: "氦氖雷射 ILIB", subtitle: "靜脈雷射", description: "以低能量雷射照射血液，促進血液循環與細胞代謝，改善疲勞與免疫力。", features: ["促進循環", "改善疲勞", "提升免疫", "細胞活化"], image: treatmentImg("氦氖雷射 ILIB", "https://www.drappletree.com.tw/wp-content/uploads/2021/06/縮圖-拷貝-1-768x508.jpg") },
+      { name: "點滴針劑", description: "依個人需求調配高濃度維生素、礦物質與胺基酸點滴，快速補充身體所需營養。", features: ["客製化配方", "快速補充", "提升代謝", "增強免疫"], image: treatmentImg("點滴針劑", "https://www.drappletree.com.tw/wp-content/uploads/2021/06/點滴注射-768x549.jpg") },
+      { name: "營養配方", description: "由醫師依個人檢測結果，規劃專屬的營養補充配方。", features: ["個人化配方", "醫師規劃", "精準補充", "長期調理"], image: treatmentImg("營養配方", "https://www.drappletree.com.tw/wp-content/uploads/2016/11/營養配方-768x549.jpeg") },
     ],
   },
   {
@@ -551,12 +530,12 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     focusArea: "精密檢測、根因分析、預防醫學、健康追蹤",
     highlight: "涵蓋基因、腸道菌叢、腦波、自律神經等多項精密檢測",
     items: [
-      { name: "基因檢測", description: "透過基因分析了解個人體質特性、疾病風險與營養代謝傾向，作為健康管理的長期依據。", features: ["體質分析", "風險評估", "營養建議", "長期依據"], image: "https://www.drappletree.com.tw/wp-content/uploads/2021/06/基因檢測BNV2.jpg" },
-      { name: "3DMRA 檢測", description: "以非侵入式方式掃描全身器官功能狀態，快速了解身體整體健康狀況。", features: ["全身掃描", "非侵入式", "快速了解", "整體評估"], image: "https://www.drappletree.com.tw/wp-content/uploads/2021/06/3DMRAV3.jpg" },
-      { name: "腦波檢測", description: "以腦波儀器分析大腦活動狀態，評估壓力、注意力與睡眠品質。", features: ["壓力評估", "注意力分析", "睡眠品質", "大腦健康"], image: "https://www.drappletree.com.tw/wp-content/uploads/2021/06/腦波檢測BNV2.jpg" },
-      { name: "腸道菌叢分析", description: "分析腸道菌群組成與多樣性，了解腸道健康狀態與免疫功能。", features: ["菌群分析", "腸道健康", "免疫評估", "營養建議"], image: "https://www.drappletree.com.tw/wp-content/uploads/2021/06/腸道菌BN.jpg" },
-      { name: "HRV 自律神經分析", description: "以心率變異分析評估自律神經平衡狀態，了解壓力與恢復能力。", features: ["自律神經", "壓力評估", "恢復能力", "平衡分析"], image: "https://www.drappletree.com.tw/wp-content/uploads/2018/07/HRVBNV2.jpg" },
-      { name: "PTG 血管分析", description: "以光體積變化描記法分析血管彈性與循環狀態。", features: ["血管彈性", "循環評估", "非侵入式", "心血管健康"], image: "https://www.drappletree.com.tw/wp-content/uploads/2018/07/PTGBN2.jpg" },
+      { name: "基因檢測", description: "透過基因分析了解個人體質特性、疾病風險與營養代謝傾向，作為健康管理的長期依據。", features: ["體質分析", "風險評估", "營養建議", "長期依據"], image: treatmentImg("基因檢測", "https://www.drappletree.com.tw/wp-content/uploads/2021/06/基因檢測BNV2.jpg") },
+      { name: "3DMRA 檢測", description: "以非侵入式方式掃描全身器官功能狀態，快速了解身體整體健康狀況。", features: ["全身掃描", "非侵入式", "快速了解", "整體評估"], image: treatmentImg("3DMRA 檢測", "https://www.drappletree.com.tw/wp-content/uploads/2021/06/3DMRAV3.jpg") },
+      { name: "腦波檢測", description: "以腦波儀器分析大腦活動狀態，評估壓力、注意力與睡眠品質。", features: ["壓力評估", "注意力分析", "睡眠品質", "大腦健康"], image: treatmentImg("腦波檢測", "https://www.drappletree.com.tw/wp-content/uploads/2021/06/腦波檢測BNV2.jpg") },
+      { name: "腸道菌叢分析", description: "分析腸道菌群組成與多樣性，了解腸道健康狀態與免疫功能。", features: ["菌群分析", "腸道健康", "免疫評估", "營養建議"], image: treatmentImg("腸道菌叢分析", "https://www.drappletree.com.tw/wp-content/uploads/2021/06/腸道菌BN.jpg") },
+      { name: "HRV 自律神經分析", description: "以心率變異分析評估自律神經平衡狀態，了解壓力與恢復能力。", features: ["自律神經", "壓力評估", "恢復能力", "平衡分析"], image: treatmentImg("HRV 自律神經分析", "https://www.drappletree.com.tw/wp-content/uploads/2018/07/HRVBNV2.jpg") },
+      { name: "PTG 血管分析", description: "以光體積變化描記法分析血管彈性與循環狀態。", features: ["血管彈性", "循環評估", "非侵入式", "心血管健康"], image: treatmentImg("PTG 血管分析", "https://www.drappletree.com.tw/wp-content/uploads/2018/07/PTGBN2.jpg") },
     ],
   },
   {
@@ -569,12 +548,12 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     focusArea: "情緒調理、壓力管理、睡眠改善、身心平衡",
     highlight: "中西醫雙執照醫師主持，結合音樂治療與功能醫學檢測",
     items: [
-      { name: "快樂門診", description: "由中西醫雙執照醫師提供整合性身心調理方案，針對壓力、失眠、焦慮等現代文明病。", features: ["中西醫整合", "壓力管理", "改善睡眠", "情緒調理"], image: "https://www.drappletree.com.tw/wp-content/uploads/2021/06/快樂門診.jpg" },
-      { name: "音樂治療", description: "以音樂作為治療媒介，透過聆聽、演奏與互動，促進身心放鬆與情緒調節。", features: ["音樂療癒", "身心放鬆", "情緒調節", "壓力釋放"], image: "https://www.drappletree.com.tw/wp-content/uploads/2021/06/音樂門診.jpg" },
-      { name: "3DMRA 檢測", description: "以非侵入式方式掃描全身器官功能狀態，作為身心調理的評估基礎。", features: ["全身掃描", "非侵入式", "整體評估", "治療依據"], image: "https://www.drappletree.com.tw/wp-content/uploads/2021/06/3DMRAV3.jpg" },
-      { name: "腦波檢測", description: "分析大腦活動狀態，評估壓力指數與睡眠品質，作為治療方案的參考依據。", features: ["壓力評估", "睡眠分析", "大腦健康", "治療參考"], image: "https://www.drappletree.com.tw/wp-content/uploads/2021/06/腦波檢測BNV2.jpg" },
-      { name: "HRV 自律神經分析", description: "評估自律神經平衡狀態，了解身體的壓力反應與恢復能力。", features: ["自律神經", "壓力反應", "恢復能力", "平衡評估"], image: "https://www.drappletree.com.tw/wp-content/uploads/2018/07/HRVBNV2.jpg" },
-      { name: "PTG 血管分析", description: "分析血管彈性與循環狀態，作為整體健康評估的一環。", features: ["血管健康", "循環評估", "整體健康", "非侵入式"], image: "https://www.drappletree.com.tw/wp-content/uploads/2018/07/PTGBN2.jpg" },
+      { name: "快樂門診", description: "由中西醫雙執照醫師提供整合性身心調理方案，針對壓力、失眠、焦慮等現代文明病。", features: ["中西醫整合", "壓力管理", "改善睡眠", "情緒調理"], image: treatmentImg("快樂門診", "https://www.drappletree.com.tw/wp-content/uploads/2021/06/快樂門診.jpg") },
+      { name: "音樂治療", description: "以音樂作為治療媒介，透過聆聽、演奏與互動，促進身心放鬆與情緒調節。", features: ["音樂療癒", "身心放鬆", "情緒調節", "壓力釋放"], image: treatmentImg("音樂治療", "https://www.drappletree.com.tw/wp-content/uploads/2021/06/音樂門診.jpg") },
+      { name: "3DMRA 檢測", description: "以非侵入式方式掃描全身器官功能狀態，作為身心調理的評估基礎。", features: ["全身掃描", "非侵入式", "整體評估", "治療依據"], image: treatmentImg("3DMRA 檢測", "https://www.drappletree.com.tw/wp-content/uploads/2021/06/3DMRAV3.jpg") },
+      { name: "腦波檢測", description: "分析大腦活動狀態，評估壓力指數與睡眠品質，作為治療方案的參考依據。", features: ["壓力評估", "睡眠分析", "大腦健康", "治療參考"], image: treatmentImg("腦波檢測", "https://www.drappletree.com.tw/wp-content/uploads/2021/06/腦波檢測BNV2.jpg") },
+      { name: "HRV 自律神經分析", description: "評估自律神經平衡狀態，了解身體的壓力反應與恢復能力。", features: ["自律神經", "壓力反應", "恢復能力", "平衡評估"], image: treatmentImg("HRV 自律神經分析", "https://www.drappletree.com.tw/wp-content/uploads/2018/07/HRVBNV2.jpg") },
+      { name: "PTG 血管分析", description: "分析血管彈性與循環狀態，作為整體健康評估的一環。", features: ["血管健康", "循環評估", "整體健康", "非侵入式"], image: treatmentImg("PTG 血管分析", "https://www.drappletree.com.tw/wp-content/uploads/2018/07/PTGBN2.jpg") },
     ],
   },
   {
@@ -587,7 +566,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     focusArea: "疫苗接種、疾病預防、健康保護",
     highlight: "專業醫師評估，安全施打環境",
     items: [
-      { name: "自費疫苗接種", description: "提供流感疫苗、HPV疫苗、帶狀疱疹疫苗等多種自費疫苗，由醫師評估後安全施打。", features: ["多種疫苗", "專業施打", "安全保障", "預防保健"], image: "https://www.drappletree.com.tw/wp-content/uploads/2021/06/縮圖-拷貝-768x508.jpg" },
+      { name: "自費疫苗接種", description: "提供流感疫苗、HPV疫苗、帶狀疱疹疫苗等多種自費疫苗，由醫師評估後安全施打。", features: ["多種疫苗", "專業施打", "安全保障", "預防保健"], image: treatmentImg("自費疫苗接種", "https://www.drappletree.com.tw/wp-content/uploads/2021/06/縮圖-拷貝-768x508.jpg") },
     ],
   },
   {
@@ -601,12 +580,12 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     focusArea: "深層清潔、保濕修護、膚質提升、煥膚亮白",
     highlight: "結合專業儀器與醫學級保養品，建立肌膚健康基礎",
     items: [
-      { name: "Rejuran 麗珠蘭", subtitle: "鮭魚針", description: "以鮭魚DNA多核苷酸注入肌膚，促進細胞修復與膠原蛋白再生，改善膚質與彈性。", features: ["細胞修復", "膠原再生", "改善膚質", "提升彈性"], image: "https://www.drappletree.com.tw/wp-content/uploads/2025/12/縮圖-拷貝-768x508.jpg" },
-      { name: "超級玻尿酸鎖水保濕面膜", description: "以高濃度玻尿酸面膜深層補水，為肌膚建立保濕屏障。", features: ["深層補水", "保濕屏障", "即時水潤", "舒緩修護"], image: "https://www.drappletree.com.tw/wp-content/uploads/2020/06/縮圖-768x508.jpg" },
-      { name: "膠原膜（膠原蛋白面膜）", description: "以膠原蛋白面膜為肌膚補充膠原蛋白，提升彈性與緊緻度。", features: ["膠原補充", "提升彈性", "緊緻肌膚", "修護保養"], image: "https://www.drappletree.com.tw/wp-content/uploads/2025/07/縮圖-拷貝-7-768x508.jpg" },
-      { name: "安瓶導入", subtitle: "醫美前導升級", description: "以專業導入儀器將高濃度精華安瓶深層導入肌膚，提升吸收效率。", features: ["深層導入", "高濃度精華", "提升吸收", "即時亮澤"], image: "https://www.drappletree.com.tw/wp-content/uploads/2025/07/縮圖-拷貝-5-768x508.jpg" },
-      { name: "AI 光譜治療", description: "運用不同波長的光能，針對痘痘、泛紅、暗沉等不同肌膚問題進行精準治療。", features: ["抗痘消炎", "舒緩泛紅", "促進修復", "恢復期短"], image: "https://www.drappletree.com.tw/wp-content/uploads/2025/07/縮圖-2-768x508.jpg" },
-      { name: "O2 to Derm 氧氣面罩", description: "以高壓氧氣技術促進肌膚吸收營養成分，提升膚質與光澤。", features: ["高壓氧氣", "促進吸收", "膚質提升", "光澤感"], image: "https://www.drappletree.com.tw/wp-content/uploads/2025/07/縮圖-拷貝-2-768x508.jpg" },
+      { name: "Rejuran 麗珠蘭", subtitle: "鮭魚針", description: "以鮭魚DNA多核苷酸注入肌膚，促進細胞修復與膠原蛋白再生，改善膚質與彈性。", features: ["細胞修復", "膠原再生", "改善膚質", "提升彈性"], image: treatmentImg("Rejuran 麗珠蘭", "https://www.drappletree.com.tw/wp-content/uploads/2025/12/縮圖-拷貝-768x508.jpg") },
+      { name: "超級玻尿酸鎖水保濕面膜", description: "以高濃度玻尿酸面膜深層補水，為肌膚建立保濕屏障。", features: ["深層補水", "保濕屏障", "即時水潤", "舒緩修護"], image: treatmentImg("超級玻尿酸鎖水保濕面膜", "https://www.drappletree.com.tw/wp-content/uploads/2020/06/縮圖-768x508.jpg") },
+      { name: "膠原膜（膠原蛋白面膜）", description: "以膠原蛋白面膜為肌膚補充膠原蛋白，提升彈性與緊緻度。", features: ["膠原補充", "提升彈性", "緊緻肌膚", "修護保養"], image: treatmentImg("膠原膜（膠原蛋白面膜）", "https://www.drappletree.com.tw/wp-content/uploads/2025/07/縮圖-拷貝-7-768x508.jpg") },
+      { name: "安瓶導入", subtitle: "醫美前導升級", description: "以專業導入儀器將高濃度精華安瓶深層導入肌膚，提升吸收效率。", features: ["深層導入", "高濃度精華", "提升吸收", "即時亮澤"], image: treatmentImg("安瓶導入", "https://www.drappletree.com.tw/wp-content/uploads/2025/07/縮圖-拷貝-5-768x508.jpg") },
+      { name: "AI 光譜治療", description: "運用不同波長的光能，針對痘痘、泛紅、暗沉等不同肌膚問題進行精準治療。", features: ["抗痘消炎", "舒緩泛紅", "促進修復", "恢復期短"], image: treatmentImg("AI 光譜治療", "https://www.drappletree.com.tw/wp-content/uploads/2025/07/縮圖-2-768x508.jpg") },
+      { name: "O2 to Derm 氧氣面罩", description: "以高壓氧氣技術促進肌膚吸收營養成分，提升膚質與光澤。", features: ["高壓氧氣", "促進吸收", "膚質提升", "光澤感"], image: treatmentImg("O2 to Derm 氧氣面罩", "https://www.drappletree.com.tw/wp-content/uploads/2025/07/縮圖-拷貝-2-768x508.jpg") },
     ],
   },
   {
@@ -619,7 +598,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     focusArea: "深層放鬆、肌膚修護、身心療癒",
     highlight: "醫學級保養品搭配專業手技",
     items: [
-      { name: "醫學美容SPA", description: "由專業美容師操作的醫學級SPA療程，結合高效能保養品與專業手技，在放鬆中完成深層保養。", features: ["深層放鬆", "肌膚修護", "專業手技", "醫學級保養"] },
+      { name: "醫學美容SPA", description: "由專業美容師操作的醫學級SPA療程，結合高效能保養品與專業手技，在放鬆中完成深層保養。", features: ["深層放鬆", "肌膚修護", "專業手技", "醫學級保養"], image: treatmentImg("醫學美容SPA", "https://www.drappletree.com.tw/wp-content/uploads/2025/07/縮圖-拷貝-2-768x508.jpg") },
     ],
   },
 ];

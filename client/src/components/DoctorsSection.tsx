@@ -131,7 +131,7 @@ export default function DoctorsSection() {
                       {doc.credentials.slice(0, 3).map((c) => (
                         <div key={c} className="flex items-start gap-1.5">
                           <div className="w-1 h-1 rounded-full bg-sage-mist/50 shrink-0 mt-1.5" />
-                          <span className="text-[0.6rem] font-body text-ink/35 leading-tight">{c}</span>
+                          <span className="text-[0.75rem] font-body text-ink/45 leading-snug">{c}</span>
                         </div>
                       ))}
                     </div>

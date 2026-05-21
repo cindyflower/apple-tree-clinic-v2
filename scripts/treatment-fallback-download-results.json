@@ -1,0 +1,88 @@
+[
+  {
+    "mapKey": "玻尿酸填充",
+    "folder": "03_微整注射",
+    "file": "玻尿酸填充.jpg",
+    "status": "ok"
+  },
+  {
+    "mapKey": "Volite 長效保濕針",
+    "folder": "03_微整注射",
+    "file": "Volite長效保濕針.jpg",
+    "status": "ok"
+  },
+  {
+    "mapKey": "Sculptra 舒顏萃",
+    "folder": "03_微整注射",
+    "file": "Sculptra舒顏萃.jpg",
+    "status": "ok"
+  },
+  {
+    "mapKey": "Ellanse 洢蓮絲",
+    "folder": "03_微整注射",
+    "file": "Ellanse洢蓮絲.jpg",
+    "status": "ok"
+  },
+  {
+    "mapKey": "AestheFill 艾麗斯",
+    "folder": "03_微整注射",
+    "file": "AestheFill艾麗斯.jpg",
+    "status": "ok"
+  },
+  {
+    "mapKey": "塑立愛 少女立提線",
+    "folder": "03_微整注射",
+    "file": "塑立愛少女立提線.jpg",
+    "status": "ok"
+  },
+  {
+    "mapKey": "腋下止汗",
+    "folder": "03_微整注射",
+    "file": "腋下止汗.jpg",
+    "status": "ok"
+  },
+  {
+    "mapKey": "開眼頭/開眼尾",
+    "folder": "04_整型外科",
+    "file": "開眼頭開眼尾.jpg",
+    "status": "ok"
+  },
+  {
+    "mapKey": "韓式隆鼻手術",
+    "folder": "04_整型外科",
+    "file": "韓式隆鼻手術.jpg",
+    "status": "ok"
+  },
+  {
+    "mapKey": "卡麥拉隆鼻手術",
+    "folder": "04_整型外科",
+    "file": "卡麥拉隆鼻手術.jpg",
+    "status": "ok"
+  },
+  {
+    "mapKey": "縮鼻翼手術",
+    "folder": "04_整型外科",
+    "file": "縮鼻翼手術.jpg",
+    "status": "ok"
+  },
+  {
+    "mapKey": "縮鼻頭手術",
+    "folder": "04_整型外科",
+    "file": "縮鼻頭手術.jpg",
+    "status": "fail",
+    "error": "HTTP 404"
+  },
+  {
+    "mapKey": "果凍矽膠隆乳",
+    "folder": "04_整型外科",
+    "file": "果凍矽膠隆乳.jpg",
+    "status": "fail",
+    "error": "HTTP 404"
+  },
+  {
+    "mapKey": "ICOONE",
+    "folder": "05_形體雕塑",
+    "file": "ICOONE.jpg",
+    "status": "ok"
+  }
+]

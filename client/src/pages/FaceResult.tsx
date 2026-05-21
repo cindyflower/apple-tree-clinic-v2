@@ -33,6 +33,7 @@ import {
   type AgingType,
 } from "@/lib/faceTestData";
 import { BRAND } from "@/lib/constants";
+import { IMAGES } from "@/lib/imageAssets";
 import {
   trackViewResult,
   trackClickReservation,
@@ -100,10 +101,10 @@ const FOUR_R_MAP: Record<
 
 // ─── Static Share Card Images (pre-designed, no dynamic generation) ───
 const SHARE_CARD_IMAGES: Record<AgingType, string> = {
-  sagging: "https://d2xsxph8kpxj0f.cloudfront.net/310519663343349747/NiMiPR2Gq7yAMFRDKJg9Wa/sagging_3891c1e1.png",
-  collagen: "https://d2xsxph8kpxj0f.cloudfront.net/310519663343349747/NiMiPR2Gq7yAMFRDKJg9Wa/hollow-alt_33d0a0ce.png",
-  skin: "https://d2xsxph8kpxj0f.cloudfront.net/310519663343349747/NiMiPR2Gq7yAMFRDKJg9Wa/hollow_3c4d191f.png",
-  fatigue: "https://d2xsxph8kpxj0f.cloudfront.net/310519663343349747/NiMiPR2Gq7yAMFRDKJg9Wa/fatigue_c71f0311.png",
+  sagging: IMAGES.faceSagging,
+  collagen: IMAGES.faceCollagen,
+  skin: IMAGES.faceSkin,
+  fatigue: IMAGES.faceFatigue,
 };
 
 // Detect mobile

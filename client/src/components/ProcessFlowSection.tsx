@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import { useInView } from "@/hooks/useInView";
 import VideoSoundToggle from "@/components/VideoSoundToggle";
 
-const VIDEO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663343349747/NiMiPR2Gq7yAMFRDKJg9Wa/介紹序顏如何幫助你的流程影片_f3b7f377.mp4";
+import { IMAGES } from "@/lib/imageAssets";
 
 export default function ProcessFlowSection() {
   const { ref, inView } = useInView({ threshold: 0.1 });
@@ -55,7 +55,7 @@ export default function ProcessFlowSection() {
             className="w-full h-auto block rounded-3xl shadow-2xl shadow-botanical/8"
             style={{ maxWidth: "1200px", objectFit: "contain" }}
           >
-            <source src={VIDEO_URL} type="video/mp4" />
+            <source src={IMAGES.videoProcessFlow} type="video/mp4" />
           </video>
           <VideoSoundToggle videoRef={videoRef} />
         </motion.div>

@@ -114,3 +114,6 @@ _archive/
 # Manus debug logs (dev only)
 .manus-logs/
 source-code/.manus-logs/
+
+# Generated from images/ on dev/build (vitePluginSyncTreatmentImages)
+client/public/images/

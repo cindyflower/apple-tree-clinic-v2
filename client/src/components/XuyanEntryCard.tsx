@@ -14,9 +14,7 @@ import { motion } from "framer-motion";
 import { useInView } from "@/hooks/useInView";
 import { Link } from "wouter";
 import { Sparkles, ChevronRight } from "lucide-react";
-
-const XUYAN_HERO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663343349747/NiMiPR2Gq7yAMFRDKJg9Wa/xuyan-hero-woman-W5xxi3ZwZHPDzSisn66nV4.webp";
-const LOGO_GREEN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663343349747/NiMiPR2Gq7yAMFRDKJg9Wa/logo-green-270_1d09d370.png";
+import { IMAGES } from "@/lib/imageAssets";
 
 const STEPS = [
   {
@@ -96,7 +94,7 @@ export default function XuyanEntryCard() {
           <div className="lg:col-span-3 py-14 md:py-20 lg:py-24 px-6 sm:px-8 md:px-10 lg:px-14 flex flex-col justify-center">
             {/* Logo */}
             <div className="mb-6">
-              <img loading="lazy" src={LOGO_GREEN}
+              <img loading="lazy" src={IMAGES.logoGreen}
                 alt="蘋果樹 Dr. Appletree"
                 className="w-12 h-12 object-contain opacity-80"
               />
@@ -187,7 +185,7 @@ export default function XuyanEntryCard() {
                 background: "linear-gradient(to right, #1e4030 0%, transparent 35%)",
               }}
             />
-            <img loading="lazy" src={XUYAN_HERO}
+            <img loading="lazy" src={IMAGES.xuyanHero}
               alt="序顏 AI 美學管理師"
               className="w-full h-full object-cover object-[center_15%]"
              
@@ -213,7 +211,7 @@ export default function XuyanEntryCard() {
             background: "linear-gradient(to bottom, #1e4030 0%, transparent 20%, transparent 70%, #1e4030 100%)",
           }}
         />
-        <img loading="lazy" src={XUYAN_HERO}
+        <img loading="lazy" src={IMAGES.xuyanHero}
           alt="序顏 AI 美學管理師"
           className="w-full h-full object-cover object-[center_15%]"
          

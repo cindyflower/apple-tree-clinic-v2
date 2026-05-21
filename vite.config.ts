@@ -150,7 +150,51 @@ function vitePluginManusDebugCollector(): Plugin {
   };
 }
 
-const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector()];
+/** Sync Manus image pack (images/00_* … 14_*) → client/public/images for Vite */
+function vitePluginSyncTreatmentImages(): Plugin {
+  const srcRoot = path.join(PROJECT_ROOT, "images");
+  const destRoot = path.join(PROJECT_ROOT, "client", "public", "images");
+
+  const sync = () => {
+    if (!fs.existsSync(srcRoot)) return;
+    fs.mkdirSync(destRoot, { recursive: true });
+    for (const name of fs.readdirSync(srcRoot)) {
+      if (!/^\d{2}_/.test(name)) continue;
+      const src = path.join(srcRoot, name);
+      if (!fs.statSync(src).isDirectory()) continue;
+      fs.cpSync(src, path.join(destRoot, name), { recursive: true, force: true });
+    }
+    const casesSrc = path.join(srcRoot, "cases");
+    if (fs.existsSync(casesSrc)) {
+      fs.cpSync(casesSrc, path.join(destRoot, "cases"), { recursive: true, force: true });
+    }
+    const destRootAssets = path.join(destRoot, "_root");
+    fs.mkdirSync(destRootAssets, { recursive: true });
+    for (const name of fs.readdirSync(srcRoot)) {
+      const src = path.join(srcRoot, name);
+      if (!fs.statSync(src).isFile()) continue;
+      if (!/\.(jpe?g|png|webp|mp4)$/i.test(name)) continue;
+      fs.copyFileSync(src, path.join(destRootAssets, name));
+    }
+  };
+
+  return {
+    name: "sync-treatment-images",
+    buildStart: sync,
+    configureServer() {
+      sync();
+    },
+  };
+}
+
+const plugins = [
+  react(),
+  tailwindcss(),
+  jsxLocPlugin(),
+  vitePluginSyncTreatmentImages(),
+  vitePluginManusRuntime(),
+  vitePluginManusDebugCollector(),
+];
 
 const isGitHubPages = process.env.GITHUB_PAGES === "true";
 
