@@ -42,6 +42,17 @@ export function pathnameToRoute(pathname?: string): string {
   return path || "/";
 }
 
+/** Absolute URL for a public asset path (handles withBase paths and plain /images/ paths). */
+export function absoluteAssetUrl(assetPath: string): string {
+  if (/^https?:\/\//i.test(assetPath)) return assetPath;
+  const path = assetPath.startsWith("/") ? assetPath : `/${assetPath}`;
+  const basePath = BASE_URL.replace(/\/$/, "");
+  if (basePath && basePath !== "/" && path.startsWith(basePath)) {
+    return `${getSiteOrigin()}${path}`;
+  }
+  return `${getSiteBase()}${path}`;
+}
+
 /** Share/copy URL — prefers env-pinned origin, otherwise current browser origin. */
 export function runtimeSiteUrl(route: string): string {
   const fromEnv = import.meta.env.VITE_SITE_URL?.trim();

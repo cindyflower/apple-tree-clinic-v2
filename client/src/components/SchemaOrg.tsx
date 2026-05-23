@@ -9,7 +9,8 @@
  */
 
 import { BRAND } from "@/lib/constants";
-import { absoluteSiteUrl } from "@/lib/siteUrl";
+import { IMAGES } from "@/lib/imageAssets";
+import { absoluteAssetUrl, absoluteSiteUrl } from "@/lib/siteUrl";
 
 interface ClinicLocation {
   name: string;
@@ -47,8 +48,8 @@ export function HomepageSchema() {
     name: "蘋果樹醫美診所 Dr. Appletree",
     alternateName: "Dr. Appletree Medical Aesthetics",
     url: absoluteSiteUrl("/"),
-    logo: absoluteSiteUrl("/logo.png"),
-    image: absoluteSiteUrl("/og-image.jpg"),
+    logo: absoluteAssetUrl(IMAGES.logoGreen),
+    image: absoluteAssetUrl(IMAGES.hero),
     description:
       "蘋果樹醫美診所提供皮秒雷射、音波拉提、電波拉提、玻尿酸微整、肉毒桿菌、膠原再生、整型外科等專業醫美療程。以醫療專業與科技檢測，陪你建立更自然、更長期的美麗管理方式。",
     telephone: "+886-2-2716-3535",
@@ -203,7 +204,7 @@ export function TreatmentSchema({
     "@type": "MedicalProcedure",
     name,
     description,
-    image,
+    image: absoluteAssetUrl(image),
     procedureType,
     bodyLocation: bodyLocation || "Face",
     howPerformed: "由專業醫師操作",
@@ -246,7 +247,7 @@ export function ArticleSchema({
     "@type": "Article",
     headline: title,
     description,
-    image,
+    image: absoluteAssetUrl(image),
     datePublished,
     dateModified: datePublished,
     url: absoluteSiteUrl(`/case/${slug}`),
@@ -260,7 +261,7 @@ export function ArticleSchema({
       name: "蘋果樹醫美診所 Dr. Appletree",
       logo: {
         "@type": "ImageObject",
-        url: absoluteSiteUrl("/logo.png"),
+        url: absoluteAssetUrl(IMAGES.logoGreen),
       },
     },
   };

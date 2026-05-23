@@ -5,7 +5,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { defineConfig, type Plugin, type ViteDevServer } from "vite";
 import { vitePluginManusRuntime } from "vite-plugin-manus-runtime";
-import { resolveSiteConfig } from "./shared/siteConfig.mjs";
+import { resolveSiteConfig, absoluteAssetUrl, DEFAULT_OG_IMAGE_PATH } from "./shared/siteConfig.mjs";
 
 // =============================================================================
 // Manus Debug Collector - Vite Plugin
@@ -218,8 +218,11 @@ function vitePluginSiteUrl(): Plugin {
   return {
     name: "site-url",
     transformIndexHtml(html) {
-      const { siteBase } = resolveSiteConfig(process.env);
-      return html.replaceAll("__SITE_BASE__", siteBase);
+      const config = resolveSiteConfig(process.env);
+      const defaultOgImage = absoluteAssetUrl(DEFAULT_OG_IMAGE_PATH, config);
+      return html
+        .replaceAll("__SITE_BASE__", config.siteBase)
+        .replaceAll("__DEFAULT_OG_IMAGE__", defaultOgImage);
     },
   };
 }

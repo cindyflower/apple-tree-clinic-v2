@@ -16,6 +16,7 @@
  */
 import { useState, useCallback } from "react";
 import { useSEO } from "@/hooks/useSEO";
+import { IMAGES } from "@/lib/imageAssets";
 import { HomepageSchema } from "@/components/SchemaOrg";
 import Navbar from "@/components/Navbar";
 import QuizHeroSection from "@/components/QuizHeroSection";
@@ -42,6 +43,7 @@ export default function Home() {
   useSEO({
     title: '蘋果樹醫美 Dr. Appletree｜台北醫美推薦｜皇秒雷射・音波拉提・電波拉提・立體雕塑・再生醫學',
     description: '蘋果樹醫美診所｜台北松山・三峽北大・桃園藝文三院。提供皇秒雷射、音波拉提、電波拉提、立體雕塑、再生醫學、整型外科等專業醫美療程。以醫療專業與科技檢測，陪你建立更自然、更長期的美麗管理方式。',
+    ogImage: IMAGES.hero,
     canonical: '/',
     keywords: '蘋果樹醫美,台北醫美推薦,皇秒雷射,音波拉提,電波拉提,立體雕塑,再生醫學,整型外科,美麗管理',
   });

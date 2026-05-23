@@ -4,6 +4,10 @@ export const PRODUCTION_ORIGIN = "https://www.drappletree.com.tw";
 export const GITHUB_PAGES_ORIGIN = "https://cindyflower.github.io";
 export const GITHUB_PAGES_BASE = "/apple-tree-clinic-v2";
 
+/** Default OG image path (no base prefix). Matches IMAGES.hero in imageAssets.ts. */
+export const DEFAULT_OG_IMAGE_PATH =
+  "/images/00_%E5%93%81%E7%89%8C%E8%88%87%E7%92%B0%E5%A2%83/hero-wellness-beauty-1.jpg";
+
 function normalizeOrigin(url) {
   return url.replace(/\/$/, "");
 }
@@ -30,4 +34,14 @@ export function absoluteUrl(route, config) {
   if (route === "/" || route === "") return `${siteBase}/`;
   const normalized = route.startsWith("/") ? route : `/${route}`;
   return `${siteBase}${normalized}`;
+}
+
+/** @param {string} assetPath @param {ReturnType<typeof resolveSiteConfig>} config */
+export function absoluteAssetUrl(assetPath, config) {
+  if (/^https?:\/\//i.test(assetPath)) return assetPath;
+  const path = assetPath.startsWith("/") ? assetPath : `/${assetPath}`;
+  if (config.basePath && path.startsWith(config.basePath)) {
+    return `${config.origin}${path}`;
+  }
+  return `${config.siteBase}${path}`;
 }

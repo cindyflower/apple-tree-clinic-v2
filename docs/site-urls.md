@@ -33,6 +33,8 @@ sitemap 腳本亦支援 `SITE_URL`（與 `VITE_SITE_URL` 同值），供 Node �
 - `client/src/components/SchemaOrg.tsx`
 - 臉部測驗分享連結（`FaceResult.tsx` → `runtimeSiteUrl()`）
 
+預設 OG 分享圖為 `images/00_品牌與環境/hero-wellness-beauty-1.jpg`（`IMAGES.hero`）。各頁可透過 `useSEO({ ogImage: ... })` 指定其他本地圖，會自動轉為絕對 URL。
+
 ## 上線 Cloudflare Pages 時
 
 Cloudflare Pages build 設定：
