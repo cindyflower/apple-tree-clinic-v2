@@ -134,8 +134,8 @@ export const TREATMENT_IMG = {
   "韓式隆鼻手術": img(F.surgery, "韓式隆鼻手術.jpg"),
   "卡麥拉隆鼻手術": img(F.surgery, "卡麥拉隆鼻手術.jpg"),
   "縮鼻翼手術": img(F.surgery, "縮鼻翼手術.jpg"),
-  "縮鼻頭手術": img(F.surgery, "縮鼻翼手術.jpg"),
-  "果凍矽膠隆乳": img(F.surgery, "提胸手術.jpg"),
+  "縮鼻頭手術": img(F.surgery, "縮鼻頭手術.jpg"),
+  "果凍矽膠隆乳": img(F.surgery, "果凍矽膠隆乳.jpg"),
   "眼袋手術": img(F.surgery, "case-eyebag-male-ba.jpeg"),
   "提胸手術": img(F.surgery, "提胸手術.jpg"),
   "自體脂肪隆乳手術": img(F.surgery, "自體脂肪隆乳手術.jpg"),
@@ -178,9 +178,9 @@ export const TREATMENT_IMG = {
   "索夫波": img(F.laser, "索夫波.jpg"),
   "乳暈手術": img(F.surgery, "乳暈手術.jpg"),
   "抽脂手術": img(F.surgery, "抽脂手術.jpg"),
-  "平胸手術": img(F.surgery, "提胸手術.jpg"),
-  "私密處雷射": img(F.brand, "clinic-treatment-room.jpg"),
-  "醫學美容SPA": img(F.skin, "O2toDerm氧氣面罩.jpg"),
+  "平胸手術": img(F.surgery, "平胸手術.jpg"),
+  "私密處雷射": img(F.surgery, "私密處雷射.jpg"),
+  "醫學美容SPA": img(F.skin, "醫學美容SPA.jpg"),
 } as const satisfies Record<string, string>;
 
 export function treatmentImg(name: string, fallback: string): string {

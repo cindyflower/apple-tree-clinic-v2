@@ -325,7 +325,7 @@ PicoSure755蜂巢皮秒雷射被稱為皮秒雷射界的「藍寶堅尼」：台
     tags: ["皮秒雷射", "蜂巢透鏡", "除斑", "改善膚質", "縮小毛孔"],
     highlight: true,
     hotTopic: "2026 熱搜 #1：皮秒蜂巢雷射",
-    sourceUrl: "https://www.drappletree.com.tw/tag/case/",
+    sourceUrl: "https://www.drappletree.com.tw/applenews/case/1914/",
   },
 
   // ─── 12. 玻尿酸 淚溝掰掰 ───

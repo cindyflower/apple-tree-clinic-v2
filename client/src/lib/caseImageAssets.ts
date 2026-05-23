@@ -48,7 +48,14 @@ const GALLERY_FILES: Record<string, readonly string[]> = {
     "07.jpg",
     "08.jpg",
   ],
-  "talent-a-arm": ["cover.jpg"],
+  "talent-a-arm": [
+    "cover.jpg",
+    "02.jpg",
+    "03.jpg",
+    "04.jpg",
+    "05.jpg",
+    "06.jpg",
+  ],
   "talent-a-abs-kol": [
     "cover.jpg",
     "02.jpg",
@@ -61,7 +68,27 @@ const GALLERY_FILES: Record<string, readonly string[]> = {
     "09.jpg",
     "10.jpg",
   ],
-  "talent-a-belly": ["cover.jpg"],
+  "talent-a-belly": [
+    "cover.jpg",
+    "02.jpg",
+    "03.jpg",
+    "04.jpg",
+    "05.jpg",
+    "06.jpg",
+    "07.jpg",
+    "08.jpg",
+  ],
+  "v-face-queen": ["cover.jpg"],
+  "picosure-case": [
+    "cover.jpg",
+    "02.jpg",
+    "03.jpg",
+    "04.jpg",
+    "05.jpg",
+    "06.png",
+    "07.jpg",
+    "08.jpg",
+  ],
   "ha-tear-trough": [
     "cover.jpg",
     "02.png",
@@ -79,8 +106,6 @@ const GALLERY_FILES: Record<string, readonly string[]> = {
 
 /** Slugs with no downloaded assets — use Manus pack / clinic imagery */
 const FALLBACK_GALLERY: Record<string, readonly string[]> = {
-  "v-face-queen": [IMAGES.caseAesthefill, img(F.injection, "肉毒桿菌.jpg")],
-  "picosure-case": [IMAGES.treatmentPicosure, img(F.skin, "AI光譜治療.jpg")],
   "rosacea-gut": [img(F.functional, "腸道菌叢分析.jpg")],
   "menopause-hormone": [img(F.functional, "3DMRA檢測.jpg"), img(F.functional, "HRV自律神經分析.jpg")],
   "sensitive-skin-inflammation": [img(F.skin, "AI光譜治療.jpg"), img(F.functional, "腸道菌叢分析.jpg")],

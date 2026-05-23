@@ -23,8 +23,11 @@ const ITEMS = [
   { folder: "04_整型外科", file: "韓式隆鼻手術.jpg", mapKey: "韓式隆鼻手術", url: "https://www.drappletree.com.tw/wp-content/uploads/2020/07/1b29fa9496181057b3482cb48b3597d9f312e814-768x570.jpg" },
   { folder: "04_整型外科", file: "卡麥拉隆鼻手術.jpg", mapKey: "卡麥拉隆鼻手術", url: "https://www.drappletree.com.tw/wp-content/uploads/upload/images/c36fd352049f7d79acc9c6c2f610fa9dcb00d1d3-768x562.jpg" },
   { folder: "04_整型外科", file: "縮鼻翼手術.jpg", mapKey: "縮鼻翼手術", url: "https://www.drappletree.com.tw/wp-content/uploads/2020/07/11287bbed3ca9af00488bc3e87cb9b4c03afc124.jpg" },
-  { folder: "04_整型外科", file: "縮鼻頭手術.jpg", mapKey: "縮鼻頭手術", url: "https://www.drappletree.com.tw/wp-content/uploads/upload/images/49818cce29f3c45ecbad57ef138f88806041b6f1.jpg" },
-  { folder: "04_整型外科", file: "果凍矽膠隆乳.jpg", mapKey: "果凍矽膠隆乳", url: "https://www.drappletree.com.tw/wp-content/uploads/upload/images/195317a0c9f01a6424029a89b608055f84118953.jpg" },
+  { folder: "04_整型外科", file: "縮鼻頭手術.jpg", mapKey: "縮鼻頭手術", url: "https://www.drappletree.com.tw/wp-content/uploads/upload/images/9c809983f4995e777f22e515a7b0f346f0fdd241.jpg" },
+  { folder: "04_整型外科", file: "果凍矽膠隆乳.jpg", mapKey: "果凍矽膠隆乳", url: "https://www.drappletree.com.tw/wp-content/uploads/2020/07/195317a0c9f01a6424029a89b608055f84118953.jpg" },
+  { folder: "04_整型外科", file: "平胸手術.jpg", mapKey: "平胸手術", url: "https://www.drappletree.com.tw/wp-content/uploads/2021/01/%E6%8F%90%E8%83%B8-1.jpg" },
+  { folder: "04_整型外科", file: "私密處雷射.jpg", mapKey: "私密處雷射", url: "https://www.drappletree.com.tw/wp-content/uploads/2021/02/10.jpg" },
+  { folder: "07_肌膚管理", file: "醫學美容SPA.jpg", mapKey: "醫學美容SPA", url: "https://www.drappletree.com.tw/wp-content/uploads/2025/07/%E7%B8%AE%E5%9C%96-%E6%8B%B7%E8%B2%9D-2.jpg" },
   { folder: "05_形體雕塑", file: "ICOONE.jpg", mapKey: "ICOONE", url: "https://www.drappletree.com.tw/wp-content/uploads/2021/06/ICOONE.jpg" },
 ];
 

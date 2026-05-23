@@ -1,5 +1,17 @@
 [
   {
+    "mapKey": "Sunmax 膠原蛋白（熊貓針）",
+    "folder": "03_微整注射",
+    "file": "Sunmax膠原蛋白-熊貓針.jpg",
+    "status": "ok"
+  },
+  {
+    "mapKey": "VivaBella 薇貝拉",
+    "folder": "03_微整注射",
+    "file": "VivaBella薇貝拉.jpg",
+    "status": "ok"
+  },
+  {
     "mapKey": "玻尿酸填充",
     "folder": "03_微整注射",
     "file": "玻尿酸填充.jpg",
@@ -69,15 +81,31 @@
     "mapKey": "縮鼻頭手術",
     "folder": "04_整型外科",
     "file": "縮鼻頭手術.jpg",
-    "status": "fail",
-    "error": "HTTP 404"
+    "status": "ok"
   },
   {
     "mapKey": "果凍矽膠隆乳",
     "folder": "04_整型外科",
     "file": "果凍矽膠隆乳.jpg",
-    "status": "fail",
-    "error": "HTTP 404"
+    "status": "ok"
+  },
+  {
+    "mapKey": "平胸手術",
+    "folder": "04_整型外科",
+    "file": "平胸手術.jpg",
+    "status": "ok"
+  },
+  {
+    "mapKey": "私密處雷射",
+    "folder": "04_整型外科",
+    "file": "私密處雷射.jpg",
+    "status": "ok"
+  },
+  {
+    "mapKey": "醫學美容SPA",
+    "folder": "07_肌膚管理",
+    "file": "醫學美容SPA.jpg",
+    "status": "ok"
   },
   {
     "mapKey": "ICOONE",
