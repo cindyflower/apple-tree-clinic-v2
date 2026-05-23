@@ -16,8 +16,7 @@ import {
   type VideoItem,
 } from "@/lib/videoData";
 import { trackClickVideo } from "@/lib/analytics";
-
-const LINE_URL = "https://lin.ee/Jgfv5Hl";
+import { BRAND } from "@/lib/constants";
 
 export default function VideoSection() {
   const { ref, inView } = useInView({ threshold: 0.05 });
@@ -245,7 +244,7 @@ export default function VideoSection() {
                           </a>
                         )}
                         <a
-                          href={LINE_URL}
+                          href={BRAND.lineUrl}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex items-center gap-1 px-3 py-1.5 text-[0.65rem] font-body font-medium text-champagne-dark bg-champagne/10 rounded-full hover:bg-champagne/20 transition-colors"

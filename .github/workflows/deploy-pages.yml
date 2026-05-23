@@ -34,6 +34,8 @@ jobs:
         run: pnpm run build:pages
         env:
           GITHUB_PAGES: "true"
+          VITE_SITE_URL: https://cindyflower.github.io
+          SITE_URL: https://cindyflower.github.io
 
       - name: SPA fallback for client-side routes
         run: cp dist/public/index.html dist/public/404.html

@@ -38,9 +38,11 @@ pnpm preview      # → http://localhost:4173
 3. 本地模擬 GitHub Pages 建置：
 
 ```bash
-GITHUB_PAGES=true pnpm run build:pages
+GITHUB_PAGES=true VITE_SITE_URL=https://cindyflower.github.io pnpm run build:pages
 pnpm preview
 ```
+
+Canonical / sitemap / Schema.org 網址由 `VITE_SITE_URL` 統一控制；上線 Cloudflare 時只需改 env，詳見 **[docs/site-urls.md](docs/site-urls.md)**。
 
 ## 版本管理建議
 

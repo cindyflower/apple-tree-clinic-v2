@@ -4,7 +4,7 @@
  *
  * v4 changes:
  * - Premium share card template (珍珠白底、玫瑰金光暈)
- * - Real official logo + QR Code pointing to drappletree.com.tw/face-test
+ * - Share link uses current site origin + /face-test
  * - Dynamic copy per aging type
  * - Mobile Web Share API + download support
  * - Share card preview before download
@@ -33,6 +33,7 @@ import {
   type AgingType,
 } from "@/lib/faceTestData";
 import { BRAND } from "@/lib/constants";
+import { runtimeSiteUrl } from "@/lib/siteUrl";
 import { IMAGES } from "@/lib/imageAssets";
 import {
   trackViewResult,
@@ -114,6 +115,10 @@ const isMobile = () =>
     navigator.userAgent
   );
 
+function getFaceTestShareUrl(): string {
+  return runtimeSiteUrl("/face-test");
+}
+
 export default function FaceResult() {
   const search = useSearch();
   const params = new URLSearchParams(search);
@@ -159,7 +164,7 @@ export default function FaceResult() {
   // Copy link
   const handleCopyLink = useCallback(() => {
     trackCopyLink(primaryType);
-    navigator.clipboard.writeText("https://www.drappletree.com.tw/face-test");
+    navigator.clipboard.writeText(getFaceTestShareUrl());
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   }, [primaryType]);
@@ -196,7 +201,7 @@ export default function FaceResult() {
         await navigator.share({
           title: `我測出來是「${resultName}」`,
           text: `我測完直接傻眼…原來我是【${resultName}】😱 你也測看看👇`,
-          url: "https://www.drappletree.com.tw/face-test",
+          url: getFaceTestShareUrl(),
         });
       } catch {
         // cancelled

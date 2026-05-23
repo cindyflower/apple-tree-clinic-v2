@@ -8,6 +8,9 @@
  * - Article (per case page)
  */
 
+import { BRAND } from "@/lib/constants";
+import { absoluteSiteUrl } from "@/lib/siteUrl";
+
 interface ClinicLocation {
   name: string;
   address: string;
@@ -43,9 +46,9 @@ export function HomepageSchema() {
     "@type": "MedicalBusiness",
     name: "蘋果樹醫美診所 Dr. Appletree",
     alternateName: "Dr. Appletree Medical Aesthetics",
-    url: "https://www.drappletree.com.tw",
-    logo: "https://www.drappletree.com.tw/logo.png",
-    image: "https://www.drappletree.com.tw/og-image.jpg",
+    url: absoluteSiteUrl("/"),
+    logo: absoluteSiteUrl("/logo.png"),
+    image: absoluteSiteUrl("/og-image.jpg"),
     description:
       "蘋果樹醫美診所提供皮秒雷射、音波拉提、電波拉提、玻尿酸微整、肉毒桿菌、膠原再生、整型外科等專業醫美療程。以醫療專業與科技檢測，陪你建立更自然、更長期的美麗管理方式。",
     telephone: "+886-2-2716-3535",
@@ -83,7 +86,7 @@ export function HomepageSchema() {
       "https://www.facebook.com/drappletree",
       "https://www.instagram.com/drappletree",
       "https://www.youtube.com/channel/UCAWWtXWgdE9ltkJH_cPWvow",
-      "https://lin.ee/Jgfv5Hl",
+      BRAND.lineUrl,
     ],
     medicalSpecialty: [
       "Dermatology",
@@ -205,12 +208,12 @@ export function TreatmentSchema({
     bodyLocation: bodyLocation || "Face",
     howPerformed: "由專業醫師操作",
     preparation: "術前諮詢評估",
-    url: `https://www.drappletree.com.tw/treatment/${slug}`,
+    url: absoluteSiteUrl(`/treatment/${slug}`),
     ...(duration && { duration: `PT${duration.replace(/[^0-9]/g, "")}M` }),
     provider: {
       "@type": "MedicalBusiness",
       name: "蘋果樹醫美診所 Dr. Appletree",
-      url: "https://www.drappletree.com.tw",
+      url: absoluteSiteUrl("/"),
     },
   };
 
@@ -246,18 +249,18 @@ export function ArticleSchema({
     image,
     datePublished,
     dateModified: datePublished,
-    url: `https://www.drappletree.com.tw/case/${slug}`,
+    url: absoluteSiteUrl(`/case/${slug}`),
     author: {
       "@type": "Organization",
       name: "蘋果樹醫美診所",
-      url: "https://www.drappletree.com.tw",
+      url: absoluteSiteUrl("/"),
     },
     publisher: {
       "@type": "Organization",
       name: "蘋果樹醫美診所 Dr. Appletree",
       logo: {
         "@type": "ImageObject",
-        url: "https://www.drappletree.com.tw/logo.png",
+        url: absoluteSiteUrl("/logo.png"),
       },
     },
   };
@@ -284,7 +287,7 @@ export function BreadcrumbSchema({ items }: { items: BreadcrumbItem[] }) {
       "@type": "ListItem",
       position: i + 1,
       name: item.name,
-      item: `https://www.drappletree.com.tw${item.url}`,
+      item: absoluteSiteUrl(item.url),
     })),
   };
 

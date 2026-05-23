@@ -645,7 +645,7 @@ function TreatmentVideos({ slug }: { slug: string }) {
       {/* CTA after videos */}
       <div className="mt-6 text-center">
         <a
-          href="https://lin.ee/Jgfv5Hl"
+          href={BRAND.lineUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-6 py-3 text-[0.8rem] font-body font-medium text-cream bg-botanical rounded-full hover:bg-botanical-dark transition-colors shadow-sm"

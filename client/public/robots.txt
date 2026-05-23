@@ -1,8 +1,6 @@
 User-agent: *
 Allow: /
-Disallow: /404
-Disallow: /face-result
+Disallow: /apple-tree-clinic-v2/404
+Disallow: /apple-tree-clinic-v2/face-result
 
-Sitemap: https://www.drappletree.com.tw/sitemap.xml
-
-# Host: https://www.drappletree.com.tw
+Sitemap: https://cindyflower.github.io/apple-tree-clinic-v2/sitemap.xml

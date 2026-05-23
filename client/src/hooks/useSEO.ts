@@ -11,6 +11,7 @@
  */
 
 import { useEffect } from 'react';
+import { absoluteSiteUrl, pathnameToRoute } from '@/lib/siteUrl';
 
 interface SEOConfig {
   title: string;
@@ -24,7 +25,6 @@ interface SEOConfig {
 
 const DEFAULT_OG_IMAGE = 'https://manus-storage.oss-cn-beijing.aliyuncs.com/user-upload/b4e2f5a2-6f9b-4f02-a4e3-f1c7b8d5e9a3/appletree-og-default.jpg';
 const SITE_NAME = '蘋果樹醫美 Dr. Appletree';
-const BASE_URL = 'https://www.drappletree.com.tw';
 
 export function useSEO(config: SEOConfig): void {
   useEffect(() => {
@@ -51,6 +51,9 @@ export function useSEO(config: SEOConfig): void {
       setMeta('name', 'robots', 'noindex, nofollow');
     }
 
+    const canonicalPath = config.canonical ?? pathnameToRoute();
+    const pageUrl = absoluteSiteUrl(canonicalPath);
+
     // Open Graph
     setMeta('property', 'og:title', config.title);
     setMeta('property', 'og:description', config.description);
@@ -58,7 +61,7 @@ export function useSEO(config: SEOConfig): void {
     setMeta('property', 'og:site_name', SITE_NAME);
     setMeta('property', 'og:locale', 'zh_TW');
     setMeta('property', 'og:image', config.ogImage || DEFAULT_OG_IMAGE);
-    setMeta('property', 'og:url', `${BASE_URL}${config.canonical || window.location.pathname}`);
+    setMeta('property', 'og:url', pageUrl);
 
     // Twitter Card
     setMeta('name', 'twitter:card', 'summary_large_image');
@@ -73,7 +76,7 @@ export function useSEO(config: SEOConfig): void {
       canonicalEl.setAttribute('rel', 'canonical');
       document.head.appendChild(canonicalEl);
     }
-    canonicalEl.setAttribute('href', `${BASE_URL}${config.canonical || window.location.pathname}`);
+    canonicalEl.setAttribute('href', pageUrl);
 
     // Cleanup: restore defaults on unmount
     return () => {
