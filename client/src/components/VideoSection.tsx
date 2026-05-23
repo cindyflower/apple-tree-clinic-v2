@@ -17,6 +17,7 @@ import {
 } from "@/lib/videoData";
 import { trackClickVideo } from "@/lib/analytics";
 import { BRAND } from "@/lib/constants";
+import { InternalLink } from "@/components/InternalLink";
 
 export default function VideoSection() {
   const { ref, inView } = useInView({ threshold: 0.05 });
@@ -236,12 +237,12 @@ export default function VideoSection() {
                       {/* CTA buttons */}
                       <div className="flex gap-2">
                         {video.relatedTreatments.length > 0 && (
-                          <a
+                          <InternalLink
                             href={`/treatment/${video.relatedTreatments[0]}`}
                             className="inline-flex items-center gap-1 px-3 py-1.5 text-[0.65rem] font-body font-medium text-botanical bg-botanical/8 rounded-full hover:bg-botanical/15 transition-colors"
                           >
                             了解適合我的療程
-                          </a>
+                          </InternalLink>
                         )}
                         <a
                           href={BRAND.lineUrl}

@@ -4,6 +4,7 @@
  */
 import { BRAND } from "@/lib/constants";
 import { isHomePath, withBase } from "@/lib/basePath";
+import { InternalLink } from "@/components/InternalLink";
 import { Phone, MapPin, MessageCircle } from "lucide-react";
 
 /* ── Footer navigation items with correct anchors ── */
@@ -135,13 +136,13 @@ export default function Footer() {
             </h4>
             <nav className="space-y-3">
               {POPULAR_TREATMENTS.map((item) => (
-                <a
+                <InternalLink
                   key={item.name}
                   href={item.href}
                   className="block text-[0.8rem] font-body font-light text-white/35 hover:text-sage-light transition-colors duration-300"
                 >
                   {item.name}
-                </a>
+                </InternalLink>
               ))}
             </nav>
           </div>

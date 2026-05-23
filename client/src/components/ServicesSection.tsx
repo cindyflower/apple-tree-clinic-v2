@@ -18,6 +18,7 @@ import {
 import { SERVICE_CATEGORIES, NHI_SERVICES, BRAND } from "@/lib/constants";
 import { type CategoryId, MANAGEMENT_MAPPING, MANAGEMENT_DESCRIPTIONS, CATEGORY_DESCRIPTIONS } from "@/lib/serviceMapping";
 import { getTreatmentSlug } from "@/lib/treatmentSlugMap";
+import { InternalLink } from "@/components/InternalLink";
 
 const iconMap: Record<string, React.ElementType> = {
   Zap, Gem, Droplets, Scissors, Activity, Heart, Shield, Leaf,
@@ -304,13 +305,13 @@ export default function ServicesSection({ activeFilter, filterLabel, onFilterCle
                         {(() => {
                           const slug = getTreatmentSlug(item.name);
                           return slug ? (
-                            <a
+                            <InternalLink
                               href={`/treatment/${slug}`}
                               className="inline-flex items-center gap-1 text-[0.73rem] font-body font-medium text-botanical/70 hover:text-botanical transition-colors group/cta"
                             >
                               了解更多
                               <ChevronRight size={13} className="group-hover/cta:translate-x-0.5 transition-transform" />
-                            </a>
+                            </InternalLink>
                           ) : (
                             <a
                               href={BRAND.lineUrl}

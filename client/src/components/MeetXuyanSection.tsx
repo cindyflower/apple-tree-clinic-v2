@@ -11,6 +11,7 @@
  */
 import { useInView } from "@/hooks/useInView";
 import { IMAGES } from "@/lib/imageAssets";
+import { InternalLink } from "@/components/InternalLink";
 
 export default function MeetXuyanSection() {
   const { ref, inView } = useInView({ threshold: 0.1 });
@@ -62,9 +63,9 @@ export default function MeetXuyanSection() {
         />
 
         {/* ── Hotspot A: Green button (開始 30 秒序顏美學測驗) → /face-test ── */}
-        <a
+        <InternalLink
           href="/face-test"
-          aria-label="開始 30 秒測驗"
+          aria-label="開始 30 秒序顏美學測驗"
           style={{
             position: "absolute",
             left: "48.9%",
