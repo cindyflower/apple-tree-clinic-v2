@@ -1,0 +1,160 @@
+{
+  "kept": 28,
+  "actions": [
+    {
+      "action": "delete-duplicate",
+      "name": "ChatGPTImage2026年5月17日上午01_39_03_ab80da13.png",
+      "duplicateOf": "00_品牌與環境/team-banner.png"
+    },
+    {
+      "action": "delete-duplicate",
+      "name": "banner-collagen_88bc5db9.jpeg",
+      "duplicateOf": "01_橫幅Banner/banner-collagen.jpeg"
+    },
+    {
+      "action": "delete-duplicate",
+      "name": "banner-mounjaro_f6827d52.jpeg",
+      "duplicateOf": "01_橫幅Banner/banner-mounjaro.jpeg"
+    },
+    {
+      "action": "delete-duplicate",
+      "name": "case-aesthefill_1e9848c9.jpeg",
+      "duplicateOf": "03_微整注射/case-aesthefill.jpeg"
+    },
+    {
+      "action": "delete-duplicate",
+      "name": "case-banner-beauty_b74d381b.jpeg",
+      "duplicateOf": "07_肌膚管理/case-hydrafacial-waterlight.jpeg"
+    },
+    {
+      "action": "delete-duplicate",
+      "name": "case-double-eyelid-ba_fa8c6713.jpeg",
+      "duplicateOf": "04_整型外科/case-double-eyelid-ba.jpeg"
+    },
+    {
+      "action": "delete-duplicate",
+      "name": "case-eyebag-male-ba_16e7e032.jpeg",
+      "duplicateOf": "04_整型外科/case-eyebag-male-ba.jpeg"
+    },
+    {
+      "action": "delete-unreferenced",
+      "name": "case-hydrafacial-male-ba_e1e7f3e3.jpeg"
+    },
+    {
+      "action": "delete-duplicate",
+      "name": "case-hydrafacial-male_8de0e0cc.jpeg",
+      "duplicateOf": "03_微整注射/case-aesthefill.jpeg"
+    },
+    {
+      "action": "delete-duplicate",
+      "name": "case-hydrafacial-waterlight_d433ff80.jpeg",
+      "duplicateOf": "07_肌膚管理/case-hydrafacial-waterlight.jpeg"
+    },
+    {
+      "action": "delete-duplicate",
+      "name": "case-talent-a-abs_5e2173c6.jpeg",
+      "duplicateOf": "03_微整注射/case-aesthefill.jpeg"
+    },
+    {
+      "action": "delete-duplicate",
+      "name": "case-talent-a-hip_0b871bb8.jpeg",
+      "duplicateOf": "04_整型外科/case-eyebag-male-ba.jpeg"
+    },
+    {
+      "action": "delete-duplicate",
+      "name": "clinic-consultation_5446f5f0.jpg",
+      "duplicateOf": "00_品牌與環境/clinic-consultation.jpg"
+    },
+    {
+      "action": "delete-duplicate",
+      "name": "clinic-reception-luxury_faeab8ad.jpg",
+      "duplicateOf": "00_品牌與環境/clinic-reception-luxury.jpg"
+    },
+    {
+      "action": "delete-duplicate",
+      "name": "clinic-treatment-room_2ad79ad5.jpg",
+      "duplicateOf": "00_品牌與環境/clinic-treatment-room.jpg"
+    },
+    {
+      "action": "delete-duplicate",
+      "name": "hero-wellness-beauty-1_421d00ba.jpg",
+      "duplicateOf": "00_品牌與環境/hero-wellness-beauty-1.jpg"
+    },
+    {
+      "action": "delete-duplicate",
+      "name": "hero-wellness-beauty-2_c3b28121.jpg",
+      "duplicateOf": "00_品牌與環境/hero-wellness-beauty-2.jpg"
+    },
+    {
+      "action": "delete-duplicate",
+      "name": "hero-wellness-beauty-3_99f78acd.jpg",
+      "duplicateOf": "00_品牌與環境/hero-wellness-beauty-3.jpg"
+    },
+    {
+      "action": "delete-duplicate",
+      "name": "luxury-abstract-G9QHfHWAhu6PnYZv9RFAYc.webp",
+      "duplicateOf": "00_品牌與環境/luxury-abstract.webp"
+    },
+    {
+      "action": "delete-duplicate",
+      "name": "treatment-ampule_85f5327d.jpeg",
+      "duplicateOf": "02_雷射電音波/treatment-led.jpeg"
+    },
+    {
+      "action": "delete-duplicate",
+      "name": "treatment-haifu-new_f1187c18.png",
+      "duplicateOf": "02_雷射電音波/treatment-haifu-new.png"
+    },
+    {
+      "action": "delete-duplicate",
+      "name": "treatment-led_c4fc1411.jpeg",
+      "duplicateOf": "02_雷射電音波/treatment-led.jpeg"
+    },
+    {
+      "action": "delete-duplicate",
+      "name": "treatment-picosure-new_5b56a1d9.png",
+      "duplicateOf": "02_雷射電音波/treatment-picosure-new.png"
+    },
+    {
+      "action": "delete-duplicate",
+      "name": "treatment-zwave-new_9112cd9b.jpeg",
+      "duplicateOf": "02_雷射電音波/treatment-led.jpeg"
+    },
+    {
+      "action": "archive-doctor",
+      "name": "劉佳政1_c380b2d8.jpg"
+    },
+    {
+      "action": "archive-doctor",
+      "name": "吳其穎_e22432a2.jpg"
+    },
+    {
+      "action": "archive-doctor",
+      "name": "李俊豪_c48f722f.jpg"
+    },
+    {
+      "action": "archive-doctor",
+      "name": "林漢文_d963255c.jpg"
+    },
+    {
+      "action": "archive-doctor",
+      "name": "林錦生_00de2f65.jpg"
+    },
+    {
+      "action": "archive-doctor",
+      "name": "江得信_c81dd3b5.jpg"
+    },
+    {
+      "action": "archive-doctor",
+      "name": "陳君琳_a4edef2c.jpg"
+    },
+    {
+      "action": "archive-doctor",
+      "name": "陳韜名_60fb3dae.jpg"
+    },
+    {
+      "action": "delete-junk",
+      "name": ".DS_Store"
+    }
+  ]
+}

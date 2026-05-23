@@ -103,6 +103,27 @@ const CASES = [
     "https://www.drappletree.com.tw/wp-content/uploads/2021/01/2B2.jpg",
     "https://www.drappletree.com.tw/wp-content/uploads/2021/01/2A2.jpg",
   ]},
+  { slug: "rosacea-gut", urls: [
+    "https://www.drappletree.com.tw/wp-content/uploads/2021/06/酒糟A1.png",
+    "https://www.drappletree.com.tw/wp-content/uploads/2021/06/酒糟B1.png",
+    "https://www.drappletree.com.tw/wp-content/uploads/2021/06/朱醫師_酒糟02.jpg",
+  ]},
+  { slug: "sensitive-skin-inflammation", urls: [
+    "https://www.drappletree.com.tw/wp-content/uploads/2021/01/bnv2-1.jpg",
+    "https://www.drappletree.com.tw/wp-content/uploads/2021/02/BA4.jpg",
+    "https://www.drappletree.com.tw/wp-content/uploads/2021/02/BA3.jpg",
+    "https://www.drappletree.com.tw/wp-content/uploads/2021/02/ba2.jpg",
+  ]},
+  { slug: "menopause-hormone", urls: [
+    "https://www.drappletree.com.tw/wp-content/uploads/2022/06/0-0.jpg",
+    "https://www.drappletree.com.tw/wp-content/uploads/2022/06/2-2.jpg",
+    "https://www.drappletree.com.tw/wp-content/uploads/2022/06/1-1-1.jpg",
+  ]},
+  { slug: "fatigue-face-stress", urls: [
+    "https://www.drappletree.com.tw/wp-content/uploads/2021/12/2_%E5%B7%A5%E4%BD%9C%E5%8D%80%E5%9F%9F-1.jpg",
+    "https://www.drappletree.com.tw/wp-content/uploads/2021/12/%E4%B8%80%E9%A0%81%E5%BC%8F%E7%B6%B2%E7%AB%99_%E5%B7%A5%E4%BD%9C%E5%8D%80%E5%9F%9F-1-%E8%A4%87%E6%9C%AC-2.jpg",
+    "https://www.drappletree.com.tw/wp-content/uploads/2021/12/2_%E5%B7%A5%E4%BD%9C%E5%8D%80%E5%9F%9F-1-%E8%A4%87%E6%9C%AC-2.jpg",
+  ]},
 ];
 
 function filenameFromUrl(url) {
@@ -126,7 +147,10 @@ async function download(url, dest) {
   return "ok";
 }
 
-const manifest = {};
+const manifestPath = path.join(OUT_ROOT, "manifest.json");
+const manifest = fs.existsSync(manifestPath)
+  ? JSON.parse(fs.readFileSync(manifestPath, "utf8"))
+  : {};
 
 for (const { slug, urls } of CASES) {
   const dir = path.join(OUT_ROOT, slug);
@@ -156,7 +180,7 @@ for (const { slug, urls } of CASES) {
 }
 
 fs.writeFileSync(
-  path.join(OUT_ROOT, "manifest.json"),
+  manifestPath,
   JSON.stringify(manifest, null, 2),
   "utf-8"
 );

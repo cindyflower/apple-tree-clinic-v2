@@ -100,6 +100,14 @@ const GALLERY_ORDER = {
     "2B2.jpg",
     "2A2.jpg",
   ],
+  "rosacea-gut": ["酒糟A1.png", "酒糟B1.png", "朱醫師_酒糟02.jpg"],
+  "sensitive-skin-inflammation": ["bnv2-1.jpg", "BA4.jpg", "BA3.jpg", "ba2.jpg"],
+  "menopause-hormone": ["0-0.jpg", "2-2.jpg", "1-1-1.jpg"],
+  "fatigue-face-stress": [
+    "2_工作區域-1.jpg",
+    "一頁式網站_工作區域-1-複本-2.jpg",
+    "2_工作區域-1-複本-2.jpg",
+  ],
 };
 
 function targetName(index, ext) {

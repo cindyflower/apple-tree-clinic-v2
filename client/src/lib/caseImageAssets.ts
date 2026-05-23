@@ -4,7 +4,7 @@
  * Synced from images/cases/ on dev/build (vitePluginSyncTreatmentImages).
  */
 import { withBase } from "./basePath";
-import { img, F, IMAGES } from "./imageAssets";
+import { IMAGES } from "./imageAssets";
 
 export function caseImg(slug: string, filename: string): string {
   return withBase(`/images/cases/${slug}/${filename}`);
@@ -102,20 +102,16 @@ const GALLERY_FILES: Record<string, readonly string[]> = {
     "10.jpg",
     "11.jpg",
   ],
-};
-
-/** Slugs with no downloaded assets — use Manus pack / clinic imagery */
-const FALLBACK_GALLERY: Record<string, readonly string[]> = {
-  "rosacea-gut": [img(F.functional, "腸道菌叢分析.jpg")],
-  "menopause-hormone": [img(F.functional, "3DMRA檢測.jpg"), img(F.functional, "HRV自律神經分析.jpg")],
-  "sensitive-skin-inflammation": [img(F.skin, "AI光譜治療.jpg"), img(F.functional, "腸道菌叢分析.jpg")],
-  "fatigue-face-stress": [img(F.functional, "腦波檢測.jpg"), img(F.happy, "快樂門診.jpg")],
+  "rosacea-gut": ["cover.png", "02.png", "03.jpg"],
+  "sensitive-skin-inflammation": ["cover.jpg", "02.jpg", "03.jpg", "04.jpg"],
+  "menopause-hormone": ["cover.jpg", "02.jpg", "03.jpg"],
+  "fatigue-face-stress": ["cover.jpg", "02.jpg", "03.jpg"],
 };
 
 export function caseGallery(slug: string): string[] {
   const files = GALLERY_FILES[slug];
   if (files?.length) return files.map((f) => caseImg(slug, f));
-  return [...(FALLBACK_GALLERY[slug] ?? [IMAGES.caseBannerBeauty])];
+  return [IMAGES.caseBannerBeauty];
 }
 
 export function caseMainImage(slug: string): string {

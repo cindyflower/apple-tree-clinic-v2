@@ -382,9 +382,8 @@ PicoSure755蜂巢皮秒雷射被稱為皮秒雷射界的「藍寶堅尼」：台
 這就是「美麗，是一種管理」——透過功能醫學從根源安全科學地守護改變。`,
     tags: ["玫瑰痘", "腸道健康", "功能醫學", "慢性發炎", "腸漏"],
     highlight: true,
-    sourceUrl: "",
+    sourceUrl: "https://www.drappletree.com.tw/doctor_team/doctor_article/6688/",
   },
-
   // ─── 14. 功能醫學案例：更年期暗沉鬆弛與荷爾蒙失調 ───
   {
     id: "menopause-hormone",
@@ -405,7 +404,7 @@ PicoSure755蜂巢皮秒雷射被稱為皮秒雷射界的「藍寶堅尼」：台
 這就是「美麗，是一種管理」——透過功能醫學從根源安全科學地守護改變。`,
     tags: ["更年期", "荷爾蒙失調", "功能醫學", "抗老化", "電波拉提"],
     highlight: true,
-    sourceUrl: "",
+    sourceUrl: "https://www.drappletree.com.tw/applenews/9881/",
   },
 
   // ─── 15. 功能醫學案例：敏感肌與慢性發炎 ───
@@ -428,7 +427,7 @@ PicoSure755蜂巢皮秒雷射被稱為皮秒雷射界的「藍寶堅尼」：台
 這就是「美麗，是一種管理」——透過功能醫學從根源安全科學地守護改變。`,
     tags: ["敏感肌", "慢性發炎", "功能醫學", "食物不耐受", "腸道健康"],
     highlight: true,
-    sourceUrl: "",
+    sourceUrl: "https://www.drappletree.com.tw/applenews/5494/",
   },
 
   // ─── 16. 功能醫學案例：疲勞臉與壓力導致下垂 ───
@@ -451,7 +450,7 @@ PicoSure755蜂巢皮秒雷射被稱為皮秒雷射界的「藍寶堅尼」：台
 這就是「美麗，是一種管理」——透過功能醫學從根源安全科學地守護改變。`,
     tags: ["疲勞臉", "壓力", "功能醫學", "睡眠改善", "皮質醇調節"],
     highlight: true,
-    sourceUrl: "",
+    sourceUrl: "https://www.drappletree.com.tw/applenews/9179/",
   },
 ];
 

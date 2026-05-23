@@ -1,13 +1,4 @@
 {
-  "hydrafacial-male": [
-    "cover.jpg"
-  ],
-  "eyebag-male": [
-    "cover.jpg"
-  ],
-  "double-eyelid": [
-    "cover.jpg"
-  ],
   "aesthefill": [
     "cover.jpg",
     "02.jpg",
@@ -21,67 +12,16 @@
     "10.jpg",
     "11.jpg"
   ],
-  "talent-a-abs": [
-    "cover.jpg",
-    "02.jpg",
-    "03.jpg",
-    "04.jpg",
-    "05.jpg",
-    "06.jpg",
-    "07.jpg"
-  ],
-  "talent-a-hip": [
-    "cover.jpg",
-    "02.jpg",
-    "03.jpg",
-    "04.jpg",
-    "05.jpg",
-    "06.jpg",
-    "07.jpg",
-    "08.jpg"
-  ],
-  "talent-a-arm": [
-    "cover.jpg",
-    "02.jpg",
-    "03.jpg",
-    "04.jpg",
-    "05.jpg",
-    "06.jpg"
-  ],
-  "talent-a-abs-kol": [
-    "cover.jpg",
-    "02.jpg",
-    "03.jpg",
-    "04.jpg",
-    "05.jpg",
-    "06.jpg",
-    "07.jpg",
-    "08.jpg",
-    "09.jpg",
-    "10.jpg"
-  ],
-  "talent-a-belly": [
-    "cover.jpg",
-    "02.jpg",
-    "03.jpg",
-    "04.jpg",
-    "05.jpg",
-    "06.jpg",
-    "07.jpg",
-    "08.jpg"
-  ],
-  "v-face-queen": [
+  "double-eyelid": [
     "cover.jpg"
   ],
-  "picosure-case": [
+  "eyebag-male": [
+    "cover.jpg"
+  ],
+  "fatigue-face-stress": [
     "cover.jpg",
     "02.jpg",
-    "03.jpg",
-    "04.jpg",
-    "05.jpg",
-    "06.png",
-    "07.jpg",
-    "08.jpg"
+    "03.jpg"
   ],
   "ha-tear-trough": [
     "cover.jpg",
@@ -95,5 +35,86 @@
     "09.jpg",
     "10.jpg",
     "11.jpg"
+  ],
+  "hydrafacial-male": [
+    "cover.jpg"
+  ],
+  "menopause-hormone": [
+    "cover.jpg",
+    "02.jpg",
+    "03.jpg"
+  ],
+  "picosure-case": [
+    "cover.jpg",
+    "02.jpg",
+    "03.jpg",
+    "04.jpg",
+    "05.jpg",
+    "06.png",
+    "07.jpg",
+    "08.jpg"
+  ],
+  "rosacea-gut": [
+    "cover.png",
+    "02.png",
+    "03.jpg"
+  ],
+  "sensitive-skin-inflammation": [
+    "cover.jpg",
+    "02.jpg",
+    "03.jpg",
+    "04.jpg"
+  ],
+  "talent-a-abs": [
+    "cover.jpg",
+    "02.jpg",
+    "03.jpg",
+    "04.jpg",
+    "05.jpg",
+    "06.jpg",
+    "07.jpg"
+  ],
+  "talent-a-abs-kol": [
+    "cover.jpg",
+    "02.jpg",
+    "03.jpg",
+    "04.jpg",
+    "05.jpg",
+    "06.jpg",
+    "07.jpg",
+    "08.jpg",
+    "09.jpg",
+    "10.jpg"
+  ],
+  "talent-a-arm": [
+    "cover.jpg",
+    "02.jpg",
+    "03.jpg",
+    "04.jpg",
+    "05.jpg",
+    "06.jpg"
+  ],
+  "talent-a-belly": [
+    "cover.jpg",
+    "02.jpg",
+    "03.jpg",
+    "04.jpg",
+    "05.jpg",
+    "06.jpg",
+    "07.jpg",
+    "08.jpg"
+  ],
+  "talent-a-hip": [
+    "cover.jpg",
+    "02.jpg",
+    "03.jpg",
+    "04.jpg",
+    "05.jpg",
+    "06.jpg",
+    "07.jpg",
+    "08.jpg"
+  ],
+  "v-face-queen": [
+    "cover.jpg"
   ]
 }

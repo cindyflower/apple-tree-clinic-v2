@@ -11,20 +11,20 @@ const constants = fs.readFileSync(path.join(ROOT, "client/src/lib/constants.ts")
 const imageAssets = fs.readFileSync(path.join(ROOT, "client/src/lib/imageAssets.ts"), "utf8");
 const caseDetails = fs.readFileSync(path.join(ROOT, "client/src/lib/caseDetails.ts"), "utf8");
 
-const mapped = new Set([...imageAssets.matchAll(/"([^"]+)": img\(/g)].map((m) => m[1]));
+const treatmentMapped = new Set(
+  [...imageAssets.matchAll(/^\s+"([^"]+)": img\(F\./gm)].map((m) => m[1])
+);
 
 const treatmentRows = [];
-for (const m of constants.matchAll(
-  /name: "([^"]+)"[^}]*?image: treatmentImg\("([^"]+)", "([^"]+)"\)/gs
-)) {
-  const [, display, key, fallback] = m;
-  const local = mapped.has(key);
+for (const m of constants.matchAll(/image: treatmentImg\("([^"]+)"\)/g)) {
+  const key = m[1];
+  const local = treatmentMapped.has(key);
   treatmentRows.push({
-    name: display,
+    name: key,
     key,
-    status: local ? "本地" : "外連 fallback",
+    status: local ? "本地" : "placeholder",
     path: local ? `images/*/${key}` : "",
-    fallback,
+    fallback: local ? "" : "IMAGES.treatmentAmpule",
   });
 }
 for (const m of constants.matchAll(/name: "([^"]+)"[^}]*?\n  \},/gs)) {
