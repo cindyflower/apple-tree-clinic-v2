@@ -145,7 +145,7 @@ export const TREATMENT_IMG = {
   "Mounjaro 猛健樂": img(F.body, "Mounjaro猛健樂.jpg"),
   "Talent-A 動磁波": img(F.body, "Talent-A動磁波.jpg"),
   "減肥筆": img(F.body, "減肥筆.jpg"),
-  ICOONE: img(F.body, "ICOONE.jpg"),
+  "ICOONE": img(F.body, "ICOONE.jpg"),
   "消脂針/消脂點滴": img(F.body, "消脂針消脂點滴.jpg"),
   "男性除毛": img(F.men, "男性除毛.jpeg"),
   "男性微整": img(F.men, "男性微整.jpg"),
@@ -183,6 +183,6 @@ export const TREATMENT_IMG = {
   "醫學美容SPA": img(F.skin, "醫學美容SPA.jpg"),
 } as const satisfies Record<string, string>;
 
-export function treatmentImg(name: string, fallback: string): string {
-  return (TREATMENT_IMG as Record<string, string>)[name] ?? fallback;
+export function treatmentImg(name: string): string {
+  return (TREATMENT_IMG as Record<string, string>)[name] ?? IMAGES.treatmentAmpule;
 }

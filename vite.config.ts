@@ -178,11 +178,37 @@ function vitePluginSyncTreatmentImages(): Plugin {
     }
   };
 
+  const isUnderImages = (file: string) => {
+    const rel = path.relative(srcRoot, file);
+    return rel !== "" && !rel.startsWith("..") && !path.isAbsolute(rel);
+  };
+
   return {
     name: "sync-treatment-images",
     buildStart: sync,
-    configureServer() {
+    configureServer(server) {
       sync();
+
+      server.watcher.add(srcRoot);
+
+      let timer: ReturnType<typeof setTimeout> | undefined;
+      const scheduleSync = (file: string) => {
+        if (!isUnderImages(file)) return;
+        clearTimeout(timer);
+        timer = setTimeout(sync, 100);
+      };
+
+      server.watcher.on("add", scheduleSync);
+      server.watcher.on("change", scheduleSync);
+      server.watcher.on("unlink", scheduleSync);
+
+      return () => {
+        clearTimeout(timer);
+        server.watcher.unwatch(srcRoot);
+        server.watcher.off("add", scheduleSync);
+        server.watcher.off("change", scheduleSync);
+        server.watcher.off("unlink", scheduleSync);
+      };
     },
   };
 }
