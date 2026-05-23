@@ -8,6 +8,8 @@
  *     ogImage: 'https://...',
  *     canonical: '/treatment/picosure-755',
  *   });
+ *
+ * Canonical / og:url use VITE_SITE_URL (+ Vite BASE_URL). See docs/site-urls.md.
  */
 
 import { useEffect } from 'react';

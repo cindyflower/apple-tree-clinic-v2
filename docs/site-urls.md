@@ -44,7 +44,7 @@ VITE_SITE_URL=https://www.drappletree.com.tw
 # 不要設 GITHUB_PAGES
 ```
 
-另需設定 SPA fallback（`_redirects` 或 Pages 路由設定），取代 GitHub Pages 的 `404.html` 複製步驟。
+另需設定 SPA fallback（`client/public/_redirects` 已含 `/* /index.html 200`），取代 GitHub Pages 的 `404.html` 複製步驟。
 
 DNS 將 `drappletree.com.tw` / `www` 指向 Cloudflare Pages 即可。sitemap、canonical、Schema.org 會自動指向正式網域。
 
@@ -60,9 +60,34 @@ SEO canonical 則依 `VITE_SITE_URL` 決定，避免 GitHub Pages 預覽期 site
 # GitHub Pages 預覽（與 CI 相同）
 GITHUB_PAGES=true VITE_SITE_URL=https://cindyflower.github.io pnpm run build:pages
 
+# 正式網域 build（Cloudflare Pages）
+VITE_SITE_URL=https://www.drappletree.com.tw pnpm run build:production
+
 # 僅重新產生 sitemap / robots
 GITHUB_PAGES=true VITE_SITE_URL=https://cindyflower.github.io node scripts/generate-sitemap.mjs
 
-# 模擬正式網域 build
-VITE_SITE_URL=https://www.drappletree.com.tw pnpm build
+# 僅 prerender 深連結（需先 vite build）
+GITHUB_PAGES=true VITE_SITE_URL=https://cindyflower.github.io node scripts/prerender-spa-routes.mjs
 ```
+
+## P2：正式上線 canonical（已處理）
+
+**不需再改 useSEO / sitemap 程式。** 上線 Cloudflare 時只改 build 環境變數：
+
+```bash
+VITE_SITE_URL=https://www.drappletree.com.tw
+# 不要設 GITHUB_PAGES
+pnpm run build:production
+```
+
+`sitemap.xml`、`<link rel="canonical">`、`og:url`、Schema.org 會一併指向 `drappletree.com.tw`。
+
+## P3：深連結 HTTP 狀態碼
+
+| 部署 | 作法 | 深連結狀態碼 |
+|------|------|-------------|
+| **GitHub Pages** | build 後 `scripts/prerender-spa-routes.mjs` 為每個路由產生 `{route}/index.html`（含該頁 SEO meta） | **200** |
+| **GitHub Pages 未收錄路由** | 仍 fallback 至 `404.html`（複製的 index） | 404（已知限制） |
+| **Cloudflare Pages** | `client/public/_redirects` → `/* /index.html 200` | **200** |
+
+Prerender 也讓搜尋引擎在**不執行 JavaScript** 時讀到各頁正確的 title / canonical / og:image。
