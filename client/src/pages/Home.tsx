@@ -14,7 +14,7 @@
  * 11. FAQ
  * 12. Footer (含 CTA + Contact)
  */
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { useSEO } from "@/hooks/useSEO";
 import { IMAGES } from "@/lib/imageAssets";
 import { HomepageSchema } from "@/components/SchemaOrg";
@@ -37,6 +37,15 @@ import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
 import FixedQuizCTA from "@/components/FixedQuizCTA";
 import { type CategoryId } from "@/lib/serviceMapping";
+
+function scrollToHomeHash() {
+  const hash = window.location.hash;
+  if (!hash) return;
+  const el = document.querySelector(hash);
+  if (!el) return;
+  const y = el.getBoundingClientRect().top + window.scrollY - 80;
+  window.scrollTo({ top: y, behavior: "smooth" });
+}
 
 export default function Home() {
   // Homepage SEO
@@ -72,6 +81,12 @@ export default function Home() {
       const y = el.getBoundingClientRect().top + window.scrollY - 80;
       window.scrollTo({ top: y, behavior: "smooth" });
     });
+  }, []);
+
+  useEffect(() => {
+    if (!window.location.hash) return;
+    const timer = window.setTimeout(scrollToHomeHash, 150);
+    return () => window.clearTimeout(timer);
   }, []);
 
   return (

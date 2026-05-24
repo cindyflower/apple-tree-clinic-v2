@@ -51,14 +51,26 @@ export default function Navbar() {
 
   const handleNavClick = (href: string) => {
     setMobileOpen(false);
-    const el = document.querySelector(href);
-    if (el) {
+
+    const scrollToAnchor = () => {
+      const el = document.querySelector(href);
+      if (!el) return;
       const y = el.getBoundingClientRect().top + window.scrollY - 80;
       window.scrollTo({ top: y, behavior: "smooth" });
-    } else {
-      // If element not found (user is on another page), navigate to homepage with hash
-      window.location.href = withBase(`/${href}`);
+    };
+
+    if (href.startsWith("#")) {
+      if (isHomePath()) {
+        scrollToAnchor();
+        return;
+      }
+      navigate("/");
+      window.history.replaceState(null, "", withBase(`/${href}`));
+      requestAnimationFrame(() => window.setTimeout(scrollToAnchor, 150));
+      return;
     }
+
+    window.location.href = withBase(href);
   };
 
   return (
