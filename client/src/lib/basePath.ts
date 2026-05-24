@@ -14,3 +14,9 @@ export function isHomePath(): boolean {
   const path = window.location.pathname.replace(/\/$/, "") || "";
   return path === base || path === "";
 }
+
+/** wouter navigate() paths must not lead with "/" when Router has a base URL. */
+export function toRouterPath(path: string): string {
+  if (path === "/" || path === "") return "/";
+  return path.startsWith("/") ? path.slice(1) : path;
+}
