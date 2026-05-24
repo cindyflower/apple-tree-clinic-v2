@@ -1,5 +1,5 @@
 /**
- * Local images: /images/{00_…15_…}/ + /images/_root/ (loose files).
+ * Local images: /images/{00_…17_…}/ + /images/_root/ (loose files).
  * Synced to client/public/images on dev/build (vitePluginSyncTreatmentImages).
  */
 import { withBase } from "./basePath";
@@ -21,6 +21,8 @@ export const F = {
   happy: "13_快樂門診",
   vaccine: "14_預防保健",
   doctors: "15_醫師照片",
+  beidaEnv: "16_北大院區照片",
+  nanjingEnv: "17_南京院區照片",
 } as const;
 
 export function img(folder: string, filename: string): string {
@@ -97,25 +99,76 @@ export function doctorImg(name: string, fallback: string): string {
 
 export type ClinicPhoto = { src: string; alt: string; label: string };
 
-export const NANJING_CLINIC_PHOTOS: ClinicPhoto[] = [
-  { src: imgRoot("DSC00038_7ee1265c.jpg"), alt: "南京旗艦院所 — 寬敞舒適的候診休憩區", label: "候診休憩區" },
-  { src: imgRoot("DSC00039_f2040faf.jpg"), alt: "南京旗艦院所 — 明亮現代的接待空間", label: "接待空間" },
-  { src: imgRoot("DSC00041_f6d1125f.jpg"), alt: "南京旗艦院所 — 專業諮詢室", label: "諮詢室" },
-  { src: imgRoot("DSC00050_b560d97e.jpg"), alt: "南京旗艦院所 — 精緻療程空間", label: "療程空間" },
-  { src: imgRoot("DSC00057_c86cc3b2.jpg"), alt: "南京旗艦院所 — 溫馨候診環境", label: "候診環境" },
-  { src: imgRoot("DSC00064_57c149a2.jpg"), alt: "南京旗艦院所 — 院所走廊", label: "院所走廊" },
-  { src: imgRoot("IMG_3818_1799747f.jpg"), alt: "南京旗艦院所 — 品牌形象牆", label: "品牌形象牆" },
-];
+function clinicPhotos(
+  folder: string,
+  clinicName: string,
+  filenames: readonly string[],
+  labels: readonly string[],
+): ClinicPhoto[] {
+  return filenames.map((file, i) => ({
+    src: img(folder, file),
+    alt: `${clinicName} — ${labels[i] ?? `環境 ${i + 1}`}`,
+    label: labels[i] ?? `環境 ${i + 1}`,
+  }));
+}
 
-export const BEIDA_CLINIC_PHOTOS: ClinicPhoto[] = [
-  { src: imgRoot("北大環境照-1_a633ce7a.jpg"), alt: "北大診所 — 現代簡約候診區", label: "候診區" },
-  { src: imgRoot("北大環境照-2_6a5082db.jpg"), alt: "北大診所 — 接待櫃檯", label: "接待櫃檯" },
-  { src: imgRoot("S__146128939_0_910da6cb.jpg"), alt: "北大診所 — 院所空間", label: "院所空間" },
-  { src: imgRoot("北大環境照-4_beaf658a.jpg"), alt: "北大診所 — 療程室", label: "療程室" },
-  { src: imgRoot("北大環境照-5_ca96d86d.jpg"), alt: "北大診所 — 診間環境", label: "診間環境" },
-  { src: imgRoot("北大環境照-6_cff0468b.jpg"), alt: "北大診所 — 休息空間", label: "休息空間" },
-  { src: imgRoot("北大環境照-7_f0797dd9.jpg"), alt: "北大診所 — 走廊通道", label: "走廊通道" },
-];
+/** 北大診所環境照 — images/16_北大院區照片/01~07.jpg */
+const BEIDA_ENV_LABELS = [
+  "候診區",
+  "接待櫃檯",
+  "院所空間",
+  "療程室",
+  "診間環境",
+  "休息空間",
+  "走廊通道",
+] as const;
+
+const BEIDA_ENV_FILES = [
+  "01.jpg",
+  "02.jpg",
+  "03.jpg",
+  "04.jpg",
+  "05.jpg",
+  "06.jpg",
+  "07.jpg",
+] as const;
+
+/** 南京旗艦環境照 — images/17_南京院區照片/01~08.jpg */
+const NANJING_ENV_LABELS = [
+  "候診休憩區",
+  "接待空間",
+  "諮詢室",
+  "療程空間",
+  "候診環境",
+  "院所走廊",
+  "品牌形象牆",
+  "休憩區域",
+] as const;
+
+const NANJING_ENV_FILES = [
+  "01.jpg",
+  "02.jpg",
+  "03.jpg",
+  "04.jpg",
+  "05.jpg",
+  "06.jpg",
+  "07.jpg",
+  "08.jpg",
+] as const;
+
+export const NANJING_CLINIC_PHOTOS = clinicPhotos(
+  F.nanjingEnv,
+  "南京旗艦院所",
+  NANJING_ENV_FILES,
+  NANJING_ENV_LABELS,
+);
+
+export const BEIDA_CLINIC_PHOTOS = clinicPhotos(
+  F.beidaEnv,
+  "北大診所",
+  BEIDA_ENV_FILES,
+  BEIDA_ENV_LABELS,
+);
 
 export const TREATMENT_IMG = {
   "Sunmax 膠原蛋白（熊貓針）": img(F.injection, "Sunmax膠原蛋白-熊貓針.jpg"),

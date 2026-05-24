@@ -151,7 +151,7 @@ function vitePluginManusDebugCollector(): Plugin {
   };
 }
 
-/** Sync image pack (images/00_* … 15_*) → client/public/images for Vite */
+/** Sync image pack (images/00_* … 17_*) → client/public/images for Vite */
 function vitePluginSyncTreatmentImages(): Plugin {
   const srcRoot = path.join(PROJECT_ROOT, "images");
   const destRoot = path.join(PROJECT_ROOT, "client", "public", "images");
