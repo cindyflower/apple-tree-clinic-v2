@@ -20,3 +20,12 @@ export function toRouterPath(path: string): string {
   if (path === "/" || path === "") return "/";
   return path.startsWith("/") ? path.slice(1) : path;
 }
+
+/**
+ * wouter strips the GitHub Pages base and returns paths like `xuyan-ai` (no leading slash).
+ * Route patterns are defined as `/xuyan-ai`, so normalize before matching.
+ */
+export function normalizeRouterPath(path: string): string {
+  if (!path || path === "/") return "/";
+  return path.startsWith("/") ? path : `/${path}`;
+}
