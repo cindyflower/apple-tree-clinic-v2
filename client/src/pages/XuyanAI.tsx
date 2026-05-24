@@ -3,7 +3,7 @@
  * 獨立序顏頁面：完整介紹 + AI 檢測影片 + 流程影片 + 認識序顏圖 + CTA
  * 搬移自舊首頁的序顏完整內容
  */
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "@/hooks/useInView";
 import { Link } from "wouter";
@@ -72,7 +72,7 @@ function AIDetectionDemo() {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   return (
-    <section className="py-20 md:py-28 bg-white relative overflow-hidden" ref={ref}>
+    <section id="ai-detection" className="py-20 md:py-28 bg-white relative overflow-hidden scroll-mt-20" ref={ref}>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-sage-mist/6 rounded-full blur-[150px]" />
 
       <div className="container relative z-10">
@@ -308,6 +308,15 @@ function TeamHandoff() {
 
 // ─── Main Page ───
 export default function XuyanAI() {
+  useEffect(() => {
+    const hash = window.location.hash.slice(1);
+    if (!hash) return;
+    const timer = window.setTimeout(() => {
+      document.getElementById(hash)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 150);
+    return () => window.clearTimeout(timer);
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col bg-cream">
       <Navbar />

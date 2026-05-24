@@ -34,6 +34,14 @@ export function InternalLink({ href, onClick, ...props }: InternalLinkProps) {
 
     if (href.startsWith("#")) return;
 
+    const hashIdx = href.indexOf("#");
+    if (hashIdx > 0) {
+      e.preventDefault();
+      navigate(href.slice(0, hashIdx));
+      window.location.hash = href.slice(hashIdx + 1);
+      return;
+    }
+
     e.preventDefault();
     navigate(href);
   };

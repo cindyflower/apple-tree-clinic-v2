@@ -8,11 +8,12 @@
  *   - 內容安全區 max-w-7xl 置中
  *
  * CTA 1 → /face-test
- * CTA 2 → /xuyan-ai
+ * CTA 2 → /xuyan-ai#ai-detection
  */
 import { motion } from "framer-motion";
 import { useInView } from "@/hooks/useInView";
 import { Link } from "wouter";
+import { InternalLink } from "@/components/InternalLink";
 import { Sparkles, ChevronRight } from "lucide-react";
 import { IMAGES } from "@/lib/imageAssets";
 
@@ -167,13 +168,13 @@ export default function XuyanEntryCard() {
                 <Sparkles size={15} className="text-[#c5a572]" />
                 開始序顏 AI 檢測
               </Link>
-              <Link
-                href="/xuyan-ai"
+              <InternalLink
+                href="/xuyan-ai#ai-detection"
                 className="flex items-center justify-center gap-2 px-6 py-3.5 text-[0.9rem] font-body font-medium text-white/70 rounded-xl border border-white/15 hover:bg-white/5 hover:text-white/90 transition-all duration-300"
               >
                 了解序顏怎麼幫你
                 <ChevronRight size={14} className="text-white/40" />
-              </Link>
+              </InternalLink>
             </div>
           </div>
 

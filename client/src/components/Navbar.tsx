@@ -3,19 +3,39 @@
  * Frosted glass nav with slide-out drawer for mobile
  * One-tap LINE booking + phone call
  */
-import { useState, useEffect } from "react";
+import { useState, useEffect, type MouseEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, MessageCircle } from "lucide-react";
 import { useLocation } from "wouter";
 import { BRAND, NAV_ITEMS } from "@/lib/constants";
-import { withBase } from "@/lib/basePath";
+import { withBase, isHomePath } from "@/lib/basePath";
 
 export default function Navbar() {
-  const [location] = useLocation();
+  const [location, navigate] = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const isHome = location === "/" || location === "";
   const onHero = !scrolled && isHome;
+
+  const scrollToPageTop = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  };
+
+  const handleLogoClick = (e: MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    setMobileOpen(false);
+
+    const leavingHome = !isHomePath();
+    if (leavingHome) {
+      navigate("/");
+    }
+
+    window.history.replaceState(null, "", withBase("/"));
+
+    scrollToPageTop();
+    requestAnimationFrame(scrollToPageTop);
+    window.setTimeout(scrollToPageTop, leavingHome ? 100 : 0);
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
@@ -53,8 +73,8 @@ export default function Navbar() {
         <div className="container flex items-center justify-between">
           {/* Logo */}
           <a
-            href="#"
-            onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+            href={withBase("/")}
+            onClick={handleLogoClick}
             className="flex items-center gap-2.5 group"
           >
             <div
