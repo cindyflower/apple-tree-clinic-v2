@@ -27,7 +27,6 @@ const GALLERY_FILES: Record<string, readonly string[]> = {
     "09.jpg",
     "10.jpg",
     "11.jpg",
-    "12.jpg",
   ],
   "talent-a-abs": [
     "cover.jpg",

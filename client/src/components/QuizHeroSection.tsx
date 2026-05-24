@@ -11,20 +11,23 @@ import { IMAGES } from "@/lib/imageAssets";
 
 export default function QuizHeroSection() {
   return (
-    <section className="relative h-screen min-h-[600px] max-h-[1000px] overflow-hidden">
-      {/* Background image — full bleed, object-fit: cover */}
-      <img
-        src={IMAGES.heroVisual}
-        alt="蘋果樹 Dr. Appletree"
-        className="absolute inset-0 w-full h-full object-cover"
-        loading="eager"
-      />
+    <section className="relative isolate h-screen min-h-[600px] max-h-[1000px] overflow-hidden">
+      {/* Background layers — kept below fixed navbar (z-[60]) */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src={IMAGES.heroVisual}
+          alt="蘋果樹 Dr. Appletree"
+          className="absolute inset-0 w-full h-full object-cover"
+          loading="eager"
+        />
 
-      {/* Overlays — ensure text readability */}
-      <div className="absolute inset-0 bg-gradient-to-r from-forest-deep/80 via-forest-deep/55 to-forest-deep/15 md:from-forest-deep/78 md:via-forest-deep/45 md:to-transparent" />
-      <div className="absolute inset-0 bg-gradient-to-t from-forest-deep/60 via-transparent to-forest-deep/20" />
-      {/* Subtle warm overlay for text area */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-transparent to-transparent" />
+        {/* Overlays — ensure text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-forest-deep/80 via-forest-deep/55 to-forest-deep/15 md:from-forest-deep/78 md:via-forest-deep/45 md:to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-forest-deep/60 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-transparent to-transparent" />
+        {/* Top scrim for navbar contrast (navbar stays transparent) */}
+        <div className="absolute inset-x-0 top-0 h-24 md:h-28 bg-gradient-to-b from-forest-deep/75 via-forest-deep/35 to-transparent pointer-events-none" />
+      </div>
 
       {/* Content */}
       <div className="relative z-10 h-full container flex flex-col justify-center">

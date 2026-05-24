@@ -161,7 +161,7 @@
 | `hydrafacial-male` | 男生水飛梭＋水光 | `cover.jpg` |
 | `eyebag-male` | 男仕眼袋外開 | `cover.jpg` |
 | `double-eyelid` | 單眼皮→自然雙眼皮 | `cover.jpg` |
-| `aesthefill` | AestheFill 艾麗斯 | `cover.jpg` ~ `12.jpg` |
+| `aesthefill` | AestheFill 艾麗斯 | `cover.jpg` ~ `11.jpg` |
 | `talent-a-abs` | Talent-A 腹肌 | `cover.jpg` ~ `07.jpg` |
 | `talent-a-hip` | Talent-A 翹臀 | `cover.jpg` ~ `08.jpg` |
 | `talent-a-arm` | Talent-A 手臂 | `cover.jpg` ~ `06.jpg` |

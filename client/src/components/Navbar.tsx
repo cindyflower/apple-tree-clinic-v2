@@ -44,10 +44,10 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        className={`fixed top-0 left-0 right-0 z-[60] transition-all duration-500 ${
           scrolled
             ? "py-2 bg-cream/95 backdrop-blur-xl border-b border-botanical/10 shadow-md shadow-botanical/5"
-            : "py-3 lg:py-4 bg-gradient-to-b from-forest-deep/85 via-forest-deep/50 to-transparent"
+            : "py-3 lg:py-4 bg-transparent"
         }`}
       >
         <div className="container flex items-center justify-between">
@@ -69,14 +69,14 @@ export default function Navbar() {
             <div className="flex flex-col">
               <span
                 className={`text-[0.85rem] font-heading font-semibold leading-none transition-colors ${
-                  onHero ? "text-white drop-shadow-sm" : "text-ink"
+                  onHero ? "text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.55)]" : "text-ink"
                 }`}
               >
                 {BRAND.name}
               </span>
               <span
                 className={`text-[0.5rem] font-body tracking-[0.15em] uppercase leading-none mt-0.5 transition-colors ${
-                  onHero ? "text-white/75" : "text-ink/45"
+                  onHero ? "text-white/85 drop-shadow-[0_1px_2px_rgba(0,0,0,0.45)]" : "text-ink/45"
                 }`}
               >
                 {BRAND.nameEn}
