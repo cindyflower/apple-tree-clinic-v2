@@ -28,6 +28,15 @@ export function useInView(options: UseInViewOptions = {}) {
     );
 
     observer.observe(element);
+
+    // Hash deep-links can scroll before the observer fires (mobile Safari).
+    const rect = element.getBoundingClientRect();
+    const vh = window.innerHeight || document.documentElement.clientHeight;
+    if (rect.top < vh && rect.bottom > 0) {
+      setInView(true);
+      if (triggerOnce) observer.unobserve(element);
+    }
+
     return () => observer.disconnect();
   }, [threshold, rootMargin, triggerOnce]);
 

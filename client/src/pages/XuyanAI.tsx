@@ -3,10 +3,10 @@
  * 獨立序顏頁面：完整介紹 + AI 檢測影片 + 流程影片 + 認識序顏圖 + CTA
  * 搬移自舊首頁的序顏完整內容
  */
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "@/hooks/useInView";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { Sparkles, MessageCircle, Brain, Target, Users, ArrowRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -14,6 +14,7 @@ import FloatingCTA from "@/components/FloatingCTA";
 import VideoSoundToggle from "@/components/VideoSoundToggle";
 import { BRAND } from "@/lib/constants";
 import { IMAGES } from "@/lib/imageAssets";
+import { scrollToHashWithRetry } from "@/lib/scrollToHash";
 
 // ─── Section 1: 序顏是誰 ───
 function WhoIsXuyan() {
@@ -70,6 +71,17 @@ function WhoIsXuyan() {
 function AIDetectionDemo() {
   const { ref, inView } = useInView({ threshold: 0.1 });
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [hashVisible, setHashVisible] = useState(
+    () => typeof window !== "undefined" && window.location.hash.slice(1) === "ai-detection",
+  );
+  const visible = inView || hashVisible;
+
+  useEffect(() => {
+    const sync = () => setHashVisible(window.location.hash.slice(1) === "ai-detection");
+    sync();
+    window.addEventListener("hashchange", sync);
+    return () => window.removeEventListener("hashchange", sync);
+  }, []);
 
   return (
     <section id="ai-detection" className="py-20 md:py-28 bg-white relative overflow-hidden scroll-mt-20" ref={ref}>
@@ -78,7 +90,7 @@ function AIDetectionDemo() {
       <div className="container relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          animate={visible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
           className="text-center max-w-2xl mx-auto mb-12 md:mb-16"
         >
@@ -96,7 +108,7 @@ function AIDetectionDemo() {
 
         <motion.div
           initial={{ opacity: 0, y: 40 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          animate={visible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="max-w-[1200px] mx-auto relative"
         >
@@ -308,14 +320,17 @@ function TeamHandoff() {
 
 // ─── Main Page ───
 export default function XuyanAI() {
+  const [location] = useLocation();
+
   useEffect(() => {
-    const hash = window.location.hash.slice(1);
-    if (!hash) return;
-    const timer = window.setTimeout(() => {
-      document.getElementById(hash)?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }, 150);
-    return () => window.clearTimeout(timer);
-  }, []);
+    const cleanup = scrollToHashWithRetry();
+    const onHashChange = () => scrollToHashWithRetry();
+    window.addEventListener("hashchange", onHashChange);
+    return () => {
+      cleanup();
+      window.removeEventListener("hashchange", onHashChange);
+    };
+  }, [location]);
 
   return (
     <div className="min-h-screen flex flex-col bg-cream">

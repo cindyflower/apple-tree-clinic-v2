@@ -1,6 +1,7 @@
 import { useLocation } from "wouter";
 import type { AnchorHTMLAttributes, MouseEvent } from "react";
 import { isHomePath, toRouterPath, withBase } from "@/lib/basePath";
+import { scrollToHashWithRetry } from "@/lib/scrollToHash";
 
 type InternalLinkProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "href"> & {
   href: string;
@@ -40,7 +41,10 @@ export function InternalLink({ href, onClick, ...props }: InternalLinkProps) {
       const pathPart = href.slice(0, hashIdx);
       const hashPart = href.slice(hashIdx);
       navigate(toRouterPath(pathPart));
-      window.history.replaceState(null, "", withBase(pathPart) + hashPart);
+      window.setTimeout(() => {
+        window.history.replaceState(null, "", withBase(pathPart) + hashPart);
+        scrollToHashWithRetry(hashPart);
+      }, 50);
       return;
     }
 
