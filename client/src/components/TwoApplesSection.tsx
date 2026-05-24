@@ -14,6 +14,7 @@ import { BRAND } from "@/lib/constants";
 const LOCATIONS = [
   {
     name: "綠蘋果北大",
+    environmentId: "beida" as const,
     subtitle: "日常健康的安心基地",
     icon: Leaf,
     iconBg: "bg-emerald-100/70",
@@ -37,6 +38,7 @@ const LOCATIONS = [
   },
   {
     name: "金蘋果南京",
+    environmentId: "nanjing" as const,
     subtitle: "精準美麗管理中心",
     icon: Crown,
     iconBg: "bg-amber-100/70",
@@ -57,7 +59,13 @@ const LOCATIONS = [
   },
 ];
 
-export default function TwoApplesSection() {
+type ClinicId = "nanjing" | "beida";
+
+interface TwoApplesSectionProps {
+  onNavigateToEnvironment?: (clinicId: ClinicId) => void;
+}
+
+export default function TwoApplesSection({ onNavigateToEnvironment }: TwoApplesSectionProps) {
   const { ref, inView } = useInView({ threshold: 0.1 });
 
   return (
@@ -86,12 +94,15 @@ export default function TwoApplesSection() {
         {/* Two cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
           {LOCATIONS.map((loc, i) => (
-            <motion.div
+            <motion.button
               key={loc.name}
+              type="button"
+              onClick={() => onNavigateToEnvironment?.(loc.environmentId)}
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.15 * i }}
-              className={`rounded-3xl border ${loc.border} bg-gradient-to-br ${loc.gradient} p-7 md:p-8 hover:shadow-lg transition-all duration-300`}
+              aria-label={`${loc.name} — 查看院所環境`}
+              className={`text-left w-full rounded-3xl border ${loc.border} bg-gradient-to-br ${loc.gradient} p-7 md:p-8 hover:shadow-lg transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-botanical/40`}
             >
               {/* Header row */}
               <div className="flex items-center gap-3 mb-4">
@@ -128,6 +139,7 @@ export default function TwoApplesSection() {
                   <Phone size={14} className="text-ink/30 shrink-0" />
                   <a
                     href={loc.phoneLink}
+                    onClick={(e) => e.stopPropagation()}
                     className={`text-[0.85rem] font-body font-medium ${loc.accentColor} hover:underline`}
                   >
                     {loc.phone}
@@ -141,6 +153,7 @@ export default function TwoApplesSection() {
                         <span className="text-[0.7rem] font-body text-ink/40">{b.name}</span>
                         <a
                           href={b.phoneLink}
+                          onClick={(e) => e.stopPropagation()}
                           className={`text-[0.7rem] font-body font-medium ${loc.accentColor} hover:underline`}
                         >
                           {b.phone}
@@ -155,6 +168,7 @@ export default function TwoApplesSection() {
               <div className="grid grid-cols-3 gap-2">
                 <a
                   href={loc.phoneLink}
+                  onClick={(e) => e.stopPropagation()}
                   className={`flex flex-col items-center gap-1.5 py-3 rounded-xl ${loc.accentBg} border border-transparent hover:border-current/10 transition-all duration-200`}
                 >
                   <Phone size={16} className={loc.accentColor} />
@@ -166,6 +180,7 @@ export default function TwoApplesSection() {
                   href={loc.mapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
                   className={`flex flex-col items-center gap-1.5 py-3 rounded-xl ${loc.accentBg} border border-transparent hover:border-current/10 transition-all duration-200`}
                 >
                   <Navigation size={16} className={loc.accentColor} />
@@ -177,6 +192,7 @@ export default function TwoApplesSection() {
                   href={loc.lineUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
                   className={`flex flex-col items-center gap-1.5 py-3 rounded-xl ${loc.accentBg} border border-transparent hover:border-current/10 transition-all duration-200`}
                 >
                   <MessageCircle size={16} className={loc.accentColor} />
@@ -185,7 +201,7 @@ export default function TwoApplesSection() {
                   </span>
                 </a>
               </div>
-            </motion.div>
+            </motion.button>
           ))}
         </div>
       </div>

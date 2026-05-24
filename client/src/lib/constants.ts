@@ -148,6 +148,7 @@ export interface DoctorProfile {
   name: string;
   alias?: string;
   title: string;
+  subtitle?: string;
   credentials: string[];
   image: string;
   /** 有內頁時提供 slug，對應 /doctor/:slug */
@@ -170,7 +171,7 @@ export const DOCTORS: DoctorProfile[] = [
   },
   {
     name: "江得信 醫師",
-    title: "北大分院主治醫師",
+    title: "北大診所院長",
     credentials: ["台大醫學系", "長庚醫院", "耳鼻喉科專科"],
     image: doctorImg("江得信 醫師", ""),
   },
@@ -203,6 +204,7 @@ export const DOCTORS: DoctorProfile[] = [
   {
     name: "陳韜名 醫師",
     title: "南京旗艦主治醫師",
+    subtitle: "台灣輔助醫學會理事長",
     credentials: ["中西醫雙執照", "快樂門診", "情緒切片分析"],
     image: doctorImg("陳韜名 醫師", ""),
   },

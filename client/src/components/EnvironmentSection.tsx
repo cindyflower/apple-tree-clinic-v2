@@ -13,9 +13,26 @@ const clinics = [
   { id: "beida" as const, name: "北大診所", photos: BEIDA_CLINIC_PHOTOS },
 ];
 
-export default function EnvironmentSection() {
+type ClinicId = (typeof clinics)[number]["id"];
+
+interface EnvironmentSectionProps {
+  activeClinic?: ClinicId;
+  onClinicChange?: (clinicId: ClinicId) => void;
+}
+
+export default function EnvironmentSection({
+  activeClinic: activeClinicProp,
+  onClinicChange,
+}: EnvironmentSectionProps) {
   const { ref, inView } = useInView({ threshold: 0.1 });
-  const [activeClinic, setActiveClinic] = useState<"nanjing" | "beida">("nanjing");
+  const [internalClinic, setInternalClinic] = useState<ClinicId>("nanjing");
+  const activeClinic = activeClinicProp ?? internalClinic;
+
+  const setActiveClinic = (clinicId: ClinicId) => {
+    if (onClinicChange) onClinicChange(clinicId);
+    else setInternalClinic(clinicId);
+  };
+
   const active = clinics.find((c) => c.id === activeClinic)!;
 
   return (

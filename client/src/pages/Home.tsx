@@ -62,6 +62,18 @@ export default function Home() {
     setFilterLabel(null);
   }, []);
 
+  const [environmentClinic, setEnvironmentClinic] = useState<"nanjing" | "beida">("nanjing");
+
+  const navigateToEnvironment = useCallback((clinicId: "nanjing" | "beida") => {
+    setEnvironmentClinic(clinicId);
+    requestAnimationFrame(() => {
+      const el = document.getElementById("environment");
+      if (!el) return;
+      const y = el.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    });
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col bg-cream">
       <HomepageSchema />
@@ -90,13 +102,16 @@ export default function Home() {
 
         {/* ── 8. 品牌故事 / 兩顆蘋果 / 據點 ── */}
         <BrandStorySection />
-        <TwoApplesSection />
+        <TwoApplesSection onNavigateToEnvironment={navigateToEnvironment} />
 
         {/* ── 9. 醫師團隊 ── */}
         <DoctorsSection />
 
         {/* ── 10. 院所環境 ── */}
-        <EnvironmentSection />
+        <EnvironmentSection
+          activeClinic={environmentClinic}
+          onClinicChange={setEnvironmentClinic}
+        />
 
         {/* ── 11. FAQ ── */}
         <FAQSection />

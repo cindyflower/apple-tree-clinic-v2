@@ -1,11 +1,11 @@
 /*
  * FloatingCTA — Liquid Glass Design / Mobile-First
- * Mobile: Fixed bottom action bar (phone + LINE + booking)
+ * Mobile: Fixed bottom action bar (phone + LINE)
  * Desktop: Side floating buttons with tooltips
  */
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Phone, MessageCircle, ArrowUp, Calendar } from "lucide-react";
+import { Phone, MessageCircle, ArrowUp } from "lucide-react";
 import { BRAND } from "@/lib/constants";
 
 export default function FloatingCTA() {
@@ -47,19 +47,6 @@ export default function FloatingCTA() {
                 <MessageCircle size={15} />
                 LINE 諮詢
               </a>
-              <button
-                onClick={() => {
-                  const el = document.querySelector("#contact");
-                  if (el) {
-                    const y = el.getBoundingClientRect().top + window.scrollY - 80;
-                    window.scrollTo({ top: y, behavior: "smooth" });
-                  }
-                }}
-                className="w-11 h-11 flex items-center justify-center rounded-full bg-botanical text-cream shrink-0"
-                aria-label="線上預約"
-              >
-                <Calendar size={17} />
-              </button>
             </div>
           </motion.div>
 

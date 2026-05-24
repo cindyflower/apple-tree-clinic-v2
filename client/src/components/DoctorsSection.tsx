@@ -126,7 +126,10 @@ export default function DoctorsSection() {
                     <h3 className="text-[1rem] font-heading font-medium text-ink mb-0.5">
                       {doc.name}
                     </h3>
-                    <p className="text-[0.62rem] font-body text-botanical/60 mb-2">{doc.title}</p>
+                    <div className="text-[0.62rem] font-body text-botanical/60 mb-2 space-y-0.5">
+                      <p>{doc.title}</p>
+                      {doc.subtitle && <p>{doc.subtitle}</p>}
+                    </div>
                     <div className="space-y-0.5">
                       {doc.credentials.slice(0, 3).map((c) => (
                         <div key={c} className="flex items-start gap-1.5">
