@@ -107,7 +107,7 @@ export default function Footer() {
               className="inline-flex items-center gap-2 text-[0.9rem] font-body font-light text-white/35 hover:text-sage-light transition-colors duration-300"
             >
               <MessageCircle size={13} />
-              LINE: @drappletree
+              LINE: {BRAND.lineId}
             </a>
           </div>
 
