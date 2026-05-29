@@ -51,11 +51,13 @@ export {
   F,
   treatmentImg,
   TREATMENT_IMG,
+  CATEGORY_FOLDER,
   doctorImg,
   NANJING_CLINIC_PHOTOS,
   BEIDA_CLINIC_PHOTOS,
 } from "./imageAssets";
 import { IMAGES, treatmentImg, doctorImg } from "./imageAssets";
+import { caseMainImage } from "./caseImageAssets";
 
 // ─── 真實案例數據 ───
 export interface CaseStudy {
@@ -98,7 +100,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     title: "水飛梭＋水光・韓妞水光肌",
     category: "肌膚管理",
     treatment: "水飛梭＋水光療程",
-    image: IMAGES.caseHydrafacialWaterlight,
+    image: treatmentImg("水光注射"),
     description: "追求韓妞般的透亮水光肌！水飛梭深層清潔搭配水光注射，一次療程即可感受肌膚明顯提亮、毛孔縮小、保濕度大幅提升。",
     tags: ["水光肌", "深層清潔", "韓式美肌"],
     hotTopic: "小紅書爆紅：水光肌養成術",
@@ -119,7 +121,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     title: "AestheFill 艾麗斯・蘋果肌回春",
     category: "微整注射",
     treatment: "聚雙旋乳酸注射",
-    image: IMAGES.caseAesthefill,
+    image: caseMainImage("aesthefill"),
     description: "透過 AestheFill 艾麗斯聚雙旋乳酸注射，自然填充流失的蘋果肌，刺激自體膠原蛋白增生，效果漸進自然，維持時間長。",
     tags: ["蘋果肌", "膠原增生", "自然填充"],
     hotTopic: "2026 趨勢：膠原蛋白增生劑取代傳統填充",
@@ -127,7 +129,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     id: "talent-a-abs",
     title: "Talent-A 動磁波・科技新貴腹肌鍛鍊",
-    category: "形體雕塑",
+    category: "減重與形體雕塑",
     treatment: "Talent-A 動磁波",
     image: IMAGES.caseTalentAbs,
     description: "科技新貴的腹肌養成計畫！Talent-A 動磁波 30 分鐘等於數萬次肌肉收縮，躺著就能鍛鍊出馬甲線，輕鬆打造精實體態。",
@@ -136,7 +138,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     id: "talent-a-hip",
     title: "Talent-A 動磁波・陽光女孩翹臀練成",
-    category: "形體雕塑",
+    category: "減重與形體雕塑",
     treatment: "Talent-A 動磁波",
     image: IMAGES.caseTalentHip,
     description: "陽光女孩的翹臀練成記！Talent-A 動磁波精準刺激臀部肌群，不需要大量運動就能提臀塑形，穿什麼都好看。",
@@ -155,7 +157,7 @@ export interface DoctorProfile {
   slug?: string;
 }
 
-/** 順序對應 images/15_醫師照片/ 1～9 */
+/** 順序對應 images/醫師照片/ 1～9 */
 export const DOCTORS: DoctorProfile[] = [
   {
     name: "孟祥越 院長",
@@ -258,7 +260,7 @@ export const FEATURED_SERVICES = [
     description: "即時填充淚溝、法令紋、蘋果肌，自然柔軟安全可逆。多品牌原廠玻尿酸選擇，由專業醫師精準注射，午休 30 分鐘完成，93% 客戶滿意自然度。",
     features: ["即時見效", "安全可逆", "自然柔軟", "午休微整"],
     icon: "Droplets",
-    image: IMAGES.caseAesthefill,
+    image: treatmentImg("玻尿酸填充"),
     hotLabel: "🔥 2026 熱搜 #2",
   },
   {
@@ -282,7 +284,7 @@ export const FEATURED_SERVICES = [
     description: "韓國最夯的水光肌養成術！水飛梭深層清潔毛孔後，以水光槍注入玻尿酸與營養精華，一次療程即見透亮水潤肌。97% 客戶表示膚質明顯提亮。",
     features: ["深層清潔毛孔", "補水保濕", "提亮膚色", "韓式水光肌"],
     icon: "Droplet",
-    image: IMAGES.caseHydrafacialWaterlight,
+    image: treatmentImg("水光注射"),
     hotLabel: "🔥 2026 熱搜 #4",
   },
   {
@@ -354,6 +356,12 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       { name: "海芙電波", subtitle: "深層緊緻・膠原重組", description: "革命性單極電波技術，深層加熱刺激膠原蛋白增生重組，達到緊緻拉提效果。", features: ["深層緊緻拉提", "膠原增生重組", "改善法令紋", "V臉塑形"], image: IMAGES.treatmentHaifu },
       { name: "Z音波拉提", subtitle: "SMAS筋膜層拉提", description: "新一代聚焦式超音波技術，精準作用於 SMAS 筋膜層。", features: ["SMAS筋膜層作用", "非侵入式拉提", "維持度佳", "舒適度提升"], image: IMAGES.treatmentZwave },
       { name: "索夫波", description: "新一代柱狀聚焦超音波，3D 立體加熱技術，舒適度更高。", features: ["3D立體加熱", "舒適度高", "緊緻拉提", "無恢復期"], image: treatmentImg("索夫波") },
+      { name: "美國極線音波2.0", subtitle: "Ulthera 2.0・SMAS筋膜拉提", description: "高強度聚焦超音波（HIFU）將能量精準傳遞至 SMAS 筋膜層，刺激膠原蛋白新生與筋膜收縮，達到自然緊緻拉提。", features: ["SMAS筋膜拉提", "非侵入無傷口", "膠原新生", "恢復期短"], image: treatmentImg("美國極線音波2.0") },
+      { name: "鳳凰電波", subtitle: "Thermage FLX・單極電波緊緻", description: "單極電波射頻深入真皮層與筋膜層，即時收縮膠原並啟動長效新生，改善鬆弛、輪廓下垂與細紋。", features: ["單極電波", "立即緊緻", "長效膠原增生", "幾乎無恢復期"], image: treatmentImg("鳳凰電波") },
+      { name: "克萊媞雷射2.0", subtitle: "Clarity II・755/1064雙波長", description: "新一代 755/1064 雙波長雷射，依膚色與需求調整能量，可全面處理除毛、除斑、除血管與亮白等問題。", features: ["雙波長", "除毛除斑", "改善泛紅", "亮白提亮"], image: treatmentImg("克萊媞雷射2.0") },
+      { name: "立特拉渦旋音波", subtitle: "Liftera-V・聚焦音波拉提", description: "採用 TDT 熱擴散技術的高強度聚焦超音波，於皮下形成微加熱點，促進膠原緊縮與增生，改善細紋與鬆弛。", features: ["聚焦超音波", "膠原增生", "改善鬆弛", "無恢復期"], image: treatmentImg("立特拉渦旋音波") },
+      { name: "海芙音波", subtitle: "Ultraformer III・第三代音波拉提", description: "第三代海芙音波以聚焦超音波作用於不同皮膚深層，產生熱效應達到收縮拉提，臉部與身體皆可施作。", features: ["臉部身體皆可", "分層拉提", "非侵入式", "無恢復期"], image: treatmentImg("海芙音波") },
+      { name: "清新微波", subtitle: "腋下止汗", description: "以微波能量作用於汗腺，協助改善腋下多汗與異味問題。", features: ["改善多汗", "減少異味", "非侵入式", "局部治療"], image: treatmentImg("清新微波") },
     ],
   },
   {
@@ -446,7 +454,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
   },
   {
     id: "body",
-    name: "形體雕塑",
+    name: "減重與形體雕塑",
     nameEn: "Body Sculpting",
     icon: "Activity",
     image: IMAGES.bannerMounjaro,
@@ -474,6 +482,14 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     highlight: "女醫師主導，完全隱私環境",
     items: [
       { name: "私密處雷射", description: "採用專業雷射技術改善私密處色素沉澱、鬆弛等問題，提升自信與生活品質。", features: ["改善色素", "緊緻回春", "安全溫和", "隱私保護"], image: treatmentImg("私密處雷射") },
+      { name: "薇薇電波", subtitle: "Viveve 私密緊緻", description: "以單極射頻能量作用於陰道組織，促進膠原蛋白新生，改善鬆弛與乾澀問題。", features: ["膠原新生", "改善鬆弛", "非侵入式", "隱私保護"], image: treatmentImg("薇薇電波") },
+      { name: "陰道緊緻手術", description: "針對產後或老化造成的陰道鬆弛，以手術方式重建緊緻度，改善生活品質。", features: ["改善鬆弛", "專業評估", "隱私環境", "術後追蹤"], image: treatmentImg("陰道緊緻手術") },
+      { name: "小陰唇美型手術", description: "調整小陰唇大小與形狀，改善外觀不對稱或不適，提升自信與舒適度。", features: ["美型調整", "改善不適", "專業手術", "隱私保護"], image: treatmentImg("小陰唇美型手術") },
+      { name: "陰蒂拉提手術", description: "針對陰蒂包皮或組織鬆弛問題進行調整，改善外觀與敏感度相關困擾。", features: ["精細調整", "改善外觀", "專業手術", "隱私環境"], image: treatmentImg("陰蒂拉提手術") },
+      { name: "陰道洞口重建手術", description: "針對陰道洞口鬆弛或外觀問題，進行重建與修復，恢復緊緻與功能。", features: ["重建修復", "改善鬆弛", "專業評估", "隱私保護"], image: treatmentImg("陰道洞口重建手術") },
+      { name: "G點注射", description: "以注射方式改善 G 點區域的飽滿度與敏感度，需由醫師評估後施作。", features: ["注射改善", "醫師評估", "隱私環境", "個人化規劃"], image: treatmentImg("G點注射") },
+      { name: "女性除毛", description: "針對比基尼線等私密部位，以雷射技術進行除毛，過程注重隱私與舒適。", features: ["雷射除毛", "隱私保護", "持久效果", "專業操作"], image: treatmentImg("女性除毛") },
+      { name: "HPV子宮頸癌疫苗", description: "提供 HPV 疫苗接種，協助預防人類乳突病毒相關感染，降低子宮頸癌風險。", features: ["HPV 預防", "專業施打", "安全保障", "預防保健"], image: treatmentImg("HPV子宮頸癌疫苗") },
     ],
   },
   {
@@ -520,31 +536,30 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     highlight: "從頭皮檢測開始，制定個人化生髮方案",
     items: [
       { name: "不動刀育髮", description: "結合口服藥物、外用藥物與雷射生髮帽等多元治療方案，不需手術即可改善落髮。", features: ["非手術", "多元方案", "改善落髮", "促進生長"], image: treatmentImg("不動刀育髮") },
-      { name: "毛髮護理", description: "以專業頭皮護理療程，改善頭皮環境，為毛髮生長創造良好條件。", features: ["頭皮護理", "改善環境", "促進生長", "專業療程"], image: treatmentImg("毛髮護理") },
       { name: "頭皮檢測", description: "以專業儀器進行頭皮與毛囊健康檢測，作為生髮治療的評估基礎。", features: ["精密檢測", "毛囊評估", "治療依據", "個人化分析"], image: treatmentImg("頭皮檢測") },
     ],
   },
   {
     id: "nutrition",
-    name: "營養醫學",
-    nameEn: "Nutritional Medicine",
+    name: "輔助醫學療法",
+    nameEn: "Auxiliary Medical Therapy",
     icon: "Apple",
-    description: "以科學化營養補充方案，從內在調理身體機能。蘋果樹提供客製化點滴療程與營養配方，由醫師依個人檢測結果規劃補充方案。",
+    description: "以科學化輔助療法從內在調理身體機能。蘋果樹提供客製化點滴、靜脈雷射與音樂治療，由醫師依個人狀態規劃方案。",
     suitableFor: "疲勞、免疫力低下、膚色暗沉、營養不均衡者",
     focusArea: "營養補充、代謝提升、免疫強化、由內而外調理",
     highlight: "依個人檢測結果客製化營養補充方案",
     items: [
       { name: "氦氖雷射 ILIB", subtitle: "靜脈雷射", description: "以低能量雷射照射血液，促進血液循環與細胞代謝，改善疲勞與免疫力。", features: ["促進循環", "改善疲勞", "提升免疫", "細胞活化"], image: treatmentImg("氦氖雷射 ILIB") },
       { name: "點滴針劑", description: "依個人需求調配高濃度維生素、礦物質與胺基酸點滴，快速補充身體所需營養。", features: ["客製化配方", "快速補充", "提升代謝", "增強免疫"], image: treatmentImg("點滴針劑") },
-      { name: "營養配方", description: "由醫師依個人檢測結果，規劃專屬的營養補充配方。", features: ["個人化配方", "醫師規劃", "精準補充", "長期調理"], image: treatmentImg("營養配方") },
+      { name: "音樂治療", description: "以音樂作為治療媒介，透過聆聽、演奏與互動，促進身心放鬆與情緒調節。", features: ["音樂療癒", "身心放鬆", "情緒調節", "壓力釋放"], image: treatmentImg("音樂治療") },
     ],
   },
   {
     id: "functional",
-    name: "功能醫學檢測",
+    name: "功能醫學與精準檢測",
     nameEn: "Functional Medicine",
     icon: "Search",
-    description: "透過精密檢測了解身體功能狀態，找出健康問題的根本原因。蘋果樹提供多項功能醫學檢測，協助建立個人化的健康管理計畫。",
+    description: "透過精密檢測了解身體功能狀態，找出健康問題的根本原因。蘋果樹提供多項功能醫學與精準檢測，協助建立個人化的健康管理計畫。",
     suitableFor: "希望深入了解身體狀態、預防疾病、找出亞健康原因者",
     focusArea: "精密檢測、根因分析、預防醫學、健康追蹤",
     highlight: "涵蓋基因、腸道菌叢、腦波、自律神經等多項精密檢測",
@@ -562,13 +577,12 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     name: "快樂門診",
     nameEn: "Wellness Clinic",
     icon: "Smile",
-    description: "身心健康是美麗的基礎。蘋果樹快樂門診由中西醫雙執照醫師主持，結合情緒醫學、音樂治療與功能醫學檢測，提供整合性身心調理方案。",
+    description: "身心健康是美麗的基礎。蘋果樹快樂門診由中西醫雙執照醫師主持，結合情緒醫學與功能醫學與精準檢測，提供整合性身心調理方案。",
     suitableFor: "壓力大、失眠、焦慮、情緒低落、身心疲憊者",
     focusArea: "情緒調理、壓力管理、睡眠改善、身心平衡",
-    highlight: "中西醫雙執照醫師主持，結合音樂治療與功能醫學檢測",
+    highlight: "中西醫雙執照醫師主持，結合功能醫學與精準檢測",
     items: [
       { name: "快樂門診", description: "由中西醫雙執照醫師提供整合性身心調理方案，針對壓力、失眠、焦慮等現代文明病。", features: ["中西醫整合", "壓力管理", "改善睡眠", "情緒調理"], image: treatmentImg("快樂門診") },
-      { name: "音樂治療", description: "以音樂作為治療媒介，透過聆聽、演奏與互動，促進身心放鬆與情緒調節。", features: ["音樂療癒", "身心放鬆", "情緒調節", "壓力釋放"], image: treatmentImg("音樂治療") },
       { name: "3DMRA 檢測", description: "以非侵入式方式掃描全身器官功能狀態，作為身心調理的評估基礎。", features: ["全身掃描", "非侵入式", "整體評估", "治療依據"], image: treatmentImg("3DMRA 檢測") },
       { name: "腦波檢測", description: "分析大腦活動狀態，評估壓力指數與睡眠品質，作為治療方案的參考依據。", features: ["壓力評估", "睡眠分析", "大腦健康", "治療參考"], image: treatmentImg("腦波檢測") },
       { name: "HRV 自律神經分析", description: "評估自律神經平衡狀態，了解身體的壓力反應與恢復能力。", features: ["自律神經", "壓力反應", "恢復能力", "平衡評估"], image: treatmentImg("HRV 自律神經分析") },
@@ -593,31 +607,25 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     name: "肌膚管理",
     nameEn: "Skin Care",
     icon: "Sparkles",
-    image: IMAGES.treatmentAmpule,
+    image: IMAGES.heroBanner,
     description: "以醫學級肌膚管理療程，從清潔、修護到煥膚，全方位提升膚質。蘋果樹肌膚管理結合專業儀器與醫學級保養品，為肌膚建立健康基礎。",
     suitableFor: "膚質暗沉、乾燥缺水、毛孔粗大、敏感泛紅者",
     focusArea: "深層清潔、保濕修護、膚質提升、煥膚亮白",
     highlight: "結合專業儀器與醫學級保養品，建立肌膚健康基礎",
     items: [
+      { name: "水飛梭", subtitle: "深層清潔・毛孔淨化", description: "以渦旋技術深層清潔毛孔、去除老廢角質與粉刺，同時導入保濕精華，讓肌膚即刻透亮。", features: ["深層清潔", "毛孔淨化", "溫和不刺激", "無恢復期"], image: treatmentImg("水飛梭") },
+      { name: "水光注射", subtitle: "深層補水・透亮發光", description: "以水光槍將玻尿酸與營養精華均勻注入真皮層，打造由內而外的水潤透亮肌。", features: ["深層補水", "透亮發光", "改善膚質", "恢復期短"], image: treatmentImg("水光注射") },
       { name: "Rejuran 麗珠蘭", subtitle: "鮭魚針", description: "以鮭魚DNA多核苷酸注入肌膚，促進細胞修復與膠原蛋白再生，改善膚質與彈性。", features: ["細胞修復", "膠原再生", "改善膚質", "提升彈性"], image: treatmentImg("Rejuran 麗珠蘭") },
       { name: "超級玻尿酸鎖水保濕面膜", description: "以高濃度玻尿酸面膜深層補水，為肌膚建立保濕屏障。", features: ["深層補水", "保濕屏障", "即時水潤", "舒緩修護"], image: treatmentImg("超級玻尿酸鎖水保濕面膜") },
       { name: "膠原膜（膠原蛋白面膜）", description: "以膠原蛋白面膜為肌膚補充膠原蛋白，提升彈性與緊緻度。", features: ["膠原補充", "提升彈性", "緊緻肌膚", "修護保養"], image: treatmentImg("膠原膜（膠原蛋白面膜）") },
+      { name: "法國多酚精萃晶膜", description: "以法國多酚精萃晶膜為肌膚補充營養，舒緩修護並提升光澤。", features: ["多酚精萃", "舒緩修護", "提升光澤", "深層滋養"], image: treatmentImg("法國多酚精萃晶膜") },
       { name: "安瓶導入", subtitle: "醫美前導升級", description: "以專業導入儀器將高濃度精華安瓶深層導入肌膚，提升吸收效率。", features: ["深層導入", "高濃度精華", "提升吸收", "即時亮澤"], image: treatmentImg("安瓶導入") },
       { name: "AI 光譜治療", description: "運用不同波長的光能，針對痘痘、泛紅、暗沉等不同肌膚問題進行精準治療。", features: ["抗痘消炎", "舒緩泛紅", "促進修復", "恢復期短"], image: treatmentImg("AI 光譜治療") },
+      { name: "AI 智慧皮膚檢測儀", description: "以 AI 智慧分析肌膚狀態，協助規劃個人化肌膚管理方向。", features: ["AI 分析", "膚況檢測", "個人化建議", "科學管理"], image: treatmentImg("AI 智慧皮膚檢測儀") },
       { name: "O2 to Derm 氧氣面罩", description: "以高壓氧氣技術促進肌膚吸收營養成分，提升膚質與光澤。", features: ["高壓氧氣", "促進吸收", "膚質提升", "光澤感"], image: treatmentImg("O2 to Derm 氧氣面罩") },
-    ],
-  },
-  {
-    id: "spa",
-    name: "醫SPA",
-    nameEn: "Medical SPA",
-    icon: "Flower2",
-    description: "結合醫學專業與SPA舒壓體驗，在放鬆中完成肌膚保養與身心療癒。蘋果樹醫SPA由專業美容師操作，使用醫學級保養品。",
-    suitableFor: "希望在放鬆中完成保養、舒緩壓力者",
-    focusArea: "深層放鬆、肌膚修護、身心療癒",
-    highlight: "醫學級保養品搭配專業手技",
-    items: [
-      { name: "醫學美容SPA", description: "由專業美容師操作的醫學級SPA療程，結合高效能保養品與專業手技，在放鬆中完成深層保養。", features: ["深層放鬆", "肌膚修護", "專業手技", "醫學級保養"], image: treatmentImg("醫學美容SPA") },
+      { name: "無針水光", description: "以無針導入技術將精華送達肌膚，溫和補水亮膚、適合怕痛族群。", features: ["無針導入", "溫和補水", "亮膚保濕", "低侵入"], image: treatmentImg("無針水光") },
+      { name: "肌光潔顏蜜", description: "以肌光潔顏蜜療程調理膚色與光澤，改善暗沉、提升透亮感。", features: ["提亮膚色", "改善暗沉", "光澤感", "溫和煥膚"], image: treatmentImg("肌光潔顏蜜") },
+      { name: "高濃度杏仁酸", description: "以高濃度杏仁酸溫和代謝角質，改善粉刺、毛孔與膚色不均。", features: ["溫和煥膚", "代謝角質", "改善粉刺", "毛孔調理"], image: treatmentImg("高濃度杏仁酸") },
     ],
   },
 ];
@@ -631,7 +639,7 @@ export const FAQ_ITEMS = [
   { question: "蘋果樹為什麼叫「蘋果樹」？", answer: "創辦人曾在科技業，看見 Apple 與 Nokia 代表兩種不同的時代選擇。那次經驗讓我們記住：不要只跟著現在的市場走，要有能力看見下一個未來。所以第二次創業時，我們把診所命名為『蘋果樹』。蘋果，代表科技、創新與未來。樹，代表根基、成長與持續結果。蘋果樹希望把科技思維種進醫療現場，讓健康與美麗成為可以被檢測、規劃、追蹤與調整的長期管理。" },
   { question: "什麼是『美麗是一種管理』？", answer: "蘋果樹相信，美麗不是一次性的療程結果，而是一段持續的管理過程。從看懂自己的狀態開始，透過 AI 檢測整理方向、由醫師評估規劃，再搭配專屬追蹤持續調整，讓健康與美麗成為可以被管理的長期狀態。" },
   { question: "AI 檢測結果可以直接決定療程嗎？", answer: "不可以。AI 檢測結果只作為初步參考，實際療程仍需由醫師與專業團隊依照個人狀況評估。序顏 AI 的角色是幫你先整理狀態與方向，最終決策一定是由專業醫療團隊把關。" },
-  { question: "蘋果樹 Dr. Appletree 提供哪些療程？", answer: "蘋果樹提供多元專業療程，涵蓋雷射電音波（皮秒雷射、海芙電波、Z音波、索夫波等）、微整注射（薇貝拉魔法針、玻尿酸、肉毒桿菌）、整型外科、形體雕塑（猛健樂、週纖達、Talent-A動磁波）、女性私密美學、型男醫美專區、再生醫學、生髮門診、營養醫學、功能醫學檢測、快樂門診、自費疫苗、肌膚管理（水飛梭、安瓶導入、LED光療）、醫SPA。北大診所另提供健保皮膚科服務。" },
+  { question: "蘋果樹 Dr. Appletree 提供哪些療程？", answer: "蘋果樹提供多元專業療程，涵蓋雷射電音波（皮秒雷射、海芙電波、Z音波、索夫波等）、微整注射（薇貝拉魔法針、玻尿酸、肉毒桿菌）、整型外科、減重與形體雕塑（猛健樂、週纖達、Talent-A動磁波）、女性私密美學、型男醫美專區、再生醫學、生髮門診、輔助醫學療法、功能醫學與精準檢測、快樂門診、自費疫苗、肌膚管理（水飛梭、安瓶導入、LED光療）。北大診所另提供健保皮膚科服務。" },
   { question: "第一次到蘋果樹醫美需要準備什麼？", answer: "首次來診建議攜帶身分證件，提前 10 分鐘到達填寫基本資料。我們會安排專業諮詢師為您進行一對一的膚質分析與療程建議，整個諮詢過程約 30-60 分鐘，完全免費且無任何消費壓力。" },
   { question: "皮秒雷射和傳統雷射有什麼差別？為什麼 2026 年皮秒蜂巢是熱搜第一？", answer: "皮秒雷射以皮秒（10⁻¹²秒）為單位，比傳統奈秒雷射快 1000 倍，能更精準地擊碎色素顆粒，對周圍組織傷害更小。蜂巢透鏡技術更能聚焦能量，刺激膠原蛋白新生。恢復期通常 1-3 天，24小時即可感受膚色提亮。2026 年成為熱搜第一是因為新一代蜂巢透鏡效果更好、舒適度更高。" },
   { question: "海芙電波和音波拉提該怎麼選？", answer: "海芙電波透過單極電波加熱真皮層，效果偏向「緊緻」；音波拉提聚焦超音波作用於 SMAS 筋膜層，效果偏向「拉提」。想要皮膚緊緻選海芙電波，想要輪廓拉提選音波。兩者也可搭配使用，建議預約諮詢由醫師評估最適合的方案。" },

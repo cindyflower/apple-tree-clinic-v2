@@ -52,7 +52,7 @@ const MANAGEMENT_AREAS = [
   {
     title: "長期健康管理",
     icon: Heart,
-    description: "從營養、檢測、疫苗到身心狀態，建立可持續追蹤的健康基礎。",
+    description: "從疲勞、氣色到日常健康狀態，建立更穩定的整體管理節奏。",
     gradient: "from-rose-50 to-pink-50/40",
     border: "border-rose-100/60",
     hoverBorder: "hover:border-rose-200",

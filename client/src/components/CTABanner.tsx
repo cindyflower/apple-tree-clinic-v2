@@ -40,13 +40,15 @@ export default function CTABanner() {
           </span>
 
           <h2 className="heading-editorial text-white/95 text-3xl sm:text-4xl lg:text-[3rem] mb-5 leading-tight">
-            美麗，是一種管理
-            <br className="sm:hidden" />
-            <span className="text-gold-light"> — 現在開始你的終身計畫</span>
+            從現在開始，
+            <br />
+            <span className="text-gold-light">找到最適合你的變美方向。</span>
           </h2>
 
           <p className="text-[0.95rem] font-body font-light text-white/55 max-w-xl mx-auto mb-4 leading-[1.9]">
-            醫療美學管理診所 | 肌膚 × 輪廓 × 健康 的整體醫療管理
+            先讓序顏™ AI美學管理師幫你看懂狀態，
+            <br />
+            再由 Dr. Appletree 團隊協助你做對下一步。
           </p>
           <p className="text-[0.8rem] font-body font-light text-white/35 max-w-lg mx-auto mb-10 leading-[1.9]">
             讓每一次美麗改變，都被專業醫療團隊與科技系統安全且科學地管理。
@@ -61,7 +63,7 @@ export default function CTABanner() {
               }}
               className="group inline-flex items-center gap-2 px-8 py-3.5 text-[0.85rem] font-body font-medium text-forest-deep bg-cream rounded-full hover:bg-white transition-all duration-400 shadow-xl"
             >
-              立即預約AI檢測 + 功能醫學評估
+              立即預約序顏™ AI
               <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform duration-300" />
             </a>
             <a

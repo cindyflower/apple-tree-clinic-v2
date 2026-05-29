@@ -26,7 +26,7 @@ const STEPS = [
       </svg>
     ),
     title: "理解你的狀態",
-    desc: "AI 多維度分析膚況與結構變化",
+    desc: "AI 分析肌膚、輪廓、氣色與整體變化。",
   },
   {
     icon: (
@@ -37,7 +37,7 @@ const STEPS = [
       </svg>
     ),
     title: "判斷美學方向",
-    desc: "找出影響比例與質感的關鍵因素",
+    desc: "找出影響觀感與狀態的關鍵優先順序。",
   },
   {
     icon: (
@@ -48,7 +48,7 @@ const STEPS = [
       </svg>
     ),
     title: "銜接專人評估",
-    desc: "由專業團隊為你規劃最適合的下一步",
+    desc: "由 Dr. Appletree 團隊協助你規劃適合的管理方式。",
   },
 ];
 
@@ -105,7 +105,7 @@ export default function XuyanEntryCard() {
             <div className="mb-5">
               <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-md text-[0.7rem] font-body font-semibold tracking-[0.12em] text-[#c5a572] border border-[#c5a572]/30 bg-[#c5a572]/5">
                 <Sparkles size={10} className="text-[#c5a572]" />
-                30 秒看懂你的隱形老化方向
+                30秒看懂你的狀態與美學方向
                 <Sparkles size={10} className="text-[#c5a572]" />
               </span>
             </div>
@@ -166,7 +166,7 @@ export default function XuyanEntryCard() {
                 }}
               >
                 <Sparkles size={15} className="text-[#c5a572]" />
-                開始序顏 AI 檢測
+                開始序顏™ AI健康美感分析
               </Link>
               <InternalLink
                 href="/xuyan-ai#ai-detection"

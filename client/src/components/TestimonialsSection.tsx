@@ -5,7 +5,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "@/hooks/useInView";
 import { Star, Quote } from "lucide-react";
-import { IMAGES } from "@/lib/constants";
+import { treatmentImg } from "@/lib/imageAssets";
 
 const testimonials = [
   {
@@ -71,7 +71,7 @@ export default function TestimonialsSection() {
             <div className="grid lg:grid-cols-5 gap-0">
               {/* Case image */}
               <div className="lg:col-span-3 relative">
-                <img loading="lazy" src={IMAGES.caseHydrafacialWaterlight}
+                <img loading="lazy" src={treatmentImg("水飛梭")}
                   alt="水飛梭＋水光療程 Before After 真實案例"
                   className="w-full h-64 lg:h-80 object-cover"
                  

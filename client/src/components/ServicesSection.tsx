@@ -15,7 +15,7 @@ import {
   Sprout, Apple, Search, Smile, ShieldCheck, Sparkles, Flower2,
   ChevronRight, Check, Stethoscope, Brain, ArrowRight
 } from "lucide-react";
-import { SERVICE_CATEGORIES, NHI_SERVICES, BRAND } from "@/lib/constants";
+import { SERVICE_CATEGORIES, NHI_SERVICES, BRAND, treatmentImg, CATEGORY_FOLDER } from "@/lib/constants";
 import { type CategoryId, MANAGEMENT_MAPPING, MANAGEMENT_DESCRIPTIONS, CATEGORY_DESCRIPTIONS } from "@/lib/serviceMapping";
 import { getTreatmentSlug } from "@/lib/treatmentSlugMap";
 import { InternalLink } from "@/components/InternalLink";
@@ -79,12 +79,12 @@ export default function ServicesSection({ activeFilter, filterLabel, onFilterCle
       return (
         <>
           <h2 className="heading-editorial text-ink text-3xl sm:text-4xl lg:text-[2.6rem] leading-snug mb-4">
-            從膚況、輪廓到健康狀態，
-            <br className="hidden sm:block" />
-            找到你的<span className="text-gradient-forest">管理方向</span>。
+            從需求出發，找到適合你的<span className="text-gradient-forest">療程選擇</span>。
           </h2>
           <p className="text-[1rem] font-body font-light text-ink/45 max-w-xl mx-auto leading-[1.85]">
-            蘋果樹將服務整理為四大管理方向，讓你不用先懂療程名稱，也能從自己的需求開始理解適合的選擇。
+            如果你已經有明確想改善的問題，
+            <br />
+            可以從這裡快速瀏覽 Dr. Appletree 的療程與服務分類。
           </p>
         </>
       );
@@ -125,12 +125,12 @@ export default function ServicesSection({ activeFilter, filterLabel, onFilterCle
     return (
       <>
         <h2 className="heading-editorial text-ink text-3xl sm:text-4xl lg:text-[2.6rem] leading-snug mb-4">
-          從膚況、輪廓到健康狀態，
-          <br className="hidden sm:block" />
-          找到你的<span className="text-gradient-forest">管理方向</span>。
+          從需求出發，找到適合你的<span className="text-gradient-forest">療程選擇</span>。
         </h2>
         <p className="text-[1rem] font-body font-light text-ink/45 max-w-xl mx-auto leading-[1.85]">
-          蘋果樹將服務整理為四大管理方向，讓你不用先懂療程名稱，也能從自己的需求開始理解適合的選擇。
+          如果你已經有明確想改善的問題，
+          <br />
+          可以從這裡快速瀏覽 Dr. Appletree 的療程與服務分類。
         </p>
       </>
     );
@@ -153,7 +153,7 @@ export default function ServicesSection({ activeFilter, filterLabel, onFilterCle
           {/* 上層小標（固定概念） */}
           <span className="label-refined text-champagne inline-flex items-center justify-center gap-2 mb-4">
             <span className="w-6 h-[1px] bg-champagne/50" />
-            SERVICES 健康美麗管理入口
+            Service 精選療程分類
             <span className="w-6 h-[1px] bg-champagne/50" />
           </span>
 
@@ -247,7 +247,11 @@ export default function ServicesSection({ activeFilter, filterLabel, onFilterCle
 
                 {/* Treatment cards — CSS Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {activeCatData.items.map((item, idx) => (
+                  {activeCatData.items.map((item, idx) => {
+                    // 一致規則：有明確設定的用設定值；否則依分類自動找 {名稱}_cover.jpg
+                    const catFolder = (CATEGORY_FOLDER as Record<string, string>)[activeCatData.id];
+                    const itemImage = (item as any).image ?? (catFolder ? treatmentImg(item.name, catFolder) : undefined);
+                    return (
                     <motion.div
                       key={item.name}
                       initial={{ opacity: 0, y: 12 }}
@@ -256,9 +260,9 @@ export default function ServicesSection({ activeFilter, filterLabel, onFilterCle
                       className="group rounded-xl border border-border/30 bg-white/70 backdrop-blur-sm overflow-hidden hover:border-botanical/20 card-hover transition-all duration-300"
                     >
                       {/* Image area */}
-                      {(item as any).image ? (
+                      {itemImage ? (
                         <div className="relative h-40 sm:h-44 overflow-hidden bg-sage-mist/10">
-                          <img loading="lazy" src={(item as any).image}
+                          <img loading="lazy" src={itemImage}
                             alt={`${item.name} — 蘋果樹 Dr. Appletree`}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                            
@@ -326,7 +330,8 @@ export default function ServicesSection({ activeFilter, filterLabel, onFilterCle
                         })()}
                       </div>
                     </motion.div>
-                  ))}
+                    );
+                  })}
                 </div>
 
                 {/* Category-level CTA */}

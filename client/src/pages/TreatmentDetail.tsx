@@ -85,16 +85,23 @@ export default function TreatmentDetailPage() {
       <div className="fixed top-0 left-0 right-0 z-50 py-2 bg-cream/80 backdrop-blur-xl border-b border-botanical/8 shadow-sm shadow-botanical/3">
         <div className="container flex items-center justify-between">
           <button
-            onClick={() => navigate("/")}
+            onClick={() => {
+              if (window.history.length > 1) window.history.back();
+              else navigate("/");
+            }}
             className="flex items-center gap-2 text-[0.8rem] font-body font-medium text-ink/60 hover:text-ink transition-colors"
           >
             <ArrowLeft size={16} />
-            <span className="hidden sm:inline">返回首頁</span>
+            <span className="hidden sm:inline">返回</span>
           </button>
-          <div className="flex items-center gap-2">
+          <button
+            onClick={() => navigate("/")}
+            aria-label="回首頁"
+            className="flex items-center gap-2 hover:opacity-70 transition-opacity"
+          >
             <span className="text-sm">🍏</span>
             <span className="text-[0.85rem] font-heading font-semibold text-ink">{BRAND.name}</span>
-          </div>
+          </button>
           <a
             href={BRAND.lineUrl}
             target="_blank"

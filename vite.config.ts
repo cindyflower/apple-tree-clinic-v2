@@ -151,23 +151,22 @@ function vitePluginManusDebugCollector(): Plugin {
   };
 }
 
-/** Sync image pack (images/00_* … 17_*) → client/public/images for Vite */
+/** Sync image pack (images/* incl. services/ subtree) → client/public/images for Vite */
 function vitePluginSyncTreatmentImages(): Plugin {
   const srcRoot = path.join(PROJECT_ROOT, "images");
   const destRoot = path.join(PROJECT_ROOT, "client", "public", "images");
 
+  const SKIP_DIRS = new Set(["_archive"]);
+
   const sync = () => {
     if (!fs.existsSync(srcRoot)) return;
     fs.mkdirSync(destRoot, { recursive: true });
+    // Copy every image subfolder recursively (00_…/01_…/services/案例Banner/醫師照片/cases/…)
     for (const name of fs.readdirSync(srcRoot)) {
-      if (!/^\d{2}_/.test(name)) continue;
+      if (SKIP_DIRS.has(name)) continue;
       const src = path.join(srcRoot, name);
       if (!fs.statSync(src).isDirectory()) continue;
       fs.cpSync(src, path.join(destRoot, name), { recursive: true, force: true });
-    }
-    const casesSrc = path.join(srcRoot, "cases");
-    if (fs.existsSync(casesSrc)) {
-      fs.cpSync(casesSrc, path.join(destRoot, "cases"), { recursive: true, force: true });
     }
     const destRootAssets = path.join(destRoot, "_root");
     fs.mkdirSync(destRootAssets, { recursive: true });

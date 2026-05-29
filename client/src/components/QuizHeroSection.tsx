@@ -52,8 +52,7 @@ export default function QuizHeroSection() {
             transition={{ duration: 1, delay: 0.5 }}
             className="heading-display"
           >
-            <span className="block text-[clamp(1.8rem,6vw,3.8rem)] text-white/95 leading-tight">美麗是一種管理，</span>
-            <span className="block text-[clamp(1.8rem,6vw,3.8rem)] text-gold-light leading-tight">健康，也是一種管理</span>
+            <span className="block text-[clamp(1.8rem,6vw,3.8rem)] text-white/95 leading-tight">美麗是一種管理</span>
           </motion.h1>
 
           {/* 副標 */}
@@ -63,7 +62,7 @@ export default function QuizHeroSection() {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="mt-4 md:mt-6 text-[1.05rem] md:text-[1.25rem] font-body font-normal text-white/80 leading-[1.9] max-w-xl"
           >
-            從肌膚、輪廓、體態到代謝狀態，蘋果樹以醫師評估為核心，結合 AI 檢測與專屬追蹤，陪你看懂狀態、規劃方向，並持續調整。
+            從肌膚、輪廓、氣色到健康狀態，Dr. Appletree 結合醫師評估、AI 分析與長期追蹤，陪你看懂現在的狀態，找到最適合自己的變美方向。
           </motion.p>
 
           {/* CTA buttons */}
@@ -73,13 +72,13 @@ export default function QuizHeroSection() {
             transition={{ duration: 0.8, delay: 1.2 }}
             className="mt-8 md:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-3"
           >
-            {/* Primary — 開始 AI 肌膚檢測 */}
+            {/* Primary — 序顏™ AI 美學評估 */}
             <Link
               href="/face-test"
               className="flex items-center justify-center gap-2 px-8 py-4 text-[0.95rem] font-body font-bold text-forest-deep bg-gold-light rounded-full hover:bg-gold transition-all duration-300 shadow-lg shadow-gold/25 pulse-cta"
             >
               <Sparkles size={18} />
-              開始 AI 肌膚檢測
+              開始序顏™ AI美學評估
             </Link>
 
             {/* Secondary — 預約健康美麗諮詢 */}

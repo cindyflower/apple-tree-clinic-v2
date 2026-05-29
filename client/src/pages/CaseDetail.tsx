@@ -456,7 +456,7 @@ function RelatedVideos({
     "肌膚管理": "skin-glow",
     "整型外科": "natural-beauty",
     "微整注射": "natural-beauty",
-    "形體雕塑": "body",
+    "減重與形體雕塑": "body",
     "光電雷射": "contour",
   };
   const videoCatId = catMap[category] || "all";

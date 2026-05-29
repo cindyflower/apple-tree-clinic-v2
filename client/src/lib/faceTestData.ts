@@ -159,7 +159,7 @@ export const AGING_RESULTS: Record<AgingType, AgingResult> = {
     recommendations: [
       "皮秒蜂巢雷射（淡斑亮白）",
       "水光針（深層保濕透亮）",
-      "功能醫學檢測（從內調理膚況）",
+      "功能醫學與精準檢測（從內調理膚況）",
     ],
   },
   fatigue: {
