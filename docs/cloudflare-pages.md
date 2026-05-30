@@ -13,6 +13,15 @@ GitHub Pages 預覽仍維持：`https://cindyflower.github.io/apple-tree-clinic-
 2. 可建立空專案或稍後由 Actions 自動建立；專案名稱建議：`apple-tree-clinic-v2`
 3. **此階段不要**在 Pages 專案加 Custom domain（不要加 `drappletree.com.tw`）
 
+### 不要用 Cloudflare「連接 GitHub」自動建置
+
+若 Pages 專案已 **Connect to Git**（日誌出現 `Cloning repository`、`No build command specified`），會直接上傳整個 repo（含 `images/`），**不會**跑 `pnpm run build:production`，也容易踩到單檔 **25 MiB** 上限。
+
+請改為其一：
+
+- **建議**：刪除或暫停 Pages 的 Git 整合，只用本 repo 的 **GitHub Actions → Deploy Cloudflare Pages**（上傳 `dist/public`）。
+- 若堅持用 Cloudflare Git：Build command 設 `pnpm install && pnpm run build:production`，Output directory 設 `dist/public`，並設定 `VITE_SITE_URL` / `SITE_URL` 環境變數（見第三節）。
+
 ### API Token
 
 1. [API Tokens](https://dash.cloudflare.com/profile/api-tokens) → **Create Token**
@@ -67,7 +76,15 @@ pnpm run build:production
 3. 將 GitHub Variable `CLOUDFLARE_SITE_URL` 改為 `https://www.drappletree.com.tw`（或改 workflow 預設）後重新 deploy
 4. 詳見 [site-urls.md](./site-urls.md)
 
-## 六、本機 wrangler 上傳（選用）
+## 六、常見錯誤
+
+| 訊息 | 原因 | 處理 |
+|------|------|------|
+| `Pages only supports files up to 25 MiB` | 部署目錄含超大檔（例如未使用的原圖） | 刪除或壓縮至 25 MiB 以下；網站南京環境照只用 `01.jpg`～`08.jpg` |
+| `No build command specified` | Cloudflare Git 未設定建置 | 改用工 Actions，或設定 build 與 `dist/public` |
+| `Authentication error [code: 10000]` | GitHub Secret 的 API Token 無效或權限不足 | 重建 Token（Pages Edit + Account Settings Read）並更新 Secrets |
+
+## 七、本機 wrangler 上傳（選用）
 
 ```bash
 npx wrangler login
