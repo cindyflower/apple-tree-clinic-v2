@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-Disallow: /apple-tree-clinic-v2/404
-Disallow: /apple-tree-clinic-v2/face-result
+Disallow: /404
+Disallow: /face-result
 
-Sitemap: https://cindyflower.github.io/apple-tree-clinic-v2/sitemap.xml
+Sitemap: https://apple-tree-clinic-v2.pages.dev/sitemap.xml
