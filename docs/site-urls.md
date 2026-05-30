@@ -19,7 +19,8 @@
 | 環境 | 環境變數 | 產出的 canonical 範例 |
 |------|----------|------------------------|
 | **GitHub Pages（現在）** | `GITHUB_PAGES=true`<br>`VITE_SITE_URL=https://cindyflower.github.io` | `https://cindyflower.github.io/apple-tree-clinic-v2/face-test` |
-| **Cloudflare Pages + 正式網域（未來）** | 不設 `GITHUB_PAGES`<br>`VITE_SITE_URL=https://www.drappletree.com.tw` | `https://www.drappletree.com.tw/face-test` |
+| **Cloudflare Pages（AB Test 預覽）** | 不設 `GITHUB_PAGES`<br>`VITE_SITE_URL=https://apple-tree-clinic-v2.pages.dev` | `https://apple-tree-clinic-v2.pages.dev/face-test` |
+| **Cloudflare + 正式網域（AB Test 通過後）** | 不設 `GITHUB_PAGES`<br>`VITE_SITE_URL=https://www.drappletree.com.tw` | `https://www.drappletree.com.tw/face-test` |
 | **本機開發** | 可不設（執行時 fallback 至 `window.location.origin`） | `http://localhost:3000/...` |
 
 sitemap 腳本亦支援 `SITE_URL`（與 `VITE_SITE_URL` 同值），供 Node 腳本在 build 前使用。
@@ -35,18 +36,24 @@ sitemap 腳本亦支援 `SITE_URL`（與 `VITE_SITE_URL` 同值），供 Node �
 
 預設 OG 分享圖為 `images/00_品牌與環境/hero-wellness-beauty-1.jpg`（`IMAGES.hero`）。各頁可透過 `useSEO({ ogImage: ... })` 指定其他本地圖，會自動轉為絕對 URL。
 
-## 上線 Cloudflare Pages 時
+## Cloudflare Pages（AB Test 階段）
 
-Cloudflare Pages build 設定：
+目前只部署到 `*.pages.dev`，**不綁** `www.drappletree.com.tw`。見 **[cloudflare-pages.md](./cloudflare-pages.md)**。
+
+```bash
+VITE_SITE_URL=https://apple-tree-clinic-v2.pages.dev
+# 不要設 GITHUB_PAGES
+pnpm run build:production
+```
+
+## 正式網域上線（AB Test 通過後）
 
 ```bash
 VITE_SITE_URL=https://www.drappletree.com.tw
 # 不要設 GITHUB_PAGES
 ```
 
-另需設定 SPA fallback（`client/public/_redirects` 已含 `/* /index.html 200`），取代 GitHub Pages 的 `404.html` 複製步驟。
-
-DNS 將 `drappletree.com.tw` / `www` 指向 Cloudflare Pages 即可。sitemap、canonical、Schema.org 會自動指向正式網域。
+再在 Cloudflare 綁定 Custom domain；`client/public/_redirects` 已含 SPA fallback。
 
 ## 與 BRAND.website 的差異
 

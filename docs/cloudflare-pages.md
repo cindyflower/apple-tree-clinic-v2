@@ -1,78 +1,77 @@
-# Cloudflare Pages 部署指南
+# Cloudflare Pages 部署指南（AB Test 預覽）
 
-正式網域：`https://www.drappletree.com.tw`
+目前階段：**只部署到 Cloudflare Pages 預覽網址**，供 AB Test 使用。
 
-GitHub Pages 預覽仍維持不變；**正式上線**請用 Cloudflare Pages + 本文件設定。
+- 預覽網址（預設）：**https://apple-tree-clinic-v2.pages.dev**
+- 正式網域 `https://www.drappletree.com.tw`：**先不要綁定、不要改 DNS**，通過 AB Test 後再切換（見下方「正式上線」）
+
+GitHub Pages 預覽仍維持：`https://cindyflower.github.io/apple-tree-clinic-v2/`
 
 ## 一、Cloudflare 後台（首次）
 
-1. 登入 [Cloudflare Dashboard](https://dash.cloudflare.com/) → **Workers & Pages** → **Create**
-2. 選 **Pages** → **Connect to Git**（或直接建立空專案，由 GitHub Actions 部署）
-3. 若用 **GitHub Actions**（本 repo 已含 workflow）：
-   - 專案名稱建議：`apple-tree-clinic-v2`（與 workflow 預設一致）
-   - 不必在 Cloudflare 填 build 指令（由 Actions 建置後上傳 `dist/public`）
+1. 登入 [Cloudflare Dashboard](https://dash.cloudflare.com/) → **Workers & Pages** → **Create** → **Pages**
+2. 可建立空專案或稍後由 Actions 自動建立；專案名稱建議：`apple-tree-clinic-v2`
+3. **此階段不要**在 Pages 專案加 Custom domain（不要加 `drappletree.com.tw`）
 
-### API Token（給 GitHub Actions）
+### API Token
 
-1. [My Profile → API Tokens](https://dash.cloudflare.com/profile/api-tokens) → **Create Token**
-2. 使用模板 **Edit Cloudflare Workers** 或自訂權限：
-   - Account → **Cloudflare Pages** → Edit
-3. 複製 Token（只顯示一次）
-
-### Account ID
-
-Dashboard 右側欄或任意網域 **Overview** 頁可看到 **Account ID**。
+1. [API Tokens](https://dash.cloudflare.com/profile/api-tokens) → **Create Token**
+2. 權限：Account → **Cloudflare Pages** → Edit
+3. 複製 Token；記下 **Account ID**（Dashboard 右側）
 
 ## 二、GitHub Secrets
 
-Repo：`cindyflower/apple-tree-clinic-v2` → **Settings → Secrets and variables → Actions**
+`cindyflower/apple-tree-clinic-v2` → **Settings → Secrets and variables → Actions**
 
 | Secret | 說明 |
 |--------|------|
-| `CLOUDFLARE_API_TOKEN` | 上一步建立的 Token |
-| `CLOUDFLARE_ACCOUNT_ID` | Cloudflare Account ID |
+| `CLOUDFLARE_API_TOKEN` | 上一步 Token |
+| `CLOUDFLARE_ACCOUNT_ID` | Account ID |
 
-（選用）**Variables** → `CLOUDFLARE_PAGES_PROJECT`：若 Cloudflare 專案名稱不是 `apple-tree-clinic-v2` 可覆寫。
+（選用）**Variables**
 
-設定完成後：
+| Variable | 說明 |
+|----------|------|
+| `CLOUDFLARE_PAGES_PROJECT` | 專案名稱（預設 `apple-tree-clinic-v2`） |
+| `CLOUDFLARE_SITE_URL` | 若 `*.pages.dev` 網址不同，覆寫 canonical 用（預設 `https://apple-tree-clinic-v2.pages.dev`） |
 
-- 推送 `main` 會觸發 `.github/workflows/deploy-cloudflare.yml`
-- 或到 **Actions** → **Deploy Cloudflare Pages** → **Run workflow**
+推送 `main` 或手動執行 **Actions → Deploy Cloudflare Pages**。
 
-## 三、本機建置驗證
+部署成功後在 Cloudflare → 該專案 → **View build** 可看到實際 `*.pages.dev` 網址；若與預設不同，把 `CLOUDFLARE_SITE_URL` 設成該網址後重新 deploy。
+
+## 三、本機建置（與 CI 相同）
 
 ```bash
-VITE_SITE_URL=https://www.drappletree.com.tw SITE_URL=https://www.drappletree.com.tw pnpm run build:production
+VITE_SITE_URL=https://apple-tree-clinic-v2.pages.dev \
+SITE_URL=https://apple-tree-clinic-v2.pages.dev \
+pnpm run build:production
 ```
 
-產出目錄：`dist/public/`（含 `_redirects`、prerender 路由、sitemap）
+產出：`dist/public/`（含 `_redirects`、prerender、sitemap 皆指向上述預覽網域）
 
-## 四、自訂網域 DNS
+## 四、與 GitHub Pages 的差異
 
-在 Cloudflare Pages 專案 → **Custom domains**：
+| 項目 | GitHub Pages | Cloudflare Pages（現在） |
+|------|----------------|---------------------------|
+| Workflow | `deploy-pages.yml` | `deploy-cloudflare.yml` |
+| 對外網址 | `cindyflower.github.io/.../apple-tree-clinic-v2/` | `apple-tree-clinic-v2.pages.dev` |
+| `VITE_SITE_URL` | `https://cindyflower.github.io` | `https://apple-tree-clinic-v2.pages.dev` |
+| 正式網域 | 不用 | **不綁** |
 
-- `www.drappletree.com.tw`（建議 primary）
-- `drappletree.com.tw` → 設 **Redirect to www**
+頁尾／聯絡用的 `BRAND.website` 仍為 `https://www.drappletree.com.tw`（品牌資訊），與 SEO canonical 分開。
 
-若網域已在 Cloudflare DNS，通常會自動建議 CNAME。
+## 五、正式上線（AB Test 通過後再做）
 
-## 五、與 GitHub Pages 的差異
+1. Cloudflare Pages → **Custom domains** → 新增 `www.drappletree.com.tw`
+2. DNS 指向 Cloudflare Pages
+3. 將 GitHub Variable `CLOUDFLARE_SITE_URL` 改為 `https://www.drappletree.com.tw`（或改 workflow 預設）後重新 deploy
+4. 詳見 [site-urls.md](./site-urls.md)
 
-| 項目 | GitHub Pages | Cloudflare Pages |
-|------|----------------|------------------|
-| 觸發 | `deploy-pages.yml` | `deploy-cloudflare.yml` |
-| `GITHUB_PAGES` | `true` | **不要設** |
-| `VITE_SITE_URL` | `https://cindyflower.github.io` | `https://www.drappletree.com.tw` |
-| Base path | `/apple-tree-clinic-v2/` | `/` |
-| SPA fallback | `404.html` 複製 | `_redirects` → 200 |
-
-SEO canonical 由 `VITE_SITE_URL` 控制，詳見 [site-urls.md](./site-urls.md)。
-
-## 六、本機直接上傳（選用）
+## 六、本機 wrangler 上傳（選用）
 
 ```bash
 npx wrangler login
 npx wrangler pages project create apple-tree-clinic-v2 --production-branch=main
-VITE_SITE_URL=https://www.drappletree.com.tw SITE_URL=https://www.drappletree.com.tw pnpm run build:production
+VITE_SITE_URL=https://apple-tree-clinic-v2.pages.dev SITE_URL=https://apple-tree-clinic-v2.pages.dev pnpm run build:production
 npx wrangler pages deploy dist/public --project-name=apple-tree-clinic-v2 --branch=main
 ```

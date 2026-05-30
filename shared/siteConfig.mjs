@@ -1,6 +1,8 @@
 /** Shared site URL resolution for build scripts and Vite plugins. */
 
 export const PRODUCTION_ORIGIN = "https://www.drappletree.com.tw";
+/** Cloudflare Pages 預覽（AB Test 階段；未綁正式網域前使用） */
+export const CLOUDFLARE_PAGES_ORIGIN = "https://apple-tree-clinic-v2.pages.dev";
 export const GITHUB_PAGES_ORIGIN = "https://cindyflower.github.io";
 export const GITHUB_PAGES_BASE = "/apple-tree-clinic-v2";
 
