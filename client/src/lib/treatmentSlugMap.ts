@@ -18,20 +18,28 @@ const TREATMENT_SLUG_MAP: Record<string, string> = {
   "克萊媞雷射2.0": "clarity-ii",
   "立特拉渦旋音波": "liftera-v",
   "海芙音波": "haifu-ultrasound",
+  "索夫波": "sofwave",
   "清新微波": "microwave-sweat",
 
-  // ── 微整注射（含原精雕微整項目） ──
-  "Sculptra 舒顏萃": "collagen-regeneration",
-  "Ellanse 洢蓮絲": "ellanse",
+  // ── 微整注射（卡片順序見 images/services/02_微整注射/ 1–15 編號）──
+  "逆時針": "juvelook",
+  "璞菲洛": "profhilo",
+  "Sunmax 膠原蛋白（熊貓針）": "sunmax-panda",
+  "VivaBella 薇貝拉": "collagen-regeneration",
   "AestheFill 艾麗斯": "aesthefill",
+  "Ellanse 洢蓮絲": "ellanse",
+  "Sculptra 舒顏萃": "sculptra",
+  "肉毒桿菌": "botox",
+  "保提拉肉毒": "letybo",
+  "喬雅登玻尿酸": "juvederm",
+  "緹奧希玻尿酸": "teoxane",
+  "思妃公主玻尿酸": "saypha",
+  "BELKYRA 倍克脂": "belkyra",
+  "塑立愛立提線": "thread-lift",
+  "腋下止汗": "underarm-botox",
   "音波拉提": "ultrasound-lifting",
   "電波緊緻": "thermage-flx",
-  "塑立愛 少女立提線": "thread-lift",
-
-  // ── 微整注射 ──
-  "肉毒桿菌": "botox",
   "玻尿酸填充": "hyaluronic-acid",
-  "Sunmax 膠原蛋白（熊貓針）": "sunmax-panda",
   "Volite 長效保濕針": "water-glow",
   "填平淚溝": "hyaluronic-acid",
   "豐提蘋果肌": "hyaluronic-acid",
@@ -62,13 +70,11 @@ const TREATMENT_SLUG_MAP: Record<string, string> = {
   // ── 減重與形體雕塑 ──
   "Wegovy 週纖達": "wegovy",
   "Mounjaro 猛健樂": "mounjaro",
-  "BELKYRA 倍克脂": "wegovy",
   "消脂針/消脂點滴": "wegovy",
   "減肥筆": "wegovy",
 
   // ── 女性私密美學 ──
   "私密處雷射": "feminine-laser",
-  "VivaBella 薇貝拉": "collagen-regeneration",
   "薇薇電波": "viveve",
   "陰道緊緻手術": "vaginal-tightening",
   "小陰唇美型手術": "labiaplasty",
@@ -85,29 +91,31 @@ const TREATMENT_SLUG_MAP: Record<string, string> = {
   "男性生髮": "men-hair-restoration",
   "男性體雕": "men-body-sculpting",
 
-  // ── 肌膚管理 ──
-  "水飛梭": "hydrafacial",
+  // ── 肌膚管理（卡片順序見 images/services/13_肌膚管理/ 1–13 編號）──
+  "AI 智慧皮膚檢測儀": "ai-skin-analysis",
   "水光注射": "water-glow",
   "水飛梭＋水光導入": "water-glow",
   "Rejuran 麗珠蘭": "rejuran",
-  "超級玻尿酸鎖水保濕面膜": "super-hyaluronic-mask",
-  "膠原膜（膠原蛋白面膜）": "collagen-mask",
-  "法國多酚精萃晶膜": "french-polyphenol-mask",
-  "安瓶導入": "ampule-infusion",
-  "AI 光譜治療": "ai-spectrum",
-  "AI 智慧皮膚檢測儀": "ai-skin-analysis",
-  "O2 to Derm 氧氣面罩": "oxygen-mask",
   "無針水光": "needle-free-glow",
-  "肌光潔顏蜜": "skin-glow-serum",
+  "水飛梭": "hydrafacial",
+  "O2 to Derm 氧氣面罩": "oxygen-mask",
+  "AI 光譜治療": "ai-spectrum",
+  "安瓶導入": "ampule-infusion",
+  "手工清痘與清粉刺": "manual-acne-extraction",
+  "法國多酚精萃晶膜": "french-polyphenol-mask",
   "高濃度杏仁酸": "mandelic-acid-peel",
+  "超級玻尿酸鎖水保濕面膜": "super-hyaluronic-mask",
+  "肌光潔顏蜜": "skin-glow-serum",
+  "膠原膜（膠原蛋白面膜）": "collagen-mask",
   "ICOONE": "icoone",
   // ── 再生醫學 ──
   "增生療法": "prolotherapy",
   "IHT（PRP）注射療法": "iht-prp",
 
-  // ── 生髮門診 ──
-  "不動刀育髮": "non-surgical-hair",
+  // ── 生髮門診（卡片順序見 images/services/08_生髮門診/ 1–3 編號）──
   "頭皮檢測": "scalp-detection",
+  "不動刀育髮": "non-surgical-hair",
+  "毛髮護理": "scalp-care",
 
   // ── 輔助醫學療法 ──
   "氦氖雷射 ILIB": "ilib-laser",
@@ -128,9 +136,6 @@ const TREATMENT_SLUG_MAP: Record<string, string> = {
 
   // ── 自費疫苗 ──
   "自費疫苗接種": "self-pay-vaccine",
-
-  // ── 除毛美白 ──
-  "腋下止汗": "diode-laser-hair",
 
   // ── 痘痘管理 ──
   // (mapped via acne-treatment and acne-scar-laser)

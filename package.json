@@ -4,7 +4,8 @@
   "type": "module",
   "license": "MIT",
   "scripts": {
-    "dev": "vite --host",
+    "sync-images": "node scripts/sync-images.mjs",
+    "dev": "node scripts/sync-images.mjs && vite --host",
     "build": "vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist",
     "build:pages": "node scripts/generate-sitemap.mjs && vite build && node scripts/prerender-spa-routes.mjs",
     "build:production": "node scripts/generate-sitemap.mjs && vite build && node scripts/prerender-spa-routes.mjs",
