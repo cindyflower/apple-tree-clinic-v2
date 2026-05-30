@@ -162,7 +162,16 @@ Repository：`cindyflower/apple-tree-clinic-v2`
 | 客戶 Cloudflare Pages 專案 | `apple-tree-clinic-v2`（建議） |
 | AB 預覽網址 | `https://apple-tree-clinic-v2.pages.dev` |
 | 正式網域（尚未切換） | `https://www.drappletree.com.tw` |
-| 備用預覽（GitHub Pages） | `https://cindyflower.github.io/apple-tree-clinic-v2/` |
+| 備用預覽（GitHub Pages） | `https://cindyflower.github.io/apple-tree-clinic-v2/`（已改為僅手動部署，見下方） |
+
+### AB／預覽結束後可關閉的項目
+
+| 項目 | 作法 |
+|------|------|
+| 本機 `pnpm dev` | 終端機 Ctrl+C 或關閉 dev 程序 |
+| GitHub Pages 自動部署 | 已關閉 push 觸發；僅 **Actions → Deploy GitHub Pages** 手動 |
+| Cloudflare「Connect Git」 | 客戶後台 → Pages 專案 → 若有 Git 整合請 **Disconnect**（與 GitHub Actions 二選一） |
+| **保留** | **Deploy Cloudflare Pages**（push `main` 自動）、客戶 `*.pages.dev` 預覽／正式網域 |
 
 ---
 
