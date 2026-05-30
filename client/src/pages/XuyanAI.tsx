@@ -34,11 +34,16 @@ function WhoIsXuyan() {
             Meet 序顏
           </span>
           <h1 className="heading-editorial text-ink text-2xl sm:text-3xl lg:text-[2.6rem] mb-6 leading-tight">
-            你好，我是序顏。<br />
+            你好，我是序顏™<br />
             <span className="text-gradient-forest">你的 AI 美學管理師。</span>
           </h1>
           <p className="text-[0.95rem] md:text-[1.05rem] font-body font-light text-ink/60 leading-[2] mb-6 max-w-2xl mx-auto">
-            序顏，是蘋果樹專屬 AI 美學管理師。她會先理解你的狀態，再協助你判斷、規劃與追蹤，找到現在更適合的變美方向。
+            序，是變美的順序；
+            <br />
+            顏，是你呈現出的狀態。
+            <br />
+            <br />
+            序顏™是 Dr. Appletree 蘋果樹的專屬 AI 美學管理師。她會陪你從 AI 檢測分析理解你的狀態，再與醫生一起協助你判斷、規劃到長期追蹤，找到屬於自己的變美順序。
           </p>
 
           {/* 核心句 */}
