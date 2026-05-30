@@ -383,6 +383,7 @@ export const INJECTION_HERO = {
 } as const satisfies Record<string, string>;
 
 export const FUNCTIONAL_HERO = {
+  "functional-medicine": img(F.functional, "3DMRA檢測.jpg"),
   "gene-testing": img(F.functional, "基因檢測.jpg"),
   "3dmra-scan": img(F.functional, "3DMRA檢測.jpg"),
   "brainwave-detection": img(F.functional, "腦波檢測.jpg"),

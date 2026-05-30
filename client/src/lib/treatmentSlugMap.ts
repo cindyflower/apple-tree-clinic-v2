@@ -114,7 +114,7 @@ const TREATMENT_SLUG_MAP: Record<string, string> = {
   "點滴針劑": "nutrition-iv-drip",
   "音樂治療": "music-therapy",
 
-  // ── 功能醫學與精準檢測 ──
+  // ── 功能醫學與精準檢測（各項獨立詳情；總覽見 functional-medicine） ──
   "基因檢測": "gene-testing",
   "3DMRA 檢測": "3dmra-scan",
   "腦波檢測": "brainwave-detection",

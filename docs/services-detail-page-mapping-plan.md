@@ -12,9 +12,9 @@
 
 | 卡片（分類） | 現在指向 | 問題 | 建議 |
 |---|---|---|---|
-| 功能醫學檢測 — 6 項全部（基因檢測、3DMRA、腦波、腸道菌叢、HRV、PTG） | `nad-plus-drip`（點滴養生） | 檢測項目卻連到點滴頁 | 補 1 個「功能醫學檢測」總覽詳情頁，6 項共用 |
+| ~~功能醫學檢測 — 6 項全部~~ | **`functional-medicine`** 總覽 + 各項獨立頁（`gene-testing` 等） | ✅ 已修正 | 卡片指向 6 項獨立詳情；總覽頁 `/treatment/functional-medicine` 保留 |
 | ~~快樂門診（卡片本體）~~ | ~~`nad-plus-drip`~~ → **`happy-clinic`** | ✅ 已修正 | 檢測類 4 項仍指各檢測 stub 頁 |
-| AI 光譜治療（肌膚管理） | `nad-plus-drip`（點滴養生） | 光療卻連到點滴頁 | 改指肌膚相關頁，或補專屬 |
+| ~~AI 光譜治療（肌膚管理）~~ | ~~`nad-plus-drip`~~ → **`ai-spectrum`**（stub 待補） | ✅ 已修正 | 文案待客戶提供 |
 | ~~VivaBella 薇貝拉（微整注射）~~ | ~~`feminine-laser`~~ → **`collagen-regeneration`** | ✅ 已修正 | — |
 
 ## P2 — 健保頁接線（頁面已存在，補對照表即可，快速）
