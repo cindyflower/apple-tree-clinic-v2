@@ -82,7 +82,16 @@ pnpm run build:production
 |------|------|------|
 | `Pages only supports files up to 25 MiB` | 部署目錄含超大檔（例如未使用的原圖） | 刪除或壓縮至 25 MiB 以下；網站南京環境照只用 `01.jpg`～`08.jpg` |
 | `No build command specified` | Cloudflare Git 未設定建置 | 改用工 Actions，或設定 build 與 `dist/public` |
-| `Authentication error [code: 10000]` | GitHub Secret 的 API Token 無效或權限不足 | 重建 Token（Pages Edit + Account Settings Read）並更新 Secrets |
+| `Authentication error [code: 10000]` | GitHub Secret 的 API Token 無效、過期、或權限／帳號範圍不對 | 見下方「Token 仍失敗時」 |
+| `pnpm failed with exit code 1`（Annotations） | 多半是 **Deploy** 步驟失敗，不是建置失敗 | 展開 **Deploy to Cloudflare Pages** 看真正錯誤訊息 |
+
+### Token 仍失敗時
+
+1. 在 [API Tokens](https://dash.cloudflare.com/profile/api-tokens) 用 **Create Token** → 模板 **Edit Cloudflare Workers**（含 Pages 部署權限），或自訂：**Account → Cloudflare Pages → Edit** + **Account → Account Settings → Read**。
+2. **Account Resources** 選 **Include** → 你的帳號（Account ID 須與 `CLOUDFLARE_ACCOUNT_ID` 一致）。
+3. GitHub → **Settings → Secrets and variables → Actions → Repository secrets**（不是 Variables）更新 `CLOUDFLARE_API_TOKEN`；貼上時勿多空格或換行。
+4. 不要用 Global API Key，要用 **API Token**（`cfut_…` 或類似格式）。
+5. 更新 Secret 後需 **重新 Run workflow**（舊 run 不會自動重試 Secret）。
 
 ## 七、本機 wrangler 上傳（選用）
 

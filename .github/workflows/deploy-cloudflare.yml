@@ -43,9 +43,20 @@ jobs:
           VITE_SITE_URL: ${{ vars.CLOUDFLARE_SITE_URL || 'https://apple-tree-clinic-v2.pages.dev' }}
           SITE_URL: ${{ vars.CLOUDFLARE_SITE_URL || 'https://apple-tree-clinic-v2.pages.dev' }}
 
+      - name: Verify Cloudflare secrets
+        env:
+          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          test -n "$CF_TOKEN" || (echo "::error::Missing or empty CLOUDFLARE_API_TOKEN in GitHub Actions secrets" && exit 1)
+          test -n "$CF_ACCOUNT" || (echo "::error::Missing or empty CLOUDFLARE_ACCOUNT_ID in GitHub Actions secrets" && exit 1)
+          echo "Cloudflare secrets are set (values not printed)."
+
       - name: Deploy to Cloudflare Pages
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist/public --project-name=${{ vars.CLOUDFLARE_PAGES_PROJECT || 'apple-tree-clinic-v2' }} --branch=main
+        run: >
+          pnpm exec wrangler pages deploy dist/public
+          --project-name=${{ vars.CLOUDFLARE_PAGES_PROJECT || 'apple-tree-clinic-v2' }}
+          --branch=main
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
