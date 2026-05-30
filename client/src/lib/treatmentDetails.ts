@@ -4,7 +4,7 @@
 // 所有內容基於舊官網描述與事實性資料，不捏造療效數據
 
 import { IMAGES, BRAND } from "./constants";
-import { SURGERY_HERO, LASER_HERO, BODY_HERO, FEMININE_HERO, MEN_HERO, REGEN_HERO, HAIR_HERO, NUTRITION_HERO, INJECTION_HERO, FUNCTIONAL_HERO, SKIN_HERO } from "./imageAssets";
+import { F, img, SURGERY_HERO, LASER_HERO, BODY_HERO, FEMININE_HERO, MEN_HERO, REGEN_HERO, HAIR_HERO, NUTRITION_HERO, INJECTION_HERO, FUNCTIONAL_HERO, SKIN_HERO } from "./imageAssets";
 
 export interface TreatmentStep {
   step: number;
@@ -117,7 +117,7 @@ export const TREATMENT_DETAILS: TreatmentDetail[] = [
     title: "海芙電波",
     subtitle: "深層緊緻・膠原重組・V臉塑形",
     category: "雷射電音波",
-    heroImage: IMAGES.heroBanner,
+    heroImage: LASER_HERO["thermage-flx"],
     metaTitle: "海芙電波｜電波拉皮緊緻推薦｜蘋果樹醫美",
     metaDescription: "海芙電波以單極電波深層加熱真皮層與皮下組織，刺激膠原蛋白增生重組，達到全臉緊緻拉提效果。蘋果樹醫學總院提供原廠認證操作。",
     painPoint: "隨著年齡增長，您是否發現臉部輪廓越來越模糊？下顎線條不再俐落、雙頰開始鬆垮、法令紋越來越深？這些都是真皮層膠原蛋白流失與鬆弛的徵兆。保養品只能作用於表皮，無法觸及真皮層深處的膠原蛋白結構。您需要的是一種能從深層加熱、重組膠原蛋白的技術——海芙電波正是這樣的解決方案。",
@@ -2438,6 +2438,66 @@ export const TREATMENT_DETAILS: TreatmentDetail[] = [
     faqs: [{ question: "PTG 血管分析是什麼？", answer: "（內容待補）" }],
     relatedCases: [],
     keywords: ["PTG", "血管分析", "功能醫學"],
+  },
+
+  // ═══════════════════════════════════════════
+  // 11. 快樂門診 (happy) — 1 entry
+  // ═══════════════════════════════════════════
+  {
+    slug: "happy-clinic",
+    title: "快樂門診",
+    subtitle: "中西醫整合・壓力與睡眠・情緒調理",
+    category: "快樂門診",
+    heroImage: img(F.happy, "快樂門診.jpg"),
+    metaTitle: "快樂門診｜身心調理・壓力管理｜蘋果樹醫學總院",
+    metaDescription:
+      "蘋果樹快樂門診由中西醫雙執照醫師主持，結合情緒醫學與功能醫學檢測，針對壓力、失眠、焦慮等現代文明病提供整合性身心調理方案。",
+    painPoint:
+      "長期壓力、睡眠品質差、情緒起伏大，影響工作表現與生活品質？失眠、焦慮、疲勞感揮之不去，卻找不到明確的身體病因？現代人面臨的高度壓力與生活節奏，常讓身心失去平衡。若您希望在不只處理症狀的前提下，重新找回穩定的情緒、睡眠與活力，整合性的身心調理值得認真考慮。",
+    solution:
+      "蘋果樹快樂門診由具中西醫雙執照的醫師團隊主持，以「身心健康是美麗的基礎」為核心理念，結合情緒醫學觀點與功能醫學、精準檢測工具，為您規劃個人化的身心調理方案。針對壓力、失眠、焦慮、慢性疲勞等現代文明病，透過詳細問診與必要檢測，找出可能的失衡因素，並以中西醫整合方式調理，而非僅依賴單一藥物或療程。",
+    mechanism:
+      "身心調理從完整評估開始：了解睡眠、情緒、壓力源與生活型態，必要時搭配自律神經、腦波或相關功能醫學檢測，作為規劃依據。治療方向可能包含生活與睡眠衛教、壓力管理策略、中醫體質調理、西醫必要時的藥物支持，以及音樂治療等輔助療法，依個人狀況組合，目標是恢復身心平衡而非壓抑症狀。",
+    advantages: [
+      "中西醫雙執照醫師團隊",
+      "整合情緒醫學與功能醫學觀點",
+      "針對壓力、失眠、焦慮個人化規劃",
+      "可搭配精準檢測作為評估依據",
+      "重視長期身心平衡與生活品質",
+    ],
+    duration: "初診約 30-60 分鐘",
+    sessions: "依評估結果規劃，通常需多次追蹤",
+    recovery: "無侵入性療程，依個人方案而定",
+    priceRange: "依評估與治療項目而定，請預約諮詢",
+    satisfaction: "多數客戶表示睡眠與情緒壓力獲得改善",
+    steps: [
+      { step: 1, title: "預約與問診", description: "了解主訴、生活型態、睡眠與情緒狀態。", duration: "20-30 分鐘" },
+      { step: 2, title: "評估與檢測", description: "醫師評估是否需要搭配功能醫學或相關檢測。", duration: "依需要" },
+      { step: 3, title: "個人化方案", description: "提出中西醫整合的調理方向與追蹤計畫。", duration: "10-15 分鐘" },
+      { step: 4, title: "追蹤調整", description: "依回饋調整治療與生活建議。", duration: "定期回診" },
+    ],
+    aftercare: [
+      "依醫囑調整作息與睡眠衛生",
+      "持續記錄睡眠與情緒變化，供回診參考",
+      "若有不適或症狀惡化，請儘速聯繫診所",
+    ],
+    faqs: [
+      {
+        question: "快樂門診和一般身心科有什麼不同？",
+        answer:
+          "快樂門診強調中西醫整合與功能醫學評估，除症狀緩解外，也重視找出壓力、睡眠與情緒背後的失衡因素，並以個人化方案長期追蹤。",
+      },
+      {
+        question: "一定要做檢測嗎？",
+        answer: "不一定。是否安排腦波、自律神經等檢測，由醫師依您的主訴與狀況評估後建議，非每位客戶都需要。",
+      },
+      {
+        question: "可以處理哪些問題？",
+        answer: "常見包括壓力調適、睡眠困擾、焦慮情緒、慢性疲勞等現代文明病；實際適用仍須由醫師面談評估。",
+      },
+    ],
+    relatedCases: [],
+    keywords: ["快樂門診", "身心調理", "壓力管理", "失眠", "焦慮", "中西醫整合", "情緒醫學"],
   },
 
   // ═══════════════════════════════════════════

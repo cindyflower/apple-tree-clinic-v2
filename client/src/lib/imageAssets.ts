@@ -55,7 +55,7 @@ export const IMAGES = {
   treatmentZwave: img(F.laser, "Z音波拉提_cover.jpg"),
   zwaveHero: img(F.laser, "Z音波拉提.jpg"),
   treatmentPicosure: img(F.laser, "755皮秒蜂巢雷射_cover.jpg"),
-  treatmentHaifu: img(F.laser, "海芙音波_cover.jpg"),
+  treatmentHaifu: img(F.laser, "海芙電波_cover.jpg"),
   caseEyebag: img(`${F.surgery}/1_眼部`, "眼袋手術_cover.jpg"),
   caseDoubleEyelid: img(`${F.surgery}/1_眼部`, "雙眼皮手術_cover.jpg"),
   caseHydrafacialMale: img(F.men, "case-hydrafacial-male.jpeg"),
@@ -244,6 +244,7 @@ export const TREATMENT_IMG = {
   "鳳凰電波": img(F.laser, "鳳凰電波_cover.jpg"),
   "克萊媞雷射2.0": img(F.laser, "克萊媞雷射2.0_cover.jpg"),
   "立特拉渦旋音波": img(F.laser, "立特拉渦旋音波_cover.jpg"),
+  "海芙電波": img(F.laser, "海芙電波_cover.jpg"),
   "海芙音波": img(F.laser, "海芙音波_cover.jpg"),
   "清新微波": img(F.laser, "清新微波(腋下止汗)_cover.jpg"),
   "乳暈手術": img(`${F.surgery}/3_胸型身形`, "乳暈手術_cover.jpg"),
@@ -316,6 +317,7 @@ export const SURGERY_HERO = {
 
 /** 雷射電音波各療程詳情頁 Hero 橫幅，檔名與療程一致（非 _cover 版） */
 export const LASER_HERO = {
+  "thermage-flx": img(F.laser, "海芙電波.jpg"),
   "ulthera-2": img(F.laser, "美國極線音波2.0.jpg"),
   "thermage-phoenix": img(F.laser, "鳳凰電波.jpg"),
   "clarity-ii": img(F.laser, "克萊媞雷射2.0.jpg"),

@@ -68,7 +68,7 @@ const TREATMENT_SLUG_MAP: Record<string, string> = {
 
   // ── 女性私密美學 ──
   "私密處雷射": "feminine-laser",
-  "VivaBella 薇貝拉": "feminine-laser",
+  "VivaBella 薇貝拉": "collagen-regeneration",
   "薇薇電波": "viveve",
   "陰道緊緻手術": "vaginal-tightening",
   "小陰唇美型手術": "labiaplasty",
@@ -123,7 +123,7 @@ const TREATMENT_SLUG_MAP: Record<string, string> = {
   "PTG 血管分析": "ptg-vascular",
 
   // ── 快樂門診 ──
-  "快樂門診": "nad-plus-drip",
+  "快樂門診": "happy-clinic",
   "Talent-A 動磁波": "talent-a",
 
   // ── 自費疫苗 ──
