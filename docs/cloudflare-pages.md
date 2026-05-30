@@ -1,5 +1,7 @@
 # Cloudflare Pages 部署指南（AB Test 預覽）
 
+> **帳號分工（客戶／顧問）：** 見 [hosting-and-account-handoff.md](./hosting-and-account-handoff.md)
+
 目前階段：**只部署到 Cloudflare Pages 預覽網址**，供 AB Test 使用。
 
 - 預覽網址（預設）：**https://apple-tree-clinic-v2.pages.dev**
