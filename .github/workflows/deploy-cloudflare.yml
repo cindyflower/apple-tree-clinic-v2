@@ -1,0 +1,47 @@
+# Deploy production build to Cloudflare Pages (www.drappletree.com.tw).
+# Requires GitHub secrets: CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID
+# Optional repo variable: CLOUDFLARE_PAGES_PROJECT (default: apple-tree-clinic-v2)
+# Setup: docs/cloudflare-pages.md
+
+name: Deploy Cloudflare Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: cloudflare-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build for production
+        run: pnpm run build:production
+        env:
+          VITE_SITE_URL: https://www.drappletree.com.tw
+          SITE_URL: https://www.drappletree.com.tw
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist/public --project-name=${{ vars.CLOUDFLARE_PAGES_PROJECT || 'apple-tree-clinic-v2' }} --branch=main

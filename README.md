@@ -42,7 +42,7 @@ GITHUB_PAGES=true VITE_SITE_URL=https://cindyflower.github.io pnpm run build:pag
 pnpm preview
 ```
 
-Canonical / sitemap / Schema.org 網址由 `VITE_SITE_URL` 統一控制；深連結 prerender 與 Cloudflare 上線說明見 **[docs/site-urls.md](docs/site-urls.md)**。
+Canonical / sitemap / Schema.org 網址由 `VITE_SITE_URL` 統一控制；深連結 prerender 見 **[docs/site-urls.md](docs/site-urls.md)**。正式網域上線 Cloudflare Pages 見 **[docs/cloudflare-pages.md](docs/cloudflare-pages.md)**。
 
 ## 版本管理建議
 
