@@ -301,7 +301,7 @@ export const FEATURED_SERVICES = [
   },
   {
     id: "collagen",
-    slug: "collagen-regeneration",
+    slug: "vivabella",
     category: "膠原再生",
     title: "膠原蛋白\n再生療程",
     shortTitle: "膠原再生",
@@ -492,7 +492,6 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       { name: "陰蒂拉提手術", description: "針對陰蒂包皮或組織鬆弛問題進行調整，改善外觀與敏感度相關困擾。", features: ["精細調整", "改善外觀", "專業手術", "隱私環境"], image: treatmentImg("陰蒂拉提手術") },
       { name: "陰道洞口重建手術", description: "針對陰道洞口鬆弛或外觀問題，進行重建與修復，恢復緊緻與功能。", features: ["重建修復", "改善鬆弛", "專業評估", "隱私保護"], image: treatmentImg("陰道洞口重建手術") },
       { name: "G點注射", description: "以注射方式改善 G 點區域的飽滿度與敏感度，需由醫師評估後施作。", features: ["注射改善", "醫師評估", "隱私環境", "個人化規劃"], image: treatmentImg("G點注射") },
-      { name: "女性除毛", description: "針對比基尼線等私密部位，以雷射技術進行除毛，過程注重隱私與舒適。", features: ["雷射除毛", "隱私保護", "持久效果", "專業操作"], image: treatmentImg("女性除毛") },
       { name: "HPV子宮頸癌疫苗", description: "提供 HPV 疫苗接種，協助預防人類乳突病毒相關感染，降低子宮頸癌風險。", features: ["HPV 預防", "專業施打", "安全保障", "預防保健"], image: treatmentImg("HPV子宮頸癌疫苗") },
     ],
   },

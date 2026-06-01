@@ -3,4 +3,4 @@ Allow: /
 Disallow: /404
 Disallow: /face-result
 
-Sitemap: https://apple-tree-clinic-v2.pages.dev/sitemap.xml
+Sitemap: https://www.drappletree.com.tw/sitemap.xml

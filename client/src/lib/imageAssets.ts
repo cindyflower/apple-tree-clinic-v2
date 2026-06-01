@@ -257,15 +257,14 @@ export const TREATMENT_IMG = {
   "乳暈手術": img(`${F.surgery}/3_胸型身形`, "乳暈手術_cover.jpg"),
   "抽脂手術": img(`${F.surgery}/4_抽脂與拉皮`, "抽脂手術_cover.jpg"),
   "平胸手術": img(`${F.surgery}/3_胸型身形`, "平胸手術_cover.jpg"),
-  "私密處雷射": img(F.feminine, "私密處雷射.jpg"),
-  "G點注射": img(F.feminine, "G點注射_cover.jpg"),
-  "HPV子宮頸癌疫苗": img(F.feminine, "HPV子宮頸癌疫苗_cover.jpg"),
-  "女性除毛": img(F.feminine, "女性除毛_cover.jpg"),
-  "小陰唇美型手術": img(F.feminine, "小陰唇美型手術_cover.jpg"),
-  "薇薇電波": img(F.feminine, "薇薇電波_cover.jpg"),
-  "陰蒂拉提手術": img(F.feminine, "陰蒂拉提手術_cover.jpg"),
-  "陰道洞口重建手術": img(F.feminine, "陰道洞口重建手術_cover.jpg"),
-  "陰道緊緻手術": img(F.feminine, "陰道緊緻手術_cover.jpg"),
+  "私密處雷射": img(F.feminine, "1.私密處雷射_cover.jpg"),
+  "薇薇電波": img(F.feminine, "2.薇薇電波_cover.jpg"),
+  "陰道緊緻手術": img(F.feminine, "3.陰道緊緻手術_cover.jpg"),
+  "小陰唇美型手術": img(F.feminine, "4.小陰唇美型手術_cover.jpg"),
+  "陰蒂拉提手術": img(F.feminine, "5.陰蒂拉提手術_cover.jpg"),
+  "G點注射": img(F.feminine, "6.G點注射_cover.jpg"),
+  "陰道洞口重建手術": img(F.feminine, "7.陰道洞口重建手術_cover.jpg"),
+  "HPV子宮頸癌疫苗": img(F.feminine, "8.HPV子宮頸癌疫苗_cover.jpg"),
 } as const satisfies Record<string, string>;
 
 /**
@@ -345,15 +344,14 @@ export const BODY_HERO = {
 
 /** 女性私密美學各療程詳情頁 Hero 橫幅 */
 export const FEMININE_HERO = {
-  "feminine-laser": img(F.feminine, "私密處雷射.jpg"),
-  viveve: img(F.feminine, "薇薇電波.jpg"),
-  "vaginal-tightening": img(F.feminine, "陰道緊緻手術.jpg"),
-  labiaplasty: img(F.feminine, "小陰唇美型手術.jpg"),
-  "clitoral-lift": img(F.feminine, "陰蒂拉提手術.jpg"),
-  "vaginal-opening-reconstruction": img(F.feminine, "陰道洞口重建手術.jpg"),
-  "g-spot-injection": img(F.feminine, "G點注射.jpg"),
-  "feminine-hair-removal": img(F.feminine, "女性除毛.jpg"),
-  "hpv-vaccine": img(F.feminine, "HPV子宮頸癌疫苗.jpg"),
+  "feminine-laser": img(F.feminine, "1.私密處雷射.jpg"),
+  viveve: img(F.feminine, "2.薇薇電波.jpg"),
+  "vaginal-tightening": img(F.feminine, "3.陰道緊緻手術.jpg"),
+  labiaplasty: img(F.feminine, "4.小陰唇美型手術.jpg"),
+  "clitoral-lift": img(F.feminine, "5.陰蒂拉提手術.jpg"),
+  "g-spot-injection": img(F.feminine, "6.G點注射.jpg"),
+  "vaginal-opening-reconstruction": img(F.feminine, "7.陰道洞口重建手術.jpg"),
+  "hpv-vaccine": img(F.feminine, "8.HPV子宮頸癌疫苗.jpg"),
 } as const satisfies Record<string, string>;
 
 /** 型男醫美各療程詳情頁 Hero 橫幅 */
@@ -391,7 +389,8 @@ export const INJECTION_HERO = {
   juvelook: img(F.injection, "1.逆時針.jpg"),
   profhilo: img(F.injection, "2.璞菲洛.jpg"),
   "sunmax-panda": img(F.injection, "3.Sunmax膠原蛋白-熊貓針.jpg"),
-  "collagen-regeneration": img(F.injection, "4.VivaBella薇貝拉.jpg"),
+  vivabella: img(F.injection, "4.VivaBella薇貝拉.jpg"),
+  "collagen-regeneration": img(F.banner, "banner-collagen.jpeg"),
   aesthefill: img(F.injection, "5.AestheFill艾麗斯.jpg"),
   ellanse: img(F.injection, "6.Ellanse洢蓮絲.jpg"),
   sculptra: img(F.injection, "7.Sculptra舒顏萃.jpg"),

@@ -1,6 +1,6 @@
 # Services 詳情頁對應 — 狀態總覽
 
-> **最後更新：** 2026-05-30  
+> **最後更新：** 2026-06-01  
 > **對應鏈：** 卡片名稱（`constants.ts`）→ slug（`treatmentSlugMap.ts`）→ 詳情頁（`treatmentDetails.ts`）  
 > **按鈕規則：** 有 slug 對照 →「了解更多」；無對照 →「預約諮詢」（LINE）
 
@@ -17,7 +17,7 @@
 | 走 LINE（無 slug） | **0** |
 | 多張卡片共用同一 slug | 7 組 |
 | 孤兒詳情頁（無服務卡片） | 14 |
-| 有連結但詳情為 stub（內容待補） | 29 |
+| 有連結但詳情為 stub（內容待補） | 9 |
 
 ---
 
@@ -30,7 +30,7 @@
 | 功能醫學 6 項檢測 | 各指向獨立頁 `gene-testing` 等；總覽 `functional-medicine` 保留、無卡片 |
 | 快樂門診 | `happy-clinic`（完整內容） |
 | AI 光譜治療 | `ai-spectrum`（📝 stub） |
-| VivaBella 薇貝拉 | `collagen-regeneration`（與 Sculptra 共用） |
+| VivaBella 薇貝拉 | `vivabella` | ✅ [微整注射稿](https://docs.google.com/document/d/1Tb4WUG0-nfThjLJC2ZCHlu4riE-qieBy56R4Bwz6NbY/edit?tab=t.wlxtsci9o289) |
 
 ### 健保接線（原 P2）— ✅
 
@@ -51,7 +51,7 @@
 
 | slug | 中文標題 | 共用卡片 |
 |------|----------|----------|
-| `collagen-regeneration` | 膠原蛋白再生療程 | VivaBella 薇貝拉、Sculptra 舒顏萃 |
+| `collagen-regeneration` | 膠原蛋白再生療程（總覽） | 首頁精選「膠原再生」區塊 |
 | `water-glow` | 水光注射 | Volite 長效保濕針、水光注射 |
 | `wegovy` | Wegovy 週纖達 | BELKYRA 倍克脂、Wegovy 週纖達、減肥筆、消脂針/消脂點滴 |
 | `thermage-flx` | 海芙電波 | 海芙電波、電波緊緻（對照表遺留 key） |
@@ -65,7 +65,7 @@
 
 | 卡片 | 指向 slug | 備註 |
 |------|-----------|------|
-| 腋下止汗（微整） | `diode-laser-hair` | 除毛類頁面，主題略遠 |
+| 腋下止汗（微整） | `underarm-botox` | ✅ 已接專屬頁（[微整注射稿](https://docs.google.com/document/d/1Tb4WUG0-nfThjLJC2ZCHlu4riE-qieBy56R4Bwz6NbY/edit)） |
 
 > **已不再是 P3 狀況（勿再寫舊表）：** Rejuran→`rejuran`、膠原膜→`collagen-mask`、ICOONE→`icoone`、男性痘疤→`men-acne-scar`、男性生髮→`men-hair-restoration`、男性體雕→`men-body-sculpting`、點滴針劑→`nutrition-iv-drip`（皆非借用他類舊頁）。
 
@@ -100,15 +100,24 @@
 
 卡片已顯示「了解更多」，點進去主體為「（內容待補）」。
 
-### 雷射電音波（1）
+### 雷射電音波
 
-| 卡片 | slug |
-|------|------|
-| 清新微波 | `microwave-sweat` |
+| 卡片 | slug | 狀態 |
+|------|------|------|
+| 清新微波 | `microwave-sweat` | ✅ GEO 30 第 1 項（[來源稿](https://docs.google.com/document/d/1UJwVP01YuOHDbJZcchpVnFMagmPZUqwwRNOYAkVfohA/edit)） |
 
-### 女性私密美學（8）
+### 女性私密美學
 
-薇薇電波、陰道緊緻手術、小陰唇美型手術、陰蒂拉提手術、陰道洞口重建手術、G點注射、女性除毛、HPV子宮頸癌疫苗 → 對應 `viveve`、`vaginal-tightening`、`labiaplasty`、`clitoral-lift`、`vaginal-opening-reconstruction`、`g-spot-injection`、`feminine-hair-removal`、`hpv-vaccine`
+| 卡片 | slug | 狀態 |
+|------|------|------|
+| 私密處雷射 | `feminine-laser` | ✅ 完整文案 |
+| 薇薇電波 | `viveve` | ✅ GEO 30 第 2 項（[來源稿](https://docs.google.com/document/d/1UJwVP01YuOHDbJZcchpVnFMagmPZUqwwRNOYAkVfohA/edit)） |
+| 陰道緊緻手術 | `vaginal-tightening` | 📝 GEO 已匯入，可再潤飾 |
+| 小陰唇美型手術 | `labiaplasty` | 📝 同上 |
+| 陰蒂拉提手術 | `clitoral-lift` | 📝 同上 |
+| 陰道洞口重建手術 | `vaginal-opening-reconstruction` | 📝 同上 |
+| G點注射 | `g-spot-injection` | 📝 同上 |
+| HPV子宮頸癌疫苗 | `hpv-vaccine` | 📝 同上 |
 
 ### 型男醫美（3）
 
@@ -138,9 +147,9 @@ Rejuran 麗珠蘭、超級玻尿酸鎖水保濕面膜、膠原膜、法國多酚
 
 | 優先 | 項目 |
 |------|------|
-| P6 | 29 個 stub 頁補客戶／舊官網文案 |
+| P6 | 9 個 stub 頁補客戶／舊官網文案（GEO 30 其餘項依序補） |
 | P5 | 14 個孤兒頁：接線、併入或下架 |
-| P3 | 評估 `wegovy` 四卡共用、`腋下止汗` 是否拆專屬頁 |
+| P3 | 評估 `wegovy` 四卡共用 |
 | 低 | `functional-medicine` 是否在服務區加「總覽」入口 |
 
 ---

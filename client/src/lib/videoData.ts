@@ -1118,7 +1118,7 @@ export const VIDEOS: VideoItem[] = [
     backendCategories: ["名人實測與品牌信任", "自然微整"],
     thumbnail: "https://img.youtube.com/vi/M4b_8e9cdmE/hqdefault.jpg",
     embedUrl: "https://www.youtube.com/embed/M4b_8e9cdmE",
-    relatedTreatments: ["hyaluronic-acid", "collagen-regeneration"],
+    relatedTreatments: ["hyaluronic-acid", "vivabella"],
     isFeaturedHomepage: true,
     typeTags: ["celebrity"],
     originalSortOrder: 100,

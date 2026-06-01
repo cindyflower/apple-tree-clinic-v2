@@ -25,7 +25,7 @@ const TREATMENT_SLUG_MAP: Record<string, string> = {
   "逆時針": "juvelook",
   "璞菲洛": "profhilo",
   "Sunmax 膠原蛋白（熊貓針）": "sunmax-panda",
-  "VivaBella 薇貝拉": "collagen-regeneration",
+  "VivaBella 薇貝拉": "vivabella",
   "AestheFill 艾麗斯": "aesthefill",
   "Ellanse 洢蓮絲": "ellanse",
   "Sculptra 舒顏萃": "sculptra",
@@ -81,7 +81,6 @@ const TREATMENT_SLUG_MAP: Record<string, string> = {
   "陰蒂拉提手術": "clitoral-lift",
   "陰道洞口重建手術": "vaginal-opening-reconstruction",
   "G點注射": "g-spot-injection",
-  "女性除毛": "feminine-hair-removal",
   "HPV子宮頸癌疫苗": "hpv-vaccine",
 
   // ── 型男醫美專區 ──
