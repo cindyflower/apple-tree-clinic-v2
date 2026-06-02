@@ -10,7 +10,7 @@ export const BRAND = {
   phone: "(02) 2716-3535",
   phoneLink: "tel:+886227163535",
   lineId: "@dr.appletree",
-  lineUrl: "https://lin.ee/8fbuab8",
+  lineUrl: "https://lin.ee/vvMGVlN",
   address: "台北市松山區南京東路三段309號3樓",
   email: "info@drappletree.com.tw",
   website: "https://www.drappletree.com.tw",
