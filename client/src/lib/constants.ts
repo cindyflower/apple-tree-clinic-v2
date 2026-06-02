@@ -374,8 +374,8 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     focusArea: "填充塑形、除皺撫紋、輪廓調整、保濕注射",
     highlight: "涵蓋玻尿酸、肉毒、膠原增生劑、溶脂針等多種注射選擇",
     items: [
-      { name: "逆時針", subtitle: "JuveLook", description: "PLA／HA 複合植入劑，協助改善膚質與輪廓支撐。（內容待補）", features: ["膚質改善", "輪廓支撐", "複合配方", "微整注射"], image: treatmentImg("逆時針") },
-      { name: "璞菲洛", subtitle: "PROFHILO", description: "高／低分子玻尿酸生物重塑，由內而外提升肌膚彈潤。（內容待補）", features: ["肌膚重塑", "深層保濕", "改善彈性", "全臉保養"], image: treatmentImg("璞菲洛") },
+      { name: "喬雅露", subtitle: "Juvelook", description: "PDLLA 聚雙旋乳酸與非交聯玻尿酸複合，膠原增生＋補水，常被稱為「會自己長膠原的水光針」。", features: ["膠原增生", "深層保濕", "膚質修復", "自然漸進"], image: treatmentImg("喬雅露") },
+      { name: "逆時針", subtitle: "Profhilo", description: "瑞士 NAHYCO® 高低分子玻尿酸，肌膚重塑與膠原、彈力蛋白新生，液態電波式抗老。", features: ["肌膚重塑", "緊緻抗老", "深層保濕", "無填充感"], image: treatmentImg("逆時針") },
       { name: "Sunmax 膠原蛋白（熊貓針）", description: "以膠原蛋白直接注入眼周，改善黑眼圈與淚溝問題。", features: ["改善黑眼圈", "淚溝填補", "膠原蛋白", "眼周回春"], image: treatmentImg("Sunmax 膠原蛋白（熊貓針）") },
       { name: "VivaBella 薇貝拉", subtitle: "新一代膠原增生劑", description: "新一代膠原蛋白增生劑，聚雙旋乳酸與玻尿酸複合配方，兼具即時填充與長效膠原增生。", features: ["膠原蛋白增生", "自然填充", "持久效果", "漸進式改善"], image: treatmentImg("VivaBella 薇貝拉") },
       { name: "AestheFill 艾麗斯", subtitle: "聚雙旋乳酸", description: "刺激自體膠原蛋白增生，自然填充流失的蘋果肌與法令紋。", features: ["蘋果肌回春", "膠原增生", "自然持久", "漸進改善"], image: treatmentImg("AestheFill 艾麗斯") },
@@ -470,9 +470,8 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       { name: "Wegovy 週纖達", subtitle: "GLP-1 受體促效劑", description: "經臨床實證可有效降低體重，上市時間較長，臨床數據豐富。", features: ["臨床實證", "體重管理", "代謝改善", "長效作用"], image: treatmentImg("Wegovy 週纖達") },
       { name: "Mounjaro 猛健樂", subtitle: "GIP/GLP-1 雙重受體促效劑", description: "新一代雙重受體促效劑，透過調節食慾與代謝，幫助有效管理體重。", features: ["雙重受體", "食慾調節", "代謝提升", "科學減重"], image: treatmentImg("Mounjaro 猛健樂") },
       { name: "Talent-A 動磁波", subtitle: "30分鐘高效鍛鍊", description: "高強度聚焦電磁波刺激肌肉收縮，30分鐘等於數萬次肌肉鍛鍊，輕鬆打造馬甲線、翹臀。", features: ["腹肌鍛鍊", "翹臀塑形", "非侵入式", "30分鐘見效"], image: treatmentImg("Talent-A 動磁波") },
-      { name: "減肥筆", description: "以注射方式調節食慾與代謝，協助體重管理。需由醫師評估後處方使用。", features: ["食慾調節", "醫師處方", "便利使用", "體重管理"], image: treatmentImg("減肥筆") },
       { name: "ICOONE", description: "結合微振動與負壓技術的體雕儀器，改善橘皮組織與局部曲線。", features: ["改善橘皮", "曲線雕塑", "非侵入式", "舒適體驗"], image: treatmentImg("ICOONE") },
-      { name: "消脂針/消脂點滴", description: "以注射方式針對局部脂肪堆積進行溶解，適合小範圍局部雕塑。", features: ["局部溶脂", "非手術", "小範圍雕塑", "改善曲線"], image: treatmentImg("消脂針/消脂點滴") },
+      { name: "消脂針/消脂點滴", description: "結合局部雕塑與代謝支持，協助小範圍脂肪、浮腫與體態管理；須醫師評估。", features: ["局部雕塑", "代謝支持", "非手術", "體態管理"], image: treatmentImg("消脂針/消脂點滴") },
     ],
   },
   {
@@ -587,10 +586,6 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     highlight: "中西醫雙執照醫師主持，結合功能醫學與精準檢測",
     items: [
       { name: "快樂門診", description: "由中西醫雙執照醫師提供整合性身心調理方案，針對壓力、失眠、焦慮等現代文明病。", features: ["中西醫整合", "壓力管理", "改善睡眠", "情緒調理"], image: treatmentImg("快樂門診") },
-      { name: "3DMRA 檢測", description: "以非侵入式方式掃描全身器官功能狀態，作為身心調理的評估基礎。", features: ["全身掃描", "非侵入式", "整體評估", "治療依據"], image: treatmentImg("3DMRA 檢測") },
-      { name: "腦波檢測", description: "分析大腦活動狀態，評估壓力指數與睡眠品質，作為治療方案的參考依據。", features: ["壓力評估", "睡眠分析", "大腦健康", "治療參考"], image: treatmentImg("腦波檢測") },
-      { name: "HRV 自律神經分析", description: "評估自律神經平衡狀態，了解身體的壓力反應與恢復能力。", features: ["自律神經", "壓力反應", "恢復能力", "平衡評估"], image: treatmentImg("HRV 自律神經分析") },
-      { name: "PTG 血管分析", description: "分析血管彈性與循環狀態，作為整體健康評估的一環。", features: ["血管健康", "循環評估", "整體健康", "非侵入式"], image: treatmentImg("PTG 血管分析") },
     ],
   },
   {

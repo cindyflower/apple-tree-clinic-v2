@@ -22,8 +22,8 @@ const TREATMENT_SLUG_MAP: Record<string, string> = {
   "清新微波": "microwave-sweat",
 
   // ── 微整注射（卡片順序見 images/services/02_微整注射/ 1–15 編號）──
-  "逆時針": "juvelook",
-  "璞菲洛": "profhilo",
+  "喬雅露": "juvelook",
+  "逆時針": "profhilo",
   "Sunmax 膠原蛋白（熊貓針）": "sunmax-panda",
   "VivaBella 薇貝拉": "vivabella",
   "AestheFill 艾麗斯": "aesthefill",
@@ -70,8 +70,7 @@ const TREATMENT_SLUG_MAP: Record<string, string> = {
   // ── 減重與形體雕塑 ──
   "Wegovy 週纖達": "wegovy",
   "Mounjaro 猛健樂": "mounjaro",
-  "消脂針/消脂點滴": "wegovy",
-  "減肥筆": "wegovy",
+  "消脂針/消脂點滴": "fat-dissolve",
 
   // ── 女性私密美學 ──
   "私密處雷射": "feminine-laser",

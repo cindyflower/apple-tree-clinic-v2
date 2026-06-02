@@ -684,49 +684,133 @@ export const TREATMENT_DETAILS: TreatmentDetail[] = [
 
   {
     slug: "juvelook",
-    title: "逆時針（JuveLook）",
-    subtitle: "（內容待補）",
+    title: "喬雅露",
+    subtitle: "Juvelook 膠原再生水光・自然澎潤與膚質重建",
     category: "微整注射",
     heroImage: INJECTION_HERO.juvelook,
-    metaTitle: "逆時針 JuveLook｜蘋果樹醫學總院",
-    metaDescription: "逆時針 JuveLook 療程介紹，詳細內容待補。",
-    painPoint: "（內容待補）",
-    solution: "（內容待補）",
-    mechanism: "（內容待補）",
-    advantages: ["（內容待補）"],
-    duration: "待補",
-    sessions: "待補",
-    recovery: "待補",
-    priceRange: "待補",
-    satisfaction: "待補",
-    steps: [{ step: 1, title: "諮詢與評估", description: "（內容待補）", duration: "待補" }],
-    aftercare: ["（內容待補）"],
-    faqs: [{ question: "逆時針是什麼？", answer: "（內容待補）" }],
+    metaTitle: "喬雅露 Juvelook｜膠原再生水光｜蘋果樹醫學總院",
+    metaDescription:
+      "喬雅露 Juvelook 結合 PDLLA 與非交聯玻尿酸，補水同時刺激膠原新生，改善細紋、毛孔與凹陷。自然漸進、恢復期短。蘋果樹醫學總院。",
+    painPoint:
+      "臉部凹陷、膚質粗糙、毛孔與細紋增加、上妝卡粉不夠透亮？一般水光維持不久，又擔心過度填充？肌膚老化核心常來自膠原流失；喬雅露著重底層重建與膠原增生，追求自然澎潤與膚質改善。",
+    solution:
+      "Dr. Appletree 依膚況評估是否適合喬雅露 Juvelook，規劃膠原增生與保水並行的療程節奏，避免一次填太滿。",
+    mechanism:
+      "喬雅露結合 PDLLA 聚雙旋乳酸與非交聯玻尿酸：PDLLA 深入真皮啟動修復與膠原新生，玻尿酸同步提升含水與透亮。PDLLA 代謝過程持續刺激膠原生成，效果漸進穩定，常被稱為「會自己長膠原蛋白的水光針」。",
+    advantages: [
+      "改善細紋、毛孔、膚質與輕度凹陷",
+      "刺激自體膠原新生，效果自然",
+      "保水與膚質修復並行",
+      "恢復期短，日常影響低",
+      "不易僵硬或饅化，妝感較自然",
+      "韓系醫美熱門膚質管理療程之一",
+    ],
+    duration: "約 30–45 分鐘（依範圍）",
+    sessions: "多數人規劃 2–3 次，間隔依醫師評估",
+    recovery: "多僅輕微泛紅、腫脹，1–3 天緩解；2–4 週膚況漸入佳境",
+    priceRange: "請預約諮詢，依劑量與部位報價",
+    satisfaction: "適合想自然澎潤、膚質改善與膠原增生者",
+    steps: [
+      { step: 1, title: "膚質評估", description: "評估細紋、毛孔、凹陷與膚況，規劃施打層次。", duration: "10–15 分鐘" },
+      { step: 2, title: "清潔敷麻", description: "清潔消毒，必要時敷麻。", duration: "15–20 分鐘" },
+      { step: 3, title: "喬雅露施打", description: "將 Juvelook 注入目標層，兼顧保水與膠原刺激。", duration: "15–25 分鐘" },
+      { step: 4, title: "術後舒緩", description: "保濕舒緩，說明照護。", duration: "5 分鐘" },
+      { step: 5, title: "週期追蹤", description: "觀察膚質與膠原反應，安排後續療程。", duration: "依院方安排" },
+    ],
+    aftercare: [
+      "術後加強保濕、防曬，避免高溫與劇烈運動數日。",
+      "效果含立即保水與數週後膠原增生，請耐心追蹤。",
+      "本文由 Dr. Appletree 蘋果樹醫美診所／團隊醫師群親自審閱與衛教指導。實際療程適應症、劑量、次數與風險，仍需由醫師現場評估後確認。",
+    ],
+    faqs: [
+      {
+        question: "喬雅露會有填充感嗎？",
+        answer: "以膠原增生為主，整體偏自然，不容易過度膨脹。",
+      },
+      {
+        question: "喬雅露多久有效果？",
+        answer: "術後可先感受保水透亮，膠原增生約數週後漸明顯。",
+      },
+      {
+        question: "喬雅露需要打幾次？",
+        answer: "依膚況調整，多數人規劃 2–3 次較完整穩定。",
+      },
+      {
+        question: "喬雅露適合年輕人嗎？",
+        answer: "可評估，亦有年輕族群作為膚質養成療程。",
+      },
+    ],
     relatedCases: [],
-    keywords: ["逆時針", "JuveLook", "微整注射"],
+    keywords: ["喬雅露", "Juvelook", "膠原再生", "水光", "PDLLA", "微整注射"],
   },
   {
     slug: "profhilo",
-    title: "璞菲洛（PROFHILO）",
-    subtitle: "（內容待補）",
+    title: "逆時針",
+    subtitle: "Profhilo 液態電波・肌膚重塑與抗老",
     category: "微整注射",
     heroImage: INJECTION_HERO.profhilo,
-    metaTitle: "璞菲洛 PROFHILO｜蘋果樹醫學總院",
-    metaDescription: "璞菲洛 PROFHILO 療程介紹，詳細內容待補。",
-    painPoint: "（內容待補）",
-    solution: "（內容待補）",
-    mechanism: "（內容待補）",
-    advantages: ["（內容待補）"],
-    duration: "待補",
-    sessions: "待補",
-    recovery: "待補",
-    priceRange: "待補",
-    satisfaction: "待補",
-    steps: [{ step: 1, title: "諮詢與評估", description: "（內容待補）", duration: "待補" }],
-    aftercare: ["（內容待補）"],
-    faqs: [{ question: "璞菲洛是什麼？", answer: "（內容待補）" }],
+    metaTitle: "逆時針 Profhilo｜液態電波抗老｜蘋果樹醫學總院",
+    metaDescription:
+      "逆時針 Profhilo 採瑞士 NAHYCO® 高低分子玻尿酸，重塑肌膚、刺激膠原與彈力蛋白，改善鬆弛細紋。非填充型抗老。蘋果樹醫學總院。",
+    painPoint:
+      "臉部鬆弛、輪廓模糊、膚質粗糙暗沉、細紋與法令紋加深，又不想過度填充或饅化？逆時針（Profhilo）著重肌膚整體重塑與保水抗老，常被稱為液態電波、彈力蛋白啟動針。",
+    solution:
+      "Dr. Appletree 評估鬆弛、膚質與輪廓需求，判斷是否適合 Profhilo 全臉或局部重塑，以自然緊緻為目標。",
+    mechanism:
+      "Profhilo 逆時針由瑞士研發，專利 NAHYCO® 結合高低分子玻尿酸，高濃度複合結構可均勻擴散至真皮，啟動膠原與彈力蛋白增生；非局部厚重填充，屬立即保水＋長期抗老型療程。",
+    advantages: [
+      "非填充型玻尿酸，自然不僵硬",
+      "同時刺激膠原與彈力蛋白",
+      "改善鬆弛、細紋與膚質",
+      "高保水、透亮感提升",
+      "幾乎無恢復期",
+      "適合自然系抗老需求",
+    ],
+    duration: "約 30–45 分鐘（Profhilo 常為全臉 BAP 等規劃）",
+    sessions: "多數人 2–3 次，間隔約 4 週，依醫師評估",
+    recovery: "可能輕微泛紅、針孔感或短暫腫脹，1–3 天可恢復日常",
+    priceRange: "請預約諮詢，依劑量與部位報價",
+    satisfaction: "適合想緊緻抗老、又不要明顯填充感者",
+    steps: [
+      { step: 1, title: "全臉評估", description: "評估鬆弛、細紋、輪廓與膚質。", duration: "10–15 分鐘" },
+      { step: 2, title: "注射點規劃", description: "依 BAP 或醫師規劃標記注射點。", duration: "5–10 分鐘" },
+      { step: 3, title: "Profhilo 注射", description: "分點注入，讓玻尿酸均勻擴散。", duration: "15–20 分鐘" },
+      { step: 4, title: "術後確認", description: "確認泛紅與對稱，說明照護。", duration: "5 分鐘" },
+      { step: 5, title: "效果追蹤", description: "數週內觀察膠原與彈力蛋白反應。", duration: "依院方安排" },
+    ],
+    aftercare: [
+      "術後 24 小時內避免按摩、高溫三溫暖與劇烈運動。",
+      "保濕防曬，效果含立即保水與數週後漸進緊緻。",
+      "本文由 Dr. Appletree 蘋果樹醫美診所／團隊醫師群親自審閱與衛教指導。實際療程適應症、次數與風險，仍需由醫師現場評估後確認。",
+    ],
+    faqs: [
+      {
+        question: "逆時針會有填充感嗎？",
+        answer: "屬非填充型重塑，著重緊緻與膚質，不易過度膨脹。",
+      },
+      {
+        question: "逆時針多久有效果？",
+        answer: "術後可先感受保水透亮，膠原與彈力蛋白增生於數週內漸明顯。",
+      },
+      {
+        question: "逆時針需要打幾次？",
+        answer: "多數人規劃 2–3 次，效果較完整穩定。",
+      },
+      {
+        question: "逆時針適合年輕人嗎？",
+        answer: "可評估，亦有年輕族群作為預防型膚質保養。",
+      },
+    ],
     relatedCases: [],
-    keywords: ["璞菲洛", "PROFHILO", "微整注射"],
+    keywords: [
+      "逆時針",
+      "Profhilo",
+      "PROFHILO",
+      "液態電波",
+      "NAHYCO",
+      "肌膚重塑",
+      "微整注射",
+    ],
   },
   {
     slug: "sculptra",
@@ -818,25 +902,101 @@ export const TREATMENT_DETAILS: TreatmentDetail[] = [
   {
     slug: "letybo",
     title: "保提拉肉毒（Letybo）",
-    subtitle: "（內容待補）",
+    subtitle: "韓系自然感肉毒，改善動態紋與肌肉線條修飾",
     category: "微整注射",
     heroImage: INJECTION_HERO.letybo,
-    metaTitle: "保提拉肉毒 Letybo｜蘋果樹醫學總院",
-    metaDescription: "保提拉肉毒 Letybo 療程介紹，詳細內容待補。",
-    painPoint: "（內容待補）",
-    solution: "（內容待補）",
-    mechanism: "（內容待補）",
-    advantages: ["（內容待補）"],
-    duration: "待補",
-    sessions: "待補",
-    recovery: "待補",
-    priceRange: "待補",
-    satisfaction: "待補",
-    steps: [{ step: 1, title: "諮詢與評估", description: "（內容待補）", duration: "待補" }],
-    aftercare: ["（內容待補）"],
-    faqs: [{ question: "保提拉肉毒是什麼？", answer: "（內容待補）" }],
+    metaTitle: "保提拉肉毒 Letybo｜韓系自然感肉毒｜蘋果樹醫學總院",
+    metaDescription:
+      "保提拉肉毒 Letybo 透過抑制肌肉過度收縮，改善動態紋、咀嚼肌小臉與肩頸線條。自然柔和、恢復期短。蘋果樹醫學總院。",
+    painPoint:
+      "抬頭紋、皺眉紋越來越明顯？咀嚼肌發達、臉型偏寬，或肩頸、斜方肌線條厚重？想做肉毒卻擔心臉僵、表情不自然、過度凍齡？保提拉（Letybo）為韓系熱門肉毒品牌之一，著重自然修飾與動態紋改善，但劑量與部位仍須由醫師依肌肉狀況規劃。",
+    solution:
+      "Dr. Appletree 依您的動態紋、臉型輪廓與肌肉肥厚部位評估，判斷是否適合保提拉肉毒，並以保守劑量追求自然表情，避免僵硬感。",
+    mechanism:
+      "保提拉肉毒 Letybo 屬肉毒桿菌素療程，抑制神經與肌肉間訊號傳遞，降低過度收縮。與填充型療程不同，肉毒主要「放鬆過度用力的肌肉」，可逐步改善抬頭紋、魚尾紋、皺眉紋、咀嚼肌肥厚、國字臉與肩頸厚重感，屬自然修飾與預防細紋加深型治療。",
+    advantages: [
+      "自然柔和，劑量適當時不易僵硬",
+      "改善動態紋與細紋",
+      "可修飾小臉、輪廓與咀嚼肌線條",
+      "臉部與身體（如斜方肌、小腿）皆可評估",
+      "幾乎無恢復期，日常影響低",
+      "韓系醫美常見肉毒選擇之一",
+    ],
+    duration: "約 15–30 分鐘（依部位與範圍）",
+    sessions: "單次施打；效果約維持 3–6 個月，可依醫師建議補打",
+    recovery: "多僅微小針孔、輕微泛紅或短暫腫脹；通常當天可正常生活，3–7 天漸有感，約 1–2 週趨穩定",
+    priceRange: "請預約諮詢，依部位與劑量報價",
+    satisfaction: "適合重視自然感、想改善動態紋或肌肉線條者",
+    steps: [
+      {
+        step: 1,
+        title: "醫師評估",
+        description: "了解動態紋、臉型、咀嚼肌或肩頸需求，確認禁忌與期望。",
+        duration: "10–15 分鐘",
+      },
+      {
+        step: 2,
+        title: "部位標記",
+        description: "標示注射區域與劑量方向，避開高風險區。",
+        duration: "5 分鐘",
+      },
+      {
+        step: 3,
+        title: "肉毒注射",
+        description: "依肌肉狀況分點施打，放鬆過度收縮。",
+        duration: "10–20 分鐘",
+      },
+      {
+        step: 4,
+        title: "術後確認",
+        description: "確認對稱、泛紅與不適，說明注意事項。",
+        duration: "5 分鐘",
+      },
+      {
+        step: 5,
+        title: "回診追蹤",
+        description: "依需要評估效果與是否補打。",
+        duration: "依院方安排",
+      },
+    ],
+    aftercare: [
+      "術後 4 小時內避免平躺、按摩或揉捏注射部位。",
+      "24 小時內避免劇烈運動、高溫三溫暖、飲酒。",
+      "效果約 3–7 天漸進，1–2 週較穩定；維持約 3–6 個月，因人而異。",
+      "懷孕、哺乳、神經肌肉疾病或特殊用藥者須先告知醫師。",
+      "本文由 Dr. Appletree 蘋果樹醫美診所／團隊醫師群親自審閱與衛教指導。實際療程適應症、劑量、次數與風險，仍需由醫師現場評估後確認。",
+    ],
+    faqs: [
+      {
+        question: "保提拉肉毒會讓臉僵掉嗎？",
+        answer:
+          "若由專業醫師依肌肉狀況調整劑量，通常效果自然，不容易有僵硬感。",
+      },
+      {
+        question: "保提拉肉毒多久有效果？",
+        answer: "多數人術後 3–7 天開始有感，約 2 週效果較明顯。",
+      },
+      {
+        question: "保提拉肉毒可以維持多久？",
+        answer: "通常約 3–6 個月，依個人體質與施打部位而異。",
+      },
+      {
+        question: "年輕人適合打肉毒嗎？",
+        answer:
+          "可評估。除了改善動態紋，也有年輕族群作為預防型抗老保養，仍須醫師判斷。",
+      },
+    ],
     relatedCases: [],
-    keywords: ["保提拉", "Letybo", "肉毒桿菌", "微整注射"],
+    keywords: [
+      "保提拉",
+      "Letybo",
+      "肉毒桿菌",
+      "韓系肉毒",
+      "小臉",
+      "除皺",
+      "咀嚼肌",
+      "微整注射",
+    ],
   },
   {
     slug: "juvederm",
@@ -1022,25 +1182,97 @@ export const TREATMENT_DETAILS: TreatmentDetail[] = [
   {
     slug: "saypha",
     title: "思妃公主玻尿酸",
-    subtitle: "（內容待補）",
+    subtitle: "歐洲 SAYPHA 自然系玻尿酸，柔和修飾與保水澎潤",
     category: "微整注射",
     heroImage: INJECTION_HERO.saypha,
-    metaTitle: "思妃公主玻尿酸 saypha｜蘋果樹醫學總院",
-    metaDescription: "思妃公主玻尿酸療程介紹，詳細內容待補。",
-    painPoint: "（內容待補）",
-    solution: "（內容待補）",
-    mechanism: "（內容待補）",
-    advantages: ["（內容待補）"],
-    duration: "待補",
-    sessions: "待補",
-    recovery: "待補",
-    priceRange: "待補",
-    satisfaction: "待補",
-    steps: [{ step: 1, title: "諮詢與評估", description: "（內容待補）", duration: "待補" }],
-    aftercare: ["（內容待補）"],
-    faqs: [{ question: "思妃公主玻尿酸是什麼？", answer: "（內容待補）" }],
+    metaTitle: "思妃公主玻尿酸 SAYPHA｜自然系玻尿酸｜蘋果樹醫學總院",
+    metaDescription:
+      "思妃公主玻尿酸（Croma SAYPHA）交聯式玻尿酸，改善法令紋、淚溝、輪廓與唇部，強調自然融合感。蘋果樹醫學總院。",
+    painPoint:
+      "法令紋、淚溝加深，臉部凹陷顯疲憊，或想微調下巴、唇形與輪廓，卻擔心臉太腫、五官不自然、出現饅化感？思妃公主（SAYPHA）著重自然修飾與柔和線條，但仍須依五官比例與劑型由醫師規劃。",
+    solution:
+      "Dr. Appletree 依凹陷部位、輪廓比例與期望風格評估，選擇適合 SAYPHA 劑型與劑量，以自然融合、避免過度填充為原則。",
+    mechanism:
+      "思妃公主玻尿酸 SAYPHA（Croma）為交聯式玻尿酸，補充肌膚流失的玻尿酸，達到支撐、修飾與保水。具吸水特性，除立即填充外，可提升保水度、澎潤感與光澤；可評估法令紋、淚溝、太陽穴、下巴、蘋果肌與唇部，屬「立即修飾＋保水澎潤」型療程。",
+    advantages: [
+      "自然柔和，不易有過度填充感",
+      "改善凹陷與輪廓線條",
+      "提升肌膚保水與光澤感",
+      "支撐力與柔軟度較平衡",
+      "幾乎無恢復期，日常影響低",
+      "適合自然系、韓系微整與初次玻尿酸者",
+    ],
+    duration: "約 30–45 分鐘（含評估，依部位）",
+    sessions: "多數部位單次即可；維持約 6–12 個月，依部位與代謝而異",
+    recovery: "可能微小針孔、輕微泛紅或局部腫脹，多數數日內恢復；通常可立即感受修飾與澎潤",
+    priceRange: "請預約諮詢，依劑型、劑量與部位報價",
+    satisfaction: "適合追求自然精緻感、不想過度醫美感者",
+    steps: [
+      {
+        step: 1,
+        title: "醫師評估",
+        description: "評估凹陷、輪廓比例與期望，確認適合部位與劑型。",
+        duration: "10–15 分鐘",
+      },
+      {
+        step: 2,
+        title: "劑型選擇",
+        description: "依部位選擇柔軟度與支撐度合適的 SAYPHA 產品。",
+        duration: "5–10 分鐘",
+      },
+      {
+        step: 3,
+        title: "術前標記",
+        description: "標示注射區，避開高風險血管區域。",
+        duration: "5–10 分鐘",
+      },
+      {
+        step: 4,
+        title: "玻尿酸注射",
+        description: "分層分點施打，補充支撐與修飾比例。",
+        duration: "15–25 分鐘",
+      },
+      {
+        step: 5,
+        title: "術後確認",
+        description: "確認對稱、腫脹與血循，說明照護與回診。",
+        duration: "5 分鐘",
+      },
+    ],
+    aftercare: [
+      "術前需告知懷孕、哺乳、凝血異常、蟹足腫、免疫疾病、過敏史或曾注射填充物。",
+      "術後避免按摩、高溫三溫暖、劇烈運動與飲酒，依醫囑保濕防曬。",
+      "若有劇烈疼痛、膚色異常、視覺異常等，需立即回診。",
+      "本文由 Dr. Appletree 蘋果樹醫美診所／團隊醫師群親自審閱與衛教指導。實際療程適應症、劑型、劑量與風險，仍需由醫師現場評估後確認。",
+    ],
+    faqs: [
+      {
+        question: "思妃公主玻尿酸會不自然嗎？",
+        answer: "若由專業醫師依五官比例評估施打，通常效果偏自然柔和。",
+      },
+      {
+        question: "思妃公主玻尿酸多久有效果？",
+        answer: "術後通常立即可見修飾效果。",
+      },
+      {
+        question: "思妃公主玻尿酸可以維持多久？",
+        answer: "依施打部位與個人體質，通常約 6–12 個月左右。",
+      },
+      {
+        question: "年輕人適合打玻尿酸嗎？",
+        answer: "可評估。除改善凹陷外，也有年輕族群作為精緻五官微調，仍須醫師判斷。",
+      },
+    ],
     relatedCases: [],
-    keywords: ["思妃公主", "saypha", "玻尿酸", "微整注射"],
+    keywords: [
+      "思妃公主",
+      "SAYPHA",
+      "saypha",
+      "Croma",
+      "玻尿酸",
+      "自然系玻尿酸",
+      "微整注射",
+    ],
   },
   {
     slug: "belkyra",
@@ -2019,6 +2251,108 @@ export const TREATMENT_DETAILS: TreatmentDetail[] = [
     ],
     relatedCases: [],
     keywords: ["Talent-A", "動磁波", "HIFEM", "增肌減脂", "體雕", "馬甲線", "翹臀"],
+  },
+
+  {
+    slug: "fat-dissolve",
+    title: "消脂針／消脂點滴",
+    subtitle: "結合局部雕塑與代謝支持，改善小範圍脂肪、浮腫與體態管理",
+    category: "減重與形體雕塑",
+    heroImage: BODY_HERO["fat-dissolve"],
+    metaTitle: "消脂針／消脂點滴｜局部脂肪・代謝管理｜蘋果樹醫學總院",
+    metaDescription:
+      "消脂針與消脂點滴是什麼？適合局部脂肪、水腫與代謝管理嗎？結合局部雕塑與代謝支持，須醫師評估。蘋果樹醫學總院 Dr. Appletree。",
+    painPoint:
+      "體重不一定很重，但局部脂肪、水腫或線條鬆散感明顯？想改善下巴、手臂、腰腹、大腿等局部困擾，又希望搭配代謝、循環與生活型態管理？消脂針／消脂點滴的重點不是「打一針就瘦」，而是放在整體體態管理中，與飲食、運動、減重門診、淋巴循環、緊緻療程一起搭配評估。",
+    solution:
+      "Dr. Appletree 以醫師評估、脂肪厚度判讀、體態比例分析、代謝狀態管理與術後追蹤為核心，協助判斷適合消脂針、消脂點滴，或需要搭配減重、緊緻、運動與飲食調整。",
+    mechanism:
+      "消脂針與消脂點滴屬醫師評估後的客製化療程；實際成分、劑量、適應部位與頻率，依院內合法藥品來源、醫師處方與個人身體狀況安排。消脂針多用於局部脂肪雕塑輔助，由醫師評估脂肪厚度、皮膚鬆弛與施作部位後規劃局部注射；消脂點滴則透過靜脈營養補充，偏向代謝、循環、營養補充與體態管理支持。兩者不是同一種療程，也不能取代正式減重治療、抽脂手術或生活型態調整。",
+    advantages: [
+      "小範圍局部脂肪堆積的雕塑輔助",
+      "改善雙下巴、手臂、腰腹、大腿線條",
+      "協助身體浮腫、循環感不佳的體態管理",
+      "減重後局部比例不協調者可評估",
+      "可搭配點滴、代謝管理與健康檢測",
+      "低負擔起點，願意配合飲食與回診追蹤者",
+    ],
+    duration: "單次依注射或點滴項目，約 30–60 分鐘（含評估）",
+    sessions: "依部位、脂肪量與是否複合療程，由醫師規劃次數與間隔",
+    recovery: "消脂針可能腫脹、瘀青、痠痛、硬塊感；點滴須注意血管狀況與過敏反應，依醫囑追蹤",
+    priceRange: "請預約諮詢，依部位、劑量與療程組合報價",
+    satisfaction: "適合局部脂肪／水腫型困擾、願意配合整體體態管理者",
+    steps: [
+      {
+        step: 1,
+        title: "醫師評估",
+        description: "評估脂肪厚度、水腫、皮膚鬆弛與身體狀態，判斷適合消脂針或消脂點滴。",
+        duration: "15–20 分鐘",
+      },
+      {
+        step: 2,
+        title: "部位與目標設定",
+        description: "確認下巴、手臂、腰腹、大腿等重點區域，避免亂打、亂補。",
+        duration: "10 分鐘",
+      },
+      {
+        step: 3,
+        title: "療程規劃",
+        description: "依需求安排局部注射、點滴或複合療程，建立個人化方案。",
+        duration: "10–15 分鐘",
+      },
+      {
+        step: 4,
+        title: "療程施作",
+        description: "由醫師或專業醫療人員依規範執行消脂針注射或消脂點滴。",
+        duration: "20–40 分鐘",
+      },
+      {
+        step: 5,
+        title: "術後追蹤",
+        description: "觀察腫脹、瘀青、代謝反應與線條變化，調整後續療程。",
+        duration: "依院方安排",
+      },
+    ],
+    aftercare: [
+      "消脂針與消脂點滴都需由醫師評估，不建議自行購買來路不明產品或到非醫療場所施作。",
+      "術前需告知懷孕、哺乳、肝腎疾病、心血管疾病、糖尿病、凝血異常、藥物過敏、特殊用藥或慢性疾病。",
+      "消脂針術後可能腫脹、瘀青、痠痛、硬塊感或短期不平整，需依醫囑按摩、多喝水、避免飲酒與劇烈運動。",
+      "消脂點滴須注意血管狀況、過敏反應、暈針與身體負擔，不是配方越強越好。",
+      "若主要問題是皮膚鬆弛、肌肉不足、姿勢不良或體脂過高，單靠消脂針或消脂點滴不一定能達理想體態，需搭配緊緻、運動、飲食與減重管理。",
+      "本文由 Dr. Appletree 蘋果樹醫美診所／團隊醫師群親自審閱與衛教指導。實際療程、成分、劑量、次數與風險，仍需由醫師現場評估後確認。",
+    ],
+    faqs: [
+      {
+        question: "消脂針是不是打了局部就會瘦？",
+        answer:
+          "不一定，要看脂肪量、部位與體質。消脂針較適合小範圍局部雕塑，不適合取代減重；若脂肪量多、皮膚鬆弛明顯或內臟脂肪比例高，醫師可能建議其他方式。",
+      },
+      {
+        question: "消脂點滴可以讓體重下降嗎？",
+        answer:
+          "消脂點滴不是減肥藥，偏向代謝、循環、營養與恢復支持，不能保證體重下降；體態改變仍需搭配飲食、活動、睡眠與必要時的醫師減重管理。",
+      },
+      {
+        question: "消脂針和 BELKYRA 倍克脂有什麼不同？",
+        answer:
+          "BELKYRA 是針對雙下巴的處方注射，有明確藥品定位與頦下脂肪使用情境；一般消脂針的成分、適應部位與安全性，需依院內合法來源與醫師評估，不能混為一談。",
+      },
+      {
+        question: "我適合消脂針、消脂點滴，還是減重門診？",
+        answer:
+          "先看是脂肪型、水腫型還是代謝型：局部脂肪可評估消脂針；浮腫、疲勞、循環差可評估消脂點滴或淋巴循環；體重、體脂或內臟脂肪偏高應先做減重與代謝管理。",
+      },
+    ],
+    relatedCases: [],
+    keywords: [
+      "消脂針",
+      "消脂點滴",
+      "局部雕塑",
+      "水腫",
+      "代謝管理",
+      "體態管理",
+      "減重與形體雕塑",
+    ],
   },
 
   // ═══════════════════════════════════════════

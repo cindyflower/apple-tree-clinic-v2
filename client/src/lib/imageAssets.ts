@@ -176,8 +176,8 @@ export const BEIDA_CLINIC_PHOTOS = clinicPhotos(
 );
 
 export const TREATMENT_IMG = {
-  "逆時針": img(F.injection, "1.逆時針_cover.jpg"),
-  "璞菲洛": img(F.injection, "2.璞菲洛_cover.jpg"),
+  "喬雅露": img(F.injection, "1.逆時針_cover.jpg"),
+  "逆時針": img(F.injection, "2.璞菲洛_cover.jpg"),
   "Sunmax 膠原蛋白（熊貓針）": img(F.injection, "3.Sunmax膠原蛋白-熊貓針_cover.jpg"),
   "VivaBella 薇貝拉": img(F.injection, "4.VivaBella薇貝拉_cover.jpg"),
   "AestheFill 艾麗斯": img(F.injection, "5.AestheFill艾麗斯_cover.jpg"),
@@ -207,7 +207,6 @@ export const TREATMENT_IMG = {
   "Wegovy 週纖達": img(F.body, "Wegovy週纖達_cover.jpg"),
   "Mounjaro 猛健樂": img(F.body, "Mounjaro猛健樂_cover.jpg"),
   "Talent-A 動磁波": img(F.body, "Talent-A動磁波_cover.jpg"),
-  "減肥筆": img(F.body, "減肥筆.jpg"),
   "ICOONE": img(F.body, "icoone_cover.jpg"),
   "消脂針/消脂點滴": img(F.body, "消脂針消脂點滴_cover.jpg"),
   "瑞倍適": img(F.body, "瑞倍適_cover.jpg"),
