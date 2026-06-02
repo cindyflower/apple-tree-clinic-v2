@@ -31,7 +31,7 @@ function WhoIsXuyan() {
         >
           <span className="label-refined text-champagne inline-flex items-center gap-2 mb-4">
             <Sparkles size={12} className="text-gold" />
-            Meet 序顏
+            Meet 序顏™
           </span>
           <h1 className="heading-editorial text-ink text-2xl sm:text-3xl lg:text-[2.6rem] mb-6 leading-tight">
             你好，我是序顏™<br />
@@ -104,7 +104,7 @@ function AIDetectionDemo() {
             AI Detection
           </span>
           <h2 className="heading-editorial text-ink text-2xl sm:text-3xl lg:text-[2.4rem] mb-4">
-            看序顏 AI 檢測<span className="text-gradient-forest">怎麼運作</span>
+            看序顏™ AI 檢測<span className="text-gradient-forest">怎麼運作</span>
           </h2>
           <p className="text-[1rem] md:text-[0.95rem] font-body font-light text-ink/50 leading-[1.9]">
             透過簡單互動與初步分析，序顏幫你更快整理目前的老化傾向與美學方向。
@@ -155,7 +155,7 @@ function ProcessFlow() {
             How It Works
           </span>
           <h2 className="heading-editorial text-ink text-2xl sm:text-3xl lg:text-[2.4rem] mb-4">
-            序顏 AI 如何幫你<br className="hidden sm:block" />
+            序顏™ AI 如何幫你<br className="hidden sm:block" />
             <span className="text-gradient-forest">看懂目前的老化傾向？</span>
           </h2>
           <p className="text-[1rem] md:text-[0.95rem] font-body font-light text-ink/50 leading-[1.9]">
@@ -201,7 +201,7 @@ function MeetXuyanImage() {
           className="text-center max-w-2xl mx-auto mb-10"
         >
           <h2 className="heading-editorial text-ink text-2xl sm:text-3xl lg:text-[2.2rem] mb-3">
-            認識序顏的<span className="text-gradient-forest">三種互動型態</span>
+            認識序顏™的<span className="text-gradient-forest">三種互動型態</span>
           </h2>
           <p className="text-[1rem] font-body font-light text-ink/50 leading-[1.9]">
             當你有不同需求時，序顏會切換最適合的模式，陪你找到更適合自己的變美方向。

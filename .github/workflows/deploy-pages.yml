@@ -1,7 +1,9 @@
 name: Deploy GitHub Pages
 
-# GitHub Pages 預覽已改由 Cloudflare Pages 負責；僅手動觸發，避免每次 push 雙重部署。
+# GitHub Pages 預覽：main push 與手動觸發（與 Cloudflare Pages 並行部署）。
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
