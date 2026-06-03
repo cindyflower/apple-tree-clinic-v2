@@ -39,7 +39,7 @@ export function imgRoot(filename: string): string {
 }
 
 export const IMAGES = {
-  hero: img(F.brand, "hero-wellness-beauty-1.jpg"),
+  hero: img(F.brand, "hero-wellness-beauty.jpg"),
   heroBeauty: img(F.brand, "hero-wellness-beauty-2.jpg"),
   heroApple: img(F.brand, "hero-wellness-beauty-3.jpg"),
   abstract: img(F.brand, "luxury-abstract.webp"),

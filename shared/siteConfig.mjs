@@ -8,7 +8,7 @@ export const GITHUB_PAGES_BASE = "/apple-tree-clinic-v2";
 
 /** Default OG image path (no base prefix). Matches IMAGES.hero in imageAssets.ts. */
 export const DEFAULT_OG_IMAGE_PATH =
-  "/images/00_%E5%93%81%E7%89%8C%E8%88%87%E7%92%B0%E5%A2%83/hero-wellness-beauty-1.jpg";
+  "/images/00_%E5%93%81%E7%89%8C%E8%88%87%E7%92%B0%E5%A2%83/hero-wellness-beauty.jpg";
 
 function normalizeOrigin(url) {
   return url.replace(/\/$/, "");
