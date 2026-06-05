@@ -17,6 +17,18 @@ export const BRAND = {
   hours: "週一至週六 10:00-21:00｜週日 10:00-18:00",
 };
 
+/** 兩顆蘋果 — 院區 LINE 入口（南京／北大分開） */
+export const LINE_BY_APPLE = {
+  nanjing: {
+    lineId: "@dr.appletree",
+    lineUrl: "https://lin.ee/vvMGVlN",
+  },
+  beida: {
+    lineId: "@274dtgel",
+    lineUrl: "https://lin.ee/aNqmtP7",
+  },
+} as const;
+
 export const LOCATIONS = [
   {
     name: "南京旗艦院所",

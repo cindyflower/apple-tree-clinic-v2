@@ -462,3 +462,40 @@ html {
   background: oklch(0.74 0.07 75 / 0.2);
   color: oklch(0.25 0.005 0);
 }
+
+/* Omnichat 南京 LINE — hover 提示（對齊 FloatingCTA「北大Line 諮詢」） */
+@media (hover: hover) {
+  /* 外掛預設 overflow:hidden 會裁切左側 tooltip */
+  #easychat-floating-button.omnichat-icon-wrapper,
+  #easychat-floating-button-left.omnichat-icon-wrapper {
+    overflow: visible !important;
+  }
+
+  #easychat-floating-button.omnichat-icon-wrapper::after,
+  #easychat-floating-button-left.omnichat-icon-wrapper::after {
+    content: "南京Line 諮詢";
+    position: absolute;
+    right: calc(100% + 0.75rem);
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0.375rem 0.75rem;
+    font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: oklch(0.25 0.005 0);
+    background: oklch(0.98 0.005 85);
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 10000001;
+  }
+
+  #easychat-floating-button.omnichat-icon-wrapper:hover::after,
+  #easychat-floating-button-left.omnichat-icon-wrapper:hover::after {
+    opacity: 1 !important;
+  }
+}

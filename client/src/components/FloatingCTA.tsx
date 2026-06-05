@@ -6,7 +6,9 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Phone, MessageCircle, ArrowUp } from "lucide-react";
-import { BRAND } from "@/lib/constants";
+import { BRAND, LINE_BY_APPLE } from "@/lib/constants";
+
+const BEIDA_LINE_LABEL = "北大Line 諮詢";
 
 export default function FloatingCTA() {
   const [show, setShow] = useState(false);
@@ -39,13 +41,14 @@ export default function FloatingCTA() {
                 電話預約
               </a>
               <a
-                href={BRAND.lineUrl}
+                href={LINE_BY_APPLE.beida.lineUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 flex items-center justify-center gap-2 py-2.5 text-[0.8rem] font-body font-medium text-cream bg-[#06C755] rounded-full hover:bg-[#05b34d] transition-colors"
+                aria-label={BEIDA_LINE_LABEL}
               >
                 <MessageCircle size={15} />
-                LINE 諮詢
+                {BEIDA_LINE_LABEL}
               </a>
             </div>
           </motion.div>
@@ -59,15 +62,15 @@ export default function FloatingCTA() {
             className="hidden lg:flex fixed bottom-8 right-8 z-40 flex-col gap-3"
           >
             <a
-              href={BRAND.lineUrl}
+              href={LINE_BY_APPLE.beida.lineUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="group relative w-12 h-12 flex items-center justify-center rounded-full bg-[#06C755] text-white shadow-lg shadow-[#06C755]/20 hover:scale-110 transition-transform duration-300"
-              aria-label="LINE 諮詢"
+              aria-label={BEIDA_LINE_LABEL}
             >
               <MessageCircle size={20} />
               <span className="absolute right-full mr-3 px-3 py-1.5 text-[0.7rem] font-body font-medium text-ink bg-cream rounded-lg shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
-                LINE 諮詢
+                {BEIDA_LINE_LABEL}
               </span>
             </a>
             <a

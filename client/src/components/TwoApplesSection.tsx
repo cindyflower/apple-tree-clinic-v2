@@ -9,7 +9,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "@/hooks/useInView";
 import { Leaf, Crown, Phone, MapPin, Clock, MessageCircle, Navigation } from "lucide-react";
-import { BRAND } from "@/lib/constants";
+import { LINE_BY_APPLE } from "@/lib/constants";
 
 const LOCATIONS = [
   {
@@ -30,7 +30,8 @@ const LOCATIONS = [
     phoneLink: "tel:+886286720222",
     hours: "週一至週六 10:00-21:00",
     mapsUrl: "https://www.google.com/maps/dir/?api=1&destination=24.9341,121.3686",
-    lineUrl: BRAND.lineUrl,
+    lineUrl: LINE_BY_APPLE.beida.lineUrl,
+    lineId: LINE_BY_APPLE.beida.lineId,
     branches: [
       { name: "北大診所（健保皮膚科）", phone: "(02) 8672-0222", phoneLink: "tel:+886286720222" },
       { name: "北大醫美（醫美保養）", phone: "(02) 8672-0608", phoneLink: "tel:+886286720608" },
@@ -54,7 +55,8 @@ const LOCATIONS = [
     phoneLink: "tel:+886227163535",
     hours: "週一至週六 10:00-21:00｜週日 10:00-18:00",
     mapsUrl: "https://www.google.com/maps/dir/?api=1&destination=25.0519,121.5467",
-    lineUrl: BRAND.lineUrl,
+    lineUrl: LINE_BY_APPLE.nanjing.lineUrl,
+    lineId: LINE_BY_APPLE.nanjing.lineId,
     branches: [],
   },
 ];
@@ -192,6 +194,7 @@ export default function TwoApplesSection({ onNavigateToEnvironment }: TwoApplesS
                   href={loc.lineUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={`${loc.name} LINE 預約 ${loc.lineId}`}
                   onClick={(e) => e.stopPropagation()}
                   className={`flex flex-col items-center gap-1.5 py-3 rounded-xl ${loc.accentBg} border border-transparent hover:border-current/10 transition-all duration-200`}
                 >
