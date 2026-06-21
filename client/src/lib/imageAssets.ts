@@ -264,6 +264,8 @@ export const TREATMENT_IMG = {
   "G點注射": img(F.feminine, "6.G點注射_cover.jpg"),
   "陰道洞口重建手術": img(F.feminine, "7.陰道洞口重建手術_cover.jpg"),
   "HPV子宮頸癌疫苗": img(F.feminine, "8.HPV子宮頸癌疫苗_cover.jpg"),
+  "疼痛管理": img(F.nhiPain, "疼痛科_cover.jpg"),
+  "疼痛科": img(F.nhiPain, "疼痛科_cover.jpg"),
 } as const satisfies Record<string, string>;
 
 /**
