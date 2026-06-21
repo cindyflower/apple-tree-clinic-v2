@@ -14,8 +14,23 @@ export const BRAND = {
   address: "台北市松山區南京東路三段309號3樓",
   email: "info@drappletree.com.tw",
   website: "https://www.drappletree.com.tw",
-  hours: "週一至週六 10:00-21:00｜週日 10:00-18:00",
+  hours: `週一至週五：12:00–21:00
+週六：10:00–19:00
+週日公休`,
 };
+
+/** 北大院區共用營業時間（北大診所、北大醫美） */
+const BEIDA_HOURS = `週二：14:30–17:00、18:00–21:00
+週三：08:30–12:00、13:30–17:00
+週四：08:30–13:00、14:30–21:00
+週五：14:30–21:00
+週六：08:30–12:00
+週日、週一公休`;
+
+/** 南京旗艦院所營業時間 */
+const NANJING_HOURS = `週一至週五：12:00–21:00
+週六：10:00–19:00
+週日公休`;
 
 /** 兩顆蘋果 — 院區 LINE 入口（南京／北大分開） */
 export const LINE_BY_APPLE = {
@@ -37,6 +52,7 @@ export const LOCATIONS = [
     phone: "(02) 2716-3535",
     phoneLink: "tel:+886227163535",
     coords: { lat: 25.0519, lng: 121.5467 },
+    hours: NANJING_HOURS,
   },
   {
     name: "北大診所",
@@ -45,6 +61,7 @@ export const LOCATIONS = [
     phone: "(02) 8672-0222",
     phoneLink: "tel:+886286720222",
     coords: { lat: 24.9447056, lng: 121.3759709 },
+    hours: BEIDA_HOURS,
   },
   {
     name: "北大醫美",
@@ -53,6 +70,7 @@ export const LOCATIONS = [
     phone: "(02) 8672-0608",
     phoneLink: "tel:+886286720608",
     coords: { lat: 24.9447056, lng: 121.3759709 },
+    hours: BEIDA_HOURS,
   },
 ];
 
@@ -643,7 +661,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
 
 export const NHI_SERVICES = [
   { id: "nhi-skin", name: "健保皮膚科", description: "提供各類皮膚疾病的健保診療服務。", location: "北大診所" },
-  { id: "nhi-pain", name: "疼痛科", description: "針對慢性疼痛、肌肉骨骼疼痛等問題提供健保診療服務。", location: "北大診所" },
+  { id: "nhi-pain", name: "疼痛管理", description: "針對慢性疼痛、肌肉骨骼疼痛等問題提供健保診療服務。", location: "南京診所" },
 ];
 
 export const FAQ_ITEMS = [

@@ -140,7 +140,7 @@ const TREATMENT_SLUG_MAP: Record<string, string> = {
 
   // ── 健保皮膚科 / 疼痛管理 ──
   "健保皮膚科": "nhi-dermatology",
-  "疼痛科": "pain-management",
+  "疼痛管理": "pain-management",
 };
 
 export function getTreatmentSlug(itemName: string): string | null {

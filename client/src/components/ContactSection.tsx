@@ -199,7 +199,9 @@ export default function ContactSection() {
                 <Clock size={16} className="text-botanical mt-0.5" />
                 <div>
                   <div className="text-[0.7rem] font-body font-medium text-ink/35 mb-1">營業時間</div>
-                  <div className="text-[0.8rem] font-body text-ink/60">{BRAND.hours}</div>
+                  <div className="text-[0.8rem] font-body text-ink/60 whitespace-pre-line leading-relaxed">
+                    {loc.hours}
+                  </div>
                 </div>
               </div>
             </div>
