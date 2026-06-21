@@ -44,7 +44,7 @@ export const LOCATIONS = [
     address: "新北市三峽區大德路127號",
     phone: "(02) 8672-0222",
     phoneLink: "tel:+886286720222",
-    coords: { lat: 24.9341, lng: 121.3686 },
+    coords: { lat: 24.9447056, lng: 121.3759709 },
   },
   {
     name: "北大醫美",
@@ -52,7 +52,7 @@ export const LOCATIONS = [
     address: "新北市三峽區大德路127號2樓",
     phone: "(02) 8672-0608",
     phoneLink: "tel:+886286720608",
-    coords: { lat: 24.9341, lng: 121.3686 },
+    coords: { lat: 24.9447056, lng: 121.3759709 },
   },
 ];
 

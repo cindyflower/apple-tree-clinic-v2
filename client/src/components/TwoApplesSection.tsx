@@ -24,16 +24,20 @@ const LOCATIONS = [
     accentColor: "text-emerald-600",
     accentBg: "bg-emerald-50",
     tags: "社區醫療 × 健康照護 × 醫美保養 × 長期管理",
-    description: "陪伴社區家庭與日常健康需求，把健康、美麗與長期照護放進生活裡。提供健保皮膚科、醫美保養、營養諮詢等服務。",
+    description: "陪伴社區家庭與日常健康需求，把健康、美麗與預防醫學放進生活裡。提供看診、慢籤開立、醫美保養、營養諮詢等服務。",
     address: "新北市三峽區大德路127號",
     phone: "(02) 8672-0222",
     phoneLink: "tel:+886286720222",
-    hours: "週一至週六 10:00-21:00",
-    mapsUrl: "https://www.google.com/maps/dir/?api=1&destination=24.9341,121.3686",
+    hours: `週二：14:30–17:00、18:00–21:00
+週三：08:30–12:00、13:30–17:00
+週四：08:30–13:00、14:30–21:00
+週五：14:30–21:00
+週六：08:30–12:00
+週日、週一公休`,
     lineUrl: LINE_BY_APPLE.beida.lineUrl,
     lineId: LINE_BY_APPLE.beida.lineId,
     branches: [
-      { name: "北大診所（健保皮膚科）", phone: "(02) 8672-0222", phoneLink: "tel:+886286720222" },
+      { name: "北大診所（疾病健保看診）", phone: "(02) 8672-0222", phoneLink: "tel:+886286720222" },
       { name: "北大醫美（醫美保養）", phone: "(02) 8672-0608", phoneLink: "tel:+886286720608" },
     ],
   },
@@ -53,8 +57,9 @@ const LOCATIONS = [
     address: "台北市松山區南京東路三段309號3樓",
     phone: "(02) 2716-3535",
     phoneLink: "tel:+886227163535",
-    hours: "週一至週六 10:00-21:00｜週日 10:00-18:00",
-    mapsUrl: "https://www.google.com/maps/dir/?api=1&destination=25.0519,121.5467",
+    hours: `週一至週五：12:00–21:00
+週六：10:00–19:00
+週日公休`,
     lineUrl: LINE_BY_APPLE.nanjing.lineUrl,
     lineId: LINE_BY_APPLE.nanjing.lineId,
     branches: [],
@@ -133,9 +138,11 @@ export default function TwoApplesSection({ onNavigateToEnvironment }: TwoApplesS
                   <MapPin size={14} className="text-ink/30 mt-0.5 shrink-0" />
                   <span className="text-[0.85rem] font-body text-ink/60">{loc.address}</span>
                 </div>
-                <div className="flex items-center gap-2.5">
-                  <Clock size={14} className="text-ink/30 shrink-0" />
-                  <span className="text-[0.85rem] font-body text-ink/60">{loc.hours}</span>
+                <div className="flex items-start gap-2.5">
+                  <Clock size={14} className="text-ink/30 mt-0.5 shrink-0" />
+                  <span className="text-[0.85rem] font-body text-ink/60 whitespace-pre-line leading-relaxed">
+                    {loc.hours}
+                  </span>
                 </div>
                 <div className="flex items-center gap-2.5">
                   <Phone size={14} className="text-ink/30 shrink-0" />
@@ -179,7 +186,7 @@ export default function TwoApplesSection({ onNavigateToEnvironment }: TwoApplesS
                   </span>
                 </a>
                 <a
-                  href={loc.mapsUrl}
+                  href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(loc.address)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={(e) => e.stopPropagation()}
