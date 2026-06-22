@@ -209,6 +209,7 @@ export const DOCTORS: DoctorProfile[] = [
   },
   {
     name: "林錦生 醫師",
+    alias: "傑生醫師",
     title: "主治醫師",
     credentials: ["金線獎百大線雕名醫", "海芙音波原廠認證", "鳳凰電波原廠認證"],
     image: doctorImg("林錦生 醫師", ""),
