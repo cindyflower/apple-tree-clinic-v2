@@ -56,6 +56,19 @@ const robots = `User-agent: *
 Allow: /
 Disallow: ${disallowPrefix}/404
 Disallow: ${disallowPrefix}/face-result
+Disallow: /wp-admin/
+Disallow: /wp-content/
+Disallow: /wp-includes/
+Disallow: /wp-login.php
+Disallow: /wp-cron.php
+Disallow: /xmlrpc.php
+Disallow: /wp-json/
+Disallow: /?p=*
+Disallow: /category/
+Disallow: /tag/
+Disallow: /feed/
+Disallow: /author/
+Disallow: /.env
 
 Sitemap: ${absoluteUrl("/sitemap.xml", config)}
 `;

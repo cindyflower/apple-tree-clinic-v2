@@ -36,12 +36,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build for Cloudflare Pages (preview origin)
+      - name: Build for Cloudflare Pages (production)
         run: pnpm run build:production
         env:
-          # AB Test：canonical / sitemap 指向 *.pages.dev，不動正式網域
-          VITE_SITE_URL: ${{ vars.CLOUDFLARE_SITE_URL || 'https://apple-tree-clinic-v2.pages.dev' }}
-          SITE_URL: ${{ vars.CLOUDFLARE_SITE_URL || 'https://apple-tree-clinic-v2.pages.dev' }}
+          VITE_SITE_URL: ${{ vars.CLOUDFLARE_SITE_URL || 'https://www.drappletree.com.tw' }}
+          SITE_URL: ${{ vars.CLOUDFLARE_SITE_URL || 'https://www.drappletree.com.tw' }}
 
       - name: Verify Cloudflare secrets
         env:
