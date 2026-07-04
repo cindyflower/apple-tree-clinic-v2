@@ -1,2 +1,41 @@
-# Cloudflare Pages SPA fallback — serve index.html with HTTP 200 for all routes.
-/*    /index.html   200
+# ============================================================
+# Cloudflare Pages — Redirects & Rewrites
+# https://developers.cloudflare.com/pages/configuration/redirects/
+# Rules are processed top-to-bottom; first match wins.
+# ============================================================
+
+# --- Block WordPress zombie paths (301 to homepage) ---
+# Bots still hitting old WP endpoints; redirect to homepage rather than
+# serving the SPA shell (reduces bot crawl budget waste).
+/wp-login.php  /  301
+/wp-admin  /  301
+/wp-admin/*  /  301
+/wp-content/*  /  301
+/wp-includes/*  /  301
+/wp-cron.php  /  301
+/xmlrpc.php  /  301
+/wp-json/*  /  301
+/wp-config.php  /  301
+/wp-signup.php  /  301
+/wp-trackback.php  /  301
+/wp-comments-post.php  /  301
+/.env  /  301
+/readme.html  /  301
+/license.txt  /  301
+
+# --- Old WordPress category/tag/feed patterns ---
+/category/*  /  301
+/tag/*  /  301
+/feed  /  301
+/feed/*  /  301
+/author/*  /  301
+/page/*  /  301
+/archives/*  /  301
+
+# --- Common old WordPress permalink patterns ---
+# Chinese-slug posts from old site → homepage (add specific redirects below as needed)
+/?p=*  /  301
+/?page_id=*  /  301
+
+# --- SPA Catch-all: serve index.html for all client-side routes ---
+/*  /index.html  200

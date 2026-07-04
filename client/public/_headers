@@ -1,0 +1,50 @@
+# ============================================================
+# Cloudflare Pages — Custom Response Headers
+# https://developers.cloudflare.com/pages/configuration/headers/
+# ============================================================
+
+# --- Security Headers (all pages) ---
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  X-Robots-Tag: all
+
+# --- Vite hashed assets (JS/CSS) — immutable, 1 year ---
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# --- Fonts — immutable, 1 year ---
+/*.woff2
+  Cache-Control: public, max-age=31536000, immutable
+/*.woff
+  Cache-Control: public, max-age=31536000, immutable
+/*.ttf
+  Cache-Control: public, max-age=31536000, immutable
+
+# --- Images — 30 days ---
+/*.jpg
+  Cache-Control: public, max-age=2592000
+/*.jpeg
+  Cache-Control: public, max-age=2592000
+/*.png
+  Cache-Control: public, max-age=2592000
+/*.webp
+  Cache-Control: public, max-age=2592000
+/*.avif
+  Cache-Control: public, max-age=2592000
+/*.svg
+  Cache-Control: public, max-age=2592000
+/*.ico
+  Cache-Control: public, max-age=2592000
+
+# --- HTML / SPA shell — 1 hour, revalidate ---
+/index.html
+  Cache-Control: public, max-age=3600, must-revalidate
+
+# --- Sitemap & Robots — 4 hours ---
+/sitemap.xml
+  Cache-Control: public, max-age=14400
+/robots.txt
+  Cache-Control: public, max-age=14400
