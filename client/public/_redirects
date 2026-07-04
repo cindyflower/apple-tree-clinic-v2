@@ -32,10 +32,5 @@
 /page/*  /  301
 /archives/*  /  301
 
-# --- Common old WordPress permalink patterns ---
-# Chinese-slug posts from old site → homepage (add specific redirects below as needed)
-/?p=*  /  301
-/?page_id=*  /  301
-
 # --- SPA Catch-all: serve index.html for all client-side routes ---
 /*  /index.html  200
