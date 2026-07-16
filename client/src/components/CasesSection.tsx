@@ -5,7 +5,7 @@
  */
 import { useState, useRef } from "react";
 import { motion } from "framer-motion";
-import { Link } from "wouter";
+import { InternalLink } from "@/components/InternalLink";
 import { useInView } from "@/hooks/useInView";
 import { ChevronLeft, ChevronRight, Star, Quote, ArrowRight } from "lucide-react";
 import { CASE_DETAILS } from "@/lib/caseDetails";
@@ -140,7 +140,7 @@ export default function CasesSection() {
                 transition={{ duration: 0.6, delay: 0.1 + i * 0.06 }}
                 className="shrink-0 w-[85vw] sm:w-[380px] lg:w-[360px] snap-start"
               >
-                <Link
+                <InternalLink
                   href={`/case/${c.slug}`}
                   className="block glass rounded-[1.2rem] overflow-hidden group card-hover hover:glow-sage transition-all duration-500 h-full"
                 >
@@ -205,7 +205,7 @@ export default function CasesSection() {
                       </div>
                     </div>
                   </div>
-                </Link>
+                </InternalLink>
               </motion.div>
             ))}
           </div>

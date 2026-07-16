@@ -12,7 +12,6 @@
  */
 import { motion } from "framer-motion";
 import { useInView } from "@/hooks/useInView";
-import { Link } from "wouter";
 import { InternalLink } from "@/components/InternalLink";
 import { Sparkles, ChevronRight } from "lucide-react";
 import { IMAGES } from "@/lib/imageAssets";
@@ -157,7 +156,7 @@ export default function XuyanEntryCard() {
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-              <Link
+              <InternalLink
                 href="/face-test"
                 className="flex items-center justify-center gap-2 px-7 py-3.5 text-[1rem] font-body font-bold text-white rounded-xl transition-all duration-300 shadow-lg shadow-black/20 hover:shadow-xl hover:-translate-y-0.5"
                 style={{
@@ -167,7 +166,7 @@ export default function XuyanEntryCard() {
               >
                 <Sparkles size={15} className="text-[#c5a572]" />
                 開始序顏™ AI健康美感分析
-              </Link>
+              </InternalLink>
               <InternalLink
                 href="/xuyan-ai#ai-detection"
                 className="flex items-center justify-center gap-2 px-6 py-3.5 text-[0.9rem] font-body font-medium text-white/70 rounded-xl border border-white/15 hover:bg-white/5 hover:text-white/90 transition-all duration-300"

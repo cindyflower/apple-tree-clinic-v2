@@ -5,7 +5,7 @@
  */
 import { motion } from "framer-motion";
 import { Sparkles, MessageCircle } from "lucide-react";
-import { Link } from "wouter";
+import { InternalLink } from "@/components/InternalLink";
 import { BRAND } from "@/lib/constants";
 import { IMAGES } from "@/lib/imageAssets";
 
@@ -73,13 +73,13 @@ export default function QuizHeroSection() {
             className="mt-8 md:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-3"
           >
             {/* Primary — 序顏™ AI 美學評估 */}
-            <Link
+            <InternalLink
               href="/face-test"
               className="flex items-center justify-center gap-2 px-8 py-4 text-[0.95rem] font-body font-bold text-forest-deep bg-gold-light rounded-full hover:bg-gold transition-all duration-300 shadow-lg shadow-gold/25 pulse-cta"
             >
               <Sparkles size={18} />
               開始序顏™ AI美學評估
-            </Link>
+            </InternalLink>
 
             {/* Secondary — 預約健康美麗諮詢 */}
             <a

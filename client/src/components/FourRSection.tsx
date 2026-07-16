@@ -5,7 +5,7 @@
  */
 import { motion } from "framer-motion";
 import { useInView } from "@/hooks/useInView";
-import { Link } from "wouter";
+import { InternalLink } from "@/components/InternalLink";
 import { Sparkles, MessageCircle, RotateCcw, Layers, Hexagon, Gem } from "lucide-react";
 import { BRAND } from "@/lib/constants";
 
@@ -126,13 +126,13 @@ export default function FourRSection() {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-12"
         >
-          <Link
+          <InternalLink
             href="/face-test"
             className="flex items-center justify-center gap-2 px-8 py-3.5 text-[1rem] font-body font-bold text-cream bg-botanical rounded-full hover:bg-botanical-light transition-all duration-300 shadow-md"
           >
             <Sparkles size={16} />
             測出我的 4R 方向
-          </Link>
+          </InternalLink>
           <a
             href={BRAND.lineUrl}
             target="_blank"

@@ -5,7 +5,7 @@
  */
 import { motion } from "framer-motion";
 import { useInView } from "@/hooks/useInView";
-import { Link } from "wouter";
+import { InternalLink } from "@/components/InternalLink";
 import { Sparkles, MessageCircle, MapPin } from "lucide-react";
 import { BRAND } from "@/lib/constants";
 
@@ -34,13 +34,13 @@ export default function FinalCTASection() {
           {/* 3 CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4">
             {/* Primary — AI 檢測 */}
-            <Link
+            <InternalLink
               href="/face-test"
               className="flex items-center justify-center gap-2 px-8 py-4 text-[0.95rem] font-body font-bold text-forest-deep bg-gold-light rounded-full hover:bg-gold transition-all duration-300 shadow-lg shadow-gold/25"
             >
               <Sparkles size={18} />
               開始 AI 肌膚檢測
-            </Link>
+            </InternalLink>
 
             {/* Secondary — LINE */}
             <a

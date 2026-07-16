@@ -6,7 +6,9 @@
 import { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "@/hooks/useInView";
-import { Link, useLocation } from "wouter";
+import { useLocation } from "wouter";
+import { InternalLink } from "@/components/InternalLink";
+import { useScrollRestore } from "@/hooks/useScrollRestore";
 import { Sparkles, MessageCircle, Brain, Target, Users, ArrowRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -235,7 +237,7 @@ function MeetXuyanImage() {
           />
 
           {/* Hotspot A: 開始測驗 */}
-          <Link
+          <InternalLink
             href="/face-test"
             aria-label="開始 30 秒測驗"
             style={{
@@ -251,7 +253,7 @@ function MeetXuyanImage() {
           />
 
           {/* Hotspot B: 探索 4R */}
-          <Link
+          <InternalLink
             href="/#section-4r"
             aria-label="認識 4R 美學管理系統"
             style={{
@@ -295,13 +297,13 @@ function TeamHandoff() {
 
           {/* CTA */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4">
-            <Link
+            <InternalLink
               href="/face-test"
               className="flex items-center justify-center gap-2 px-8 py-4 text-[0.95rem] font-body font-bold text-forest-deep bg-gold-light rounded-full hover:bg-gold transition-all duration-300 shadow-lg shadow-gold/25"
             >
               <Sparkles size={18} />
               開始序顏 AI 檢測
-            </Link>
+            </InternalLink>
             <a
               href={BRAND.lineUrl}
               target="_blank"
@@ -327,14 +329,12 @@ function TeamHandoff() {
 export default function XuyanAI() {
   const [location] = useLocation();
 
+  useScrollRestore();
+
   useEffect(() => {
-    const cleanup = scrollToHashWithRetry();
     const onHashChange = () => scrollToHashWithRetry();
     window.addEventListener("hashchange", onHashChange);
-    return () => {
-      cleanup();
-      window.removeEventListener("hashchange", onHashChange);
-    };
+    return () => window.removeEventListener("hashchange", onHashChange);
   }, [location]);
 
   return (

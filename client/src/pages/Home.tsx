@@ -16,7 +16,9 @@
  */
 import { useState, useCallback, useEffect } from "react";
 import { useSEO } from "@/hooks/useSEO";
+import { useScrollRestore } from "@/hooks/useScrollRestore";
 import { IMAGES } from "@/lib/imageAssets";
+import { updateScrollRestoreState } from "@/lib/scrollRestore";
 import { HomepageSchema } from "@/components/SchemaOrg";
 import Navbar from "@/components/Navbar";
 import QuizHeroSection from "@/components/QuizHeroSection";
@@ -38,15 +40,6 @@ import FloatingCTA from "@/components/FloatingCTA";
 import FixedQuizCTA from "@/components/FixedQuizCTA";
 import { type CategoryId } from "@/lib/serviceMapping";
 
-function scrollToHomeHash() {
-  const hash = window.location.hash;
-  if (!hash) return;
-  const el = document.querySelector(hash);
-  if (!el) return;
-  const y = el.getBoundingClientRect().top + window.scrollY - 80;
-  window.scrollTo({ top: y, behavior: "smooth" });
-}
-
 export default function Home() {
   // Homepage SEO
   useSEO({
@@ -60,6 +53,7 @@ export default function Home() {
   // Shared state: active filter for ServicesSection
   const [serviceFilter, setServiceFilter] = useState<CategoryId[] | null>(null);
   const [filterLabel, setFilterLabel] = useState<string | null>(null);
+  const [servicesActiveCat, setServicesActiveCat] = useState<string | null>(null);
 
   const handleFilterChange = useCallback((filter: CategoryId[], label: string) => {
     setServiceFilter(filter);
@@ -83,11 +77,27 @@ export default function Home() {
     });
   }, []);
 
-  useEffect(() => {
-    if (!window.location.hash) return;
-    const timer = window.setTimeout(scrollToHomeHash, 150);
-    return () => window.clearTimeout(timer);
+  const handleScrollRestore = useCallback((extra?: Record<string, unknown>) => {
+    if (extra?.serviceFilter !== undefined) {
+      setServiceFilter(extra.serviceFilter as CategoryId[] | null);
+    }
+    if (extra?.filterLabel !== undefined) {
+      setFilterLabel(extra.filterLabel as string | null);
+    }
+    if (extra?.activeCat) {
+      setServicesActiveCat(extra.activeCat as string);
+    }
   }, []);
+
+  useScrollRestore({ onRestore: handleScrollRestore });
+
+  useEffect(() => {
+    updateScrollRestoreState({
+      serviceFilter,
+      filterLabel,
+      activeCat: servicesActiveCat,
+    });
+  }, [serviceFilter, filterLabel, servicesActiveCat]);
 
   return (
     <div className="min-h-screen flex flex-col bg-cream">
@@ -107,7 +117,13 @@ export default function Home() {
         <FourRSection />
 
         {/* ── 5. 療程列表 ── */}
-        <ServicesSection activeFilter={serviceFilter} filterLabel={filterLabel} onFilterClear={handleFilterClear} />
+        <ServicesSection
+          activeFilter={serviceFilter}
+          filterLabel={filterLabel}
+          onFilterClear={handleFilterClear}
+          initialActiveCat={servicesActiveCat}
+          onActiveCatChange={setServicesActiveCat}
+        />
 
         {/* ── 6. 美麗實境室（影音） ── */}
         <VideoSection />

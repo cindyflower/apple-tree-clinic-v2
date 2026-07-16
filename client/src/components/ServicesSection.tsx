@@ -7,7 +7,7 @@
  * CSS Grid 療程卡片，含圖片、描述、特色標籤
  * 品牌文案取代工程師語言
  */
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "@/hooks/useInView";
 import {
@@ -49,18 +49,34 @@ interface ServicesSectionProps {
   activeFilter?: CategoryId[] | null;
   filterLabel?: string | null;
   onFilterClear?: () => void;
+  initialActiveCat?: string | null;
+  onActiveCatChange?: (catId: string) => void;
 }
 
-export default function ServicesSection({ activeFilter, filterLabel, onFilterClear }: ServicesSectionProps) {
+export default function ServicesSection({
+  activeFilter,
+  filterLabel,
+  onFilterClear,
+  initialActiveCat,
+  onActiveCatChange,
+}: ServicesSectionProps) {
   const { ref, inView } = useInView({ threshold: 0.05 });
-  const [activeCat, setActiveCat] = useState<string>(ALL_CATEGORIES[0].id);
+  const [activeCat, setActiveCat] = useState<string>(initialActiveCat || ALL_CATEGORIES[0].id);
 
-  // When external filter changes, update display
+  useEffect(() => {
+    if (initialActiveCat) setActiveCat(initialActiveCat);
+  }, [initialActiveCat]);
+
+  const selectCategory = useCallback((catId: string) => {
+    setActiveCat(catId);
+    onActiveCatChange?.(catId);
+  }, [onActiveCatChange]);
+
   useEffect(() => {
     if (activeFilter && activeFilter.length > 0) {
-      setActiveCat(activeFilter[0]);
+      selectCategory(activeFilter[0]);
     }
-  }, [activeFilter]);
+  }, [activeFilter, selectCategory]);
 
   // Determine which categories to show in tabs
   const visibleCategories = activeFilter && activeFilter.length > 0
@@ -189,7 +205,7 @@ export default function ServicesSection({ activeFilter, filterLabel, onFilterCle
               return (
                 <button
                   key={cat.id}
-                  onClick={() => setActiveCat(cat.id)}
+                  onClick={() => selectCategory(cat.id)}
                   className={`shrink-0 flex items-center gap-1.5 px-4 py-2.5 text-[0.74rem] font-body font-medium rounded-full transition-all duration-300 ${
                     activeCat === cat.id
                       ? "bg-botanical text-cream shadow-sm shadow-botanical/20"

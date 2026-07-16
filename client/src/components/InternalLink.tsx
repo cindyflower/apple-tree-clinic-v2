@@ -1,6 +1,7 @@
 import { useLocation } from "wouter";
 import type { AnchorHTMLAttributes, MouseEvent } from "react";
 import { isHomePath, toRouterPath, withBase } from "@/lib/basePath";
+import { saveScrollBeforeLeave } from "@/lib/scrollRestore";
 import { scrollToHashWithRetry } from "@/lib/scrollToHash";
 
 type InternalLinkProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "href"> & {
@@ -29,6 +30,7 @@ export function InternalLink({ href, onClick, ...props }: InternalLinkProps) {
         return;
       }
       e.preventDefault();
+      saveScrollBeforeLeave();
       window.location.href = to;
       return;
     }
@@ -40,6 +42,7 @@ export function InternalLink({ href, onClick, ...props }: InternalLinkProps) {
       e.preventDefault();
       const pathPart = href.slice(0, hashIdx);
       const hashPart = href.slice(hashIdx);
+      saveScrollBeforeLeave();
       navigate(toRouterPath(pathPart));
       window.setTimeout(() => {
         window.history.replaceState(null, "", withBase(pathPart) + hashPart);
@@ -49,6 +52,7 @@ export function InternalLink({ href, onClick, ...props }: InternalLinkProps) {
     }
 
     e.preventDefault();
+    saveScrollBeforeLeave();
     navigate(toRouterPath(href));
   };
 

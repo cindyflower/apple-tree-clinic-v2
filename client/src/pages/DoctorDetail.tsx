@@ -1,5 +1,8 @@
 import { useEffect, useMemo } from "react";
-import { useParams, useLocation, Link } from "wouter";
+import { useParams, useLocation } from "wouter";
+import { InternalLink } from "@/components/InternalLink";
+import { goBack } from "@/lib/scrollRestore";
+import { useScrollRestore } from "@/hooks/useScrollRestore";
 import { useSEO } from "@/hooks/useSEO";
 import { BreadcrumbSchema } from "@/components/SchemaOrg";
 import { motion } from "framer-motion";
@@ -15,7 +18,7 @@ function DoctorNotFound() {
         <h1 className="heading-editorial text-ink text-3xl mb-4">找不到此醫師</h1>
         <p className="font-body text-ink/50 mb-8">此醫師頁面不存在或已移除。</p>
         <button
-          onClick={() => navigate("/")}
+          onClick={() => goBack(navigate, "/")}
           className="inline-flex items-center gap-2 px-6 py-3 font-body font-medium text-cream bg-botanical rounded-full hover:bg-botanical-light transition-colors"
         >
           <ArrowLeft size={16} />
@@ -31,9 +34,7 @@ export default function DoctorDetailPage() {
   const [, navigate] = useLocation();
   const doctor = useMemo(() => getDoctorBySlug(params.slug || ""), [params.slug]);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [params.slug]);
+  useScrollRestore({ resetKey: params.slug, hashFallback: false });
 
   useSEO({
     title: doctor?.metaTitle || "醫師介紹｜蘋果樹醫美",
@@ -62,7 +63,7 @@ export default function DoctorDetailPage() {
       <div className="fixed top-0 left-0 right-0 z-50 py-2 bg-cream/80 backdrop-blur-xl border-b border-botanical/8 shadow-sm shadow-botanical/3">
         <div className="container flex items-center justify-between">
           <button
-            onClick={() => navigate("/#doctors")}
+            onClick={() => goBack(navigate, "/#doctors")}
             className="flex items-center gap-2 text-[0.8rem] font-body font-medium text-ink/60 hover:text-ink transition-colors"
           >
             <ArrowLeft size={16} />
@@ -176,13 +177,14 @@ export default function DoctorDetailPage() {
           </div>
 
           <div className="mt-8 text-center">
-            <Link
-              href="/#doctors"
+            <button
+              type="button"
+              onClick={() => goBack(navigate, "/#doctors")}
               className="inline-flex items-center gap-2 text-[0.85rem] font-body text-botanical hover:text-botanical-light transition-colors"
             >
               <ArrowLeft size={14} />
               返回醫療團隊
-            </Link>
+            </button>
           </div>
         </div>
       </section>

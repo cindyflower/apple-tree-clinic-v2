@@ -7,6 +7,7 @@
  */
 import { useEffect, useMemo, useState as useStateHook } from "react";
 import { useParams, useLocation } from "wouter";
+import { useScrollRestore } from "@/hooks/useScrollRestore";
 import { useSEO } from "@/hooks/useSEO";
 import { TreatmentSchema, BreadcrumbSchema } from "@/components/SchemaOrg";
 import { motion } from "framer-motion";
@@ -14,6 +15,7 @@ import {
   ArrowLeft, Clock, Calendar, DollarSign, Star, Check, ChevronRight,
   MessageCircle, Phone, Shield, Award, Sparkles, Play
 } from "lucide-react";
+import { goBack } from "@/lib/scrollRestore";
 import { getTreatmentBySlug, type TreatmentDetail as TreatmentDetailType } from "@/lib/treatmentDetails";
 import { getVideosByTreatmentSlug, getCategoryLabel, type VideoItem } from "@/lib/videoData";
 import { BRAND, CASE_STUDIES } from "@/lib/constants";
@@ -42,10 +44,7 @@ export default function TreatmentDetailPage() {
   const [, navigate] = useLocation();
   const treatment = useMemo(() => getTreatmentBySlug(params.slug || ""), [params.slug]);
 
-  // Scroll to top on mount
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [params.slug]);
+  useScrollRestore({ resetKey: params.slug, hashFallback: false });
 
   // SEO: dynamic meta tags, OG, canonical
   useSEO({
@@ -85,10 +84,7 @@ export default function TreatmentDetailPage() {
       <div className="fixed top-0 left-0 right-0 z-50 py-2 bg-cream/80 backdrop-blur-xl border-b border-botanical/8 shadow-sm shadow-botanical/3">
         <div className="container flex items-center justify-between">
           <button
-            onClick={() => {
-              if (window.history.length > 1) window.history.back();
-              else navigate("/");
-            }}
+            onClick={() => goBack(navigate, "/")}
             className="flex items-center gap-2 text-[0.8rem] font-body font-medium text-ink/60 hover:text-ink transition-colors"
           >
             <ArrowLeft size={16} />

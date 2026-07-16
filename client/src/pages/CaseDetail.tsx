@@ -6,7 +6,10 @@
  * Content sourced from old website drappletree.com.tw
  */
 import { useEffect, useMemo, useState } from "react";
-import { useParams, useLocation, Link } from "wouter";
+import { useParams, useLocation } from "wouter";
+import { InternalLink } from "@/components/InternalLink";
+import { goBack } from "@/lib/scrollRestore";
+import { useScrollRestore } from "@/hooks/useScrollRestore";
 import { useSEO } from "@/hooks/useSEO";
 import { ArticleSchema, BreadcrumbSchema } from "@/components/SchemaOrg";
 import { motion } from "framer-motion";
@@ -26,7 +29,7 @@ function CaseNotFound() {
         <h1 className="heading-editorial text-ink text-3xl mb-4">找不到此案例</h1>
         <p className="font-body text-ink/50 mb-8">此案例頁面不存在或已移除。</p>
         <button
-          onClick={() => navigate("/")}
+          onClick={() => goBack(navigate, "/")}
           className="inline-flex items-center gap-2 px-6 py-3 font-body font-medium text-cream bg-botanical rounded-full hover:bg-botanical-light transition-colors"
         >
           <ArrowLeft size={16} />
@@ -45,8 +48,9 @@ export default function CaseDetailPage() {
   const [imgError, setImgError] = useState<Record<number, boolean>>({});
   const [playingVideo, setPlayingVideo] = useState<string | null>(null);
 
+  useScrollRestore({ resetKey: params.slug, hashFallback: false });
+
   useEffect(() => {
-    window.scrollTo(0, 0);
     setActiveImage(0);
     setImgError({});
   }, [params.slug]);
@@ -94,7 +98,7 @@ export default function CaseDetailPage() {
       <div className="fixed top-0 left-0 right-0 z-50 py-2 bg-cream/80 backdrop-blur-xl border-b border-botanical/8 shadow-sm shadow-botanical/3">
         <div className="container flex items-center justify-between">
           <button
-            onClick={() => navigate("/")}
+            onClick={() => goBack(navigate, "/")}
             className="flex items-center gap-2 text-[0.8rem] font-body font-medium text-ink/60 hover:text-ink transition-colors"
           >
             <ArrowLeft size={16} />
@@ -319,7 +323,7 @@ export default function CaseDetailPage() {
 
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {relatedCases.map((rc) => (
-                  <Link
+                  <InternalLink
                     key={rc.id}
                     href={`/case/${rc.slug}`}
                     className="glass rounded-xl overflow-hidden group hover:glow-sage transition-all duration-500"
@@ -344,7 +348,7 @@ export default function CaseDetailPage() {
                       </h3>
                       <p className="text-[0.7rem] font-body text-ink/40">{rc.treatment}</p>
                     </div>
-                  </Link>
+                  </InternalLink>
                 ))}
               </div>
             </motion.section>
@@ -389,7 +393,7 @@ export default function CaseDetailPage() {
           {/* Back to home */}
           <div className="text-center pb-8">
             <button
-              onClick={() => navigate("/")}
+              onClick={() => goBack(navigate, "/")}
               className="inline-flex items-center gap-2 text-[0.8rem] font-body font-medium text-ink/40 hover:text-ink/60 transition-colors"
             >
               <ArrowLeft size={14} />

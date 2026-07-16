@@ -9,7 +9,10 @@
 import { useState, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, Check, ChevronRight } from "lucide-react";
-import { Link, useLocation } from "wouter";
+import { useLocation } from "wouter";
+import { InternalLink } from "@/components/InternalLink";
+import { useScrollRestore } from "@/hooks/useScrollRestore";
+import { saveScrollBeforeLeave } from "@/lib/scrollRestore";
 import {
   QUIZ_QUESTIONS,
   calculateMultiSelectResult,
@@ -27,6 +30,8 @@ export default function FaceTest() {
   const [direction, setDirection] = useState(1);
   const [showError, setShowError] = useState(false);
   const [, setLocation] = useLocation();
+
+  useScrollRestore();
 
   useEffect(() => {
     trackStartTest();
@@ -80,6 +85,7 @@ export default function FaceTest() {
         params.set("secondary", result.secondaryType);
         params.set("mixed", "1");
       }
+      saveScrollBeforeLeave();
       setLocation(`/face-result?${params.toString()}`);
     }
   }, [currentSelections, currentQ, totalQuestions, allAnswers, setLocation]);
@@ -122,12 +128,13 @@ export default function FaceTest() {
                 <ArrowLeft size={18} />
               </button>
             ) : (
-              <Link
+              <InternalLink
                 href="/"
                 className="w-9 h-9 flex items-center justify-center rounded-full bg-botanical/5 text-ink/50 hover:text-ink hover:bg-botanical/10 transition-colors"
+                aria-label="返回首頁"
               >
                 <ArrowLeft size={18} />
-              </Link>
+              </InternalLink>
             )}
             <div className="flex items-center gap-2">
               <span className="text-sm">🍏</span>

@@ -24,7 +24,9 @@ import {
   Hexagon,
   Gem,
 } from "lucide-react";
-import { Link, useSearch } from "wouter";
+import { useSearch, useLocation } from "wouter";
+import { InternalLink } from "@/components/InternalLink";
+import { goBack } from "@/lib/scrollRestore";
 
 import {
   AGING_RESULTS,
@@ -121,6 +123,7 @@ function getFaceTestShareUrl(): string {
 
 export default function FaceResult() {
   const search = useSearch();
+  const [, navigate] = useLocation();
   const params = new URLSearchParams(search);
   const VALID_TYPES: AgingType[] = ["sagging", "collagen", "skin", "fatigue"];
   const rawPrimary = params.get("primary") || params.get("type") || "sagging";
@@ -228,12 +231,14 @@ export default function FaceResult() {
       <header className="sticky top-0 z-30 bg-cream/90 backdrop-blur-xl border-b border-botanical/8">
         <div className="container flex items-center justify-between py-3">
           <div className="flex items-center gap-3">
-            <Link
-              href="/"
+            <button
+              type="button"
+              onClick={() => goBack(navigate, "/face-test")}
               className="w-9 h-9 flex items-center justify-center rounded-full bg-botanical/5 text-ink/50 hover:text-ink hover:bg-botanical/10 transition-colors"
+              aria-label="返回"
             >
               <ArrowLeft size={18} />
-            </Link>
+            </button>
             <div className="flex items-center gap-2">
               <span className="text-sm">🍏</span>
               <span className="text-[0.8rem] font-heading font-semibold text-ink">
@@ -531,12 +536,12 @@ export default function FaceResult() {
 
         {/* Back to home */}
         <div className="mt-8 text-center">
-          <Link
+          <InternalLink
             href="/"
             className="text-[0.8rem] font-body text-ink/30 hover:text-ink/50 transition-colors"
           >
             ← 回到首頁
-          </Link>
+          </InternalLink>
         </div>
       </main>
     </div>

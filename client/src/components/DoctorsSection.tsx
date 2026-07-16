@@ -4,7 +4,7 @@
  */
 import { useRef } from "react";
 import { motion } from "framer-motion";
-import { Link } from "wouter";
+import { InternalLink } from "@/components/InternalLink";
 import { useInView } from "@/hooks/useInView";
 import { ChevronLeft, ChevronRight, Award, ArrowRight } from "lucide-react";
 import { DOCTORS, IMAGES } from "@/lib/constants";
@@ -151,9 +151,9 @@ export default function DoctorsSection() {
                   className="shrink-0 w-[170px] sm:w-[200px] lg:w-[220px] snap-start"
                 >
                   {doc.slug ? (
-                    <Link href={`/doctor/${doc.slug}`} className="block h-full">
+                    <InternalLink href={`/doctor/${doc.slug}`} className="block h-full">
                       {card}
-                    </Link>
+                    </InternalLink>
                   ) : (
                     card
                   )}

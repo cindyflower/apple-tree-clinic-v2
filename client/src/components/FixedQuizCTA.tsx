@@ -6,7 +6,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles } from "lucide-react";
-import { Link } from "wouter";
+import { InternalLink } from "@/components/InternalLink";
 
 export default function FixedQuizCTA() {
   const [show, setShow] = useState(false);
@@ -31,13 +31,13 @@ export default function FixedQuizCTA() {
           }}
         >
           <div className="mx-3">
-            <Link
+            <InternalLink
               href="/face-test"
               className="flex items-center justify-center gap-2 w-full py-3.5 text-[1rem] font-body font-bold text-forest-deep bg-gold-light rounded-2xl shadow-xl shadow-gold/30 hover:bg-gold transition-all duration-300"
             >
               <Sparkles size={17} />
               回到測驗 →
-            </Link>
+            </InternalLink>
           </div>
         </motion.div>
       )}
