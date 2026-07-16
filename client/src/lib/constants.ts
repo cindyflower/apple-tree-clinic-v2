@@ -1,6 +1,18 @@
 // ─── 蘋果樹 Dr. Appletree ─── Liquid Luxe Design System
 // Brand: 內在健康、外在美麗
 
+/** 兩顆蘋果 — 院區 LINE 入口（南京／北大分開） */
+export const LINE_BY_APPLE = {
+  nanjing: {
+    lineId: "@dr.appletree",
+    lineUrl: "https://lin.ee/vvMGVlN",
+  },
+  beida: {
+    lineId: "@274dtgel",
+    lineUrl: "https://lin.ee/aNqmtP7",
+  },
+} as const;
+
 export const BRAND = {
   name: "蘋果樹 Dr. Appletree",
   nameEn: "Dr. Appletree",
@@ -9,8 +21,8 @@ export const BRAND = {
   subtitle: "健康美麗管理品牌",
   phone: "(02) 2716-3535",
   phoneLink: "tel:+886227163535",
-  lineId: "@dr.appletree",
-  lineUrl: "https://lin.ee/vvMGVlN",
+  lineId: LINE_BY_APPLE.nanjing.lineId,
+  lineUrl: LINE_BY_APPLE.nanjing.lineUrl,
   address: "台北市松山區南京東路三段309號3樓",
   email: "info@drappletree.com.tw",
   website: "https://www.drappletree.com.tw",
@@ -31,18 +43,6 @@ const BEIDA_HOURS = `週二：14:30–17:00、18:00–21:00
 const NANJING_HOURS = `週一至週五：12:00–21:00
 週六：10:00–19:00
 週日公休`;
-
-/** 兩顆蘋果 — 院區 LINE 入口（南京／北大分開） */
-export const LINE_BY_APPLE = {
-  nanjing: {
-    lineId: "@dr.appletree",
-    lineUrl: "https://lin.ee/vvMGVlN",
-  },
-  beida: {
-    lineId: "@274dtgel",
-    lineUrl: "https://lin.ee/aNqmtP7",
-  },
-} as const;
 
 export const LOCATIONS = [
   {

@@ -8,7 +8,7 @@
  * - Article (per case page)
  */
 
-import { BRAND } from "@/lib/constants";
+import { LINE_BY_APPLE } from "@/lib/constants";
 import { IMAGES } from "@/lib/imageAssets";
 import { absoluteAssetUrl, absoluteSiteUrl } from "@/lib/siteUrl";
 
@@ -87,7 +87,8 @@ export function HomepageSchema() {
       "https://www.facebook.com/drappletree",
       "https://www.instagram.com/drappletree",
       "https://www.youtube.com/channel/UCAWWtXWgdE9ltkJH_cPWvow",
-      BRAND.lineUrl,
+      LINE_BY_APPLE.nanjing.lineUrl,
+      LINE_BY_APPLE.beida.lineUrl,
     ],
     medicalSpecialty: [
       "Dermatology",

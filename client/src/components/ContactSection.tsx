@@ -6,7 +6,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "@/hooks/useInView";
 import { Phone, MapPin, Clock, MessageCircle, Send, Building2 } from "lucide-react";
-import { BRAND, LOCATIONS } from "@/lib/constants";
+import { LINE_BY_APPLE, LOCATIONS } from "@/lib/constants";
 import { MapView } from "@/components/Map";
 import { toast } from "sonner";
 
@@ -26,6 +26,7 @@ export default function ContactSection() {
   };
 
   const loc = LOCATIONS[activeLocation];
+  const line = activeLocation === 0 ? LINE_BY_APPLE.nanjing : LINE_BY_APPLE.beida;
 
   return (
     <section id="contact" className="py-28 lg:py-40 relative overflow-hidden" ref={ref}>
@@ -212,12 +213,12 @@ export default function ContactSection() {
                 <div>
                   <div className="text-[0.7rem] font-body font-medium text-ink/35 mb-1">LINE 諮詢</div>
                   <a
-                    href={BRAND.lineUrl}
+                    href={line.lineUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-[0.8rem] font-body text-ink/60 hover:text-botanical transition-colors"
                   >
-                    {BRAND.lineId}
+                    {line.lineId}
                   </a>
                 </div>
               </div>
@@ -225,7 +226,7 @@ export default function ContactSection() {
 
             {/* LINE CTA */}
             <a
-              href={BRAND.lineUrl}
+              href={line.lineUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 w-full px-6 py-3.5 text-[0.85rem] font-body font-medium text-white bg-[#06C755] rounded-xl hover:bg-[#05b34d] transition-all duration-300"

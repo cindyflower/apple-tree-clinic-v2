@@ -2,7 +2,7 @@
  * Footer — Brand Closure Section
  * Full-width brand summary, navigation, popular treatments, clinic locations
  */
-import { BRAND } from "@/lib/constants";
+import { LINE_BY_APPLE } from "@/lib/constants";
 import { isHomePath, withBase } from "@/lib/basePath";
 import { InternalLink } from "@/components/InternalLink";
 import { Phone, MapPin, MessageCircle } from "lucide-react";
@@ -37,18 +37,24 @@ const FOOTER_LOCATIONS = [
     address: "台北市松山區南京東路三段309號3樓",
     phone: "(02) 2716-3535",
     phoneLink: "tel:+886227163535",
+    lineId: LINE_BY_APPLE.nanjing.lineId,
+    lineUrl: LINE_BY_APPLE.nanjing.lineUrl,
   },
   {
     name: "北大診所",
     address: "新北市三峽區大德路127號",
     phone: "(02) 8672-0222",
     phoneLink: "tel:+886286720222",
+    lineId: LINE_BY_APPLE.beida.lineId,
+    lineUrl: LINE_BY_APPLE.beida.lineUrl,
   },
   {
     name: "北大醫美",
     address: "新北市三峽區大德路127號2樓",
     phone: "(02) 8672-0608",
     phoneLink: "tel:+886286720608",
+    lineId: LINE_BY_APPLE.beida.lineId,
+    lineUrl: LINE_BY_APPLE.beida.lineUrl,
   },
 ];
 
@@ -100,15 +106,26 @@ export default function Footer() {
               <br />
               陪你建立更清楚、更自然、更長期的美麗管理方式。
             </p>
-            <a
-              href={BRAND.lineUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-[0.9rem] font-body font-light text-white/35 hover:text-sage-light transition-colors duration-300"
-            >
-              <MessageCircle size={13} />
-              LINE: {BRAND.lineId}
-            </a>
+            <div className="space-y-2">
+              <a
+                href={LINE_BY_APPLE.nanjing.lineUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-[0.9rem] font-body font-light text-white/35 hover:text-sage-light transition-colors duration-300"
+              >
+                <MessageCircle size={13} />
+                LINE（南京）: {LINE_BY_APPLE.nanjing.lineId}
+              </a>
+              <a
+                href={LINE_BY_APPLE.beida.lineUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-[0.9rem] font-body font-light text-white/35 hover:text-sage-light transition-colors duration-300"
+              >
+                <MessageCircle size={13} />
+                LINE（北大）: {LINE_BY_APPLE.beida.lineId}
+              </a>
+            </div>
           </div>
 
           {/* ── 2. Navigation ── */}
@@ -169,10 +186,19 @@ export default function Footer() {
                   </a>
                   <a
                     href={loc.phoneLink}
-                    className="flex items-center gap-2 text-[0.72rem] font-body font-light text-white/28 hover:text-sage-light transition-colors duration-300"
+                    className="flex items-center gap-2 text-[0.72rem] font-body font-light text-white/28 hover:text-sage-light transition-colors duration-300 mb-1.5"
                   >
                     <Phone size={11} />
                     電話｜{loc.phone}
+                  </a>
+                  <a
+                    href={loc.lineUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-[0.72rem] font-body font-light text-white/28 hover:text-sage-light transition-colors duration-300"
+                  >
+                    <MessageCircle size={11} />
+                    LINE｜{loc.lineId}
                   </a>
                 </div>
               ))}
