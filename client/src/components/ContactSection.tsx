@@ -9,20 +9,60 @@ import { Phone, MapPin, Clock, MessageCircle, Send, Building2 } from "lucide-rea
 import { LINE_BY_APPLE, LOCATIONS } from "@/lib/constants";
 import { MapView } from "@/components/Map";
 import { toast } from "sonner";
+import { createLeadId, getStoredAttribution } from "@/lib/attribution";
+import { submitLead } from "@/lib/leadSubmission";
+import { trackFormSubmit, trackLeadCompleted } from "@/lib/analytics";
 
 export default function ContactSection() {
   const { ref, inView } = useInView({ threshold: 0.1 });
   const [form, setForm] = useState({ name: "", phone: "", branch: "", service: "", message: "" });
+  const [consent, setConsent] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [activeLocation, setActiveLocation] = useState(0);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name || !form.phone) {
       toast.error("請填寫姓名與聯絡電話");
       return;
     }
-    toast.success("預約表單已送出，我們將盡快與您聯繫！");
+    if (!consent) {
+      toast.error("請先同意提供資料供預約聯繫使用");
+      return;
+    }
+
+    setIsSubmitting(true);
+    let attribution: ReturnType<typeof getStoredAttribution>;
+    try {
+      attribution = getStoredAttribution(window.localStorage);
+    } catch {
+      attribution = undefined;
+    }
+    const leadId = attribution?.lead_id ?? createLeadId();
+    const result = await submitLead(import.meta.env.VITE_LEAD_WEBHOOK_URL || "", {
+      ...form,
+      consent: true,
+      lead_id: leadId,
+      first_touch: attribution ? JSON.stringify(attribution.first_touch) : undefined,
+      last_touch: attribution ? JSON.stringify(attribution.last_touch) : undefined,
+      submitted_at: new Date().toISOString(),
+    });
+    setIsSubmitting(false);
+
+    if (!result.ok) {
+      toast.error(
+        result.reason === "not_configured"
+          ? "網站表單尚未開通，請改用右側 LINE 或電話完成預約"
+          : "表單暫時無法送出，請改用 LINE 或電話聯繫",
+      );
+      return;
+    }
+
+    trackFormSubmit({ form_name: "官網預約表單", section_name: "聯絡預約", treatment_name: form.service });
+    trackLeadCompleted({ treatment_name: form.service, clinic_location: form.branch });
+    toast.success("預約資料已送達，我們將盡快與您聯繫！");
     setForm({ name: "", phone: "", branch: "", service: "", message: "" });
+    setConsent(false);
   };
 
   const loc = LOCATIONS[activeLocation];
@@ -131,12 +171,23 @@ export default function ContactSection() {
                 />
               </div>
 
+              <label className="mb-5 flex items-start gap-3 text-[0.75rem] font-body text-ink/55">
+                <input
+                  type="checkbox"
+                  checked={consent}
+                  onChange={(e) => setConsent(e.target.checked)}
+                  className="mt-0.5 h-4 w-4 accent-botanical"
+                />
+                <span>我同意蘋果樹醫美診所使用上述資料聯繫預約；實際療程須由醫師評估。</span>
+              </label>
+
               <button
                 type="submit"
-                className="group w-full flex items-center justify-center gap-2 px-6 py-3.5 text-[0.85rem] font-body font-medium text-cream bg-botanical rounded-xl hover:bg-botanical-light transition-all duration-400 shadow-sm"
+                disabled={isSubmitting}
+                className="group w-full flex items-center justify-center gap-2 px-6 py-3.5 text-[0.85rem] font-body font-medium text-cream bg-botanical rounded-xl hover:bg-botanical-light disabled:cursor-not-allowed disabled:opacity-60 transition-all duration-400 shadow-sm"
               >
                 <Send size={15} className="group-hover:translate-x-0.5 transition-transform duration-300" />
-                送出預約
+                {isSubmitting ? "送出中…" : "送出預約"}
               </button>
             </form>
           </motion.div>

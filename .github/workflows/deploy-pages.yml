@@ -34,6 +34,10 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Test
+        run: pnpm exec vitest run
+
+      # Intentionally omit all VITE_GTM/GA/Ads/Meta/LINE IDs: the public GitHub Pages preview stays tracking-free.
       - name: Build for GitHub Pages
         run: pnpm run build:pages
         env:

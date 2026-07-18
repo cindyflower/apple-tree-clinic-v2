@@ -18,6 +18,9 @@
  *   onClick={() => trackClickLine({ section_name: 'Footer', clinic_location: '南京旗艦' })}
  */
 
+import { getStoredAttribution, initializeAttribution } from "./attribution";
+import { hasMarketingConsent } from "./marketingConsent";
+
 // ============================================================
 // Types
 // ============================================================
@@ -54,12 +57,16 @@ function getDeviceType(): string {
 // ============================================================
 
 function getUTMParams(): Record<string, string> {
-  if (typeof window === 'undefined') return {};
-  const stored = sessionStorage.getItem('utm_params');
-  if (stored) {
-    try { return JSON.parse(stored); } catch { return {}; }
+  return getAttribution()?.last_touch ?? {};
+}
+
+function getAttribution() {
+  if (typeof window === "undefined" || !hasMarketingConsent()) return undefined;
+  try {
+    return getStoredAttribution(window.localStorage);
+  } catch {
+    return undefined;
   }
-  return {};
 }
 
 // ============================================================
@@ -67,15 +74,23 @@ function getUTMParams(): Record<string, string> {
 // ============================================================
 
 function sendEvent(eventName: string, params: BaseEventParams = {}): void {
+  if (typeof window === "undefined" || !hasMarketingConsent()) return;
   const utmParams = getUTMParams();
+  const attribution = getAttribution();
   
   const enrichedParams: BaseEventParams = {
     page_title: document.title,
     page_url: window.location.href,
     device_type: getDeviceType(),
+    lead_id: attribution?.lead_id,
     campaign_source: utmParams.utm_source,
     campaign_medium: utmParams.utm_medium,
     campaign_name: utmParams.utm_campaign,
+    campaign_content: utmParams.utm_content,
+    campaign_term: utmParams.utm_term,
+    gclid: utmParams.gclid,
+    gbraid: utmParams.gbraid,
+    wbraid: utmParams.wbraid,
     ...params,
   };
 
@@ -84,13 +99,11 @@ function sendEvent(eventName: string, params: BaseEventParams = {}): void {
     if (enrichedParams[key] === undefined) delete enrichedParams[key];
   });
 
-  // GA4 via gtag
-  if (typeof window !== 'undefined' && typeof (window as any).gtag === 'function') {
+  const mode = (window as any).__marketingMode;
+  // Direct tags use gtag; GTM uses a dataLayer event. Never send through both.
+  if (mode === "direct" && typeof (window as any).gtag === 'function') {
     (window as any).gtag('event', eventName, enrichedParams);
-  }
-
-  // GTM dataLayer push
-  if (typeof window !== 'undefined' && Array.isArray((window as any).dataLayer)) {
+  } else if (mode === "gtm" && Array.isArray((window as any).dataLayer)) {
     (window as any).dataLayer.push({
       event: eventName,
       ...enrichedParams,
@@ -280,22 +293,16 @@ export function trackFunnelStage(stage: string, params: BaseEventParams = {}): v
 // ============================================================
 
 export function initUTMCapture(): void {
-  if (typeof window === 'undefined') return;
-  const params = new URLSearchParams(window.location.search);
-  const utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
-  const utmData: Record<string, string> = {};
-  let hasUTM = false;
-  
-  utmKeys.forEach(key => {
-    const value = params.get(key);
-    if (value) {
-      utmData[key] = value;
-      hasUTM = true;
+  if (typeof window === 'undefined' || !hasMarketingConsent()) return;
+  try {
+    const state = initializeAttribution(window.location.href, window.localStorage);
+    try {
+      window.sessionStorage.setItem('utm_params', JSON.stringify(state.last_touch));
+    } catch {
+      // Session storage is optional and may be blocked or quota-limited.
     }
-  });
-
-  if (hasUTM) {
-    sessionStorage.setItem('utm_params', JSON.stringify(utmData));
+  } catch {
+    // Accessing storage itself can throw; analytics must never block React render.
   }
 }
 
