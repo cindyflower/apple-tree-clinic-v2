@@ -12,4 +12,11 @@ describe("Cloudflare deployment workflow", () => {
     expect(workflow).toContain('CF_PAGES_PROJECT: ${{ vars.CLOUDFLARE_PAGES_PROJECT');
     expect(workflow).toContain('--project-name="$CF_PAGES_PROJECT"');
   });
+
+  it("deploys pull requests to their own preview branch without touching main", () => {
+    expect(workflow).toMatch(/pull_request:\s*\n\s*branches: \[main\]/);
+    expect(workflow).toContain("CF_PAGES_BRANCH: ${{ github.head_ref || 'main' }}");
+    expect(workflow).toContain('--branch="$CF_PAGES_BRANCH"');
+    expect(workflow).not.toContain("--branch=main");
+  });
 });
