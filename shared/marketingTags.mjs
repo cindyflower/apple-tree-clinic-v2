@@ -6,15 +6,12 @@ const PATTERNS = {
   line: /^[A-Za-z0-9_-]{6,64}$|^[0-9a-f]{8}-[0-9a-f-]{27}$/i,
 };
 
-const CONSENT_KEY = "appletree_marketing_consent_v1";
-
 function valid(value, pattern) {
   return typeof value === "string" && pattern.test(value.trim()) ? value.trim() : "";
 }
 
-function consentGuarded(body) {
-  if (!body) return "";
-  return `<script>(function(){var c;try{c=localStorage.getItem(${JSON.stringify(CONSENT_KEY)})}catch(e){return}if(c!=="accepted")return;${body}})();</script>`;
+function script(body) {
+  return body ? `<script>${body}</script>` : "";
 }
 
 export function renderMarketingTags(env = {}) {
@@ -22,7 +19,7 @@ export function renderMarketingTags(env = {}) {
   if (gtm) {
     const id = JSON.stringify(gtm);
     const body = `window.__marketingMode="gtm";window.dataLayer=window.dataLayer||[];window.dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtm.js?id='+${id};document.head.appendChild(s);`;
-    return { head: consentGuarded(body), bodyStart: "", bodyEnd: "" };
+    return { head: script(body), bodyStart: "", bodyEnd: "" };
   }
 
   const ga4 = valid(env.VITE_GA_MEASUREMENT_ID, PATTERNS.ga4);
@@ -54,5 +51,5 @@ export function renderMarketingTags(env = {}) {
     );
   }
 
-  return { head: consentGuarded(parts.join("")), bodyStart: "", bodyEnd: "" };
+  return { head: script(parts.join("")), bodyStart: "", bodyEnd: "" };
 }

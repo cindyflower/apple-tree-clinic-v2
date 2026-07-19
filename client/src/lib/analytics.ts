@@ -19,7 +19,6 @@
  */
 
 import { getStoredAttribution, initializeAttribution } from "./attribution";
-import { hasMarketingConsent } from "./marketingConsent";
 
 // ============================================================
 // Types
@@ -61,7 +60,7 @@ function getUTMParams(): Record<string, string> {
 }
 
 function getAttribution() {
-  if (typeof window === "undefined" || !hasMarketingConsent()) return undefined;
+  if (typeof window === "undefined") return undefined;
   try {
     return getStoredAttribution(window.localStorage);
   } catch {
@@ -74,7 +73,7 @@ function getAttribution() {
 // ============================================================
 
 function sendEvent(eventName: string, params: BaseEventParams = {}): void {
-  if (typeof window === "undefined" || !hasMarketingConsent()) return;
+  if (typeof window === "undefined") return;
   const utmParams = getUTMParams();
   const attribution = getAttribution();
   
@@ -293,7 +292,7 @@ export function trackFunnelStage(stage: string, params: BaseEventParams = {}): v
 // ============================================================
 
 export function initUTMCapture(): void {
-  if (typeof window === 'undefined' || !hasMarketingConsent()) return;
+  if (typeof window === 'undefined') return;
   try {
     const state = initializeAttribution(window.location.href, window.localStorage);
     try {
