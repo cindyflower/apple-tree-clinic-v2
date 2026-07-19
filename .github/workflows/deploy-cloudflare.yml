@@ -7,6 +7,8 @@ name: Deploy Cloudflare Pages
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 concurrency:
@@ -36,11 +38,20 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Test
+        run: pnpm exec vitest run
+
       - name: Build for Cloudflare Pages (production)
         run: pnpm run build:production
         env:
           VITE_SITE_URL: ${{ vars.CLOUDFLARE_SITE_URL || 'https://www.drappletree.com.tw' }}
           SITE_URL: ${{ vars.CLOUDFLARE_SITE_URL || 'https://www.drappletree.com.tw' }}
+          VITE_GTM_CONTAINER_ID: ${{ vars.GTM_CONTAINER_ID }}
+          VITE_GA_MEASUREMENT_ID: ${{ vars.GA_MEASUREMENT_ID }}
+          VITE_GOOGLE_ADS_ID: ${{ vars.GOOGLE_ADS_ID }}
+          VITE_META_PIXEL_ID: ${{ vars.META_PIXEL_ID }}
+          VITE_LINE_TAG_ID: ${{ vars.LINE_TAG_ID }}
+          VITE_LEAD_WEBHOOK_URL: ${{ vars.LEAD_WEBHOOK_URL }}
 
       - name: Verify Cloudflare secrets
         env:
@@ -54,8 +65,10 @@ jobs:
       - name: Deploy to Cloudflare Pages
         run: >
           pnpm exec wrangler pages deploy dist/public
-          --project-name=${{ vars.CLOUDFLARE_PAGES_PROJECT || 'apple-tree-clinic-v2' }}
-          --branch=main
+          --project-name="$CF_PAGES_PROJECT"
+          --branch="$CF_PAGES_BRANCH"
         env:
+          CF_PAGES_PROJECT: ${{ vars.CLOUDFLARE_PAGES_PROJECT || 'apple-tree-clinic-v2' }}
+          CF_PAGES_BRANCH: ${{ github.head_ref || 'main' }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

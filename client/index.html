@@ -170,72 +170,15 @@
       "url": "__SITE_BASE__"
     }
     </script>
-    <!-- Google Tag Manager (GTM) — Replace GTM_CONTAINER_ID with your actual ID -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM_CONTAINER_ID');</script>
-    <!-- End Google Tag Manager -->
-
-    <!-- Google Analytics 4 (GA4) — Replace GA_MEASUREMENT_ID with your actual ID -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'GA_MEASUREMENT_ID');
-    </script>
-
-    <!-- Google Search Console Verification — Replace with your verification code -->
-    <meta name="google-site-verification" content="GSC_VERIFICATION_CODE" />
-
-    <!-- Meta Pixel — Replace META_PIXEL_ID with your actual ID -->
-    <script>
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', 'META_PIXEL_ID');
-      fbq('track', 'PageView');
-    </script>
+    <!-- Marketing tags are injected at build time from validated VITE_* IDs. -->
+    <!-- MARKETING_TAGS_HEAD -->
   </head>
 
   <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM_CONTAINER_ID" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-
+    <!-- MARKETING_TAGS_BODY_START -->
     <div id="root"></div>
-    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=META_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
-
-    <!-- LINE Tag — Replace LINE_TAG_ID with your actual ID -->
-    <script>
-      (function(g,d,o){
-        g._ltq=g._ltq||[];g._lt=g._lt||function(){g._ltq.push(arguments)};
-        var h=d.getElementsByTagName(o)[0];
-        var s=d.createElement(o);s.async=1;
-        s.src='https://d.line-scdn.net/n/line_tag/public/release/v1/lt.js';
-        h.parentNode.insertBefore(s,h);
-      })(window,document,'script');
-      _lt('init', { customerType: 'account', tagId: 'LINE_TAG_ID' });
-      _lt('send', 'pv', ['LINE_TAG_ID']);
-    </script>
-    <noscript><img height="1" width="1" style="display:none" src="https://tr.line.me/tag.gif?c_t=lap&t_id=LINE_TAG_ID&e=pv&noscript=1"/></noscript>
-
-    <!-- Google Ads Conversion Tracking — Replace AW_CONVERSION_ID -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW_CONVERSION_ID"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'AW_CONVERSION_ID');
-    </script>
     <script type="module" src="/src/main.tsx"></script>
+    <!-- MARKETING_TAGS_BODY_END -->
 
     <!-- Omnichat / EasyChat 網站對話插件（通訊渠道 > 網站對話插件） -->
     <!-- Start of Omnichat code -->

@@ -3,9 +3,10 @@ import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 import fs from "node:fs";
 import path from "node:path";
-import { defineConfig, type Plugin, type ViteDevServer } from "vite";
+import { defineConfig, loadEnv, type Plugin, type ViteDevServer } from "vite";
 import { vitePluginManusRuntime } from "vite-plugin-manus-runtime";
 import { resolveSiteConfig, absoluteAssetUrl, DEFAULT_OG_IMAGE_PATH } from "./shared/siteConfig.mjs";
+import { renderMarketingTags } from "./shared/marketingTags.mjs";
 
 // =============================================================================
 // Manus Debug Collector - Vite Plugin
@@ -213,11 +214,24 @@ function vitePluginSyncTreatmentImages(): Plugin {
   };
 }
 
-function vitePluginSiteUrl(): Plugin {
+function vitePluginMarketingTags(env: Record<string, string | undefined>): Plugin {
+  return {
+    name: "marketing-tags",
+    transformIndexHtml(html) {
+      const tags = renderMarketingTags(env);
+      return html
+        .replace("<!-- MARKETING_TAGS_HEAD -->", tags.head)
+        .replace("<!-- MARKETING_TAGS_BODY_START -->", tags.bodyStart)
+        .replace("<!-- MARKETING_TAGS_BODY_END -->", tags.bodyEnd);
+    },
+  };
+}
+
+function vitePluginSiteUrl(env: Record<string, string | undefined>): Plugin {
   return {
     name: "site-url",
     transformIndexHtml(html) {
-      const config = resolveSiteConfig(process.env);
+      const config = resolveSiteConfig(env);
       const defaultOgImage = absoluteAssetUrl(DEFAULT_OG_IMAGE_PATH, config);
       return html
         .replaceAll("__SITE_BASE__", config.siteBase)
@@ -226,58 +240,63 @@ function vitePluginSiteUrl(): Plugin {
   };
 }
 
-const plugins = [
-  react(),
-  tailwindcss(),
-  jsxLocPlugin(),
-  vitePluginSyncTreatmentImages(),
-  vitePluginSiteUrl(),
-  vitePluginManusRuntime(),
-  vitePluginManusDebugCollector(),
-];
+export default defineConfig(({ mode }) => {
+  const fileEnv = loadEnv(mode, process.cwd(), "");
+  // Explicit GitHub Actions/process variables override values loaded from .env files.
+  const env = { ...fileEnv, ...process.env };
+  const isGitHubPages = env.GITHUB_PAGES === "true";
+  const plugins = [
+    react(),
+    tailwindcss(),
+    jsxLocPlugin(),
+    vitePluginSyncTreatmentImages(),
+    vitePluginMarketingTags(env),
+    vitePluginSiteUrl(env),
+    vitePluginManusRuntime(),
+    vitePluginManusDebugCollector(),
+  ];
 
-const isGitHubPages = process.env.GITHUB_PAGES === "true";
-
-export default defineConfig({
-  base: isGitHubPages ? "/apple-tree-clinic-v2/" : "/",
-  plugins,
-  resolve: {
-    alias: {
-      "@": path.resolve(import.meta.dirname, "client", "src"),
-      "@shared": path.resolve(import.meta.dirname, "shared"),
-      "@assets": path.resolve(import.meta.dirname, "attached_assets"),
+  return {
+    base: isGitHubPages ? "/apple-tree-clinic-v2/" : "/",
+    plugins,
+    resolve: {
+      alias: {
+        "@": path.resolve(import.meta.dirname, "client", "src"),
+        "@shared": path.resolve(import.meta.dirname, "shared"),
+        "@assets": path.resolve(import.meta.dirname, "attached_assets"),
+      },
     },
-  },
-  envDir: path.resolve(import.meta.dirname),
-  root: path.resolve(import.meta.dirname, "client"),
-  build: {
-    outDir: path.resolve(import.meta.dirname, "dist/public"),
-    emptyOutDir: true,
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          vendor: ["react", "react-dom"],
-          motion: ["framer-motion"],
+    envDir: path.resolve(import.meta.dirname),
+    root: path.resolve(import.meta.dirname, "client"),
+    build: {
+      outDir: path.resolve(import.meta.dirname, "dist/public"),
+      emptyOutDir: true,
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            vendor: ["react", "react-dom"],
+            motion: ["framer-motion"],
+          },
         },
       },
     },
-  },
-  server: {
-    port: 3000,
-    strictPort: false, // Will find next available port if 3000 is busy
-    host: true,
-    allowedHosts: [
-      ".manuspre.computer",
-      ".manus.computer",
-      ".manus-asia.computer",
-      ".manuscomputer.ai",
-      ".manusvm.computer",
-      "localhost",
-      "127.0.0.1",
-    ],
-    fs: {
-      strict: true,
-      deny: ["**/.*"],
+    server: {
+      port: 3000,
+      strictPort: false,
+      host: true,
+      allowedHosts: [
+        ".manuspre.computer",
+        ".manus.computer",
+        ".manus-asia.computer",
+        ".manuscomputer.ai",
+        ".manusvm.computer",
+        "localhost",
+        "127.0.0.1",
+      ],
+      fs: {
+        strict: true,
+        deny: ["**/.*"],
+      },
     },
-  },
+  };
 });

@@ -4,12 +4,12 @@
 /** 兩顆蘋果 — 院區 LINE 入口（南京／北大分開） */
 export const LINE_BY_APPLE = {
   nanjing: {
-    lineId: "@dr.appletree",
-    lineUrl: "https://lin.ee/vvMGVlN",
+    lineId: "@871wnsdk",
+    lineUrl: "https://page.line.me/871wnsdk?oat_content=url&openQrModal=true",
   },
   beida: {
     lineId: "@274dtgel",
-    lineUrl: "https://lin.ee/aNqmtP7",
+    lineUrl: "https://page.line.me/274dtgel?openQrModal=true",
   },
 } as const;
 

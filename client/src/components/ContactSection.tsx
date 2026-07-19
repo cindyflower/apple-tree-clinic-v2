@@ -9,24 +9,49 @@ import { Phone, MapPin, Clock, MessageCircle, Send, Building2 } from "lucide-rea
 import { LINE_BY_APPLE, LOCATIONS } from "@/lib/constants";
 import { MapView } from "@/components/Map";
 import { toast } from "sonner";
+import { trackClickLine, trackFormSubmit, trackLeadCompleted } from "@/lib/analytics";
+import { resolveLineForBranch } from "@/lib/lineBooking";
 
 export default function ContactSection() {
   const { ref, inView } = useInView({ threshold: 0.1 });
-  const [form, setForm] = useState({ name: "", phone: "", branch: "", service: "", message: "" });
+  const [branch, setBranch] = useState("");
   const [activeLocation, setActiveLocation] = useState(0);
+
+  const selectBranch = (branchName: string) => {
+    setBranch(branchName);
+    const index = LOCATIONS.findIndex((location) => location.name === branchName);
+    if (index >= 0) setActiveLocation(index);
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.name || !form.phone) {
-      toast.error("請填寫姓名與聯絡電話");
+    if (!branch) {
+      toast.error("請選擇預約院所");
       return;
     }
-    toast.success("預約表單已送出，我們將盡快與您聯繫！");
-    setForm({ name: "", phone: "", branch: "", service: "", message: "" });
+
+    const branchLine = resolveLineForBranch(branch);
+    if (!branchLine) {
+      toast.error("院所資料有誤，請重新選擇南京或北大院所");
+      return;
+    }
+
+    trackFormSubmit({ form_name: "官網預約表單", section_name: "聯絡預約" });
+    trackClickLine({
+      section_name: "聯絡預約表單",
+      clinic_location: branch,
+      button_text: "開啟專屬 LINE",
+    });
+    trackLeadCompleted({ clinic_location: branch });
+    window.open(branchLine.lineUrl, "_blank", "noopener,noreferrer");
+    toast.success(`已為您開啟${branch.includes("南京") ? "南京" : "北大"}專屬 LINE`);
+    setBranch("");
   };
 
   const loc = LOCATIONS[activeLocation];
-  const line = activeLocation === 0 ? LINE_BY_APPLE.nanjing : LINE_BY_APPLE.beida;
+  const line =
+    resolveLineForBranch(branch) ??
+    (activeLocation === 0 ? LINE_BY_APPLE.nanjing : LINE_BY_APPLE.beida);
 
   return (
     <section id="contact" className="py-28 lg:py-40 relative overflow-hidden" ref={ref}>
@@ -51,7 +76,7 @@ export default function ContactSection() {
             <span className="text-gradient-forest"> 免費諮詢</span>
           </h2>
           <p className="text-[1rem] font-body font-light text-ink/45 max-w-lg mx-auto leading-[1.9]">
-            填寫以下表單或透過電話、LINE 與我們聯繫，專業團隊將為您安排諮詢。
+            選擇院所後即可開啟專屬 LINE，或透過電話與我們聯繫，專業團隊將為您安排諮詢。
           </p>
         </motion.div>
 
@@ -64,79 +89,31 @@ export default function ContactSection() {
             className="lg:col-span-3"
           >
             <form onSubmit={handleSubmit} className="glass-strong rounded-[1.5rem] p-8 lg:p-10">
-              <div className="grid sm:grid-cols-2 gap-5 mb-5">
-                <div>
-                  <label className="block text-[0.9rem] font-body font-medium text-ink/50 mb-2">姓名 *</label>
-                  <input
-                    type="text"
-                    value={form.name}
-                    onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    placeholder="請輸入您的姓名"
-                    className="w-full px-4 py-3 text-[0.85rem] font-body bg-white/60 border border-botanical/10 rounded-xl focus:outline-none focus:border-botanical/30 focus:ring-2 focus:ring-botanical/10 transition-all duration-300 placeholder:text-ink/25"
-                  />
-                </div>
-                <div>
-                  <label className="block text-[0.9rem] font-body font-medium text-ink/50 mb-2">聯絡電話 *</label>
-                  <input
-                    type="tel"
-                    value={form.phone}
-                    onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                    placeholder="請輸入您的電話"
-                    className="w-full px-4 py-3 text-[0.85rem] font-body bg-white/60 border border-botanical/10 rounded-xl focus:outline-none focus:border-botanical/30 focus:ring-2 focus:ring-botanical/10 transition-all duration-300 placeholder:text-ink/25"
-                  />
-                </div>
+              <div className="mb-8">
+                <label className="block text-[0.9rem] font-body font-medium text-ink/50 mb-2">選擇院所 *</label>
+                <select
+                  value={branch}
+                  onChange={(e) => selectBranch(e.target.value)}
+                  required
+                  className="w-full px-4 py-3 text-[0.85rem] font-body bg-white/60 border border-botanical/10 rounded-xl focus:outline-none focus:border-botanical/30 focus:ring-2 focus:ring-botanical/10 transition-all duration-300 text-ink/70"
+                >
+                  <option value="">請選擇院所 *</option>
+                  {LOCATIONS.map((l) => (
+                    <option key={l.name} value={l.name}>{l.name} — {l.type}</option>
+                  ))}
+                </select>
               </div>
 
-              <div className="grid sm:grid-cols-2 gap-5 mb-5">
-                <div>
-                  <label className="block text-[0.9rem] font-body font-medium text-ink/50 mb-2">選擇院所</label>
-                  <select
-                    value={form.branch}
-                    onChange={(e) => setForm({ ...form, branch: e.target.value })}
-                    className="w-full px-4 py-3 text-[0.85rem] font-body bg-white/60 border border-botanical/10 rounded-xl focus:outline-none focus:border-botanical/30 focus:ring-2 focus:ring-botanical/10 transition-all duration-300 text-ink/70"
-                  >
-                    <option value="">請選擇院所</option>
-                    {LOCATIONS.map((l) => (
-                      <option key={l.name} value={l.name}>{l.name} — {l.type}</option>
-                    ))}
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-[0.9rem] font-body font-medium text-ink/50 mb-2">感興趣的療程</label>
-                  <select
-                    value={form.service}
-                    onChange={(e) => setForm({ ...form, service: e.target.value })}
-                    className="w-full px-4 py-3 text-[0.85rem] font-body bg-white/60 border border-botanical/10 rounded-xl focus:outline-none focus:border-botanical/30 focus:ring-2 focus:ring-botanical/10 transition-all duration-300 text-ink/70"
-                  >
-                    <option value="">請選擇療程（可不選）</option>
-                    <option value="picosure">Picosure 755 皮秒蜂巢雷射</option>
-                    <option value="hifu">海芙電波</option>
-                    <option value="ultrasound">Z音波拉提</option>
-                    <option value="vivabella">VIVABELLA 薇貝拉魔法針</option>
-                    <option value="hydra">水飛梭＋水光療程</option>
-                    <option value="led">多光譜 LED 光療</option>
-                    <option value="other">其他 / 綜合諮詢</option>
-                  </select>
-                </div>
-              </div>
-
-              <div className="mb-6">
-                <label className="block text-[0.9rem] font-body font-medium text-ink/50 mb-2">備註訊息</label>
-                <textarea
-                  value={form.message}
-                  onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  rows={3}
-                  placeholder="請描述您的需求或想了解的內容..."
-                  className="w-full px-4 py-3 text-[0.85rem] font-body bg-white/60 border border-botanical/10 rounded-xl focus:outline-none focus:border-botanical/30 focus:ring-2 focus:ring-botanical/10 transition-all duration-300 placeholder:text-ink/25 resize-none"
-                />
-              </div>
+              <p className="mb-5 text-[0.75rem] font-body text-ink/45 leading-relaxed">
+                送出後會開啟對應院所的 LINE；姓名與聯絡方式請直接在 LINE 對話中告知即可，無須重複填寫。
+              </p>
 
               <button
                 type="submit"
                 className="group w-full flex items-center justify-center gap-2 px-6 py-3.5 text-[0.85rem] font-body font-medium text-cream bg-botanical rounded-xl hover:bg-botanical-light transition-all duration-400 shadow-sm"
               >
                 <Send size={15} className="group-hover:translate-x-0.5 transition-transform duration-300" />
-                送出預約
+                開啟專屬 LINE 預約
               </button>
             </form>
           </motion.div>
