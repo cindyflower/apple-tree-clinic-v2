@@ -43,11 +43,11 @@ import { type CategoryId } from "@/lib/serviceMapping";
 export default function Home() {
   // Homepage SEO
   useSEO({
-    title: '蘋果樹醫美 Dr. Appletree｜台北醫美推薦｜皇秒雷射・音波拉提・電波拉提・立體雕塑・再生醫學',
-    description: '蘋果樹醫美診所｜台北松山・三峽北大・桃園藝文三院。提供皇秒雷射、音波拉提、電波拉提、立體雕塑、再生醫學、整型外科等專業醫美療程。以醫療專業與科技檢測，陪你建立更自然、更長期的美麗管理方式。',
+    title: '蘋果樹醫美 Dr. Appletree｜搭載 AI 序顏美學評估，科學化精準變美、15年臨床經驗、打造自然協調專屬美學。',
+    description: '蘋果樹醫美診所｜台北松山南京旗艦・三峽北大。提供皮秒雷射、音波拉提、電波拉提、立體雕塑、再生醫學、整型外科等專業醫美療程。以醫療專業與科技檢測，陪你建立更自然、更長期的美麗管理方式。',
     ogImage: IMAGES.hero,
     canonical: '/',
-    keywords: '蘋果樹醫美,台北醫美推薦,皇秒雷射,音波拉提,電波拉提,立體雕塑,再生醫學,整型外科,美麗管理',
+    keywords: '蘋果樹醫美,台北醫美推薦,AI序顏,皮秒雷射,音波拉提,電波拉提,立體雕塑,再生醫學,整型外科,美麗管理',
   });
 
   // Shared state: active filter for ServicesSection

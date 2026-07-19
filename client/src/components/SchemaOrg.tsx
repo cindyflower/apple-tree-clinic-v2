@@ -2,7 +2,7 @@
  * SchemaOrg — 結構化資料 (JSON-LD)
  * Outputs Schema.org markup for:
  * - MedicalBusiness (clinic info)
- * - LocalBusiness (3 locations)
+ * - LocalBusiness (2 locations)
  * - FAQPage (homepage FAQ)
  * - MedicalProcedure (per treatment page)
  * - Article (per case page)
@@ -31,12 +31,6 @@ const CLINIC_LOCATIONS: ClinicLocation[] = [
     address: "新北市三峽區大德路127號2樓",
     phone: "+886-2-2674-1272",
     geo: { lat: 24.9472, lng: 121.3725 },
-  },
-  {
-    name: "蘋果樹醫美 桃園藝文院所",
-    address: "桃園市桃園區中正路1473號2樓",
-    phone: "+886-3-325-6555",
-    geo: { lat: 24.9967, lng: 121.3087 },
   },
 ];
 

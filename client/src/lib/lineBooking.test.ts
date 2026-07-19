@@ -18,6 +18,6 @@ describe("resolveLineForBranch", () => {
 
   it("returns undefined for empty or unknown branches", () => {
     expect(resolveLineForBranch("")).toBeUndefined();
-    expect(resolveLineForBranch("桃園藝文")).toBeUndefined();
+    expect(resolveLineForBranch("未知院所")).toBeUndefined();
   });
 });
