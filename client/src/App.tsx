@@ -8,7 +8,6 @@ import { useAnalytics } from "./hooks/useAnalytics";
 import { useGlobalTracking } from "./hooks/useGlobalTracking";
 import { normalizeRouterPath } from "./lib/basePath";
 import Home from "./pages/Home";
-import MarketingConsentBanner from "./components/MarketingConsentBanner";
 
 const TreatmentDetail = lazy(() => import("./pages/TreatmentDetail"));
 const CaseDetail = lazy(() => import("./pages/CaseDetail"));
@@ -46,7 +45,6 @@ function App() {
       <ThemeProvider defaultTheme="light">
         <TooltipProvider>
           <Toaster />
-          <MarketingConsentBanner />
           <Router base={import.meta.env.BASE_URL}>
             <AppRoutes />
           </Router>

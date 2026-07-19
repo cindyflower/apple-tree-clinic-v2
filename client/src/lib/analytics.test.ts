@@ -21,12 +21,12 @@ beforeEach(() => {
 });
 
 describe("analytics event transport", () => {
-  it("does not emit events without accepted marketing consent", async () => {
+  it("emits events without requiring a stored marketing-consent choice", async () => {
     const { trackLeadCompleted } = await import("./analytics");
     const gtag = vi.fn();
     Object.assign(window, { __marketingMode: "direct", gtag });
     trackLeadCompleted();
-    expect(gtag).not.toHaveBeenCalled();
+    expect(gtag).toHaveBeenCalledTimes(1);
     expect((window as any).dataLayer).toHaveLength(0);
   });
 

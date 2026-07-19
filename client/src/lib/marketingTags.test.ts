@@ -12,10 +12,11 @@ describe("renderMarketingTags", () => {
     expect(html).not.toMatch(/googletagmanager|google-analytics|connect\.facebook|line-scdn|tr\.line\.me/i);
   });
 
-  it("emits a consent-gated bootstrap instead of immediate network tags", () => {
+  it("loads a valid GTM container immediately without a consent gate", () => {
     const html = combined({ VITE_GTM_CONTAINER_ID: "GTM-ABC1234" });
-    expect(html).toContain("appletree_marketing_consent_v1");
-    expect(html).toContain('!==\"accepted\"');
+    expect(html).toContain("GTM-ABC1234");
+    expect(html).toContain("googletagmanager.com/gtm.js");
+    expect(html).not.toContain("appletree_marketing_consent_v1");
     expect(html).not.toMatch(/<script[^>]+src=/i);
     expect(html).not.toMatch(/<iframe|<img/i);
   });
