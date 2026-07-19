@@ -179,6 +179,52 @@
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     <!-- MARKETING_TAGS_BODY_END -->
+
+    <!-- Omnichat / EasyChat 網站對話插件（通訊渠道 > 網站對話插件） -->
+    <!-- Start of Omnichat code -->
+    <script>
+      var a = document.createElement("a");
+      a.setAttribute("href", "javascript:;");
+      a.setAttribute("id", "easychat-floating-button");
+      a.setAttribute("aria-label", "南京Line 諮詢");
+      a.setAttribute("title", "南京Line 諮詢");
+      var span = document.createElement("span");
+      span.setAttribute("id", "easychat-unread-badge");
+      span.setAttribute("style", "display: none");
+      var d1 = document.createElement("div");
+      d1.setAttribute("id", "easychat-close-btn");
+      d1.setAttribute("class", "easychat-close-btn-close");
+      var d2 = document.createElement("div");
+      d2.setAttribute("id", "easychat-chat-dialog");
+      d2.setAttribute("class", "easychat-chat-dialog-close");
+      d2.setAttribute("style", "display:none");
+      var ifrm = document.createElement("iframe");
+      ifrm.setAttribute("id", "easychat-chat-dialog-iframe");
+      ifrm.setAttribute(
+        "src",
+        "https://client-chat.easychat.co/?appkey=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0ZWFtTmFtZSI6IuiYi-aenOaoueeUn-mGqyJ9.Ai1-60FPJH_bmTsM8uH66opC_G6gMNf0x5CPrtrYkiQ&lang=zh-Hant"
+      );
+      ifrm.style.width = "100%";
+      ifrm.style.height = "100%";
+      ifrm.style.frameborder = "0";
+      ifrm.style.scrolling = "on";
+      d2.appendChild(ifrm);
+      if (!document.getElementById("easychat-floating-button")) {
+        document.body.appendChild(a);
+        document.body.appendChild(span);
+        document.body.appendChild(d1);
+        document.body.appendChild(d2);
+      }
+
+      var scriptURL = "https://chat-plugin.easychat.co/easychat.js";
+      if (!document.getElementById("omnichat-plugin")) {
+        var scriptTag = document.createElement("script");
+        scriptTag.src = scriptURL;
+        scriptTag.id = "omnichat-plugin";
+        document.body.appendChild(scriptTag);
+      }
+    </script>
+    <!-- End of Omnichat code -->
   </body>
 
 </html>
