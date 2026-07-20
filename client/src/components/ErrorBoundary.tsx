@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { reloadOnceOnChunkError } from "@/lib/lazyWithRetry";
 import { AlertTriangle, RotateCcw } from "lucide-react";
 import { Component, ReactNode } from "react";
 
@@ -21,6 +22,12 @@ class ErrorBoundary extends Component<Props, State> {
     return { hasError: true, error };
   }
 
+  componentDidCatch(error: Error) {
+    // After a deploy, stale tabs may still import old hashed chunks.
+    // Auto-reload once so visitors get the new asset map without a blank error page.
+    reloadOnceOnChunkError(error);
+  }
+
   render() {
     if (this.state.hasError) {
       return (
@@ -31,13 +38,10 @@ class ErrorBoundary extends Component<Props, State> {
               className="text-destructive mb-6 flex-shrink-0"
             />
 
-            <h2 className="text-xl mb-4">An unexpected error occurred.</h2>
-
-            <div className="p-4 w-full rounded bg-muted overflow-auto mb-6">
-              <pre className="text-sm text-muted-foreground whitespace-break-spaces">
-                {this.state.error?.stack}
-              </pre>
-            </div>
+            <h2 className="text-xl mb-4">頁面暫時無法載入</h2>
+            <p className="text-sm text-muted-foreground mb-6 text-center">
+              網站可能剛更新過。請重新整理頁面即可。
+            </p>
 
             <button
               onClick={() => window.location.reload()}
@@ -48,7 +52,7 @@ class ErrorBoundary extends Component<Props, State> {
               )}
             >
               <RotateCcw size={16} />
-              Reload Page
+              重新整理
             </button>
           </div>
         </div>
