@@ -31,9 +31,11 @@ function WhoIsXuyan() {
           transition={{ duration: 0.8 }}
           className="max-w-3xl mx-auto text-center"
         >
-          <span className="label-refined text-champagne inline-flex items-center gap-2 mb-4">
+          <span className="label-refined text-champagne inline-flex items-center justify-center gap-2 mb-4">
+            <span className="w-6 h-[1px] bg-champagne/50" />
             <Sparkles size={12} className="text-gold" />
             Meet 序顏™
+            <span className="w-6 h-[1px] bg-champagne/50" />
           </span>
           <h1 className="heading-editorial text-ink text-2xl sm:text-3xl lg:text-[2.6rem] mb-6 leading-tight">
             你好，我是序顏™<br />
@@ -101,9 +103,10 @@ function AIDetectionDemo() {
           transition={{ duration: 0.8 }}
           className="text-center max-w-2xl mx-auto mb-12 md:mb-16"
         >
-          <span className="label-refined text-champagne inline-flex items-center gap-2 mb-4">
+          <span className="label-refined text-champagne inline-flex items-center justify-center gap-2 mb-4">
             <span className="w-6 h-[1px] bg-champagne/50" />
             AI Detection
+            <span className="w-6 h-[1px] bg-champagne/50" />
           </span>
           <h2 className="heading-editorial text-ink text-2xl sm:text-3xl lg:text-[2.4rem] mb-4">
             看序顏™ AI 檢測<span className="text-gradient-forest">怎麼運作</span>
@@ -152,9 +155,10 @@ function ProcessFlow() {
           transition={{ duration: 0.8 }}
           className="text-center max-w-2xl mx-auto mb-12 md:mb-16"
         >
-          <span className="label-refined text-champagne inline-flex items-center gap-2 mb-4">
+          <span className="label-refined text-champagne inline-flex items-center justify-center gap-2 mb-4">
             <span className="w-6 h-[1px] bg-champagne/50" />
             How It Works
+            <span className="w-6 h-[1px] bg-champagne/50" />
           </span>
           <h2 className="heading-editorial text-ink text-2xl sm:text-3xl lg:text-[2.4rem] mb-4">
             序顏™ AI 如何幫你<br className="hidden sm:block" />

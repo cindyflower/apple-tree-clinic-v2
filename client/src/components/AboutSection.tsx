@@ -74,6 +74,7 @@ export default function AboutSection() {
             <span className="label-refined text-champagne inline-flex items-center gap-2 mb-4">
               <span className="w-6 h-[1px] bg-champagne/50" />
               About Us
+              <span className="w-6 h-[1px] bg-champagne/50" />
             </span>
 
             <h2 className="heading-editorial text-ink text-3xl sm:text-4xl lg:text-[2.8rem] mb-6">

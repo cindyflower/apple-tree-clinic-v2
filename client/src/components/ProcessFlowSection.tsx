@@ -25,9 +25,10 @@ export default function ProcessFlowSection() {
           transition={{ duration: 0.8 }}
           className="text-center max-w-2xl mx-auto mb-12 md:mb-16"
         >
-          <span className="label-refined text-champagne inline-flex items-center gap-2 mb-4">
+          <span className="label-refined text-champagne inline-flex items-center justify-center gap-2 mb-4">
             <span className="w-6 h-[1px] bg-champagne/50" />
             How It Works
+            <span className="w-6 h-[1px] bg-champagne/50" />
           </span>
           <h2 className="heading-editorial text-ink text-2xl sm:text-3xl lg:text-[2.4rem] mb-4">
             序顏 AI 如何幫你

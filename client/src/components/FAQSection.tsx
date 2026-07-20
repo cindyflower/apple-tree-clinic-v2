@@ -76,6 +76,7 @@ export default function FAQSection() {
             <span className="label-refined text-champagne inline-flex items-center gap-2 mb-4">
               <span className="w-6 h-[1px] bg-champagne/50" />
               FAQ
+              <span className="w-6 h-[1px] bg-champagne/50" />
             </span>
             <h2 className="heading-editorial text-ink text-3xl sm:text-4xl lg:text-[2.5rem] mb-6">
               常見
