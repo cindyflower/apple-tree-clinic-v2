@@ -18,14 +18,18 @@ export function isHomePath(): boolean {
 /** wouter navigate() paths must not lead with "/" when Router has a base URL. */
 export function toRouterPath(path: string): string {
   if (path === "/" || path === "") return "/";
-  return path.startsWith("/") ? path.slice(1) : path;
+  const normalized = path.startsWith("/") ? path.slice(1) : path;
+  return normalized.replace(/\/+$/, "") || "/";
 }
 
 /**
  * wouter strips the GitHub Pages base and returns paths like `xuyan-ai` (no leading slash).
  * Route patterns are defined as `/xuyan-ai`, so normalize before matching.
+ * Cloudflare Pages may redirect to trailing-slash URLs (`/face-test/`); strip them for matching.
  */
 export function normalizeRouterPath(path: string): string {
   if (!path || path === "/") return "/";
-  return path.startsWith("/") ? path : `/${path}`;
+  const withLeading = path.startsWith("/") ? path : `/${path}`;
+  const trimmed = withLeading.replace(/\/+$/, "");
+  return trimmed || "/";
 }
