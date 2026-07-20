@@ -15,8 +15,8 @@ export default function CTABanner() {
       {/* Background — real banner image */}
       <div className="absolute inset-0">
         <img
-          src={IMAGES.bannerCollagen}
-          alt="蘋果樹 Dr. Appletree 膠原蛋白療程"
+          src={IMAGES.bannerCta}
+          alt="蘋果樹 Dr. Appletree 預約諮詢"
           className="w-full h-full object-cover"
           loading="lazy"
         />

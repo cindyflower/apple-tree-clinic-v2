@@ -4898,7 +4898,7 @@ export const TREATMENT_DETAILS: TreatmentDetail[] = [
     title: "健保皮膚科門診",
     subtitle: "專業皮膚科醫師・健保給付・安心就醫",
     category: "健保皮膚科",
-    heroImage: IMAGES.heroBanner,
+    heroImage: IMAGES.nhiDermatologyHero,
     metaTitle: "健保皮膚科｜皮膚科門診推薦｜蘋果樹醫學總院",
     metaDescription: "蘋果樹醫學總院提供健保皮膚科門診，由皮膚科專科醫師看診，處理濕疹、蕁麻疹、帶狀疱疹等各類皮膚問題。",
     painPoint: "皮膚出現紅疹、搔癢、脫皮、水泡等症狀？不確定是濕疹、過敏還是其他皮膚疾病？蘋果樹醫學總院的健保皮膚科門診，由皮膚科專科醫師為您提供專業的診斷與治療，使用健保給付，減輕就醫負擔。",
