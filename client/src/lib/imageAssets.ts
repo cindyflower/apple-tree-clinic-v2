@@ -50,7 +50,7 @@ export const IMAGES = {
   bannerCollagen: img(F.banner, "banner-collagen.jpeg"),
   bannerMounjaro: img(F.banner, "banner-mounjaro.jpeg"),
   bannerCta: img(F.banner, "cta-banner.png"),
-  nhiDermatologyHero: img(F.nhiSkin, "nhi-dermatology-hero.png"),
+  nhiDermatologyHero: img(F.nhiSkin, "nhi-dermatology-hero-v2.png"),
   /** 詳情頁通用 Hero 佔位（尚無專屬橫幅的療程） */
   heroBanner: img("services", "HeroBanner.jpg"),
   threadLiftHero: img(F.injection, "14.塑立愛立提線.jpg"),
