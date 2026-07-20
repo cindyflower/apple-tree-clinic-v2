@@ -4943,7 +4943,7 @@ export const TREATMENT_DETAILS: TreatmentDetail[] = [
     title: "疼痛管理門診",
     subtitle: "專業評估・多元治療・改善生活品質",
     category: "疼痛管理",
-    heroImage: IMAGES.heroBanner,
+    heroImage: IMAGES.painManagementHero,
     metaTitle: "疼痛管理｜疼痛門診推薦｜蘋果樹醫學總院",
     metaDescription: "蘋果樹醫學總院疼痛管理門診，由專業醫師評估慢性疼痛問題，提供藥物、注射、物理治療等多元治療方案。",
     painPoint: "長期受到肩頸痠痛、腰背疼痛、關節疼痛的困擾？疼痛影響睡眠品質與日常生活？吃止痛藥只能暫時緩解，無法根本解決？蘋果樹的疼痛管理門診，由專業醫師從根本評估疼痛原因，提供多元化的治療方案。",

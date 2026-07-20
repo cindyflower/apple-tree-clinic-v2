@@ -24,8 +24,10 @@ export default function BrandStorySection() {
             className="mb-8"
           >
             <span className="label-refined text-champagne inline-flex items-center gap-2 mb-4">
+              <span className="w-6 h-[1px] bg-champagne/50" />
               <TreePine size={12} className="text-botanical" />
               Brand Story
+              <span className="w-6 h-[1px] bg-champagne/50" />
             </span>
             <h2 className="heading-editorial text-ink text-2xl sm:text-3xl lg:text-[2.2rem] mb-3">
               誰是<span className="text-gradient-forest">蘋果樹</span>？

@@ -124,9 +124,10 @@ export default function ServiceEntrySection({ onFilterChange }: ServiceEntrySect
           transition={{ duration: 0.7 }}
           className="max-w-2xl mx-auto mb-12 md:mb-16 text-center"
         >
-          <span className="label-refined text-champagne inline-flex items-center gap-2 mb-4">
+          <span className="label-refined text-champagne inline-flex items-center justify-center gap-2 mb-4">
             <span className="w-6 h-[1px] bg-champagne/50" />
             Services
+            <span className="w-6 h-[1px] bg-champagne/50" />
           </span>
           <h2 className="heading-editorial text-ink text-2xl sm:text-3xl lg:text-[2.2rem] leading-snug mb-4">
             從膚況、輪廓到健康狀態，
