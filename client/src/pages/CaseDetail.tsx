@@ -335,7 +335,11 @@ export default function CaseDetailPage() {
                         className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-500"
                         loading="lazy"
                         onError={(e) => {
-                          (e.target as HTMLImageElement).src = rc.images[0] || "";
+                          const img = e.target as HTMLImageElement;
+                          const fallback = rc.images[0];
+                          if (fallback && img.src !== fallback) {
+                            img.src = fallback;
+                          }
                         }}
                       />
                       <span className="absolute top-2 left-2 px-2 py-0.5 text-[0.55rem] font-body font-semibold text-white bg-botanical/80 backdrop-blur-sm rounded-full">

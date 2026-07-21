@@ -462,5 +462,7 @@ export const CASE_DETAILS: CaseDetail[] = CASE_DETAILS_RAW.map((c) => ({
 
 // Helper: get case by slug
 export function getCaseBySlug(slug: string): CaseDetail | undefined {
-  return CASE_DETAILS.find((c) => c.slug === slug);
+  const normalized = slug.replace(/\/+$/, "").trim();
+  if (!normalized) return undefined;
+  return CASE_DETAILS.find((c) => c.slug === normalized);
 }
