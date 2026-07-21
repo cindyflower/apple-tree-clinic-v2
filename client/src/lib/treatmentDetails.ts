@@ -5499,5 +5499,7 @@ export const TREATMENT_DETAILS: TreatmentDetail[] = [
  * Look up a treatment detail entry by its slug.
  */
 export function getTreatmentBySlug(slug: string): TreatmentDetail | undefined {
-  return TREATMENT_DETAILS.find((t) => t.slug === slug);
+  const normalized = slug.replace(/\/+$/, "").trim();
+  if (!normalized) return undefined;
+  return TREATMENT_DETAILS.find((t) => t.slug === normalized);
 }

@@ -43,5 +43,7 @@ const DOCTOR_DETAILS: DoctorDetail[] = [
 ];
 
 export function getDoctorBySlug(slug: string): DoctorDetail | undefined {
-  return DOCTOR_DETAILS.find((d) => d.slug === slug);
+  const normalized = slug.replace(/\/+$/, "").trim();
+  if (!normalized) return undefined;
+  return DOCTOR_DETAILS.find((d) => d.slug === normalized);
 }

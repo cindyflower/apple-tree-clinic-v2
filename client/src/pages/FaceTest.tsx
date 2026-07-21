@@ -11,6 +11,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, Check, ChevronRight } from "lucide-react";
 import { useLocation } from "wouter";
 import { InternalLink } from "@/components/InternalLink";
+import { toRouterPath } from "@/lib/basePath";
 import { useScrollRestore } from "@/hooks/useScrollRestore";
 import { saveScrollBeforeLeave } from "@/lib/scrollRestore";
 import {
@@ -86,7 +87,7 @@ export default function FaceTest() {
         params.set("mixed", "1");
       }
       saveScrollBeforeLeave();
-      setLocation(`/face-result?${params.toString()}`);
+      setLocation(toRouterPath(`/face-result?${params.toString()}`));
     }
   }, [currentSelections, currentQ, totalQuestions, allAnswers, setLocation]);
 

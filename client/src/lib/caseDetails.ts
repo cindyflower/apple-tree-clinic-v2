@@ -1,6 +1,7 @@
 // ─── 蘋果樹醫學總院 ─── 真實案例詳細資料
 // 所有內容均來自舊官網 drappletree.com.tw 真實案例
 import { caseMainImage, caseGallery } from "./caseImageAssets";
+import { normalizeSlug } from "./basePath";
 
 export interface CaseDetail {
   id: string;
@@ -462,7 +463,7 @@ export const CASE_DETAILS: CaseDetail[] = CASE_DETAILS_RAW.map((c) => ({
 
 // Helper: get case by slug
 export function getCaseBySlug(slug: string): CaseDetail | undefined {
-  const normalized = slug.replace(/\/+$/, "").trim();
+  const normalized = normalizeSlug(slug);
   if (!normalized) return undefined;
   return CASE_DETAILS.find((c) => c.slug === normalized);
 }

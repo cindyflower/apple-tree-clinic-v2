@@ -15,6 +15,10 @@ export function isHomePath(): boolean {
   return path === base || path === "";
 }
 
+export function normalizeSlug(slug: string): string {
+  return slug.replace(/\/+$/, "").trim();
+}
+
 /**
  * Path for wouter navigate().
  * - GitHub Pages (subpath base): relative segment, e.g. `case/foo` → `{base}case/foo`

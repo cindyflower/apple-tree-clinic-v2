@@ -17,6 +17,7 @@ import {
 } from "@/lib/videoData";
 import { trackClickVideo } from "@/lib/analytics";
 import { BRAND } from "@/lib/constants";
+import { getTreatmentBySlug } from "@/lib/treatmentDetails";
 import { InternalLink } from "@/components/InternalLink";
 
 export default function VideoSection() {
@@ -236,14 +237,19 @@ export default function VideoSection() {
                       </p>
                       {/* CTA buttons */}
                       <div className="flex gap-2">
-                        {video.relatedTreatments.length > 0 && (
-                          <InternalLink
-                            href={`/treatment/${video.relatedTreatments[0]}`}
-                            className="inline-flex items-center gap-1 px-3 py-1.5 text-[0.65rem] font-body font-medium text-botanical bg-botanical/8 rounded-full hover:bg-botanical/15 transition-colors"
-                          >
-                            了解適合我的療程
-                          </InternalLink>
-                        )}
+                        {(() => {
+                          const treatmentSlug = video.relatedTreatments.find((slug) =>
+                            getTreatmentBySlug(slug),
+                          );
+                          return treatmentSlug ? (
+                            <InternalLink
+                              href={`/treatment/${treatmentSlug}`}
+                              className="inline-flex items-center gap-1 px-3 py-1.5 text-[0.65rem] font-body font-medium text-botanical bg-botanical/8 rounded-full hover:bg-botanical/15 transition-colors"
+                            >
+                              了解適合我的療程
+                            </InternalLink>
+                          ) : null;
+                        })()}
                         <a
                           href={BRAND.lineUrl}
                           target="_blank"
