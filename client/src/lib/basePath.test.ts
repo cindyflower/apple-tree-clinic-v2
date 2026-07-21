@@ -19,8 +19,8 @@ describe("normalizeRouterPath", () => {
 });
 
 describe("toRouterPath", () => {
-  it("strips leading and trailing slashes for wouter navigate()", () => {
-    expect(toRouterPath("/face-test/")).toBe("face-test");
-    expect(toRouterPath("/face-test")).toBe("face-test");
+  it("uses wouter absolute paths on root deploy to avoid nested relative URLs", () => {
+    expect(toRouterPath("/face-test/")).toBe("~/face-test");
+    expect(toRouterPath("/case/eyebag-male")).toBe("~/case/eyebag-male");
   });
 });

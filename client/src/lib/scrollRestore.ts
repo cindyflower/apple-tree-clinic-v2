@@ -1,3 +1,5 @@
+import { toRouterPath } from "./basePath";
+
 const STORAGE_PREFIX = "scroll-restore:";
 
 export interface ScrollRestorePayload {
@@ -70,5 +72,5 @@ export function goBack(navigate: (to: string) => void, fallback = "/") {
     window.history.back();
     return;
   }
-  navigate(fallback === "/" ? "/" : fallback.startsWith("/") ? fallback.slice(1) : fallback);
+  navigate(toRouterPath(fallback));
 }

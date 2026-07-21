@@ -15,11 +15,21 @@ export function isHomePath(): boolean {
   return path === base || path === "";
 }
 
-/** wouter navigate() paths must not lead with "/" when Router has a base URL. */
+/**
+ * Path for wouter navigate().
+ * - GitHub Pages (subpath base): relative segment, e.g. `case/foo` → `{base}case/foo`
+ * - Root deploy: `~/case/foo` so History API resolves from site root, not the current
+ *   URL segment (avoids `/case/x` + `case/y` → `/case/case/y`).
+ */
 export function toRouterPath(path: string): string {
   if (path === "/" || path === "") return "/";
   const normalized = path.startsWith("/") ? path.slice(1) : path;
-  return normalized.replace(/\/+$/, "") || "/";
+  const trimmed = normalized.replace(/\/+$/, "");
+  if (!trimmed) return "/";
+
+  const base = BASE_URL.replace(/\/$/, "");
+  if (base) return trimmed;
+  return `~/${trimmed}`;
 }
 
 /**
