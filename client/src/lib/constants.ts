@@ -4,7 +4,7 @@
 /** 兩顆蘋果 — 院區 LINE 入口（南京／北大分開） */
 export const LINE_BY_APPLE = {
   nanjing: {
-    lineId: "@871wnsdk",
+    lineId: "@dr.appletree",
     lineUrl: "https://page.line.me/871wnsdk?oat_content=url&openQrModal=true",
   },
   beida: {
