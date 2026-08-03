@@ -16,9 +16,16 @@ describe("renderMarketingTags", () => {
     const html = combined({ VITE_GTM_CONTAINER_ID: "GTM-ABC1234" });
     expect(html).toContain("GTM-ABC1234");
     expect(html).toContain("googletagmanager.com/gtm.js");
+    expect(html).toContain("googletagmanager.com/ns.html?id=GTM-ABC1234");
     expect(html).not.toContain("appletree_marketing_consent_v1");
     expect(html).not.toMatch(/<script[^>]+src=/i);
-    expect(html).not.toMatch(/<iframe|<img/i);
+  });
+
+  it("injects GTM head script and body noscript for container GTM-NGGPZKBB", () => {
+    const tags = renderMarketingTags({ VITE_GTM_CONTAINER_ID: "GTM-NGGPZKBB" });
+    expect(tags.head).toContain("GTM-NGGPZKBB");
+    expect(tags.head).toContain("googletagmanager.com/gtm.js");
+    expect(tags.bodyStart).toContain("googletagmanager.com/ns.html?id=GTM-NGGPZKBB");
   });
 
   it("prefers one GTM container and avoids duplicate direct ids", () => {

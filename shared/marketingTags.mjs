@@ -31,6 +31,9 @@ export function renderMarketingTags(env = {}) {
         `window.__marketingMode="gtm";window.dataLayer=window.dataLayer||[];window.dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtm.js?id='+${id};document.head.appendChild(s);`,
       ),
     );
+    bodyStartParts.push(
+      `<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=${gtm}" height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>`,
+    );
   } else if (ga4 || googleAds || line) {
     const loaderId = ga4 || googleAds;
     const configs = [ga4, googleAds]
