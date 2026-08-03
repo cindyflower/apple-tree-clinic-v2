@@ -39,6 +39,29 @@ import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
 import FixedQuizCTA from "@/components/FixedQuizCTA";
 import { type CategoryId } from "@/lib/serviceMapping";
+import { withBase } from "@/lib/basePath";
+import { scrollToHashWithRetry } from "@/lib/scrollToHash";
+import { resolveHomeSectionTarget } from "@/lib/sectionDeepLinks";
+
+/** Scroll to section from hash, ?section=, or path alias; normalize URL to /#section. */
+function syncAndScrollToHomeSection() {
+  const section = resolveHomeSectionTarget();
+  if (!section) return;
+
+  const desiredHash = `#${section}`;
+  // Keep UTM / query params; drop only ?section= after resolving
+  const params = new URLSearchParams(window.location.search);
+  params.delete("section");
+  const search = params.toString() ? `?${params.toString()}` : "";
+  const desiredUrl = `${withBase("/")}${search}${desiredHash}`.replace(/([^:])\/{2,}/g, "$1/");
+
+  const current = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+  if (current !== desiredUrl) {
+    window.history.replaceState(null, "", desiredUrl);
+  }
+
+  scrollToHashWithRetry(desiredHash);
+}
 
 export default function Home() {
   // Homepage SEO
@@ -69,12 +92,8 @@ export default function Home() {
 
   const navigateToEnvironment = useCallback((clinicId: "nanjing" | "beida") => {
     setEnvironmentClinic(clinicId);
-    requestAnimationFrame(() => {
-      const el = document.getElementById("environment");
-      if (!el) return;
-      const y = el.getBoundingClientRect().top + window.scrollY - 80;
-      window.scrollTo({ top: y, behavior: "smooth" });
-    });
+    window.history.replaceState(null, "", withBase("/#environment"));
+    scrollToHashWithRetry("#environment");
   }, []);
 
   const handleScrollRestore = useCallback((extra?: Record<string, unknown>) => {
@@ -87,6 +106,17 @@ export default function Home() {
     if (extra?.activeCat) {
       setServicesActiveCat(extra.activeCat as string);
     }
+  }, []);
+
+  // Deep-link: /#contact, /contact, /?section=contact
+  useEffect(() => {
+    const timer = window.setTimeout(syncAndScrollToHomeSection, 150);
+    const onHashChange = () => syncAndScrollToHomeSection();
+    window.addEventListener("hashchange", onHashChange);
+    return () => {
+      window.clearTimeout(timer);
+      window.removeEventListener("hashchange", onHashChange);
+    };
   }, []);
 
   useScrollRestore({ onRestore: handleScrollRestore });

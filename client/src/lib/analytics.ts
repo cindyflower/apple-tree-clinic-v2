@@ -314,4 +314,14 @@ export function trackPageView(pageTitle?: string, pageUrl?: string): void {
     page_title: pageTitle || document.title,
     page_url: pageUrl || window.location.href,
   });
+
+  // Meta Pixel：index.html 已送過首次 PageView；之後 SPA 換頁再送
+  if (typeof window !== 'undefined' && typeof (window as any).fbq === 'function') {
+    const w = window as any;
+    if (!w.__metaPixelInitialPageViewDone) {
+      w.__metaPixelInitialPageViewDone = true;
+      return;
+    }
+    w.fbq('track', 'PageView');
+  }
 }

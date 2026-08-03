@@ -155,6 +155,19 @@ const STATIC_ROUTES = [
   },
 ];
 
+/** Ad landing paths → homepage sections (prerendered for HTTP 200; not in sitemap). */
+const AD_SECTION_ROUTES = [
+  { path: "/services", title: "美麗管理療程｜蘋果樹醫美", description: "瀏覽蘋果樹醫美療程與服務分類，找到適合你的美麗管理方案。" },
+  { path: "/videos", title: "美麗實境室｜蘋果樹醫美", description: "觀看蘋果樹美麗實境室影音，了解療程真實過程與成果。" },
+  { path: "/cases", title: "真實案例｜蘋果樹醫美", description: "瀏覽蘋果樹真實案例，作為療程規劃參考。" },
+  { path: "/about", title: "關於蘋果樹｜蘋果樹醫美", description: "了解蘋果樹品牌故事與美麗管理理念。" },
+  { path: "/doctors", title: "醫師團隊｜蘋果樹醫美", description: "認識蘋果樹專業醫師團隊。" },
+  { path: "/environment", title: "院所環境｜蘋果樹醫美", description: "參觀蘋果樹南京旗艦與北大診所環境。" },
+  { path: "/faq", title: "常見問題｜蘋果樹醫美", description: "解答療程、預約與院所相關常見問題。" },
+  { path: "/contact", title: "聯絡預約｜蘋果樹醫美", description: "預約免費諮詢，透過電話或 LINE 與蘋果樹聯繫。" },
+  { path: "/4r", title: "4R 美學管理｜蘋果樹醫美", description: "了解蘋果樹 4R 美學管理系統。" },
+].map((route) => ({ ...route, ogImage: DEFAULT_OG_IMAGE_PATH }));
+
 /** @param {string} root @param {ReturnType<typeof resolveSiteConfig>} [config] */
 export function listSeoRoutes(root, config = resolveSiteConfig()) {
   const images = loadImagesMap(root, config.basePath);
@@ -169,6 +182,11 @@ export function listSeoRoutes(root, config = resolveSiteConfig()) {
     ...route,
     ogImage: route.ogImage.startsWith("/") ? route.ogImage : DEFAULT_OG_IMAGE_PATH,
   }));
+}
+
+/** All routes that need a static index.html for deep links (SEO + ad section paths). */
+export function listPrerenderRoutes(root, config = resolveSiteConfig()) {
+  return [...listSeoRoutes(root, config), ...AD_SECTION_ROUTES];
 }
 
 /** @param {string} html @param {{ path: string, title: string, description: string, ogImage: string }} route @param {ReturnType<typeof resolveSiteConfig>} config */

@@ -47,6 +47,17 @@ describe("renderMarketingTags", () => {
     expect(html).toContain("11111111-2222-3333-4444-555555555555");
   });
 
+  it("injects Meta Pixel even when GTM is configured", () => {
+    const html = combined({
+      VITE_GTM_CONTAINER_ID: "GTM-ABC1234",
+      VITE_META_PIXEL_ID: "1711029540139618",
+    });
+    expect(html).toContain("GTM-ABC1234");
+    expect(html).toContain("1711029540139618");
+    expect(html).toContain("connect.facebook.net");
+    expect(html).toContain("fbq('init'");
+  });
+
   it("rejects malformed ids instead of injecting them into HTML", () => {
     expect(combined({ VITE_GTM_CONTAINER_ID: "<script>alert(1)</script>" })).not.toContain("alert(1)");
   });

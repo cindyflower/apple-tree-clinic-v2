@@ -8,6 +8,7 @@ import { useAnalytics } from "./hooks/useAnalytics";
 import { useGlobalTracking } from "./hooks/useGlobalTracking";
 import { normalizeRouterPath } from "./lib/basePath";
 import { lazyWithRetry } from "./lib/lazyWithRetry";
+import { SECTION_PATH_ALIASES } from "./lib/sectionDeepLinks";
 import Home from "./pages/Home";
 
 const TreatmentDetail = lazyWithRetry(() => import("./pages/TreatmentDetail"));
@@ -18,6 +19,14 @@ const FaceResult = lazyWithRetry(() => import("./pages/FaceResult"));
 const XuyanAI = lazyWithRetry(() => import("./pages/XuyanAI"));
 const NotFound = lazyWithRetry(() => import("@/pages/NotFound"));
 
+/**
+ * Ad-friendly paths like /contact render Home and normalize the URL to /#contact.
+ * Home then scrolls to the matching section.
+ */
+function HomeSectionRoute() {
+  return <Home />;
+}
+
 function AppRoutes() {
   const [location] = useLocation();
 
@@ -25,6 +34,9 @@ function AppRoutes() {
     <Suspense fallback={<div className="min-h-screen bg-cream" />}>
       <Switch location={normalizeRouterPath(location)}>
         <Route path={"/"} component={Home} />
+        {Object.keys(SECTION_PATH_ALIASES).map((alias) => (
+          <Route key={alias} path={alias} component={HomeSectionRoute} />
+        ))}
         <Route path={"/face-test"} component={FaceTest} />
         <Route path={"/face-result"} component={FaceResult} />
         <Route path={"/xuyan-ai"} component={XuyanAI} />

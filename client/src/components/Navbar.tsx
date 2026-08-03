@@ -9,6 +9,7 @@ import { Menu, X, Phone, MessageCircle } from "lucide-react";
 import { useLocation } from "wouter";
 import { BRAND, NAV_ITEMS } from "@/lib/constants";
 import { withBase, isHomePath } from "@/lib/basePath";
+import { navigateToHomeSection, scrollToHashWithRetry } from "@/lib/scrollToHash";
 
 export default function Navbar() {
   const [location, navigate] = useLocation();
@@ -52,21 +53,15 @@ export default function Navbar() {
   const handleNavClick = (href: string) => {
     setMobileOpen(false);
 
-    const scrollToAnchor = () => {
-      const el = document.querySelector(href);
-      if (!el) return;
-      const y = el.getBoundingClientRect().top + window.scrollY - 80;
-      window.scrollTo({ top: y, behavior: "smooth" });
-    };
-
     if (href.startsWith("#")) {
+      const sectionId = href.slice(1);
       if (isHomePath()) {
-        scrollToAnchor();
+        navigateToHomeSection(sectionId);
         return;
       }
       navigate("/");
       window.history.replaceState(null, "", withBase(`/${href}`));
-      requestAnimationFrame(() => window.setTimeout(scrollToAnchor, 150));
+      requestAnimationFrame(() => window.setTimeout(() => scrollToHashWithRetry(href), 150));
       return;
     }
 

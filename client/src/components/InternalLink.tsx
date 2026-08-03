@@ -2,7 +2,7 @@ import { useLocation } from "wouter";
 import type { AnchorHTMLAttributes, MouseEvent } from "react";
 import { isHomePath, toRouterPath, withBase } from "@/lib/basePath";
 import { saveScrollBeforeLeave } from "@/lib/scrollRestore";
-import { scrollToHashWithRetry } from "@/lib/scrollToHash";
+import { navigateToHomeSection, scrollToHashWithRetry } from "@/lib/scrollToHash";
 
 type InternalLinkProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "href"> & {
   href: string;
@@ -19,19 +19,15 @@ export function InternalLink({ href, onClick, ...props }: InternalLinkProps) {
     if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
 
     if (href.startsWith("/#")) {
-      const anchor = href.slice(1);
+      const sectionId = href.slice(2);
+      e.preventDefault();
       if (isHomePath()) {
-        e.preventDefault();
-        const el = document.querySelector(anchor);
-        if (el) {
-          const y = el.getBoundingClientRect().top + window.scrollY - 80;
-          window.scrollTo({ top: y, behavior: "smooth" });
-        }
+        navigateToHomeSection(sectionId);
         return;
       }
-      e.preventDefault();
-      saveScrollBeforeLeave();
-      window.location.href = to;
+      navigate("/");
+      window.history.replaceState(null, "", withBase(`/#${sectionId}`));
+      window.setTimeout(() => scrollToHashWithRetry(`#${sectionId}`), 150);
       return;
     }
 

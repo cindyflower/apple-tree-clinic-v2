@@ -12,7 +12,8 @@
  *   CompleteFaceTest (custom, on quiz complete)
  *   GenerateShareCard (custom, on share card generation)
  * 
- * Replace GA_MEASUREMENT_ID and META_PIXEL_ID in index.html with actual IDs
+ * Replace GA_MEASUREMENT_ID in index.html with actual ID.
+ * Meta Pixel ID is set in index.html (1711029540139618).
  */
 
 declare global {

@@ -12,7 +12,21 @@ export function withBase(path: string): string {
 export function isHomePath(): boolean {
   const base = BASE_URL.replace(/\/$/, "");
   const path = window.location.pathname.replace(/\/$/, "") || "";
-  return path === base || path === "";
+  const relative = base && path.startsWith(base) ? path.slice(base.length) || "/" : path || "/";
+  const normalized = relative.startsWith("/") ? relative : `/${relative}`;
+  if (normalized === "/" || normalized === "") return true;
+  // Ad path aliases (/contact, /services, ...) also render the homepage
+  return [
+    "/services",
+    "/videos",
+    "/cases",
+    "/about",
+    "/doctors",
+    "/environment",
+    "/faq",
+    "/contact",
+    "/4r",
+  ].includes(normalized);
 }
 
 export function normalizeSlug(slug: string): string {

@@ -6,7 +6,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { resolveSiteConfig } from "../shared/siteConfig.mjs";
-import { listSeoRoutes, patchHtmlMeta } from "./lib/seoRoutes.mjs";
+import { listPrerenderRoutes, patchHtmlMeta } from "./lib/seoRoutes.mjs";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const OUT = path.join(ROOT, "dist/public");
@@ -19,7 +19,7 @@ if (!fs.existsSync(templatePath)) {
 }
 
 const template = fs.readFileSync(templatePath, "utf8");
-const routes = listSeoRoutes(ROOT, config);
+const routes = listPrerenderRoutes(ROOT, config);
 let written = 0;
 
 for (const route of routes) {
