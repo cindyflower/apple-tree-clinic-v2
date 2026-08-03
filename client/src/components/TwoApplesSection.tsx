@@ -76,7 +76,7 @@ export default function TwoApplesSection({ onNavigateToEnvironment }: TwoApplesS
   const { ref, inView } = useInView({ threshold: 0.1 });
 
   return (
-    <section className="py-20 md:py-28 bg-cream relative overflow-hidden" ref={ref}>
+    <section id="locations" className="py-20 md:py-28 bg-cream relative overflow-hidden" ref={ref}>
       <div className="container relative z-10">
         {/* Header */}
         <motion.div

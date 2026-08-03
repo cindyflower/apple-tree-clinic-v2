@@ -260,6 +260,7 @@ export const NAV_ITEMS = [
   { label: "實境室", href: "#videos" },
   { label: "案例", href: "#cases" },
   { label: "關於", href: "#about" },
+  { label: "營業據點", href: "#locations" },
   { label: "團隊", href: "#doctors" },
   { label: "環境", href: "#environment" },
   { label: "FAQ", href: "#faq" },

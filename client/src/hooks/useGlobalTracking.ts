@@ -118,6 +118,7 @@ function findSectionName(el: HTMLElement): string {
           'videos': '美麗實境室',
           'cases': '精選案例',
           'about': '品牌故事',
+          'locations': '營業據點',
           'doctors': '醫師團隊',
           'environment': '院所環境',
           'faq': 'FAQ',

@@ -161,6 +161,7 @@ const AD_SECTION_ROUTES = [
   { path: "/videos", title: "美麗實境室｜蘋果樹醫美", description: "觀看蘋果樹美麗實境室影音，了解療程真實過程與成果。" },
   { path: "/cases", title: "真實案例｜蘋果樹醫美", description: "瀏覽蘋果樹真實案例，作為療程規劃參考。" },
   { path: "/about", title: "關於蘋果樹｜蘋果樹醫美", description: "了解蘋果樹品牌故事與美麗管理理念。" },
+  { path: "/locations", title: "營業據點｜蘋果樹醫美", description: "南京旗艦與北大診所地址、營業時間與聯絡方式。" },
   { path: "/doctors", title: "醫師團隊｜蘋果樹醫美", description: "認識蘋果樹專業醫師團隊。" },
   { path: "/environment", title: "院所環境｜蘋果樹醫美", description: "參觀蘋果樹南京旗艦與北大診所環境。" },
   { path: "/faq", title: "常見問題｜蘋果樹醫美", description: "解答療程、預約與院所相關常見問題。" },
