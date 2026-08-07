@@ -148,10 +148,14 @@ export default function Navbar() {
               href={BRAND.lineUrl}
               target="_blank"
               rel="noopener noreferrer"
+              data-track-clinic="南京旗艦"
+              data-track-section="Navbar"
+              data-track-button="南京旗艦｜LINE 預約｜Navbar"
+              aria-label="南京旗艦 LINE 預約"
               className="flex items-center gap-1.5 px-5 py-2 text-[0.85rem] font-body font-medium text-cream bg-botanical rounded-full hover:bg-botanical-light transition-all duration-300 shadow-sm"
             >
               <MessageCircle size={14} />
-              LINE 預約
+              南京 LINE
             </a>
           </div>
 
@@ -237,10 +241,14 @@ export default function Navbar() {
                     href={BRAND.lineUrl}
                     target="_blank"
                     rel="noopener noreferrer"
+                    data-track-clinic="南京旗艦"
+                    data-track-section="Navbar"
+                    data-track-button="南京旗艦｜LINE 立即預約｜Navbar手機"
+                    aria-label="南京旗艦 LINE 立即預約"
                     className="flex items-center justify-center gap-2 w-full py-3 text-[0.85rem] font-body font-medium text-cream bg-botanical rounded-full hover:bg-botanical-light transition-colors"
                   >
                     <MessageCircle size={16} />
-                    LINE 立即預約
+                    南京 LINE 立即預約
                   </a>
                 </div>
               </div>

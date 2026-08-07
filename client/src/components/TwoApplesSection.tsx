@@ -202,12 +202,15 @@ export default function TwoApplesSection({ onNavigateToEnvironment }: TwoApplesS
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`${loc.name} LINE 預約 ${loc.lineId}`}
+                  data-track-clinic={loc.environmentId === "nanjing" ? "南京旗艦" : "北大"}
+                  data-track-section="兩顆蘋果"
+                  data-track-button={`${loc.name}｜LINE 預約`}
                   onClick={(e) => e.stopPropagation()}
                   className={`flex flex-col items-center gap-1.5 py-3 rounded-xl ${loc.accentBg} border border-transparent hover:border-current/10 transition-all duration-200`}
                 >
                   <MessageCircle size={16} className={loc.accentColor} />
                   <span className={`text-[0.65rem] font-body font-medium ${loc.accentColor}`}>
-                    LINE 預約
+                    {loc.environmentId === "nanjing" ? "南京 LINE" : "北大 LINE"}
                   </span>
                 </a>
               </div>

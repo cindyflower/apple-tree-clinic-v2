@@ -52,6 +52,8 @@ export default function ContactSection() {
   const line =
     resolveLineForBranch(branch) ??
     (activeLocation === 0 ? LINE_BY_APPLE.nanjing : LINE_BY_APPLE.beida);
+  const clinicLabel = activeLocation === 0 ? "南京旗艦" : loc.name.includes("醫美") ? "北大醫美" : "北大診所";
+  const lineButtonLabel = `${clinicLabel}｜LINE 線上諮詢｜聯絡預約`;
 
   return (
     <section id="contact" className="py-28 lg:py-40 relative overflow-hidden" ref={ref}>
@@ -193,6 +195,9 @@ export default function ContactSection() {
                     href={line.lineUrl}
                     target="_blank"
                     rel="noopener noreferrer"
+                    data-track-clinic={clinicLabel}
+                    data-track-section="聯絡預約"
+                    data-track-button={`${clinicLabel}｜LINE ID｜聯絡預約`}
                     className="text-[0.8rem] font-body text-ink/60 hover:text-botanical transition-colors"
                   >
                     {line.lineId}
@@ -206,10 +211,14 @@ export default function ContactSection() {
               href={line.lineUrl}
               target="_blank"
               rel="noopener noreferrer"
+              data-track-clinic={clinicLabel}
+              data-track-section="聯絡預約"
+              data-track-button={lineButtonLabel}
+              aria-label={lineButtonLabel}
               className="flex items-center justify-center gap-2 w-full px-6 py-3.5 text-[0.85rem] font-body font-medium text-white bg-[#06C755] rounded-xl hover:bg-[#05b34d] transition-all duration-300"
             >
               <MessageCircle size={16} />
-              LINE 線上諮詢
+              {clinicLabel} LINE 線上諮詢
             </a>
           </motion.div>
         </div>

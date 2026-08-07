@@ -46,6 +46,9 @@ export default function FloatingCTA() {
                 rel="noopener noreferrer"
                 className="flex-1 flex items-center justify-center gap-2 py-2.5 text-[0.8rem] font-body font-medium text-cream bg-[#06C755] rounded-full hover:bg-[#05b34d] transition-colors"
                 aria-label={BEIDA_LINE_LABEL}
+                data-track-clinic="北大"
+                data-track-section="FloatingCTA"
+                data-track-button="北大｜LINE 諮詢｜FloatingCTA手機"
               >
                 <MessageCircle size={15} />
                 {BEIDA_LINE_LABEL}
@@ -67,6 +70,9 @@ export default function FloatingCTA() {
               rel="noopener noreferrer"
               className="group relative w-12 h-12 flex items-center justify-center rounded-full bg-[#06C755] text-white shadow-lg shadow-[#06C755]/20 hover:scale-110 transition-transform duration-300"
               aria-label={BEIDA_LINE_LABEL}
+              data-track-clinic="北大"
+              data-track-section="FloatingCTA"
+              data-track-button="北大｜LINE 諮詢｜FloatingCTA桌面"
             >
               <MessageCircle size={20} />
               <span className="absolute right-full mr-3 px-3 py-1.5 text-[0.7rem] font-body font-medium text-ink bg-cream rounded-lg shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">

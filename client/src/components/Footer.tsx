@@ -111,6 +111,9 @@ export default function Footer() {
                 href={LINE_BY_APPLE.nanjing.lineUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                data-track-clinic="南京旗艦"
+                data-track-section="Footer"
+                data-track-button="南京旗艦｜LINE｜Footer"
                 className="flex items-center gap-2 text-[0.9rem] font-body font-light text-white/35 hover:text-sage-light transition-colors duration-300"
               >
                 <MessageCircle size={13} />
@@ -120,6 +123,9 @@ export default function Footer() {
                 href={LINE_BY_APPLE.beida.lineUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                data-track-clinic="北大"
+                data-track-section="Footer"
+                data-track-button="北大｜LINE｜Footer"
                 className="flex items-center gap-2 text-[0.9rem] font-body font-light text-white/35 hover:text-sage-light transition-colors duration-300"
               >
                 <MessageCircle size={13} />
@@ -195,10 +201,14 @@ export default function Footer() {
                     href={loc.lineUrl}
                     target="_blank"
                     rel="noopener noreferrer"
+                    data-track-clinic={loc.name.includes("南京") ? "南京旗艦" : loc.name}
+                    data-track-section="Footer"
+                    data-track-button={`${loc.name}｜LINE｜Footer`}
+                    aria-label={`${loc.name} LINE 預約`}
                     className="flex items-center gap-2 text-[0.72rem] font-body font-light text-white/28 hover:text-sage-light transition-colors duration-300"
                   >
                     <MessageCircle size={11} />
-                    LINE｜{loc.lineId}
+                    LINE｜{loc.name}
                   </a>
                 </div>
               ))}
