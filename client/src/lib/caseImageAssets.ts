@@ -116,3 +116,13 @@ export function caseGallery(slug: string): string[] {
 export function caseMainImage(slug: string): string {
   return caseGallery(slug)[0];
 }
+
+/** Optional listing thumbnail (e.g. portrait card art); falls back to mainImage. */
+const CARD_FILES: Partial<Record<string, string>> = {
+  "double-eyelid": "card.jpg",
+};
+
+export function caseCardImage(slug: string): string {
+  const file = CARD_FILES[slug];
+  return file ? caseImg(slug, file) : caseMainImage(slug);
+}

@@ -75,7 +75,7 @@ export default function ContactSection() {
           </span>
           <h2 className="heading-editorial text-ink text-3xl sm:text-4xl lg:text-[2.8rem] mb-4">
             預約
-            <span className="text-gradient-forest"> 免費諮詢</span>
+            <span className="text-gradient-forest"> 諮詢</span>
           </h2>
           <p className="text-[1rem] font-body font-light text-ink/45 max-w-lg mx-auto leading-[1.9]">
             選擇院所後即可開啟專屬 LINE，或透過電話與我們聯繫，專業團隊將為您安排諮詢。

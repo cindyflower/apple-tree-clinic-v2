@@ -231,6 +231,29 @@ export default function CaseDetailPage() {
       <div className="container py-10 lg:py-14">
         <div className="max-w-3xl mx-auto">
 
+          {caseData.youtubeVideoId && (
+            <motion.section
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+              className="mb-12"
+            >
+              <SectionLabel text="案例影片" />
+              <h2 className="heading-editorial text-ink text-xl lg:text-2xl mb-5">
+                案例<span className="text-gradient-forest"> 真實分享</span>
+              </h2>
+              <div className="relative mx-auto max-w-sm aspect-[9/16] rounded-2xl overflow-hidden bg-ink/5 shadow-lg shadow-botanical/10">
+                <iframe
+                  src={`https://www.youtube.com/embed/${caseData.youtubeVideoId}?rel=0`}
+                  title={`${caseData.title} — YouTube`}
+                  className="absolute inset-0 w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              </div>
+            </motion.section>
+          )}
+
           {/* Article text */}
           <motion.article
             initial={{ opacity: 0, y: 20 }}

@@ -1,6 +1,6 @@
 // ─── 蘋果樹醫學總院 ─── 真實案例詳細資料
 // 所有內容均來自舊官網 drappletree.com.tw 真實案例
-import { caseMainImage, caseGallery } from "./caseImageAssets";
+import { caseMainImage, caseGallery, caseCardImage } from "./caseImageAssets";
 import { normalizeSlug } from "./basePath";
 
 export interface CaseDetail {
@@ -12,15 +12,18 @@ export interface CaseDetail {
   treatment: string;
   date: string;
   mainImage: string;
+  cardImage: string;
   images: string[];
   articleText: string;
   tags: string[];
   highlight?: boolean;
   hotTopic?: string;
   sourceUrl: string;
+  /** YouTube video ID for embedded case video (Shorts or standard). */
+  youtubeVideoId?: string;
 }
 
-const CASE_DETAILS_RAW: Omit<CaseDetail, "mainImage" | "images">[] = [
+const CASE_DETAILS_RAW: Omit<CaseDetail, "mainImage" | "cardImage" | "images">[] = [
   // ─── 1. 男生水飛梭＋水光 ───
   {
     id: "hydrafacial-male",
@@ -47,6 +50,7 @@ const CASE_DETAILS_RAW: Omit<CaseDetail, "mainImage" | "images">[] = [
     highlight: true,
     hotTopic: "小紅書爆紅：男生水光肌養成術",
     sourceUrl: "https://www.drappletree.com.tw/applenews/case/18095/",
+    youtubeVideoId: "QVTChfTJEnE",
   },
 
   // ─── 2. 男仕眼袋外開手術 ───
@@ -76,6 +80,7 @@ const CASE_DETAILS_RAW: Omit<CaseDetail, "mainImage" | "images">[] = [
     highlight: true,
     hotTopic: "PTT 熱議：男生做眼袋手術值得嗎？",
     sourceUrl: "https://www.drappletree.com.tw/applenews/case/17235/",
+    youtubeVideoId: "hYb8ZHaPgwg",
   },
 
   // ─── 3. 單眼皮→自然雙眼皮 母女分享 ───
@@ -108,6 +113,7 @@ const CASE_DETAILS_RAW: Omit<CaseDetail, "mainImage" | "images">[] = [
     highlight: true,
     hotTopic: "Dcard 討論度最高：自然派雙眼皮怎麼做？",
     sourceUrl: "https://www.drappletree.com.tw/applenews/case/16984/",
+    youtubeVideoId: "ywhqG2maqnk",
   },
 
   // ─── 4. AestheFill 艾麗斯 蘋果肌回春 ───
@@ -458,6 +464,7 @@ PicoSure755蜂巢皮秒雷射被稱為皮秒雷射界的「藍寶堅尼」：台
 export const CASE_DETAILS: CaseDetail[] = CASE_DETAILS_RAW.map((c) => ({
   ...c,
   mainImage: caseMainImage(c.slug),
+  cardImage: caseCardImage(c.slug),
   images: caseGallery(c.slug),
 }));
 

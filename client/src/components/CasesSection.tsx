@@ -148,7 +148,7 @@ export default function CasesSection() {
                     {/* Case image */}
                     <div className="relative overflow-hidden">
                       <img
-                        src={c.mainImage}
+                        src={c.cardImage}
                         alt={`${c.title} — 蘋果樹醫美真實案例`}
                         className="w-full h-56 sm:h-64 object-cover group-hover:scale-105 transition-transform duration-700"
                         loading="lazy"
