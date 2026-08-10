@@ -12,6 +12,7 @@ export function caseImg(slug: string, filename: string): string {
 
 /** Gallery filenames per slug (see images/cases/manifest.json) */
 const GALLERY_FILES: Record<string, readonly string[]> = {
+  "breast-augmentation-wish": ["cover.jpg"],
   "hydrafacial-male": ["cover.jpg"],
   "eyebag-male": ["cover.jpg"],
   "double-eyelid": ["cover.jpg"],
@@ -119,6 +120,7 @@ export function caseMainImage(slug: string): string {
 
 /** Optional listing thumbnail (e.g. portrait card art); falls back to mainImage. */
 const CARD_FILES: Partial<Record<string, string>> = {
+  "breast-augmentation-wish": "card.jpg",
   "hydrafacial-male": "list.jpg",
   "double-eyelid": "card.jpg",
 };
