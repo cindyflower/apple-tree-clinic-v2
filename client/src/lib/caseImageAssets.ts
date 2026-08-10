@@ -16,7 +16,7 @@ const GALLERY_FILES: Record<string, readonly string[]> = {
   "breast-augmentation-wish": ["cover.jpg"],
   "hydrafacial-male": ["cover.jpg"],
   "eyebag-male": ["cover.jpg"],
-  "double-eyelid": ["cover.jpg"],
+  "double-eyelid": ["hero.jpg"],
   aesthefill: [
     "cover.jpg",
     "02.jpg",
