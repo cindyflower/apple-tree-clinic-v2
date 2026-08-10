@@ -119,6 +119,7 @@ export function caseMainImage(slug: string): string {
 
 /** Optional listing thumbnail (e.g. portrait card art); falls back to mainImage. */
 const CARD_FILES: Partial<Record<string, string>> = {
+  "hydrafacial-male": "list.jpg",
   "double-eyelid": "card.jpg",
 };
 
