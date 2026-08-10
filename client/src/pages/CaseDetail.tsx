@@ -353,13 +353,13 @@ export default function CaseDetailPage() {
                   >
                     <div className="relative overflow-hidden">
                       <img
-                        src={rc.mainImage}
+                        src={rc.cardImage}
                         alt={rc.title}
                         className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-500"
                         loading="lazy"
                         onError={(e) => {
                           const img = e.target as HTMLImageElement;
-                          const fallback = rc.images[0];
+                          const fallback = rc.mainImage;
                           if (fallback && img.src !== fallback) {
                             img.src = fallback;
                           }
