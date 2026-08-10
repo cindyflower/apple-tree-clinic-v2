@@ -62,8 +62,25 @@ export default function FloatingCTA() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 20 }}
             transition={{ duration: 0.4 }}
-            className="hidden lg:flex fixed bottom-8 right-8 z-40 flex-col gap-3"
+            className="hidden lg:flex fixed bottom-24 right-8 z-50 flex-col gap-3"
           >
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="group relative w-12 h-12 flex items-center justify-center rounded-full glass-strong text-ink/50 hover:text-ink hover:scale-110 transition-all duration-300 shadow-lg shadow-botanical/10"
+              aria-label="回到頂部"
+            >
+              <ArrowUp size={18} />
+            </button>
+            <a
+              href={BRAND.phoneLink}
+              className="group relative w-12 h-12 flex items-center justify-center rounded-full bg-botanical text-cream shadow-lg shadow-botanical/20 hover:scale-110 transition-transform duration-300"
+              aria-label="電話預約"
+            >
+              <Phone size={20} />
+              <span className="absolute right-full mr-3 px-3 py-1.5 text-[0.7rem] font-body font-medium text-ink bg-cream rounded-lg shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
+                {BRAND.phone}
+              </span>
+            </a>
             <a
               href={LINE_BY_APPLE.beida.lineUrl}
               target="_blank"
@@ -79,23 +96,6 @@ export default function FloatingCTA() {
                 {BEIDA_LINE_LABEL}
               </span>
             </a>
-            <a
-              href={BRAND.phoneLink}
-              className="group relative w-12 h-12 flex items-center justify-center rounded-full bg-botanical text-cream shadow-lg shadow-botanical/20 hover:scale-110 transition-transform duration-300"
-              aria-label="電話預約"
-            >
-              <Phone size={20} />
-              <span className="absolute right-full mr-3 px-3 py-1.5 text-[0.7rem] font-body font-medium text-ink bg-cream rounded-lg shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
-                {BRAND.phone}
-              </span>
-            </a>
-            <button
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="group relative w-12 h-12 flex items-center justify-center rounded-full glass-strong text-ink/50 hover:text-ink hover:scale-110 transition-all duration-300"
-              aria-label="回到頂部"
-            >
-              <ArrowUp size={18} />
-            </button>
           </motion.div>
         </>
       )}
