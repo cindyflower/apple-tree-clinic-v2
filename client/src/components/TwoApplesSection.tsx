@@ -28,12 +28,12 @@ const LOCATIONS = [
     address: "新北市三峽區大德路127號",
     phone: "(02) 8672-0222",
     phoneLink: "tel:+886286720222",
-    hours: `週二：14:30–17:00、18:00–21:00
-週三：08:30–12:00、13:30–17:00
-週四：08:30–13:00、14:30–21:00
-週五：14:30–21:00
-週六：08:30–12:00
-週日、週一公休`,
+    hours: `週二｜14:30–17:30, 18:00–21:00
+週三｜09:00–17:00
+週四｜09:00–12:00, 14:30–17:30, 18:00–21:00
+週五｜14:30–17:30, 18:00–21:00
+週六｜09:00–12:00
+週日、週一｜固定休診`,
     lineUrl: LINE_BY_APPLE.beida.lineUrl,
     lineId: LINE_BY_APPLE.beida.lineId,
     branches: [
@@ -57,9 +57,9 @@ const LOCATIONS = [
     address: "台北市松山區南京東路三段309號3樓",
     phone: "(02) 2716-3535",
     phoneLink: "tel:+886227163535",
-    hours: `週一至週五：12:00–21:00
-週六：10:00–19:00
-週日公休`,
+    hours: `週二～週五｜12:00-21:00
+週六｜10:00-18:00
+週日、週一｜固定休診`,
     lineUrl: LINE_BY_APPLE.nanjing.lineUrl,
     lineId: LINE_BY_APPLE.nanjing.lineId,
     branches: [],
