@@ -82,6 +82,22 @@ export interface VideoItem {
 
 // ─── Complete Video Database (55 old site + 3 new site exclusive) ───
 export const VIDEOS: VideoItem[] = [
+  // ═══ NEW: 楊謹華 高品質減重 ═══
+  {
+    id: "v69",
+    videoId: "0dL4_O_nIz8",
+    title: "楊謹華差點被它纏上 高品質減重 減脂又保肝",
+    description: "減重不只看體重，小心不要瘦掉健康",
+    frontendCategories: ["celebrity", "body"],
+    backendCategories: ["名人實測與品牌信任", "體態管理"],
+    thumbnail: "https://img.youtube.com/vi/0dL4_O_nIz8/hqdefault.jpg",
+    embedUrl: "https://www.youtube.com/embed/0dL4_O_nIz8",
+    relatedTreatments: ["wegovy"],
+    isFeaturedHomepage: true,
+    typeTags: ["celebrity"],
+    originalSortOrder: 104,
+    sourcePage: "new_site",
+  },
   // ═══ 1. 劉道玄 Z音波真人實測 ═══
   {
     id: "v01",
