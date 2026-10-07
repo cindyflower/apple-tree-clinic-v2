@@ -84,7 +84,7 @@ export const IMAGES = {
   videoFaceFatigue: imgRoot("OVERALLFATIGUETYPE_8a51858b.mp4"),
 };
 
-/** 醫師照片檔名（images/醫師照片/，順序 1～9） */
+/** 醫師照片檔名（images/醫師照片/，順序 1～10） */
 export const DOCTOR_FILES = {
   "孟祥越 院長": "1.醫師_孟祥越.jpg",
   "江得信 醫師": "2.醫師_江得信.jpg",
@@ -94,6 +94,7 @@ export const DOCTOR_FILES = {
   "劉佳政 醫師": "6.醫師_劉佳政.jpg",
   "陳韜名 醫師": "7.醫師_陳韜名.jpg",
   "林漢文 醫師": "8.醫師_林漢文.jpg",
+  "林耿賢 醫師": "10.醫師_林耿賢.jpg",
   "陳君琳 醫師": "9.醫師_陳君琳.jpg",
 } as const satisfies Record<string, string>;
 

@@ -187,7 +187,7 @@ export interface DoctorProfile {
   slug?: string;
 }
 
-/** 順序對應 images/醫師照片/ 1～9 */
+/** 順序對應 images/醫師照片/ 1～10（林耿賢為 10） */
 export const DOCTORS: DoctorProfile[] = [
   {
     name: "孟祥越 院長",
@@ -246,6 +246,16 @@ export const DOCTORS: DoctorProfile[] = [
     title: "南京旗艦主治醫師",
     credentials: ["婦產科專科", "微整型美容專長", "雷射醫學會會員"],
     image: doctorImg("林漢文 醫師", ""),
+  },
+  {
+    name: "林耿賢 醫師",
+    title: "主治醫師",
+    credentials: [
+      "澳洲昆士蘭大學 醫學碩士",
+      "加拿大多倫多大學 人類生物與基因學",
+      "Botox® 原廠注射認證醫師",
+    ],
+    image: doctorImg("林耿賢 醫師", ""),
   },
   {
     name: "陳君琳 醫師",
